@@ -146,7 +146,7 @@ docker-compose.override.yml: docker-compose.override.yml.dist
 prod: ## Deploy to production
 prod:
 	@echo "🚀 Deploying to production"
-	@composer install --no-dev --optimize-autoloader
+	@composer install --optimize-autoloader
 	@composer dump-env prod
 	@rm -rf public/assets
 	@$(PHPCONSOLE) sass:build
