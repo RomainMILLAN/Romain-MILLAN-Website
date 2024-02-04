@@ -9,6 +9,7 @@ COMPOSER=$(SF) composer
 DOCKER=docker
 DC=$(DOCKER)-compose
 NPM=npm
+PHPCONSOLE=php bin/console
 
 
 ##
@@ -137,3 +138,18 @@ config: docker-compose.override.yml
 docker-compose.override.yml: docker-compose.override.yml.dist
 	@echo "🖍️ Copying docker-compose"
 	@cp docker-compose.override.yml.dist docker-compose.override.yml
+
+
+##
+## —— Deploy 🚀 ————————————————————————————————————————————————————————————————
+
+prod: ## Deploy to production
+prod:
+	@echo "🚀 Deploying to production"
+	@composer install --no-dev --optimize-autoloader
+	@composer dump-env prod
+	@rm -rf public/assets
+	@$(PHPCONSOLE) sass:build
+	@$(PHPCONSOLE) asset-map:compile
+	@$(PHPCONSOLE) cache:clear
+	@$(PHPCONSOLE) cache:warmup
