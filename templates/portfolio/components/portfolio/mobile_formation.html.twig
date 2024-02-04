@@ -1,0 +1,18 @@
+
+{% trans_default_domain 'front' %}
+
+<div id="mf" class="mobile_fe mobile_block">
+    <hr class="separed_tabs">
+
+    <div class="portfolio_title mobile_fe_title">
+        <h2>{{ 'frontend.formations.title'|trans }}</h2>
+        <p>{{ 'frontend.formations.description'|trans }}</p>
+    </div>
+
+    <div class="mobile_fe_list">
+
+        {% include('portfolio/components/portfolio/_formation_list.html.twig') %}
+
+    </div>
+
+</div>

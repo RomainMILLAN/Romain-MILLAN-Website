@@ -1,0 +1,24 @@
+.mobile_fe {
+  width: 90%;
+  margin: auto;
+  min-height: 35vh;
+  flex-direction: column;
+
+  .mobile_fe_title {
+    padding-top: 50px;
+
+    p {
+      width: 300px;
+    }
+  }
+
+  .mobile_fe_list {
+
+    .fe_card {
+      margin-top: 15px;
+      margin-left: 15px;
+    }
+
+  }
+
+}

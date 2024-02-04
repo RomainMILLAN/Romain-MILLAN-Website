@@ -1,5 +1,15 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
+app:
+    resource: '../src/Controller/**/*'
     type: attribute
+    name_prefix: app_
+    prefix: /{_locale}
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        _locales: '%locale%'
+    options:
+        expose: true
+
+redirect:
+    path: /
+    controller: App\Controller\RedirectController::redirectToLocale

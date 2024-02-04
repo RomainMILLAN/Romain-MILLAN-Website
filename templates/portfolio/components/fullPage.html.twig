@@ -1,0 +1,31 @@
+{# bundles/TwigBundle/Exception/errors.html.twig #}
+
+{% extends 'portfolio/base.html.twig' %}
+
+{% block main %}
+
+    <section class="full-page--container">
+
+        <img class="full-page-img" src="{{ asset('static/img/logo/full.svg') }}" alt="Icone full Romain MILLAN"/>
+
+        <div class="full-page-title-text--container">
+
+            <div class="full-page-title-text">
+
+                <h2>{{ smallTitle }}</h2>
+                <h1>
+                    {{ bigTitle }}
+                </h1>
+                {% if returnHomepage %}
+                    <a class="full-page-return-homepage" href="{{ path('app_homepage') }}"><p>Retour à la page d'accueil ></p></a>
+                {% endif %}
+
+            </div>
+
+            {% include 'portfolio/components/socialNetworkFullPage.html.twig' %}
+
+        </div>
+
+    </section>
+
+{% endblock %}

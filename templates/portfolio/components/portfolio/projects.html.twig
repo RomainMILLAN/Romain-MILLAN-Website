@@ -1,0 +1,36 @@
+
+{% trans_default_domain 'front' %}
+
+<div class="projects" id="projects">
+    <hr class="separed_tabs">
+
+    <div class="portfolio_title projects_title">
+        <h2>{{ 'frontend.projects.title'|trans }}</h2>
+        <p>{{ 'frontend.projects.description'|trans }}</p>
+    </div>
+
+    <div class="projects_list">
+
+            {% set i = 0 %}
+            {% for j in 1..100 %}
+                <div class="projects_row_desktop">
+                    {% for x in 1..2 %}
+                        {% set i = i+1 %}
+                        {% set project_name = "frontend.projects_list.#{ i }"|trans %}
+
+                        {% if project_name != "frontend.projects_list.#{ i }" %}
+                            {% include 'portfolio/components/portfolio/_project_card.html.twig' with {
+                                'project_name': "frontend.project.#{ project_name }.project_name"|trans,
+                                'project_title': "frontend.project.#{ project_name }.title"|trans,
+                                'project_description': "frontend.project.#{ project_name }.description"|trans,
+                                'project_status': "frontend.project.#{ project_name }.status"|trans,
+                                'project_year': "frontend.project.#{ project_name }.year"|trans,
+                                'project_skill': "frontend.project.#{ project_name }.skill"|trans
+                            } %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.social-network-full-page--container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 5%;
+  width: 30%;
+
+  a {
+    img {
+      height: 25px;
+    }
+  }
+
+}
+
+@media (max-width: $maxWidthMobile) {
+
+  .social-network-full-page--container {
+    width: 100%;
+    margin-top: 5%;
+
+    a {
+      img {
+        height: 35px;
+      }
+    }
+  }
+
+}

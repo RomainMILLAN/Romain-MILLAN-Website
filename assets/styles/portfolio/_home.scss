@@ -1,0 +1,76 @@
+.home {
+  width: 100%;
+  height: 90vh;
+
+  .home_welcome-container {
+    padding-top: 8rem;
+    display: flex;
+    flex-direction: column;
+
+    .home_welcome_titles-container {
+
+      h2 {
+        font-weight: initial;
+        font-size: 2rem;
+        text-align: center;
+      }
+      .home_welcome_status{
+        background-color: $primary;
+        width: 250px;
+        border-radius: 5px;
+        margin: auto;
+
+        p {
+          text-align: center;
+        }
+        p:first-letter {
+          color: $textColor-black;
+        }
+      }
+
+    }
+
+    .home_welcome_image {
+      margin: 25px auto auto;
+      width: 250px;
+    }
+
+  }
+  @media (min-width: $maxWidthMobile) {
+    .home_welcome-container{
+      flex-direction: row;
+      width: 750px;
+      margin: auto;
+
+      .home_welcome_titles-container {
+        margin-top: 5%;
+
+        h2 {
+          font-size: 3rem;
+          text-align: left;
+        }
+        .home_welcome_status {
+          margin-left: 0px;
+          background: linear-gradient(130deg, #FDCA40 0%, rgba(0, 0, 0, 0.00) 100%);
+
+          p {
+            text-align: left;
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      .home_welcome_image {
+        margin-left: 50px;
+      }
+    }
+  }
+
+  .home_button_next {
+    width: 200px;
+    margin: 7.5rem auto auto;
+
+    //@import '../components/portfolio/nextAnimatedButton';
+  }
+
+}

@@ -1,0 +1,75 @@
+frontend:
+  header:
+    nav:
+      home: Home
+      aboutme: About me
+      projects: Projects
+      fomations_experiences: Educations and experiences
+      contact: Contact
+  home:
+    status: ~ Student & Developer
+    continue: Continue
+  aboutme:
+    title: Who am I?
+    description: 20 years old computer science student, currently studying for a computer science degree.
+    paragraph_one: My career path includes work-study experience in a web agency, where I combine my academic knowledge with practical applications.
+    paragraph_two: Passionate about technology, I have a wide range of technologies.
+    download_cv: Download my resume
+  projects:
+    title: My projects
+    description: Here are just a few of the projects I've completed during my years as a developer.
+    return_to_project: Back to projects
+  formations:
+    title: Educations
+    description: I've had the opportunity to train in various places.
+  experiences:
+    title: Experiences
+    description: In recent years, I've been able to work in variety of fields.
+  formations_experiences:
+    title: Educations and experiences
+    description: In recent years, I have been able to study and work in a number of fields.
+  contact:
+    title: How to contact me
+    description: There are so many choices !
+  footer:
+    all_right_reserved: © 2023 https://romainmillan.fr/, All rights reserved..
+    no_reproduce: Any reproduction, distribution, modification or use of all or part of the content of this website without the prior written authorization of Romain MILLAN is strictly prohibited.
+
+  formation:
+    1:
+      title: College
+      date: September 2014 - June 2018
+    2:
+      title: High school
+      title_extended: STI2D - SIN
+      date: September 2018 - June 2021
+    3:
+      title_extended: Option RACDV
+      date: September 2021 - Now
+  experience:
+    1:
+      title: Order picker
+      date: July 2021 - August 2021
+    2:
+      title: Forklift operator
+      date: July 2022 - August 2022
+    3:
+      title: Development Internship
+      title_extended: Backend
+      date: April 2023 - July 2023
+
+  project:
+    les_aventuriers_du_rail:
+      title: Railway Adventure
+      description: Board games recreated in java.
+      description_long: I was able to recreate the board game 'Les aventuriers du rail' in Java with Java FX..
+    discord_edt_um:
+      title: Discord EDT UM
+      description: I've created a bot for the Discord application to display the timetables of the University of Montpellier.
+      description_long: I've created a bot discord allowing you to view courses at the University of Montpellier using the iCal links available.
+    waps:
+      description: SAE to create a map capable of generating itineraries.
+      description_long: During my second year at BUT Informatique, thanks to my team, I was able to work on the design of a web application aimed at displaying and generating the shortest itineraries possible.
+    voteit:
+      description: Student project, an online forum web application.
+      description_long: The Vote It project is an online forum platform. This application allows users to ask questions, answer them and then vote. What's more, an authentication system has been set up for enhanced security.

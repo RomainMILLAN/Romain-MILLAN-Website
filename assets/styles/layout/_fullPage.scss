@@ -1,0 +1,34 @@
+.full-page--container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  margin: 10% auto auto;
+
+  .full-page-title-text--container {
+
+    @import "../components/fullPage/titleText";
+    @import "../components/fullPage/socialNetwork";
+
+  }
+
+  .full-page-img {
+    width: 250px;
+  }
+
+}
+
+@media (max-width: $maxWidthMobile) {
+
+  .full-page--container {
+    flex-direction: column;
+    width: 90%;
+    margin-top: 25%;
+
+    .full-page-img {
+      width: 250px;
+    }
+  }
+
+}

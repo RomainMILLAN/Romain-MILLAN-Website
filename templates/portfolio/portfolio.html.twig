@@ -1,0 +1,35 @@
+{% trans_default_domain 'front' %}
+
+{% extends 'portfolio/base.html.twig' %}
+
+{% block title '- Portfolio' %}
+
+{% block header %}
+	{% include 'portfolio/components/portfolio/header.html.twig' %}
+{% endblock %}
+
+{% block main %}
+	<div class="portfolio--container-main">
+		{% include 'portfolio/components/portfolio/home.html.twig' %}
+		{% include 'portfolio/components/portfolio/aboutme.html.twig' %}
+		{% include 'portfolio/components/portfolio/projects.html.twig' %}
+
+		{% include 'portfolio/components/portfolio/mobile_formation.html.twig' %}
+		{% include 'portfolio/components/portfolio/mobile_experience.html.twig' %}
+		{% include 'portfolio/components/portfolio/desktop_fe.html.twig' %}
+		{% include 'portfolio/components/portfolio/contact.html.twig' %}
+
+		<script src="{{ asset('static/js/nextButtonRemoveMobileHeader.js') }}"></script>
+		<script src="{{ asset('static/js/closeMobileNavWhenClick.js') }}"></script>
+		<script src="{{ asset('static/js/scrollTo.js') }}"></script>
+	</div>
+{% endblock %}
+
+{% block footer_attribut %}
+	class="portfolio_footer"
+{% endblock %}
+{% block footer %}
+	<p>{{ 'frontend.footer.all_right_reserved'|trans }}</p>
+
+	<p>{{ 'frontend.footer.no_reproduce'|trans }}</p>
+{% endblock %}

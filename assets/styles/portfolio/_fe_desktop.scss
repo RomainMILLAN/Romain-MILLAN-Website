@@ -1,0 +1,28 @@
+.fe_desktop {
+  width: 90%;
+  margin: auto;
+  height: 90vh;
+
+  .fe_desktop_title {
+    padding-top: 60px;
+
+    p {
+      width: 300px;
+    }
+  }
+
+  .fe_desktop_content {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .formations {
+      padding-top: 85px;
+    }
+
+    .experiences{
+      padding-top: 45px;
+    }
+  }
+}

@@ -66,7 +66,11 @@ watch:		## Watch assets
 	$(CONSOLE) sass:build --watch
 
 compile:	## Asset Mapper Compile
+compile: remove-last-assets asset
 	$(CONSOLE) asset-map:compile
+
+remove-last-assets:
+	rm -rf public/assets
 
 ##
 ## —— Database 💿 ————————————————————————————————————————————————————————————————

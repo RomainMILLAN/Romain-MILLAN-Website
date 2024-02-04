@@ -1,0 +1,36 @@
+
+{% trans_default_domain 'front' %}
+
+<div class="mobile_header">
+    <nav>
+        <div class="mobile_navbar">
+            <div class="mobile_nav-container mobile_nav-container">
+                <input class="mobile_nav-checkbox" type="checkbox" name="" id="mobile_nav-checkbox" />
+                <div class="mobile_nav-hamburger-lines">
+                    <span class="mobile_nav-line mobile_nav-line1"></span>
+                    <span class="mobile_nav-line mobile_nav-line2"></span>
+                    <span class="mobile_nav-line mobile_nav-line3"></span>
+                </div>
+                <div class="mobile_nav-logo">
+                    {# <h1>{{ 'global.title'|trans }}</h1> #}
+                    <a href="{{ path('app_portfolio') }}">
+                        <img src="{{ asset('static/img/logo/rm.svg') }}" alt="Logo de Romain MILLAN"/>
+                    </a>
+                </div>
+                <div class="mobile_nav-menu-items" id="mobile_nav-menu-items">
+                  <li><a href="#home">{{ 'frontend.header.nav.home'|trans }}</a></li>
+                  <li><a href="#aboutme">{{ 'frontend.header.nav.aboutme'|trans }}</a></li>
+                  <li><a href="#projects">{{ 'frontend.header.nav.projects'|trans }}</a></li>
+                  <li><a href="#fe">{{ 'frontend.header.nav.fomations_experiences'|trans }}</a></li>
+                  <li><a href="#contact">{{ 'frontend.header.nav.contact'|trans }}</a></li>
+
+                  {% if app.request.locale == 'fr' %}
+                    <li><a href="{{ path('app_portfolio', {'_locale': 'en'}) }}"><img src="{{ asset('static/img/utils/en.svg') }}" alt="Icone english"></a></li>
+                  {% else %}
+                    <li><a href="{{ path('app_portfolio', {'_locale': 'fr'}) }}"><img src="{{ asset('static/img/utils/fr.svg') }}" alt="Icone french"></a></li>
+                  {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

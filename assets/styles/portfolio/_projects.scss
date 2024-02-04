@@ -1,0 +1,82 @@
+.projects {
+  width: 90%;
+  margin: auto;
+  min-height: 90vh;
+
+  .projects_title {
+    padding-top: 50px;
+
+    p {
+      width: 300px;
+      margin-left: 5px;
+    }
+  }
+
+  .projects_list {
+    display: flex;
+    flex-direction: column;
+
+    .project_card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid white;
+      border-radius: 5px;
+      margin-top: 15px;
+
+      h2 {
+        display: flex;
+        align-items: start;
+        font-weight: normal;
+        font-size: 1.1rem;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+
+        .project_status {
+          border-radius: 5px;
+          padding: 0 .5rem;
+          font-size: .65rem;
+          margin-left: 5px;
+        }
+        .project_passed {
+          border: 1px solid $passed_project;
+        }
+        .project_current {
+          border: 1px solid $current_project;
+        }
+      }
+
+      .project_description {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+
+        img {
+          height: 35px;
+          padding-left: 15px;
+          padding-right: 15px;
+          border-right: 1px solid white;
+        }
+        p {
+          font-size: .75rem;
+          margin-left: 10px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+  }
+}
+
+@media (min-width: $maxWidthMobile) {
+  .projects_row_desktop {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+
+    .project_card {
+      width: 45%
+    }
+  }
+}

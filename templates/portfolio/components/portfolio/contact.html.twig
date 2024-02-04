@@ -1,0 +1,54 @@
+
+{% trans_default_domain 'front' %}
+
+<div class="contact" id="contact">
+    <hr class="separed_tabs">
+
+    <div class="portfolio_title contact_title">
+        <h2>{{ 'frontend.contact.title'|trans }} <span class="colored">?</span></h2>
+        <p>{{ 'frontend.contact.description'|trans }}</p>
+    </div>
+
+    <div class="contact_content">
+
+        <div class="contact_list">
+            <div class="contact_content_div">
+                <img src="{{ asset('static/img/contact/mail.svg') }}" alt="Icone email"/>
+
+                <div class="contact_content_div_content">
+                    <a href="{{ 'frontend.contact.links.email-1'|trans }}" target="_blank">
+                        <p>{{ 'frontend.contact.email-1'|trans }}</p>
+                    </a>
+                    <a href="{{ 'frontend.contact.links.email-2'|trans }}" target="_blank">
+                        <p>{{ 'frontend.contact.email-2'|trans }}</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact_content_div">
+                <img src="{{ asset('static/img/contact/linkedin.svg') }}" alt="Icone linkedin"/>
+
+                <div class="contact_content_div_content">
+                    <a href="{{ 'frontend.contact.links.linkedin'|trans }}" target="_blank">
+                        <p>{{ 'frontend.contact.linkedin'|trans }}</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact_content_div">
+                <img src="{{ asset('static/img/contact/instagram.svg') }}" alt="Icone linkedin"/>
+
+                <div class="contact_content_div_content">
+                    <a href="{{ 'frontend.contact.links.instagram'|trans }}" target="_blank">
+                        <p>@{{ 'frontend.contact.instagram'|trans }}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <a onclick="scrollToIdDiv('home')"><img class="contact_image" src="{{ asset('static/img/logo/romainmillan.svg') }}" alt="Image romain millan"/></a>
+    </div>
+
+
+
+</div>
