@@ -17,6 +17,7 @@ class HomepageController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('base.html.twig');
+        dd("Hello World");
+        return $this->redirectToRoute(\App\Controller\Portfolio\RouteCollection::PORTFOLIO->prefixed());
     }
 }
