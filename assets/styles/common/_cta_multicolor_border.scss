@@ -1,7 +1,6 @@
 .cta_border_multicolor {
   display: flex;
   justify-content: center;
-  padding: 0.6em 2em;
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
@@ -11,10 +10,6 @@
   z-index: 0;
   border-radius: 10px;
   text-align: center;
-}
-
-.cta_border_multicolor:hover {
-  background-color: $primary;
 }
 
 .cta_border_multicolor:before {
@@ -75,7 +70,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: $primary;
+  // background: $primary;
   left: 0;
   top: 0;
   border-radius: 10px;

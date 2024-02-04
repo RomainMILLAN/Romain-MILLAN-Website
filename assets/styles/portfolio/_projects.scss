@@ -65,6 +65,10 @@
       }
     }
 
+    .project_card:after {
+      background-color: $backgroundGray;
+    }
+
   }
 }
 
