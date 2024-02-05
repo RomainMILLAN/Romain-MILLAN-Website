@@ -10,7 +10,7 @@
 
             <p class="aboutme_paragraph desktop" style="margin-top: 50px">{{ 'frontend.aboutme.paragraph_one'|trans }}</p>
             <p class="aboutme_paragraph desktop">{{ 'frontend.aboutme.paragraph_two'|trans }}</p>
-            {% include 'portfolio/components/portfolio/_skills.html.twig' with {
+            {% include 'portfolio/components/_skills.html.twig' with {
                 'size_class': 'desktop'
             }%}
 
@@ -27,7 +27,7 @@
 
     <p class="aboutme_paragraph mobile">{{ 'frontend.aboutme.paragraph_one'|trans }}</p>
     <p class="aboutme_paragraph mobile">{{ 'frontend.aboutme.paragraph_two'|trans }}</p>
-    {% include 'portfolio/components/portfolio/_skills.html.twig' with {
+    {% include 'portfolio/components/_skills.html.twig' with {
         'size_class': 'mobile'
     }%}
 

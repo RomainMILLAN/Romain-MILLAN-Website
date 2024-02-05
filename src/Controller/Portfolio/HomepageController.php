@@ -20,6 +20,6 @@ class HomepageController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('portfolio/homepage.html.twig');
+        return $this->render('homepage.html.twig');
     }
 }

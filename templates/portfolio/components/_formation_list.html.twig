@@ -9,7 +9,7 @@
 
     {% set title = "frontend.formation.#{ i }.title"|trans %}
     {% if title != "frontend.formation.#{ i }.title" %}
-        {% include 'portfolio/components/portfolio/_fe_card.html.twig' with {
+        {% include 'portfolio/components/_fe_card.html.twig' with {
             'date': "frontend.formation.#{ i }.date"|trans,
             'title': title,
             'title_extended': title_extended,

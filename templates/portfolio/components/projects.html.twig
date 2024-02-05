@@ -19,7 +19,7 @@
                         {% set project_name = "frontend.projects_list.#{ i }"|trans %}
 
                         {% if project_name != "frontend.projects_list.#{ i }" %}
-                            {% include 'portfolio/components/portfolio/_project_card.html.twig' with {
+                            {% include 'portfolio/components/_project_card.html.twig' with {
                                 'project_name': "frontend.project.#{ project_name }.project_name"|trans,
                                 'project_title': "frontend.project.#{ project_name }.title"|trans,
                                 'project_description': "frontend.project.#{ project_name }.description"|trans,
