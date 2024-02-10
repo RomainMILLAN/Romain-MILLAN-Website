@@ -1,0 +1,37 @@
+{% trans_default_domain 'app' %}
+
+<div class="aboutme" id="aboutme">
+    <hr class="separed_tabs">
+
+    <div class="aboutme_top_bar">
+        <div class="portfolio_title aboutme_title">
+            <h2>{{ 'portfolio.aboutme.title'|trans }}</h2>
+            <p>{{ 'portfolio.aboutme.description'|trans }}</p>
+
+            <p class="aboutme_paragraph desktop" style="margin-top: 50px">{{ 'portfolio.aboutme.paragraph_one'|trans }}</p>
+            <p class="aboutme_paragraph desktop">{{ 'portfolio.aboutme.paragraph_two'|trans }}</p>
+            {% include 'portfolio/components/_skills.html.twig' with {
+                'size_class': 'desktop'
+            }%}
+
+        </div>
+
+        <div class="aboutme_img">
+            <img class="aboutme_img_presentation" src="{{ asset('static/img/logo/head-right.png') }}" alt="">
+
+            <a href="{{ asset('static/upload/CV_MILLAN_Romain.pdf') }}" target="_blank" class="download_cv_btn cta_border_multicolor mt-2 desktop">
+              {{ 'portfolio.aboutme.download_cv'|trans }}
+            </a>
+        </div>
+    </div>
+
+    <p class="aboutme_paragraph mobile">{{ 'portfolio.aboutme.paragraph_one'|trans }}</p>
+    <p class="aboutme_paragraph mobile">{{ 'portfolio.aboutme.paragraph_two'|trans }}</p>
+    {% include 'portfolio/components/_skills.html.twig' with {
+        'size_class': 'mobile'
+    }%}
+
+    <a href="{{ asset('static/upload/CV_MILLAN_Romain.pdf') }}" class="cta_border_multicolor w-50 mt-2 m-auto mobile">
+        {{ 'portfolio.aboutme.download_cv'|trans }}
+    </a>
+</div>

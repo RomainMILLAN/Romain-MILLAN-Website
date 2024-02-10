@@ -1,24 +1,24 @@
 
-{% trans_default_domain 'front' %}
+{% trans_default_domain 'app' %}
 
 <div class="fe_desktop desktop_block" id="fe">
     <hr class="separed_tabs">
 
     <div class="portfolio_title fe_desktop_title">
-        <h2>{{ 'frontend.formations_experiences.title'|trans }}</h2>
-        <p>{{ 'frontend.formations_experiences.description'|trans }}</p>
+        <h2>{{ 'portfolio.formations_experiences.title'|trans }}</h2>
+        <p>{{ 'portfolio.formations_experiences.description'|trans }}</p>
     </div>
 
     <div class="fe_desktop_content">
 
         <div class="formations">
-            {% include('portfolio/components/portfolio/_formation_list.html.twig') %}
+            {% include('portfolio/components/_formation_list.html.twig') %}
         </div>
 
         <img src="{{ asset('static/img/fe/fe_arrow.svg') }}" alt="Flêche haute"/>
 
         <div class="experiences">
-            {% include('portfolio/components/portfolio/_experience_list.html.twig') %}
+            {% include('portfolio/components/_experience_list.html.twig') %}
         </div>
 
     </div>

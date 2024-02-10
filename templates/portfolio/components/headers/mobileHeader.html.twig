@@ -1,5 +1,5 @@
 
-{% trans_default_domain 'front' %}
+{% trans_default_domain 'app' %}
 
 <div class="mobile_header">
     <nav>
@@ -18,11 +18,11 @@
                     </a>
                 </div>
                 <div class="mobile_nav-menu-items" id="mobile_nav-menu-items">
-                  <li><a href="#home">{{ 'frontend.header.nav.home'|trans }}</a></li>
-                  <li><a href="#aboutme">{{ 'frontend.header.nav.aboutme'|trans }}</a></li>
-                  <li><a href="#projects">{{ 'frontend.header.nav.projects'|trans }}</a></li>
-                  <li><a href="#fe">{{ 'frontend.header.nav.fomations_experiences'|trans }}</a></li>
-                  <li><a href="#contact">{{ 'frontend.header.nav.contact'|trans }}</a></li>
+                  <li><a href="#home">{{ 'portfolio.header.nav.home'|trans }}</a></li>
+                  <li><a href="#aboutme">{{ 'portfolio.header.nav.aboutme'|trans }}</a></li>
+                  <li><a href="#projects">{{ 'portfolio.header.nav.projects'|trans }}</a></li>
+                  <li><a href="#fe">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</a></li>
+                  <li><a href="#contact">{{ 'portfolio.header.nav.contact'|trans }}</a></li>
 
                   {% if app.request.locale == 'fr' %}
                     <li><a href="{{ path('app_portfolio', {'_locale': 'en'}) }}"><img src="{{ asset('static/img/utils/en.svg') }}" alt="Icone english"></a></li>

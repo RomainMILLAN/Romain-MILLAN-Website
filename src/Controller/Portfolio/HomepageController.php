@@ -11,15 +11,12 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route(
     path: '/',
     name: RouteCollection::HOMEPAGE->value,
-    requirements: [
-        '_locale' => 'en|fr',
-    ],
     methods: ['GET'],
 )]
 class HomepageController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('portfolio/homepage.html.twig');
+        return $this->redirectToRoute(RouteCollection::PORTFOLIO->prefixed());
     }
 }

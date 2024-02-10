@@ -1,11 +1,11 @@
-{% trans_default_domain 'front' %}
+{% trans_default_domain 'app' %}
 
-{% extends 'portfolio/base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title '- '~project_title %}
 
 {% block header %}
-	{% include 'portfolio/components/portfolio/header.html.twig' %}
+	{% include 'portfolio/components/header.html.twig' %}
 {% endblock %}
 
 {% block body_attribut %}
@@ -23,23 +23,23 @@
 
 				<h2 style="font-weight: bold; font-size: 1.5rem">{{ project_title }}</h2>
 
-				{% set description = "frontend.project.#{ project_name }.description_long"|trans %}
-				{% if description == "frontend.project.#{ project_name }.description_long" %}
-					{% set description = "frontend.project.#{ project_name }.description"|trans %}
+				{% set description = "project.#{ project_name }.description_long"|trans %}
+				{% if description == "project.#{ project_name }.description_long" %}
+					{% set description = "project.#{ project_name }.description"|trans %}
 				{% endif %}
 				<p>{{ description }}</p>
 
 				<div class="project-page_links">
 
-					{% set githubLink = "frontend.project.#{ project_name }.links.github"|trans %}
-					{% if githubLink != "frontend.project.#{ project_name }.links.github" %}
+					{% set githubLink = "project.#{ project_name }.links.github"|trans %}
+					{% if githubLink != "project.#{ project_name }.links.github" %}
 						<a href="{{ githubLink }}" target="_blank">
 							<img src="{{ asset('static/img/project_page/github.svg') }}" alt="Icone github">
 						</a>
 					{% endif %}
 
-					{% set websiteLink = "frontend.project.#{ project_name }.links.website"|trans %}
-					{% if websiteLink != "frontend.project.#{ project_name }.links.website" %}
+					{% set websiteLink = "project.#{ project_name }.links.website"|trans %}
+					{% if websiteLink != "project.#{ project_name }.links.website" %}
 						<a href="{{ websiteLink }}" target="_blank">
 							<img src="{{ asset('static/img/project_page/website.svg') }}" alt="Icone website">
 						</a>
@@ -51,9 +51,9 @@
 
 			<div class="project-page_images">
 				{% for i in 1..10 %}
-					{% set image_one_link = "frontend.project.#{ project_name }.images.#{ i }.link"|trans %}
-					{% if image_one_link != "frontend.project.#{ project_name }.images.#{ i }.link" %}
-						{% set image_one_widt = "frontend.project.#{ project_name }.images.#{ i }.width"|trans %}
+					{% set image_one_link = "project.#{ project_name }.images.#{ i }.link"|trans %}
+					{% if image_one_link != "project.#{ project_name }.images.#{ i }.link" %}
+						{% set image_one_widt = "project.#{ project_name }.images.#{ i }.width"|trans %}
 						<img width="{{ image_one_widt }}" class="project-page_image" src="{{ asset('static/img/projects'~image_one_link) }}" alt="Image one"/>
 					{% endif %}
 				{% endfor %}
@@ -62,7 +62,7 @@
 			<a href="{{ path('app_portfolio') }}#projects" class="project-page_return_projects_list">
 				<button>
 					<img src="{{ asset('static/img/utils/return.svg') }}" alt="Icone return projects">
-					{{ 'frontend.projects.return_to_project'|trans }}
+					{{ 'portfolio.projects.return_to_project'|trans }}
 				</button>
 			</a>
 

@@ -1,0 +1,205 @@
+global:
+  title: Romain MILLAN
+
+portfolio:
+  header:
+    nav:
+      home: Accueil
+      aboutme: À propos de moi
+      projects: Projets
+      fomations_experiences: Formations et Expériences
+      contact: Contact
+  home:
+    status: ~ Étudiant & Développeur
+    continue: Continuer
+  aboutme:
+    title: Qui suis-je ?
+    description: Étudiant en Informatique de 20 ans, actuellement dans un BUT Informatique.
+    paragraph_one: Mon parcours inclut une expérience en alternance au sein d'une agence web, où je fusionne mes connaissances académiques avec des applications pratiques.
+    paragraph_two: Passionnée par les technologies, je possède un éventail de technologies.
+    download_cv: Télécharger mon CV
+  projects:
+    title: Mes projets
+    description: Voici quelques projets que j'ai réalisés au cours de mes années de développement
+    return_to_project: Retour aux projets
+  formations:
+    title: Formations
+    description: J'ai eu l'occasion de me former dans divers endroits
+  experiences:
+    title: Experiences
+    description: Lors de mes dernières années, j'ai pu travailler dans de multiples domaines
+  formations_experiences:
+    title: Formations et Experiences
+    description: Lors de mes dernières années, j'ai pu étudier et travailler dans plusieurs domaines
+  contact:
+    title: Comment me contacter
+    description: Plusieurs choix s'offrent à vous !
+    email-1: contact@romainmillan.fr
+    email-2: romain.millan@etu.umontpellier.fr
+    linkedin: in/romain-millan/
+    instagram: millan_romain
+    links:
+      email-1: mailto:contact@romainmillan.fr
+      email-2: mailto:romain.millan@etu.umontpellier.fr
+      linkedin: https://www.linkedin.com/in/romain-millan/
+      instagram: https://www.instagram.com/millan_romain/
+  footer:
+    all_right_reserved: © 2023 https://romainmillan.fr/, Tous droits réservés.
+    no_reproduce: Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite.
+
+  formation:
+    1:
+      title: Collège
+      date: Septembre 2014 - Juin 2018
+      city: Loupian, France
+      location: Collège Olympe de Gouges, France
+      current: false
+    2:
+      title: Lycée
+      title_extended: STI2D - SIN
+      date: Septembre 2018 - Juin 2021
+      city: Sète, France
+      location: Lycée Joliot Curie, France
+      current: false
+    3:
+      title: BUT Informatique
+      title_extended: Option RACDV
+      date: Septembre 2021 - Ajourd'hui
+      city: Sète, France
+      location: IUT Montpellier/Sète, France
+      current: true
+  experience:
+    1:
+      title: Préparateur de commande
+      date: Juillet 2021 - Aout 2021
+      city: Clermont l'hérault, France
+      location: ULogistique, France
+      current: false
+    2:
+      title: Cariste
+      date: Juillet 2022 - Aout 2022
+      city: Clermont l'hérault, France
+      location: SOMEDI, France
+      current: false
+    3:
+      title: Stagiaire en Développement
+      title_extended: Backend
+      date: Avril 2023 - Juillet 2023
+      city: Montpellier, France
+      location: Spiriit, France
+      current: false
+    4:
+      title: Alternant en Développement
+      title_extended: Backend
+      date: Septembre 2023 - Aout 2024
+      city: Montpellier, France
+      location: Spiriit, France
+      current: true
+  projects_list:
+    1: rm-web
+    2: discord_edt_um
+    3: ndi2023
+    4: waps
+    5: voteit
+    6: les_aventuriers_du_rail
+
+project:
+  rm-web:
+    project_name: rm-web
+    title: Mon propre site internet
+    description: Mon portfolio et bien plus encore.
+    description_long: La création de mon site internet se fait de plusieurs manières. Tout d'abord, à travers ce portfolio. Cependant, plusieurs éléments restent cachés ou ne sont accessibles qu'avec des liens, tels que l'emploi du temps.
+    status: current
+    year: 2022-2023
+    skill: symfony
+    links:
+      website: https://romainmillan.fr/
+    images:
+      1:
+        link: /rm-web/portfolio.png
+        width: 500
+      2:
+        link: /rm-web/dashboard.png
+        width: 500
+  discord_edt_um:
+    project_name: discord_edt_um
+    title: Discord EDT UM
+    description: J'ai réaliser un bot pour l'application Discord permettant de visualiser les emplois du temps de l'Université de Montpellier.
+    description_long: J'ai crée un bot discord permettant de visualiser les cours de l'Université de Montpellier grâce aux lien iCal disponible.
+    status: current
+    year: 2023
+    skill: java
+    links:
+      github: https://github.com/RomainMILLAN/Discord-EDT/
+    images:
+      1:
+        link: /dedtum/list.png
+        width: 450
+      2:
+        link: /dedtum/cour.png
+        width: 450
+  ndi2023:
+    project_name: ndi2023
+    title: La Nuit de l'Info 2023
+    description: Organisation de l'événement "La Nuit de l'Informatique".
+    description_long: Pendant ma troisième année de BUT informatique à l'IUT de Montpellier/Sète, j'ai eu l'opportunité de participer activement à l'organisation de l'événement "La Nuit de l'Info", qui s'est déroulé dans la nuit du 7 au 8 décembre 2023. Cet événement était disponible sur deux sites, à l'IUT de Montpellier/Sète et à Polytech.
+    status: passed
+    year: 2023
+    skill: event
+    links:
+      website: https://www.nuitdelinfo.com/
+    images:
+      1:
+        link: /ndi2023/all.jpeg
+        width: 450
+      2:
+        link: /ndi2023/regie.jpeg
+        width: 250
+  waps:
+    project_name: waps
+    title: Waps
+    description: SAÉ visant à créer une carte capable de générer des itinéraires.
+    description_long: Pendant ma deuxième année de BUT Informatique, grâce à mon équipe, j'ai pu travailler sur la conception d'une application web visant à afficher et à générer les itinéraires les plus courts possibles.
+    status: passed
+    year: 2023
+    skill: php
+    links:
+      github: https://github.com/RomainMILLAN/SAE-4.01-Waps/
+    images:
+      1:
+        link: /waps/desktop.png
+        width: 450
+      2:
+        link: /waps/map.png
+        width: 250
+  voteit:
+    project_name: voteit
+    title: Vote It
+    description: Projet de cour, étant une application web de forum en ligne.
+    description_long: Le projet Vote It est une plateforme de forum en ligne. Cette application permet de poser des questions, d'y répondre et enfin de voter. De plus, un système d'authentification a été mis en place avec une sécurité renforcée.
+    status: passed
+    year: 2022
+    skill: php
+    links:
+      github: https://github.com/RomainMILLAN/SAE-3.01-VoteIt/
+    images:
+      1:
+        link: /voteit/desktop_detail.png
+        width: 500
+      2:
+        link: /voteit/desktop_list.png
+        width: 500
+  les_aventuriers_du_rail:
+    project_name: les_aventuriers_du_rail
+    title: Les aventuriers du rail
+    description: Jeux de société recrée en java.
+    description_long: J'ai pus recrée le jeux de société 'Les aventuriers du rail' en Java avec Java FX.
+    status: passed
+    year: 2022
+    skill: java
+    links:
+      github: https://github.com/RomainMILLAN/SAE-2.03-AventurierDuRailIHM
+    images:
+      1:
+        link: /ladr/ihm.png
+        width: 600
