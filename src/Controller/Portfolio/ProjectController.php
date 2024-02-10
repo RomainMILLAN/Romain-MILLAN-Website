@@ -20,7 +20,7 @@ class ProjectController extends AbstractController
     public function __invoke(
         string $project_name,
     ): Response {
-        $project_title = $this->translator->trans('project.' . $project_name . '.title', [], 'front');
+        $project_title = $this->translator->trans('project.' . $project_name . '.title', [], 'app');
 
         return $this->render('portfolio/project.html.twig', [
             'project_title' => $project_title,

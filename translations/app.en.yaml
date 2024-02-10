@@ -59,17 +59,24 @@ portfolio:
       date: April 2023 - July 2023
 
 project:
-  les_aventuriers_du_rail:
-    title: Railway Adventure
-    description: Board games recreated in java.
-    description_long: I was able to recreate the board game 'Les aventuriers du rail' in Java with Java FX..
+  rm-web:
+    title: My own website
+    description: My portfolio and much more.
+    description_long: There are several ways of creating my website. First, through this portfolio. However, several elements remain hidden or can only be accessed via links, such as the timetable.
   discord_edt_um:
     title: Discord EDT UM
     description: I've created a bot for the Discord application to display the timetables of the University of Montpellier.
     description_long: I've created a bot discord allowing you to view courses at the University of Montpellier using the iCal links available.
+  ndi2023:
+    description: Organization of "La Nuit de l'Informatique" event.
+    description_long: During my third year of BUT informatique at the IUT de Montpellier/Sète, I had the opportunity to actively participate in the organization of the event "La Nuit de l'Info", which took place on the night of December 7-8, 2023. This event was available on two sites, at the IUT de Montpellier/Sète and at Polytech.
   waps:
     description: SAE to create a map capable of generating itineraries.
     description_long: During my second year at BUT Informatique, thanks to my team, I was able to work on the design of a web application aimed at displaying and generating the shortest itineraries possible.
   voteit:
     description: Student project, an online forum web application.
     description_long: The Vote It project is an online forum platform. This application allows users to ask questions, answer them and then vote. What's more, an authentication system has been set up for enhanced security.
+  les_aventuriers_du_rail:
+    title: Railway Adventure
+    description: Board games recreated in java.
+    description_long: I was able to recreate the board game 'Les aventuriers du rail' in Java with Java FX..
