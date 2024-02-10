@@ -5,6 +5,8 @@
   justify-content: center;
   width: 75%;
   margin: 10% auto auto;
+  gap: 20px;
+
 
   .full-page-title-text--container {
 
@@ -15,6 +17,7 @@
 
   .full-page-img {
     width: 250px;
+    border-radius: 100%;
   }
 
 }
@@ -25,6 +28,8 @@
     flex-direction: column;
     width: 90%;
     margin-top: 25%;
+    gap: 0px;
+
 
     .full-page-img {
       width: 250px;
