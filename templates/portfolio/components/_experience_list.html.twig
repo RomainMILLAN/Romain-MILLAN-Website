@@ -1,21 +1,21 @@
 
-{% trans_default_domain 'front' %}
+{% trans_default_domain 'app' %}
 
 {% for i in 100..1 %}
-    {% set title_extended = "frontend.experience.#{ i }.title_extended"|trans %}
-    {% if title_extended == "frontend.experience.#{ i }.title_extended" %}
+    {% set title_extended = "portfolio.experience.#{ i }.title_extended"|trans %}
+    {% if title_extended == "portfolio.experience.#{ i }.title_extended" %}
         {% set title_extended = '' %}
     {% endif %}
 
-    {% set title = "frontend.experience.#{ i }.title"|trans %}
-    {% if title != "frontend.experience.#{ i }.title" %}
+    {% set title = "portfolio.experience.#{ i }.title"|trans %}
+    {% if title != "portfolio.experience.#{ i }.title" %}
         {% include 'portfolio/components/_fe_card.html.twig' with {
-            'date': "frontend.experience.#{ i }.date"|trans,
+            'date': "portfolio.experience.#{ i }.date"|trans,
             'title': title,
             'title_extended': title_extended,
-            'location': "frontend.experience.#{ i }.location"|trans,
-            'current': "frontend.experience.#{ i }.current"|trans,
-            'city': "frontend.experience.#{ i }.city"|trans
+            'location': "portfolio.experience.#{ i }.location"|trans,
+            'current': "portfolio.experience.#{ i }.current"|trans,
+            'city': "portfolio.experience.#{ i }.city"|trans
         } %}
     {% endif %}
 

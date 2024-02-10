@@ -1,5 +1,5 @@
 
-{% trans_default_domain 'front' %}
+{% trans_default_domain 'app' %}
 
 <div class="desktop_header">
     <div class="desktop_nav-logo">
@@ -9,11 +9,11 @@
         </a>
     </div>
     <nav>
-      <li onclick="scrollToIdDiv('home')">{{ 'frontend.header.nav.home'|trans }}</li>
-      <li onclick="scrollToIdDiv('aboutme')">{{ 'frontend.header.nav.aboutme'|trans }}</li>
-      <li onclick="scrollToIdDiv('projects')">{{ 'frontend.header.nav.projects'|trans }}</li>
-      <li onclick="scrollToIdDiv('fe')">{{ 'frontend.header.nav.fomations_experiences'|trans }}</li>
-      <li onclick="scrollToIdDiv('contact')">{{ 'frontend.header.nav.contact'|trans }}</li>
+      <li onclick="scrollToIdDiv('home')">{{ 'portfolio.header.nav.home'|trans }}</li>
+      <li onclick="scrollToIdDiv('aboutme')">{{ 'portfolio.header.nav.aboutme'|trans }}</li>
+      <li onclick="scrollToIdDiv('projects')">{{ 'portfolio.header.nav.projects'|trans }}</li>
+      <li onclick="scrollToIdDiv('fe')">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</li>
+      <li onclick="scrollToIdDiv('contact')">{{ 'portfolio.header.nav.contact'|trans }}</li>
 
       {% if app.request.locale == 'fr' %}
         <li><a href="{{ path('app_portfolio', {'_locale': 'en'}) }}"><img src="{{ asset('static/img/utils/en.svg') }}" alt="Icone english"></a></li>
