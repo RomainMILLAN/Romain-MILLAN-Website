@@ -1,4 +1,3 @@
-
 {% trans_default_domain 'app' %}
 
 <div id="home" class="home">
@@ -7,41 +6,24 @@
 
 		<div class="home_welcome_titles-container">
 
-            <h2>{{ 'global.title'|trans }}</h2>
-            <div class="home_welcome_status">
-                <p>{{ 'portfolio.home.status'|trans }}</p>
-            </div>
+			<h2>{{ 'global.title'|trans }}</h2>
+			<div class="home_welcome_status">
+				<p>{{ 'portfolio.home.status'|trans }}</p>
+			</div>
 
 		</div>
 
 		<img class="home_welcome_image" src="{{ asset('static/img/logo/head-left.png') }}" alt="Logo Romain MILLAN Full"/>
 	</div>
 
-    <div class="home_button_next">
-        <div id="home_button-next">
-           {# <a onclick="scrollToIdDiv('aboutme')">
-              <button class="learn-more">
-                    <span class="circle" id="next_button_circle" aria-hidden="true">
-                      <span class="icon arrow"></span>
-                    </span>
-                <span class="button-text">{{ 'portfolio.home.continue'|trans }}</span>
-              </button>
-            </a>#}
-
-          <a onclick="scrollToIdDiv('aboutme')">
-            <button class="cta_next_button">
-              {{ 'portfolio.home.continue'|trans }}
-
-					<div class="icon">
-						<svg height="24" width="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path d="M0 0h24v24H0z" fill="none"></path>
-							<path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
-						</svg>
-					</div>
-				</button>
-
-			</a>
-		</div>
+	<div class="home_button_next">
+		<button onclick="scrollToIdDiv('aboutme')" class="next_button">
+			<span>Continue</span>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
+				<circle stroke-width="3" stroke="white" r="35.5" cy="37" cx="37"></circle>
+				<path fill="white" d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"></path>
+			</svg>
+		</button>
 	</div>
 
 </div>

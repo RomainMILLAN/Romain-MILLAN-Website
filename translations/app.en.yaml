@@ -32,7 +32,7 @@ portfolio:
     title: How to contact me
     description: There are so many choices !
   footer:
-    all_right_reserved: © 2023 https://romainmillan.fr/, All rights reserved..
+    all_right_reserved: All rights reserved.
     no_reproduce: Any reproduction, distribution, modification or use of all or part of the content of this website without the prior written authorization of Romain MILLAN is strictly prohibited.
 
   formation:
@@ -59,6 +59,9 @@ portfolio:
       date: April 2023 - July 2023
 
 project:
+  ages:
+    description: Creation of a website for a student association in Sète.
+    description_long: I had the opportunity to design the website for the Association Générale des Étudiants de Sète. This website was built using the Symfony framework. The aim was to improve communication between all the student associations in Sète, and also to create a system for registering for events. Finally, an association membership system has been set up to enable students to identify themselves with an association.
   rm-web:
     title: My own website
     description: My portfolio and much more.

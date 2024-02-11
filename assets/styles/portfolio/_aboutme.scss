@@ -10,16 +10,11 @@
     padding-top: 150px;
 
     .aboutme_title {
-      width: 50%;
+      width: 50% !important;
 
-      h2{
-        font-size: 1.5rem;
-      }
       p {
-        font-weight: lighter;
-        margin-left: 5px;
+        width: 100% !important;
       }
-
     }
     .aboutme_img {
       width: 150px;
@@ -29,22 +24,12 @@
         width: 100%;
         border-radius: 100%;
       }
-
-      .download_cv_btn {
-        padding: 0.6em 2em;
-        background-color: $primary;
-      }
-      .download_cv_btn:after {
-        background-color: $primary;
-      }
     }
   }
 
   .aboutme_paragraph {
     font-weight: lighter;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 15px;
+    margin: 15px 5% 0 5%;
   }
 
   @import 'skills';
@@ -71,11 +56,15 @@
       }
     }
 
-    .aboutme_download {
-      button {
-        margin-top: 25px;
-        font-size: 1rem;
-      }
+    .aboutme_paragraph {
+      margin: 15px 5% 0 0%;
     }
   }
+}
+
+.download_cv_btn {
+  background-color: $primary;
+}
+.download_cv_btn:after {
+  background-color: $primary;
 }

@@ -1,14 +1,28 @@
-@import 'mobile_header';
-@import 'desktop_header';
+.portfolio_title {
+  padding-top: 50px;
 
-@import 'home';
-@import 'aboutme';
-@import 'projects';
+  h2 {
+    font-size: 1.5rem;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  }
+  p {
+    width: 300px;
+    margin-left: 5px;
+    font-weight: lighter;
+  }
+}
 
-@import 'fe';
-@import 'fe_mobile';
-@import 'fe_desktop';
+@import "mobile_header";
+@import "desktop_header";
 
-@import 'contact';
+@import "home";
+@import "aboutme";
+@import "projects";
 
-@import 'project_page';
+@import "fe";
+@import "fe_mobile";
+@import "fe_desktop";
+
+@import "contact";
+
+@import "project_page";

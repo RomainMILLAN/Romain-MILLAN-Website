@@ -4,7 +4,7 @@
 <div class="contact" id="contact">
     <hr class="separed_tabs">
 
-    <div class="portfolio_title contact_title">
+    <div class="portfolio_title">
         <h2>{{ 'portfolio.contact.title'|trans }} <span class="colored">?</span></h2>
         <p>{{ 'portfolio.contact.description'|trans }}</p>
     </div>
@@ -41,6 +41,16 @@
                 <div class="contact_content_div_content">
                     <a href="{{ 'portfolio.contact.links.instagram'|trans }}" target="_blank">
                         <p>@{{ 'portfolio.contact.instagram'|trans }}</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact_content_div">
+                <img src="{{ asset('static/img/contact/github.svg') }}" alt="Icone github"/>
+
+                <div class="contact_content_div_content">
+                    <a href="{{ 'portfolio.contact.links.github'|trans }}" target="_blank">
+                        <p>{{ 'portfolio.contact.github'|trans }}</p>
                     </a>
                 </div>
             </div>
