@@ -1,36 +1,43 @@
-
 {% trans_default_domain 'app' %}
 
-<div class="mobile_header">
-    <nav>
-        <div class="mobile_navbar">
-            <div class="mobile_nav-container mobile_nav-container">
-                <input class="mobile_nav-checkbox" type="checkbox" name="" id="mobile_nav-checkbox" />
-                <div class="mobile_nav-hamburger-lines">
-                    <span class="mobile_nav-line mobile_nav-line1"></span>
-                    <span class="mobile_nav-line mobile_nav-line2"></span>
-                    <span class="mobile_nav-line mobile_nav-line3"></span>
-                </div>
-                <div class="mobile_nav-logo">
-                    {# <h1>{{ 'global.title'|trans }}</h1> #}
-                    <a href="{{ path('app_portfolio') }}">
-                        <img src="{{ asset('static/img/logo/icon.svg') }}" alt="Logo de Romain MILLAN"/>
-                    </a>
-                </div>
-                <div class="mobile_nav-menu-items" id="mobile_nav-menu-items">
-                  <li><a href="#home">{{ 'portfolio.header.nav.home'|trans }}</a></li>
-                  <li><a href="#aboutme">{{ 'portfolio.header.nav.aboutme'|trans }}</a></li>
-                  <li><a href="#projects">{{ 'portfolio.header.nav.projects'|trans }}</a></li>
-                  <li><a href="#fe">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</a></li>
-                  <li><a href="#contact">{{ 'portfolio.header.nav.contact'|trans }}</a></li>
-
-                  {% if app.request.locale == 'fr' %}
-                    <li><a href="{{ path('app_portfolio', {'_locale': 'en'}) }}"><img src="{{ asset('static/img/utils/en.svg') }}" alt="Icone english"></a></li>
-                  {% else %}
-                    <li><a href="{{ path('app_portfolio', {'_locale': 'fr'}) }}"><img src="{{ asset('static/img/utils/fr.svg') }}" alt="Icone french"></a></li>
-                  {% endif %}
-                </div>
+<section class="mobile_header">
+	<div id="nav-container">
+		<div class="nav_bg"></div>
+		<div class="nav-container_header">
+            <a class="nav_logo" href="{{path('app_portfolio')}}">
+                <img src="{{asset('static/img/logo/icon.svg')}}" alt="Icone RomainMILLAN"/>
+            </a>
+            <div class="nav_button" tabindex="110">
+                <span class="nav_icon-bar"></span>
+                <span class="nav_icon-bar"></span>
+                <span class="nav_icon-bar"></span>
             </div>
         </div>
-    </nav>
-</div>
+		<div id="nav-content" tabindex="0">
+			<ul>
+				<a href="{{path('app_portfolio')}}" class="nav-content-header">
+					<img src="{{asset('static/img/logo/romainmillan.svg')}}" alt="Romain MILLAN"/>
+				</a>
+				<li>
+					<a class="a-nav" href="{{path('app_portfolio')}}#home">{{ 'portfolio.header.nav.home'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_portfolio')}}#aboutme">{{ 'portfolio.header.nav.aboutme'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_portfolio')}}#projects">{{ 'portfolio.header.nav.projects'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_portfolio')}}#mf">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_portfolio')}}#contact">{{ 'portfolio.header.nav.contact'|trans }}</a>
+				</li>
+				<li class="nav_small">
+					<p>© 2023-{{ 'now' | date('Y') }} <a href="https://romainmillan.fr/">https://romainmillan.fr/</a>, {{ 'portfolio.footer.all_right_reserved'|trans }}</p>
+					<p>{{ 'portfolio.footer.no_reproduce'|trans }}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
