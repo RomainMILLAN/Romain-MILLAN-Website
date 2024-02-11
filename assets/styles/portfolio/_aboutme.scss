@@ -29,14 +29,6 @@
         width: 100%;
         border-radius: 100%;
       }
-
-      .download_cv_btn {
-        padding: 0.6em 2em;
-        background-color: $primary;
-      }
-      .download_cv_btn:after {
-        background-color: $primary;
-      }
     }
   }
 
@@ -78,4 +70,11 @@
       }
     }
   }
+}
+
+.download_cv_btn {
+  background-color: $primary;
+}
+.download_cv_btn:after {
+  background-color: $primary;
 }
