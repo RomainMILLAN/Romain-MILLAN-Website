@@ -1,53 +1,38 @@
-.cta_next_button {
-  z-index: initial;
-  background: $primary;
-  color: white;
-  font-family: inherit;
-  padding-left: 1.2em;
-  font-size: 17px;
-  font-weight: 500;
-  border-radius: 0.9em;
-  border: none;
-  letter-spacing: 0.05em;
-  display: flex;
-  align-items: center;
-  box-shadow: inset 0 0 1.6em -0.6em #714da6;
-  overflow: hidden;
-  position: relative;
-  height: 2.8em;
-  padding-right: 3.3em;
+button {
   cursor: pointer;
-}
-
-.cta_next_button .icon {
+  font-weight: 700;
+  font-family: Helvetica,"sans-serif";
+  transition: all .2s;
+  padding: 10px 20px;
+  border-radius: 100px;
   background: white;
-  margin-left: 1em;
-  position: absolute;
+  border: 1px solid transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 2.2em;
-  width: 2.2em;
-  border-radius: 0.7em;
-  box-shadow: 0.1em 0.1em 0.6em 0.2em $primary;
-  right: 0.3em;
-  transition: all 0.3s;
+  font-size: 15px;
+  gap: 20px;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(to right, #f3d88d, #fdca40);
+  box-shadow: 0 20px 30px -7px rgba(253, 202, 202, 0.5);
 }
 
-.cta_next_button:hover .icon {
-  width: calc(100% - 0.6em);
+button:hover {
+  background: linear-gradient(to right, #fdca40, #f3d88d);
+  box-shadow: 0 20px 30px -7px rgba(253, 202, 202, 0.5);
 }
 
-.cta_next_button .icon svg {
-  width: 1.1em;
-  transition: transform 0.3s;
-  color: $primary;
+button > svg {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform .3s ease-in-out;
 }
 
-.cta_next_button:hover .icon svg {
-  transform: translateX(0.1em);
+button:hover svg {
+  transform: translateX(5px);
 }
 
-.cta_next_button:active .icon {
+button:active {
   transform: scale(0.95);
 }
+
