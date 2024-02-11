@@ -96,21 +96,34 @@ portfolio:
       location: Spiriit, France
       current: true
   projects_list:
-    1: rm-web
-    2: discord_edt_um
-    3: ndi2023
-    4: waps
-    5: voteit
-    6: les_aventuriers_du_rail
+    7: ages
+    6: rm-web
+    5: discord_edt_um
+    4: ndi2023
+    3: waps
+    2: voteit
+    1: les_aventuriers_du_rail
 
 project:
+  ages:
+    project_name: ages
+    title: Association Générale des Étudiants de Sète
+    description: Réalisation d'un site internet pour une association étudiante sétoise.
+    description_long: J'ai eu l'opportunité de réaliser le site internet de l'Association Générale des Étudiants de Sète. Ce site internet a été réalisé avec le framework Symfony. Le but de celui-ci étant de permettre une meillieur communication entre toutes les associations étudiantes sétoise mais aussi permettre de crée un système d'inscription à des événements. Finalement un système d'adhérence à une association est mise en place pour permettre aux étudiants de s'identifier à une association.
+    status: current
+    year: 2023-2024
+    skill: symfony
+    images:
+      1:
+        link: /ages/home.png
+        width: 700
   rm-web:
     project_name: rm-web
     title: Mon propre site internet
     description: Mon portfolio et bien plus encore.
     description_long: La création de mon site internet se fait de plusieurs manières. Tout d'abord, à travers ce portfolio. Cependant, plusieurs éléments restent cachés ou ne sont accessibles qu'avec des liens, tels que l'emploi du temps.
     status: current
-    year: 2022-2023
+    year: 2022-2024
     skill: symfony
     links:
       website: https://romainmillan.fr/
@@ -125,8 +138,8 @@ project:
     project_name: discord_edt_um
     title: Discord EDT UM
     description: J'ai réaliser un bot pour l'application Discord permettant de visualiser les emplois du temps de l'Université de Montpellier.
-    description_long: J'ai crée un bot discord permettant de visualiser les cours de l'Université de Montpellier grâce aux lien iCal disponible.
-    status: current
+    description_long: J'ai développé un bot Discord qui permet d'afficher les emplois du temps de l'Université de Montpellier en utilisant les liens iCal disponibles.
+    status: passed
     year: 2023
     skill: java
     links:

@@ -1,36 +1,29 @@
-
 {% trans_default_domain 'app' %}
 
 <div class="projects" id="projects">
-    <hr class="separed_tabs">
+	<hr class="separed_tabs">
 
-    <div class="portfolio_title projects_title">
-        <h2>{{ 'portfolio.projects.title'|trans }}</h2>
-        <p>{{ 'portfolio.projects.description'|trans }}</p>
-    </div>
+	<div class="portfolio_title projects_title">
+		<h2>{{ 'portfolio.projects.title'|trans }}</h2>
+		<p>{{ 'portfolio.projects.description'|trans }}</p>
+	</div>
 
-    <div class="projects_list">
+	<div class="projects_list">
 
-            {% set i = 0 %}
-            {% for j in 1..100 %}
-                <div class="projects_row_desktop">
-                    {% for x in 1..2 %}
-                        {% set i = i+1 %}
-                        {% set project_name = "portfolio.projects_list.#{ i }"|trans %}
+        {% for i in 100..1 %}
+            {% if "portfolio.projects_list.#{ i }"|trans != "portfolio.projects_list.#{ i }" %}
+                {% set project_name = "portfolio.projects_list.#{ i }"|trans %}
 
-                        {% if project_name != "portfolio.projects_list.#{ i }" %}
-                            {% include 'portfolio/components/_project_card.html.twig' with {
-                                'project_name': "project.#{ project_name }.project_name"|trans,
-                                'project_title': "project.#{ project_name }.title"|trans,
-                                'project_description': "project.#{ project_name }.description"|trans,
-                                'project_status': "project.#{ project_name }.status"|trans,
-                                'project_year': "project.#{ project_name }.year"|trans,
-                                'project_skill': "project.#{ project_name }.skill"|trans
-                            } %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endfor %}
+                {% include 'portfolio/components/_project_card.html.twig' with {
+                    'project_name': "project.#{ project_name }.project_name"|trans,
+                    'project_title': "project.#{ project_name }.title"|trans,
+                    'project_description': "project.#{ project_name }.description"|trans,
+                    'project_status': "project.#{ project_name }.status"|trans,
+                    'project_year': "project.#{ project_name }.year"|trans,
+                    'project_skill': "project.#{ project_name }.skill"|trans
+                } %}
+            {% endif %}
+        {% endfor %}
 
-    </div>
+	</div>
 </div>

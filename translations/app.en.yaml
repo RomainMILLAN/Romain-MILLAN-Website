@@ -59,6 +59,9 @@ portfolio:
       date: April 2023 - July 2023
 
 project:
+  ages:
+    description: Creation of a website for a student association in Sète.
+    description_long: I had the opportunity to design the website for the Association Générale des Étudiants de Sète. This website was built using the Symfony framework. The aim was to improve communication between all the student associations in Sète, and also to create a system for registering for events. Finally, an association membership system has been set up to enable students to identify themselves with an association.
   rm-web:
     title: My own website
     description: My portfolio and much more.
