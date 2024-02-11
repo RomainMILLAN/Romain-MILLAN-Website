@@ -1,4 +1,3 @@
-
 {% trans_default_domain 'app' %}
 
 <div id="home" class="home">
@@ -7,38 +6,27 @@
 
 		<div class="home_welcome_titles-container">
 
-            <h2>{{ 'global.title'|trans }}</h2>
-            <div class="home_welcome_status">
-                <p>{{ 'portfolio.home.status'|trans }}</p>
-            </div>
+			<h2>{{ 'global.title'|trans }}</h2>
+			<div class="home_welcome_status">
+				<p>{{ 'portfolio.home.status'|trans }}</p>
+			</div>
 
 		</div>
 
 		<img class="home_welcome_image" src="{{ asset('static/img/logo/head-left.png') }}" alt="Logo Romain MILLAN Full"/>
 	</div>
 
-    <div class="home_button_next">
-        <div id="home_button-next">
-           {# <a onclick="scrollToIdDiv('aboutme')">
-              <button class="learn-more">
-                    <span class="circle" id="next_button_circle" aria-hidden="true">
-                      <span class="icon arrow"></span>
-                    </span>
-                <span class="button-text">{{ 'portfolio.home.continue'|trans }}</span>
-              </button>
-            </a>#}
+	<div class="home_button_next">
+		<div id="home_button-next">
+			<a onclick="scrollToIdDiv('aboutme')" class="cta_next_button">
+				{{ 'portfolio.home.continue'|trans }}
 
-          <a onclick="scrollToIdDiv('aboutme')">
-            <button class="cta_next_button">
-              {{ 'portfolio.home.continue'|trans }}
-
-					<div class="icon">
-						<svg height="24" width="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path d="M0 0h24v24H0z" fill="none"></path>
-							<path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
-						</svg>
-					</div>
-				</button>
+				<div class="icon">
+					<svg height="24" width="24" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 0h24v24H0z" fill="none"></path>
+						<path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path>
+					</svg>
+				</div>
 
 			</a>
 		</div>
