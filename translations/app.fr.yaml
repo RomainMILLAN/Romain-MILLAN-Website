@@ -111,7 +111,7 @@ project:
     project_name: ages
     title: Association Générale des Étudiants de Sète
     description: Réalisation d'un site internet pour une association étudiante sétoise.
-    description_long: J'ai eu l'opportunité de réaliser le site internet de l'Association Générale des Étudiants de Sète. Ce site internet a été réalisé avec le framework Symfony. Le but de celui-ci étant de permettre une meillieur communication entre toutes les associations étudiantes sétoise mais aussi permettre de crée un système d'inscription à des événements. Finalement un système d'adhérence à une association est mise en place pour permettre aux étudiants de s'identifier à une association.
+    description_long: J'ai l'opportunité de réaliser le site internet de l'Association Générale des Étudiants de Sète. Ce site internet a été réalisé avec le framework Symfony. Le but de celui-ci étant de permettre une meillieur communication entre toutes les associations étudiantes sétoise mais aussi permettre de crée un système d'inscription à des événements. Finalement un système d'adhérence à une association est mise en place pour permettre aux étudiants de s'identifier à une association.
     status: current
     year: 2023-2024
     skill: symfony
@@ -123,7 +123,7 @@ project:
     project_name: rm-web
     title: Mon propre site internet
     description: Mon portfolio et bien plus encore.
-    description_long: La création de mon site internet se fait de plusieurs manières. Tout d'abord, à travers ce portfolio. Cependant, plusieurs éléments restent cachés ou ne sont accessibles qu'avec des liens, tels que l'emploi du temps.
+    description_long: La mise en place de mon propre site web, avec tous les éléments administratifs qui l'accompagnent.
     status: current
     year: 2022-2024
     skill: symfony
