@@ -65,7 +65,7 @@ project:
   rm-web:
     title: My own website
     description: My portfolio and much more.
-    description_long: There are several ways of creating my website. First, through this portfolio. However, several elements remain hidden or can only be accessed via links, such as the timetable.
+    description_long: The establishment of my own website, along with all the administrative elements that come with it.
   discord_edt_um:
     title: Discord EDT UM
     description: I've created a bot for the Discord application to display the timetables of the University of Montpellier.

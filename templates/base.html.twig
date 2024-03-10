@@ -20,7 +20,7 @@
 		{% endblock %}
 	</head>
 
-	<body {% block body_attribut %} {% endblock %}>
+	<body data-turbo="true" {% block body_attribut %} {% endblock %}>
 		<header>
 			{% block header %}{% endblock %}
 		</header>
@@ -29,7 +29,8 @@
 			{% block main %}{% endblock %}
 		</main>
 
-		<footer {% block footer_attribut %} {% endblock %}> {% block footer %}{% endblock %}
-			</footer>
+		<footer {% block footer_attribut %} {% endblock %}>
+			{% block footer %}{% endblock %}
+		</footer>
 		</body>
 	</html>
