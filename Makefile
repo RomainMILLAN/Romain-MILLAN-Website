@@ -6,8 +6,6 @@
 SF=symfony
 CONSOLE=$(SF) console
 COMPOSER=$(SF) composer
-DOCKER=docker
-DC=$(DOCKER)-compose
 NPM=npm
 PHPCONSOLE=php bin/console
 
@@ -26,19 +24,11 @@ restart: stop start
 
 stop:		## Stop project
 stop: symfony-stop
-# stop: symfony-stop docker-stop
+# stop: symfony-stop
 
 start: 	## Start project
 start: symfony-start asset
-# start: symfony-start docker-start
-
-##
-## —— Docker 🐳 ————————————————————————————————————————————————————————————————
-docker-start:		## Start docker container
-	@$(DC) up -d --remove-orphans
-
-docker-stop:		## Stop docker container
-	@$(DC) stop
+# start: symfony-start
 
 ##
 ## —— Symfony 🧱 ————————————————————————————————————————————————————————————————
@@ -98,8 +88,8 @@ db-reload: db-init db-migrate
 ## —— Tests 📊 ————————————————————————————————————————————————————————————————
 test-init:
 	@rm -rf var/error-screenshots var/browser
-	@$(CONSOLE) doctrine:schema:drop -e test --force -q
-	@$(CONSOLE) doctrine:schema:create -e test -q
+#	@$(CONSOLE) doctrine:schema:drop -e test --force -q
+#	@$(CONSOLE) doctrine:schema:create -e test -q
 #	@$(CONSOLE) doctrine:fixtures:load --no-interaction -e test -q
 	@$(CONSOLE) cache:clear -e test -q
 
@@ -132,9 +122,3 @@ quality: ecs phpstan
 
 ##
 ## —— Configuration 📋 ————————————————————————————————————————————————————————————————
-config:		## Init project configuration
-config: docker-compose.override.yml
-
-docker-compose.override.yml: docker-compose.override.yml.dist
-	@echo "🖍️ Copying docker-compose"
-	@cp docker-compose.override.yml.dist docker-compose.override.yml
