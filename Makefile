@@ -9,6 +9,8 @@ SF_COMPOSER=$(SF) composer
 NPM=npm
 PHPCONSOLE=php bin/console
 
+ENV ?= dev
+
 
 ##
 ## —— Utils ⚙️ ————————————————————————————————————————————————————————————————
@@ -125,28 +127,29 @@ quality: ecs phpstan
 
 ##
 ## —— Deploiement ☁️ ————————————————————————————————————————————————————————————————
-include .env
 server-preprod := "prod"
 server := "prod"
-domain-preprod := "/opt/stacks/preprod-romainmillanwebsite/project"
-domain := "/opt/stacks/prod-romainmillanwebsite/project"
+domain-preprod := "/opt/stacks/preprod-romainmillanwebsite"
+domain := "/opt/stacks/prod-romainmillanwebsite"
 
 prod:	## Deploy on prod
 prod:
 	@echo "🚩 Deploying to preproduction server ($(server))"
-	@ssh -A $(server) 'cd $(domain) && git pull origin main && make deploy'
+	@ssh -A $(server) 'cd $(domain) && make deploy ENV=PROD'
 
 preprod:	## Deploy on preprod
 preprod:
 	@echo "🚩 Deploying to preproduction server ($(server-preprod))"
-	@ssh -A $(server-preprod) 'cd $(domain-preprod) && git pull origin main && make deploy'
+	@ssh -A $(server-preprod) 'cd $(domain-preprod) && make deploy ENV=STAGING'
 
 # Règle pour déployer
 deploy: vendor-build
 	@echo "🗃️ Dump configuration"
-	@composer dump-env $(APP_ENV)
+	@composer dump-env $(ENV)
 	@echo "✨ Install and Compile assets"
-	@$(MAKE) compile
+	@rm -rf public/assets
+	@php bin/console sass:build
+	@php bin/console asset-map:compile
 	@echo "🗑️ Clear cache"
 	@php bin/console cache:clear
 	@echo "🌱 Warmup cache"
