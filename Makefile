@@ -5,7 +5,7 @@
 
 SF=symfony
 CONSOLE=$(SF) console
-COMPOSER=$(SF) composer
+SF_COMPOSER=$(SF) composer
 NPM=npm
 PHPCONSOLE=php bin/console
 
@@ -41,7 +41,10 @@ symfony-stop: 	## Stop symfony server
 ##
 ## —— Dependencies 📁 ————————————————————————————————————————————————————————————————
 vendors:	## Install php dependencies
-	@$(COMPOSER) install
+	@$(SF_COMPOSER) install
+
+vendor-build:	## Install php dependencies
+	@composer install --no-dev --optimize-autoloader
 
 ##
 ## —— Cache 🗃️ ————————————————————————————————————————————————————————————————
@@ -121,4 +124,30 @@ ecs:		## Coding standards
 quality: ecs phpstan
 
 ##
-## —— Configuration 📋 ————————————————————————————————————————————————————————————————
+## —— Deploiement ☁️ ————————————————————————————————————————————————————————————————
+include .env
+server-preprod := "prod"
+server := "prod"
+domain-preprod := "/opt/stacks/preprod-romainmillanwebsite/project"
+domain := "/opt/stacks/prod-romainmillanwebsite/project"
+
+prod:	## Deploy on prod
+prod:
+	@echo "🚩 Deploying to preproduction server ($(server))"
+	@ssh -A $(server) 'cd $(domain) && git pull origin main && make deploy'
+
+preprod:	## Deploy on preprod
+preprod:
+	@echo "🚩 Deploying to preproduction server ($(server-preprod))"
+	@ssh -A $(server-preprod) 'cd $(domain-preprod) && git pull origin main && make deploy'
+
+# Règle pour déployer
+deploy: vendor-build
+	@echo "🗃️ Dump configuration"
+	@composer dump-env $(APP_ENV)
+	@echo "✨ Install and Compile assets"
+	@$(MAKE) compile
+	@echo "🗑️ Clear cache"
+	@php bin/console cache:clear
+	@echo "🌱 Warmup cache"
+	@php bin/console cache:warmup
