@@ -55,18 +55,20 @@ cc:			## Clear cache
 
 ##
 ## —— Assets ✨ ————————————————————————————————————————————————————————————————
-asset:		## Build assets
-	$(CONSOLE) sass:build
+asset: remove-last-assets build		## Build assets
 
 watch:		## Watch assets
 	$(CONSOLE) sass:build --watch
 
 compile:	## Asset Mapper Compile
-compile: remove-last-assets asset
 	$(CONSOLE) asset-map:compile
 
 remove-last-assets:
 	rm -rf public/assets
+
+build:		## Build assets
+	$(CONSOLE) sass:build
+	make compile
 
 ##
 ## —— Database 💿 ————————————————————————————————————————————————————————————————
