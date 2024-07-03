@@ -135,7 +135,7 @@ quality: ecs phpstan
 server-preprod := "prod"
 server := "prod"
 domain-preprod := "/opt/stacks/preprod-romainmillanwebsite"
-domain := "/opt/stacks/prod-romainmillanwebsite"
+domain := "/opt/stacks/prod-romainmillan-website"
 
 prod:	## Deploy on prod
 prod:
