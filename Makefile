@@ -18,7 +18,7 @@ help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
 install:		## Start project
-install: vendors start asset
+install: vendors start proxy asset
 # install: config vendors npm start assets
 
 restart:	## Restart project
@@ -26,11 +26,14 @@ restart: stop start
 
 stop:		## Stop project
 stop: symfony-stop
-# stop: symfony-stop
+	@$(SF) proxy:stop
 
 start: 	## Start project
 start: symfony-start asset
-# start: symfony-start
+	@$(SF) proxy:start
+
+proxy:
+	@$(SF) proxy:domain:attach romainmillan
 
 ##
 ## —— Symfony 🧱 ————————————————————————————————————————————————————————————————
