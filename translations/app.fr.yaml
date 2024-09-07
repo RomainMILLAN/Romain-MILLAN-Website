@@ -66,10 +66,10 @@ portfolio:
     3:
       title: BUT Informatique
       title_extended: Option RACDV
-      date: Septembre 2021 - Ajourd'hui
+      date: Septembre 2021 - Septembre 2024
       city: Sète, France
       location: IUT Montpellier/Sète, France
-      current: true
+      current: false
   experience:
     1:
       title: Préparateur de commande
@@ -94,6 +94,13 @@ portfolio:
       title: Alternant en Développement
       title_extended: Backend
       date: Septembre 2023 - Aout 2024
+      city: Montpellier, France
+      location: Spiriit, France
+      current: false
+    5:
+      title: Développeur Symfony
+      title_extended: Backend
+      date: Septembre 2024 - Aujourd'hui
       city: Montpellier, France
       location: Spiriit, France
       current: true
