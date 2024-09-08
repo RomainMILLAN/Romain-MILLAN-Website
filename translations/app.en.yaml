@@ -7,14 +7,14 @@ portfolio:
       fomations_experiences: Educations and experiences
       contact: Contact
   home:
-    status: ~ Student & Developer
+    status: ~ Developer
     continue: Continue
   aboutme:
     title: Who am I?
     description: 20 years old computer science student, currently studying for a computer science degree.
     paragraph_one: My career path includes work-study experience in a web agency, where I combine my academic knowledge with practical applications.
     paragraph_two: Passionate about technology, I have a wide range of technologies.
-    download_cv: Download my resume
+    download_cv: Download my french resume
   projects:
     title: My projects
     description: Here are just a few of the projects I've completed during my years as a developer.
@@ -44,8 +44,8 @@ portfolio:
       title_extended: STI2D - SIN
       date: September 2018 - June 2021
     3:
-      title_extended: Option RACDV
-      date: September 2021 - Now
+      title_extended: RACDV Option
+      date: September 2021 - September 2024
   experience:
     1:
       title: Order picker
@@ -55,8 +55,13 @@ portfolio:
       date: July 2022 - August 2022
     3:
       title: Development Internship
-      title_extended: Backend
       date: April 2023 - July 2023
+    4:
+      title: Work-study student in the development field
+      date: September 2023 - August 2024
+    5:
+      title: Symfony Developer
+      date: September 2024 - Now
 
 project:
   ages:
