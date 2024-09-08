@@ -1,0 +1,84 @@
+/* Animation du tracé du chemin */
+@keyframes drawPath {
+  0% {
+    stroke-dasharray: 0, 1000;
+  }
+  100% {
+    stroke-dasharray: 1000, 0;
+  }
+}
+
+/* Animation du remplissage du chemin */
+@keyframes fillPath {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: white;
+  }
+}
+
+/* Animation de rebond des cercles */
+@keyframes bounceCircle {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  70% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animation de remplissage des cercles */
+@keyframes fillCircle {
+  0% {
+    stroke: none;
+    fill: transparent;
+  }
+  100% {
+    stroke: none;
+    fill: #FACD23;
+  }
+}
+
+/* Style général pour les chemins */
+.logo-path {
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+}
+
+/* Style général pour les cercles */
+.logo-circle {
+  stroke: none;
+  fill: #FACD23; /* Couleur par défaut des cercles */
+}
+
+.rm-logo:hover .logo-circle {
+  animation: fillCircle 0.6s ease-in-out forwards, bounceCircle 0.6s ease-in-out forwards;
+}
+
+.rm-logo:hover .logo-circle:nth-of-type(2) {
+  animation: fillCircle 0.6s ease-in-out forwards, bounceCircle 0.6s 0.3s ease-in-out forwards;
+}
+
+/* Animation avec la classe .stroke-animation */
+.stroke-animation .logo-path {
+  animation: drawPath 4s ease-in-out forwards;
+}
+
+/* Animation avec la classe .fill-animation */
+.fill-animation .logo-path {
+  stroke: none;
+  animation: fillPath 4s ease-in-out forwards;
+}
+
+/* Style filled */
+.filled .logo-path {
+  fill: white;
+}
