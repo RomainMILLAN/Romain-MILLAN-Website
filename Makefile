@@ -149,7 +149,7 @@ preprod:
 
 # Règle pour déployer
 deploy: vendor-build
-	@echo "🗃️ Dump configuration"
+	@echo "🗃️ Dump configuration for $(ENV) environment"
 	@composer dump-env $(ENV)
 	@echo "✨ Install and Compile assets"
 	@rm -rf public/assets
