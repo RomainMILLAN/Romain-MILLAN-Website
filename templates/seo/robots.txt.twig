@@ -1,0 +1,37 @@
+User-agent : *
+
+Disallow: /composer.json
+Disallow: /composer.lock
+Disallow: /LICENSE.txt
+Disallow: /package.json
+Disallow: /*?
+Disallow: /*.php$
+
+# Directories
+Disallow: /app/
+Disallow: /assets/
+Disallow: /bin/
+Disallow: /var/
+Disallow: /vendor/
+
+# CVS, SVN directory and dump files
+Disallow: /*.CVS
+Disallow: /*.Zip$
+Disallow: /*.Svn$
+Disallow: /*.Idea$
+Disallow: /*.VsCode$
+Disallow: /*.Sql$
+Disallow: /*.Tgz$
+
+{% if not disallowAll %}
+{% for route, suffix in disallowedRoutes -%}
+Disallow : {{ path(route) }}{{ suffix }}
+{% endfor -%}
+{% for path in disallowedPaths -%}
+Disallow : {{ path }}
+{% endfor -%}
+{% else %}
+Disallow : *
+{% endif %}
+
+Sitemap: {{ url('app_seo_sitemap_index') }}
