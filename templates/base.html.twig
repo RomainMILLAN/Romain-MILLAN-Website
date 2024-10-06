@@ -7,21 +7,33 @@
 			Romain MILLAN
 			{% block title %}{% endblock %}
 		</title>
+		<meta name="description" content="Portfolio de Romain MILLAN">
+		<meta name="og:title" property="og:title" content="Romain MILLAN">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://www.romainmillan.fr/">
 
-		<link rel="shortcut icon" href="{{ asset('static/img/logo/icon.svg') }}" type="image/x-icon">
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="turbo-refresh-method" content="morph">
+		<meta name="turbo-refresh-scroll" content="preserve">
+		<meta name="turbo-prefetch" content="true">
+		<meta name="view-transition" content="same-origin">
+		<link rel="shortcut icon" href="{{ asset('static/img/logo/icon.svg') }}" type="image/x-icon">
+		<link rel="mask-icon" href="{{ asset('static/img/logo/icon.svg') }}" color="#000000">
+
 		<meta name="turbo-prefetch" content="true">
 
 		{% block stylesheets %}
 			<link rel="stylesheet" href="{{ asset('styles/app.scss') }}" data-turbo-track="reload">
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/solid.css">
+			{{ ux_controller_link_tags() }}
 		{% endblock %}
 	</head>
 
-	<body data-turbo="true" {% block body_attribut %} {% endblock %}>
-		<header>
+	<body data-turbo="true" {% block body_attribut %} {% endblock %}
+	>
+		<header data-controller="hello">
 			{% block header %}{% endblock %}
 		</header>
 

@@ -6,7 +6,7 @@ const app = startStimulusApp();
 // app.register('some_controller_name', SomeImportedController);
 
 if (Turbo) {
-    console.log('Turbo is enabled');
+    console.log('✅ Turbo is enabled');
 } else {
-    console.log('Turbo is not enabled');
+    console.log('❌ Turbo is not enabled');
 }

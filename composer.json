@@ -1,5 +1,21 @@
 {
     "type": "project",
+    "name": "romainmillan/website",
+    "description": "Website (portfolio) of Romain Millan",
+    "version": "1.0.0",
+    "keywords": ["symfony", "website", "portfolio"],
+    "homepage": "https://romainmillan.fr/",
+    "authors": [
+        {
+            "name": "Romain MILLAN",
+            "email": "contact@romainmillan.fr",
+            "homepage": "https://romainmillan.fr",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "contact@romainmillan.fr"
+    },
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
@@ -34,7 +50,7 @@
         "symfony/runtime": "7.1.*",
         "symfony/security-bundle": "7.1.*",
         "symfony/serializer": "7.1.*",
-        "symfony/stimulus-bundle": "^2.15",
+        "symfony/stimulus-bundle": "^2.20",
         "symfony/string": "7.1.*",
         "symfony/translation": "7.1.*",
         "symfony/twig-bundle": "7.1.*",
