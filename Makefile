@@ -132,20 +132,12 @@ quality: ecs phpstan
 
 ##
 ## —— Deploiement ☁️ ————————————————————————————————————————————————————————————————
-server-preprod := "prod"
 server := "prod"
-domain-preprod := "/opt/stacks/preprod-romainmillanwebsite"
-domain := "/opt/stacks/prod-romainmillan-website"
+domain := "/opt/stacks/prod-romainmillan-website/project"
 
 prod:	## Deploy on prod
-prod:
-	@echo "🚩 Deploying to preproduction server ($(server))"
+	@echo "🚩 Deploying to production server ($(server))"
 	@ssh -A $(server) 'cd $(domain) && make deploy ENV=PROD'
-
-preprod:	## Deploy on preprod
-preprod:
-	@echo "🚩 Deploying to preproduction server ($(server-preprod))"
-	@ssh -A $(server-preprod) 'cd $(domain-preprod) && make deploy ENV=STAGING'
 
 # Règle pour déployer
 deploy: vendor-build
