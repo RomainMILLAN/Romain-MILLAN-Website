@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\SEO;
+namespace App\AppContext\Infrastructure\Symfony\Controller\SEO;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
-    path: '/sitemap-projects.xml',
-    name: RouteCollection::SITEMAP_PROJECTS,
+    path: '/sitemap-index.xml',
+    name: RouteCollection::SITEMAP_INDEX->value,
     format: 'xml',
 )]
-class SitemapProjectsController extends AbstractController
+class SitemapIndexController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('seo/sitemap/projects.xml.twig');
+        return $this->render('seo/sitemap/index.xml.twig');
     }
 }

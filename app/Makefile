@@ -119,9 +119,6 @@ coverage: test-init
 
 ##
 ## —— Code Quality ✅ ————————————————————————————————————————————————————————————————
-psalm:		## Run psalm
-	@symfony php vendor/bin/psalm $(ARGS) --no-cache
-
 phpstan:	## Run phpstan
 	@symfony php vendor/bin/phpstan analyse
 

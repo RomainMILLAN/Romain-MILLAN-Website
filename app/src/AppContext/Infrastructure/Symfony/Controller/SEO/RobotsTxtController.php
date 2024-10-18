@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\SEO;
+namespace App\AppContext\Infrastructure\Symfony\Controller\SEO;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
     path: '/robots.txt',
-    name: RouteCollection::ROBOTS_TXT,
+    name: RouteCollection::ROBOTS_TXT->value,
     format: 'txt',
 )]
 class RobotsTxtController extends AbstractController

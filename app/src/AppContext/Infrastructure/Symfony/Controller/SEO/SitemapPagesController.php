@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\SEO;
+namespace App\AppContext\Infrastructure\Symfony\Controller\SEO;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
     path: '/sitemap-pages.xml',
-    name: RouteCollection::SITEMAP_PAGES,
+    name: RouteCollection::SITEMAP_PAGES->value,
     format: 'xml',
 )]
 class SitemapPagesController extends AbstractController
@@ -18,8 +18,8 @@ class SitemapPagesController extends AbstractController
     public function __invoke(): Response
     {
         $pageRoutes = [
-            \App\Controller\Portfolio\RouteCollection::HOMEPAGE->prefixed(),
-            \App\Controller\Portfolio\RouteCollection::PORTFOLIO->prefixed(),
+            \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::HOMEPAGE->prefixed(),
+            \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::PORTFOLIO->prefixed(),
         ];
 
         return $this->render('seo/sitemap/pages.xml.twig', [

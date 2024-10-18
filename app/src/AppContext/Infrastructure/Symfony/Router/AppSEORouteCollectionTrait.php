@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\SEO;
+namespace App\AppContext\Infrastructure\Symfony\Router;
 
 trait AppSEORouteCollectionTrait
 {

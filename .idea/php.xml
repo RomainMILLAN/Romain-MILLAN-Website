@@ -277,6 +277,7 @@
       <path value="$PROJECT_DIR$/app/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/ux-turbo" />
+      <path value="$PROJECT_DIR$/app/vendor/symplify/easy-coding-standard" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />

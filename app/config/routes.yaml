@@ -1,5 +1,5 @@
 app:
-    resource: '../src/Controller/Portfolio/**/*'
+    resource: '../src/FrontContext/Infrastructure/Symfony/Controller/**/*'
     type: attribute
     name_prefix: app_
     prefix: /{_locale}
@@ -11,7 +11,7 @@ app:
         expose: true
 
 seo:
-    resource: '../src/Controller/SEO/**/*'
+    resource: '../src/AppContext/Infrastructure/Symfony/Controller/SEO/**/*'
     type: attribute
     name_prefix: app_seo_
     options:
@@ -19,4 +19,4 @@ seo:
 
 redirect:
     path: /
-    controller: App\Controller\RedirectController::redirectToLocale
+    controller: App\AppContext\Infrastructure\Symfony\Controller\RedirectController::redirectToLocale

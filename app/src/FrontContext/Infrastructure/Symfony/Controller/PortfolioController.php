@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Controller\Portfolio;
+namespace App\FrontContext\Infrastructure\Symfony\Controller;
 
-use App\Controller\Portfolio\RouteCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;

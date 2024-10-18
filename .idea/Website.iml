@@ -269,6 +269,7 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/web-profiler-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfonycasts/sass-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symplify/easy-coding-standard" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/twig/extra-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/twig/twig" />
