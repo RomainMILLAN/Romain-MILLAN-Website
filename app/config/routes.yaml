@@ -1,0 +1,22 @@
+app:
+    resource: '../src/FrontContext/Infrastructure/Symfony/Controller/**/*'
+    type: attribute
+    name_prefix: app_
+    prefix: /{_locale}
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        _locales: '%locale%'
+    options:
+        expose: true
+
+seo:
+    resource: '../src/AppContext/Infrastructure/Symfony/Controller/SEO/**/*'
+    type: attribute
+    name_prefix: app_seo_
+    options:
+        expose: true
+
+redirect:
+    path: /
+    controller: App\AppContext\Infrastructure\Symfony\Controller\RedirectController::redirectToLocale
