@@ -14,7 +14,7 @@
             {% if "portfolio.projects_list.#{ i }"|trans != "portfolio.projects_list.#{ i }" %}
                 {% set project_name = "portfolio.projects_list.#{ i }"|trans %}
 
-                {% include 'portfolio/components/_project_card.html.twig' with {
+                {% include '_project_card.html.twig' with {
                     'project_name': "project.#{ project_name }.project_name"|trans,
                     'project_title': "project.#{ project_name }.title"|trans,
                     'project_description': "project.#{ project_name }.description"|trans,
