@@ -2,7 +2,7 @@
     "type": "project",
     "name": "romainmillan/website",
     "description": "Website (portfolio) of Romain Millan",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "keywords": ["symfony", "website", "portfolio"],
     "homepage": "https://romainmillan.fr/",
     "authors": [
