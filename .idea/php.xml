@@ -10,6 +10,11 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpCSFixer">
+    <phpcsfixer_settings>
+      <PhpCSFixerConfiguration tool_path="$PROJECT_DIR$/app/vendor/bin/php-cs-fixer" />
+    </phpcsfixer_settings>
+  </component>
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/expression-language" />
@@ -278,6 +283,22 @@
       <path value="$PROJECT_DIR$/app/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/ux-turbo" />
       <path value="$PROJECT_DIR$/app/vendor/symplify/easy-coding-standard" />
+      <path value="$PROJECT_DIR$/app/vendor/clue/ndjson-react" />
+      <path value="$PROJECT_DIR$/app/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/app/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/app/vendor/fidry/cpu-core-counter" />
+      <path value="$PROJECT_DIR$/app/vendor/react/child-process" />
+      <path value="$PROJECT_DIR$/app/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/app/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/app/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/app/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/app/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/app/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/app/vendor/symplify/rule-doc-generator-contracts" />
+      <path value="$PROJECT_DIR$/app/vendor/symplify/coding-standard" />
+      <path value="$PROJECT_DIR$/app/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/app/vendor/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/app/vendor/symplify/phpstan-rules" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />

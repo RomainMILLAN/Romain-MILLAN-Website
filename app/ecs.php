@@ -19,7 +19,7 @@ return static function (ECSConfig $ecsConfig): void {
         __DIR__ . '/public/index.php',
     ]);
 
-    $ecsConfig->import(__DIR__ . '/.ecs/*.php');
+    // $ecsConfig->import(__DIR__ . '/.ecs/*.php');
 
     $ecsConfig->dynamicSets(['@Symfony']);
 

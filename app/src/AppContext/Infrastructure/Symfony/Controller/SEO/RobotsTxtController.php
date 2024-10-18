@@ -23,7 +23,7 @@ class RobotsTxtController extends AbstractController
 
         $disallowedPaths = [];
 
-        $disallowAll = \count($disallowedRoutes) === 1 && '*' === ($disallowedRoutes[0] ?? []);
+        $disallowAll = \count($disallowedRoutes) === 1 && $disallowedRoutes[0] === '*';
 
         return $this->render('seo/robots.txt.twig', [
             'disallowedRoutes' => $disallowedRoutes,

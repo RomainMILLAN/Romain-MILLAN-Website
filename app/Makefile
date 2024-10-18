@@ -5,12 +5,9 @@
 
 SF=symfony
 CONSOLE=$(SF) console
-SF_COMPOSER=$(SF) composer
+COMPOSER=$(SF) composer
 NPM=npm
-PHPCONSOLE=php bin/console
-
 ENV ?= dev
-
 
 ##
 ## —— Utils ⚙️ ————————————————————————————————————————————————————————————————
@@ -46,7 +43,7 @@ symfony-stop: 	## Stop symfony server
 ##
 ## —— Dependencies 📁 ————————————————————————————————————————————————————————————————
 vendors:	## Install php dependencies
-	@$(SF_COMPOSER) install
+	@$(COMPOSER) install
 
 vendor-build:	## Install php dependencies
 	@composer install --no-dev --optimize-autoloader
@@ -72,51 +69,6 @@ remove-last-assets:
 build:		## Build assets
 	$(CONSOLE) sass:build
 	make compile
-
-##
-## —— Database 💿 ————————————————————————————————————————————————————————————————
-db-init: 	## Init project's database
-	$(CONSOLE) d:d:drop -n --force --if-exists
-	$(CONSOLE) d:d:create -q
-
-db-diff:   	## Creates doctrine migration
-	$(CONSOLE) doc:mi:diff
-
-db-migrate:	## Runs doctrine migration
-	$(CONSOLE) d:m:migrate -n
-
-db-fixtures:	## Load fixtures
-	$(CONSOLE) doctrine:fixtures:load -n --append
-
-db-reload:	## Reloads project's data
-ifeq (, $(shell which symfony))
-db-reload: CONSOLE=php bin/console
-endif
-db-reload: db-init db-migrate
-
-##
-## —— Tests 📊 ————————————————————————————————————————————————————————————————
-test-init:
-	@rm -rf var/error-screenshots var/browser
-#	@$(CONSOLE) doctrine:schema:drop -e test --force -q
-#	@$(CONSOLE) doctrine:schema:create -e test -q
-#	@$(CONSOLE) doctrine:fixtures:load --no-interaction -e test -q
-	@$(CONSOLE) cache:clear -e test -q
-
-test:		## Execute tests
-ifndef FILTER
-test: test-init
-endif
-	@symfony php vendor/bin/phpunit --filter=$(or $(FILTER), '.')
-
-infection:
-	@XDEBUG_MODE=coverage symfony php vendor/bin/infection --min-msi=100 --min-covered-msi=100 --threads=8
-
-coverage:	## Execute coverage tests
-coverage: test-init
-	@XDEBUG_MODE=coverage symfony php bin/phpunit --coverage-html var/coverage/html --coverage-xml var/coverage/xml/ --log-junit=var/coverage/junit.xml
-	@XDEBUG_MODE=coverage vendor/bin/infection --threads=$(shell nproc) --skip-initial-tests $(ARGS) --coverage=var/coverage --skip-initial-tests
-
 ##
 ## —— Code Quality ✅ ————————————————————————————————————————————————————————————————
 phpstan:	## Run phpstan
@@ -129,22 +81,3 @@ quality: ecs phpstan
 
 ##
 ## —— Deploiement ☁️ ————————————————————————————————————————————————————————————————
-server := "prod"
-domain := "/opt/stacks/prod-romainmillan-website/project"
-
-prod:	## Deploy on prod
-	@echo "🚩 Deploying to production server ($(server))"
-	@ssh -A $(server) 'cd $(domain) && make deploy ENV=PROD'
-
-# Règle pour déployer
-deploy: vendor-build
-	@echo "🗃️ Dump configuration for $(ENV) environment"
-	@composer dump-env $(ENV)
-	@echo "✨ Install and Compile assets"
-	@rm -rf public/assets
-	@php bin/console sass:build
-	@php bin/console asset-map:compile
-	@echo "🗑️ Clear cache"
-	@php bin/console cache:clear
-	@echo "🌱 Warmup cache"
-	@php bin/console cache:warmup
