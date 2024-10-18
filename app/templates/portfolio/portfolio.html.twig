@@ -1,23 +1,23 @@
 {% trans_default_domain 'app' %}
 
-{% extends '../base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title '- Portfolio' %}
 
 {% block header %}
-	{% include 'components/header.html.twig' %}
+	{% include 'portfolio/components/header.html.twig' %}
 {% endblock %}
 
 {% block main %}
 	<div class="portfolio--container-main">
-		{% include 'components/home.html.twig' %}
-		{% include 'components/aboutme.html.twig' %}
-		{% include 'components/projects.html.twig' %}
+		{% include 'portfolio/components/home.html.twig' %}
+		{% include 'portfolio/components/aboutme.html.twig' %}
+		{% include 'portfolio/components/projects.html.twig' %}
 
-		{% include 'components/mobile_formation.html.twig' %}
-		{% include 'components/mobile_experience.html.twig' %}
-		{% include 'components/desktop_fe.html.twig' %}
-		{% include 'components/contact.html.twig' %}
+		{% include 'portfolio/components/mobile_formation.html.twig' %}
+		{% include 'portfolio/components/mobile_experience.html.twig' %}
+		{% include 'portfolio/components/desktop_fe.html.twig' %}
+		{% include 'portfolio/components/contact.html.twig' %}
 
 		<script src="{{ asset('static/js/scrollTo.js') }}"></script>
 	</div>
