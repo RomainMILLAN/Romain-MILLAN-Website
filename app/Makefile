@@ -80,3 +80,16 @@ quality: ecs phpstan
 
 ##
 ## —— Deploiement ☁️ ————————————————————————————————————————————————————————————————
+COMPOSER_FILE=./composer.json
+PACKAGE_FILE=./package.json
+ENV_FILE=./.env
+
+bump:
+	@if [ -z "$(VERSION)" ]; then \
+		echo "Erreur : Vous devez fournir une nouvelle version avec VERSION=x.x.x"; \
+		exit 1; \
+	fi
+	@echo "Mise à jour de la version dans composer.json, package.json et .env vers $(VERSION)"
+	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(COMPOSER_FILE)
+	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(PACKAGE_FILE)
+	@sed -i '' 's/^VERSION=.*/VERSION=$(VERSION)/' $(ENV_FILE)
