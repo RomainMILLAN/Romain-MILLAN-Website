@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {% for i in 100..1 %}
-        {% trans_default_domain 'app' %}
+        {% trans_default_domain 'front' %}
 
         {% if "portfolio.projects_list.#{ i }"|trans != "portfolio.projects_list.#{ i }" %}
             {% set project_name = "portfolio.projects_list.#{ i }"|trans %}
