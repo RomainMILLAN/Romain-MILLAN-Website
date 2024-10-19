@@ -15,6 +15,24 @@ class SignaturePhoneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('type', TelType::class, [
+                'label' => 'Type de numéro de téléphone',
+                'required' => true,
+                'data' => 'Mobile',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length([
+                        'min' => 10,
+                        'max' => 16,
+                    ]),
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+            ])
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Numéro de téléphone',
                 'required' => true,

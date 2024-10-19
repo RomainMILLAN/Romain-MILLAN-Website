@@ -69,11 +69,11 @@
                                                     rowspan="1" data-reply="3" colspan="1" ddirection="3">
                                                     <div style="white-space: normal;">
                                                         {% for phone in signature.phones %}
-                                                            <strong>Mobile</strong> / {{ phone.phoneNumber }}<br>
+                                                            <strong>{{ phone.type }}</strong> / {{ phone.phoneNumber }}<br>
                                                         {% endfor %}
 
                                                         {% for email in signature.emails %}
-                                                            <strong>Email</strong> / <a style="color: black;" href="mailto:{{ email.email }}">{{ email.email }}</a><br>
+                                                            <strong>{{ email.type }}</strong> / <a style="color: black;" href="mailto:{{ email.email }}">{{ email.email }}</a><br>
                                                         {% endfor %}
                                                     </div>
                                                 </td>

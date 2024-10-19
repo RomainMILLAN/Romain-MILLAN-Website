@@ -15,6 +15,24 @@ class SignatureEmailType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('type', TextType::class, [
+                'label' => 'Type d\'email',
+                'required' => true,
+                'data' => 'Email',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length([
+                        'min' => 2,
+                        'max' => 255,
+                    ]),
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+                'row_attr' => [
+                    'class' => 'form-group mb-3',
+                ],
+            ])
             ->add('email', TextType::class, [
                 'label' => 'Email',
                 'required' => true,
