@@ -22,8 +22,8 @@ class SignaturePhoneType extends AbstractType
                 'constraints' => [
                     new NotBlank(),
                     new Length([
-                        'min' => 10,
-                        'max' => 16,
+                        'min' => 2,
+                        'max' => 255,
                     ]),
                 ],
                 'attr' => [
