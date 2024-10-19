@@ -1,7 +1,14 @@
-app:
+seo:
+    resource: '../src/AppContext/Infrastructure/Symfony/Controller/SEO/**/*'
+    type: attribute
+    name_prefix: app_seo_
+    options:
+        expose: true
+
+front:
     resource: '../src/FrontContext/Infrastructure/Symfony/Controller/**/*'
     type: attribute
-    name_prefix: app_
+    name_prefix: app_front_
     prefix: /{_locale}
     requirements:
         _locale: '%app_locales%'
@@ -10,10 +17,10 @@ app:
     options:
         expose: true
 
-seo:
-    resource: '../src/AppContext/Infrastructure/Symfony/Controller/SEO/**/*'
+signature:
+    resource: '../src/SignatureContext/Infrastructure/Symfony/Controller/**/*'
     type: attribute
-    name_prefix: app_seo_
+    name_prefix: app_signature_
     options:
         expose: true
 

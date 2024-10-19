@@ -32,8 +32,8 @@
 			{{ encore_entry_script_tags('front', null, 'front') }}
 			{{ encore_entry_script_tags('app', null, 'app') }}
 		{% endblock %}
-		<link rel="shortcut icon" href="{{ asset('static/img/logo/icon.svg', 'app') }}" type="image/x-icon">
-		<link rel="mask-icon" href="{{ asset('static/img/logo/icon.svg', 'app') }}" color="#000000">
+		<link rel="shortcut icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" type="image/x-icon">
+		<link rel="mask-icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" color="#000000">
 	</head>
 
 	<body data-turbo="true" {% block body_attribut %} {% endblock %}

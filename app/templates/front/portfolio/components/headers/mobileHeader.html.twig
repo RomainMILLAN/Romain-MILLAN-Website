@@ -4,7 +4,7 @@
 	<div id="nav-container">
 		<div class="nav_bg"></div>
 		<div class="nav-container_header">
-            <a class="nav_logo" href="{{path('app_portfolio')}}">
+            <a class="nav_logo" href="{{path('app_front_portfolio')}}">
                 <img src="{{asset('build/front/static/img/logo/icon.svg', 'front')}}" alt="Icone RomainMILLAN"/>
             </a>
             <div class="nav_button" tabindex="110">
@@ -15,23 +15,23 @@
         </div>
 		<div id="nav-content" tabindex="0">
 			<ul>
-				<a href="{{path('app_portfolio')}}" class="nav-content-header">
+				<a href="{{path('app_front_portfolio')}}" class="nav-content-header">
 					<img src="{{asset('build/front/static/img/logo/romainmillan.svg', 'front')}}" alt="Romain MILLAN"/>
 				</a>
 				<li>
-					<a class="a-nav" href="{{path('app_portfolio')}}#home">{{ 'portfolio.header.nav.home'|trans }}</a>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#home">{{ 'portfolio.header.nav.home'|trans }}</a>
 				</li>
 				<li>
-					<a class="a-nav" href="{{path('app_portfolio')}}#aboutme">{{ 'portfolio.header.nav.aboutme'|trans }}</a>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#aboutme">{{ 'portfolio.header.nav.aboutme'|trans }}</a>
 				</li>
 				<li>
-					<a class="a-nav" href="{{path('app_portfolio')}}#projects">{{ 'portfolio.header.nav.projects'|trans }}</a>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#projects">{{ 'portfolio.header.nav.projects'|trans }}</a>
 				</li>
 				<li>
-					<a class="a-nav" href="{{path('app_portfolio')}}#mf">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</a>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#mf">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</a>
 				</li>
 				<li>
-					<a class="a-nav" href="{{path('app_portfolio')}}#contact">{{ 'portfolio.header.nav.contact'|trans }}</a>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#contact">{{ 'portfolio.header.nav.contact'|trans }}</a>
 				</li>
 				<li class="nav_small">
 					<p>© 2023-{{ 'now' | date('Y') }} <a href="https://romainmillan.fr/">https://romainmillan.fr/</a>, {{ 'portfolio.footer.all_right_reserved'|trans }}</p>

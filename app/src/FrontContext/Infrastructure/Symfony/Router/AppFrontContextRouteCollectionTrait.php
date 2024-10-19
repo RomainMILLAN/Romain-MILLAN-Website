@@ -8,6 +8,6 @@ trait AppFrontContextRouteCollectionTrait
 {
     public function prefixed(): string
     {
-        return 'app_' . $this->value;
+        return 'app_front_' . $this->value;
     }
 }
