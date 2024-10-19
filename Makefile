@@ -76,3 +76,7 @@ app-env.local:
 ##
 ## —— Deploiement ☁️ ————————————————————————————————————————————————————————————————
 ## Only for server(s) deployement
+
+prod: ## Deploy to production server
+	@echo "🚩 Deploying to server ($(SERVER))"
+	@ssh -A $(SERVER) 'cd $(DOMAIN) && git pull origin main && make deploy'
