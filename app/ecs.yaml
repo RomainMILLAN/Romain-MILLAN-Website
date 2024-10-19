@@ -1,0 +1,9 @@
+parameters:
+  sets:
+    - 'psr12'
+    - 'simplify'
+    - 'clean-code'
+    - 'common'
+  paths:
+    - src
+    - tests

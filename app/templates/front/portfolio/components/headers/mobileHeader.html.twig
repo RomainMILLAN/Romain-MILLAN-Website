@@ -1,0 +1,43 @@
+{% trans_default_domain 'front' %}
+
+<section class="mobile_header">
+	<div id="nav-container">
+		<div class="nav_bg"></div>
+		<div class="nav-container_header">
+            <a class="nav_logo" href="{{path('app_front_portfolio')}}">
+                <img src="{{asset('build/front/static/img/logo/icon.svg', 'front')}}" alt="Icone RomainMILLAN"/>
+            </a>
+            <div class="nav_button" tabindex="110">
+                <span class="nav_icon-bar"></span>
+                <span class="nav_icon-bar"></span>
+                <span class="nav_icon-bar"></span>
+            </div>
+        </div>
+		<div id="nav-content" tabindex="0">
+			<ul>
+				<a href="{{path('app_front_portfolio')}}" class="nav-content-header">
+					<img src="{{asset('build/front/static/img/logo/romainmillan.svg', 'front')}}" alt="Romain MILLAN"/>
+				</a>
+				<li>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#home">{{ 'portfolio.header.nav.home'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#aboutme">{{ 'portfolio.header.nav.aboutme'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#projects">{{ 'portfolio.header.nav.projects'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#mf">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</a>
+				</li>
+				<li>
+					<a class="a-nav" href="{{path('app_front_portfolio')}}#contact">{{ 'portfolio.header.nav.contact'|trans }}</a>
+				</li>
+				<li class="nav_small">
+					<p>© 2023-{{ 'now' | date('Y') }} <a href="https://romainmillan.fr/">https://romainmillan.fr/</a>, {{ 'portfolio.footer.all_right_reserved'|trans }}</p>
+					<p>{{ 'portfolio.footer.no_reproduce'|trans }}</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>

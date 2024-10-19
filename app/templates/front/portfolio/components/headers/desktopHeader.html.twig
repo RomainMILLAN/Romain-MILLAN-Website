@@ -1,0 +1,24 @@
+
+{% trans_default_domain 'front' %}
+
+<div class="desktop_header">
+    <div class="desktop_nav-logo">
+        {# <h1>{{ 'global.title'|trans }}</h1> #}
+        <a href="{{ path('app_front_portfolio') }}">
+            <img src="{{ asset('build/front/static/img/logo/romainmillan.svg', 'front') }}" alt="Logo de Romain MILLAN"/>
+        </a>
+    </div>
+    <nav>
+      <li onclick="scrollToIdDiv('home')">{{ 'portfolio.header.nav.home'|trans }}</li>
+      <li onclick="scrollToIdDiv('aboutme')">{{ 'portfolio.header.nav.aboutme'|trans }}</li>
+      <li onclick="scrollToIdDiv('projects')">{{ 'portfolio.header.nav.projects'|trans }}</li>
+      <li onclick="scrollToIdDiv('fe')">{{ 'portfolio.header.nav.fomations_experiences'|trans }}</li>
+      <li onclick="scrollToIdDiv('contact')">{{ 'portfolio.header.nav.contact'|trans }}</li>
+
+      {% if app.request.locale == 'fr' %}
+        <li><a href="{{ path('app_front_portfolio', {'_locale': 'en'}) }}"><img src="{{ asset('build/front/static/img/utils/en.svg', 'front') }}" alt="Icone english"></a></li>
+      {% else %}
+        <li><a href="{{ path('app_front_portfolio', {'_locale': 'fr'}) }}"><img src="{{ asset('build/front/static/img/utils/fr.svg', 'front') }}" alt="Icone french"></a></li>
+      {% endif %}
+    </nav>
+</div>

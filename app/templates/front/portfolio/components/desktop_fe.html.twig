@@ -1,0 +1,25 @@
+
+{% trans_default_domain 'front' %}
+
+<div class="fe_desktop desktop_block" id="fe">
+    <hr class="separed_tabs">
+
+    <div class="portfolio_title">
+        <h2>{{ 'portfolio.formations_experiences.title'|trans }}</h2>
+        <p>{{ 'portfolio.formations_experiences.description'|trans }}</p>
+    </div>
+
+    <div class="fe_desktop_content">
+
+        <div class="formations">
+            {% include('front/portfolio/components/_formation_list.html.twig') %}
+        </div>
+
+        <img src="{{ asset('build/front/static/img/fe/fe_arrow.svg', 'front') }}" alt="Flêche haute"/>
+
+        <div class="experiences">
+            {% include('front/portfolio/components/_experience_list.html.twig') %}
+        </div>
+
+    </div>
+</div>

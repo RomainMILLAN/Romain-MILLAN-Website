@@ -1,0 +1,73 @@
+{% trans_default_domain 'front' %}
+
+{% extends 'base.html.twig' %}
+
+{% block title '- '~project_title %}
+
+{% block header %}
+	{% include 'front/portfolio/components/header.html.twig' %}
+{% endblock %}
+
+{% block body_attribut %}
+	class="bg_black"
+{% endblock %}
+
+{% block main %}
+
+	<div class="portfolio--container-main">
+
+		<div class="project--container">
+
+			<div class="mobile project-page_title_mobile"></div>
+			<div class="project-page_title">
+
+				<h2 style="font-weight: bold; font-size: 1.5rem">{{ project_title }}</h2>
+
+				{% set description = "project.#{ project_name }.description_long"|trans %}
+				{% if description == "project.#{ project_name }.description_long" %}
+					{% set description = "project.#{ project_name }.description"|trans %}
+				{% endif %}
+				<p>{{ description }}</p>
+
+				<div class="project-page_links">
+
+					{% set githubLink = "project.#{ project_name }.links.github"|trans %}
+					{% if githubLink != "project.#{ project_name }.links.github" %}
+						<a href="{{ githubLink }}" target="_blank">
+							<img src="{{ asset('build/front/static/img/project_page/github.svg', 'front') }}" alt="Icone github">
+						</a>
+					{% endif %}
+
+					{% set websiteLink = "project.#{ project_name }.links.website"|trans %}
+					{% if websiteLink != "project.#{ project_name }.links.website" %}
+						<a href="{{ websiteLink }}" target="_blank">
+							<img src="{{ asset('build/front/static/img/project_page/website.svg', 'front') }}" alt="Icone website">
+						</a>
+					{% endif %}
+
+				</div>
+
+			</div>
+
+			<div class="project-page_images">
+				{% for i in 1..10 %}
+					{% set image_one_link = "project.#{ project_name }.images.#{ i }.link"|trans %}
+					{% if image_one_link != "project.#{ project_name }.images.#{ i }.link" %}
+						{% set image_one_widt = "project.#{ project_name }.images.#{ i }.width"|trans %}
+						<img width="{{ image_one_widt }}" class="project-page_image" src="{{ asset('build/front/static/img/projects'~image_one_link, 'front') }}" alt="Image one"/>
+					{% endif %}
+				{% endfor %}
+			</div>
+
+			<a href="{{ path('app_front_portfolio') }}#projects" class="project-page_return_projects_list">
+				<button>
+					<img src="{{ asset('build/front/static/img/utils/return.svg', 'front') }}" alt="Icone return projects">
+					{{ 'portfolio.projects.return_to_project'|trans }}
+				</button>
+			</a>
+
+		</div>
+
+	</div>
+
+{% endblock %}

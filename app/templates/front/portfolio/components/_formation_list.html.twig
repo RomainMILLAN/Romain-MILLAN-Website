@@ -1,0 +1,22 @@
+
+{% trans_default_domain 'front' %}
+
+{% for i in 100..1 %}
+    {% set title_extended = "portfolio.formation.#{ i }.title_extended"|trans %}
+    {% if title_extended == "portfolio.formation.#{ i }.title_extended" %}
+        {% set title_extended = '' %}
+    {% endif %}
+
+    {% set title = "portfolio.formation.#{ i }.title"|trans %}
+    {% if title != "portfolio.formation.#{ i }.title" %}
+        {% include 'front/portfolio/components/_fe_card.html.twig' with {
+            'date': "portfolio.formation.#{ i }.date"|trans,
+            'title': title,
+            'title_extended': title_extended,
+            'location': "portfolio.formation.#{ i }.location"|trans,
+            'current': "portfolio.formation.#{ i }.current"|trans,
+            'city': "portfolio.formation.#{ i }.city"|trans
+        } %}
+    {% endif %}
+
+{% endfor %}

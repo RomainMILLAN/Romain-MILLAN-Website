@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES6",
+    "strict": true,
+    "module": "esnext",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "lib": ["DOM", "ES2016", "ES2016.Array.Include"]
+  },
+  "include": [
+    "./**/*.ts",
+    "../../../Library/Application Support/JetBrains/PhpStorm2023.3/javascript/extLibs/http_cdn.jsdelivr.net_npm_fullcalendar@6.1.5_index.global.js"
+  ]
+}

@@ -1,0 +1,76 @@
+{% extends 'signature/base.html.twig' %}
+
+{% block turbo 'false' %}
+
+{% block main %}
+    <main class="pb-5">
+        <div class="card w-75 m-auto mt-5">
+            <div class="card-header">
+                <h3>Générer votre signature</h3>
+            </div>
+
+            <div class="card-body">
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                <h5>Information générales</h5>
+                <div class="input-group">
+                    {{ form_row(form.lastName, {row_attr: {class: 'form-group w-40 mb-3'}, attr: {class: 'form-control'}}) }}
+                    {{ form_row(form.firstName, {row_attr: {class: 'form-group w-40 ms-4 mb-3'}, attr: {class: 'form-control'}}) }}
+                </div>
+
+                <div class="input-group">
+                    {{ form_row(form.status, {row_attr: {class: 'form-group w-40 mb-3'}, attr: {class: 'form-control'}}) }}
+                    {{ form_row(form.logo, {row_attr: {class: 'form-group w-40 ms-4 mb-3'}, attr: {class: 'form-control'}}) }}
+                </div>
+
+                <div class="input-group">
+                    {{ form_row(form.accentColor, {row_attr: {class: 'form-group w-40 mb-3'}, attr: {class: 'form-control'}}) }}
+                </div>
+
+                <hr class="w-50 m-auto mt-5 mb-5">
+
+                {{ form_row(form.emails, {row_attr: {class: 'w-100 mb-3'}}) }}
+
+                <hr class="w-50 m-auto mt-5 mb-5">
+
+                {{ form_row(form.phones, {row_attr: {class: 'w-100 mb-3'}}) }}
+                {{ form_errors(form.phones) }}
+
+                <hr class="w-50 m-auto mt-5 mb-5">
+
+                <h5>Vos réseaux sociaux</h5>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">https://instagram.com/</span>
+                    {{ form_widget(form.socialNetwork.instagram) }}
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">https://linkedin.com/in/</span>
+                    {{ form_widget(form.socialNetwork.linkedin) }}
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">https://github.com/</span>
+                    {{ form_widget(form.socialNetwork.github) }}
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">https://</span>
+                    {{ form_widget(form.socialNetwork.website) }}
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">https://discord.com/invites/</span>
+                    {{ form_widget(form.socialNetwork.discord) }}
+                </div>
+
+                <div class="d-flex flex-row justify-content-center w-100" style="margin-top: 100px;">
+                    <a href="{{ path('app_signature_create') }}" class="btn px-5 btn-outline-danger me-2">Annuler</a>
+                    <button type="submit" class="btn px-5 btn-success">Générer</button>
+                </div>
+
+                {{ form_rest(form) }}
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends 'signature/base.html.twig' %}
+
+{% block turbo 'false' %}
+{% block body_attribut '' %}
+
+{% set socialNetworkColorSet = 'default' %}
+{% if signature.accentColor != '#fdca40' %}
+    {% set socialNetworkColorSet = 'black' %}
+{% endif %}
+
+{% block main %}
+    <div class="card w-75 m-auto mt-5 mb-5">
+        <div class="card-header">
+            <h3>Rendu de votre signature</h3>
+        </div>
+        <div class="card-body">
+            <code>
+
+                <p>Cordialement,</p><br>
+                <table cellspacing="0"
+                       style="font-family: Arial; background: transparent; font-size: 13px; color: rgb(0, 0, 0); line-height: 1.2; display: inline-table;"
+                       data-width-toget="448" data-height-toget="394" data-logo-width="100" data-logo-height="100">
+                    <tbody>
+                    <tr style="color: inherit;">
+                        <td style="color: inherit; text-align: left; white-space: normal; border-width: initial; border-style: initial; border-color: rgb(255, 255, 255);"
+                            rowspan="1" colspan="1" data-reply="3" ddirection="3">
+                            <table
+                                    style="width: 100%; border-collapse: separate; font-family: Arial; background: transparent; font-size: 13px; color: rgb(0, 0, 0); line-height: 1.2;"
+                                    cellspacing="0">
+                                <tbody>
+                                <tr style="height: auto; color: inherit;">
+                                    {% if signature.logo is not null %}
+                                        <!--Todo: Edit src link to http://signature.romainmillan.fr/assets/signatures/images/logo/1.jpg -->
+                                        <td style="color: inherit; text-align: left; vertical-align: middle; width: 120px; height: 192px; white-space: normal;"
+                                            rowspan="1" data-reply="3" colspan="1" width="120px" height="192px" ddirection="3">
+                                            <img width="100" data-forme="50" data-link="" height="100"
+                                                 style="width:100px;height:100px;-webkit-border-radius:50%;-moz-border-radius:50%; border-radius: 50%;"
+                                                 src="{{ absolute_url(asset(signature.logo)) }}"
+                                                 data-absolute="" alt="{{ signature.fullName }}"></td>
+                                    {% endif %}
+
+                                    <td rowspan="1" colspan="1" data-reply="3"
+                                        style="color: inherit; text-align: left; white-space: normal; border-width: initial; border-style: initial; border-color: rgb(255, 255, 255);"
+                                        ddirection="3">
+                                        <table
+                                                style="width: 100%; border-collapse: separate; font-family: Arial; background: transparent; font-size: 13px; color: rgb(0, 0, 0);"
+                                                cellspacing="0">
+                                            <tbody>
+                                            <tr style="height: auto; color: inherit;">
+                                                <td style="color: inherit; text-align: left; padding-left: 0px; width: 320px; height: 59px; vertical-align: top; white-space: normal; border-left: 0px none rgb(255, 255, 255); border-top: 0px none rgb(255, 255, 255); border-bottom: 4px solid {{ signature.accentColor }};"
+                                                    rowspan="1" data-reply="3" colspan="1" ddirection="3">
+                                                    <div style="white-space: normal;">
+                                                        <p style="white-space: normal; margin: 0px;">
+                                                                <span style="color: black;">
+                                                                    <strong>
+                                                                        <span style="font-size: 15px;">
+                                                                            <span style="font-family: 'arial black', sans-serif; font-size: 18px;">{{ signature.fullName }}</span><br>
+                                                                        </span>
+                                                                    </strong>
+                                                                </span>
+
+                                                            <span style="color: #7e8c8d;"><strong>{{ signature.status }}<br></strong></span>
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr style="color: inherit;">
+                                                <td style="color: inherit; text-align: left; height: 40px; width: 320px; white-space: normal;"
+                                                    rowspan="1" data-reply="3" colspan="1" ddirection="3">
+                                                    <div style="white-space: normal;">
+                                                        {% for phone in signature.phones %}
+                                                            <strong>{{ phone.type }}</strong> / {{ phone.phoneNumber }}<br>
+                                                        {% endfor %}
+
+                                                        {% for email in signature.emails %}
+                                                            <strong>{{ email.type }}</strong> / <a style="color: black;" href="mailto:{{ email.email }}">{{ email.email }}</a><br>
+                                                        {% endfor %}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr style="height: auto; color: inherit;">
+                                                <td style="color: inherit; text-align: left; height: 45px; width: 320px; white-space: normal; border-width: initial; border-style: initial; border-color: rgb(255, 255, 255);"
+                                                    rowspan="1" data-reply="3" colspan="1" ddirection="3">
+                                                    <div
+                                                            style="height: initial; line-height: 0px; display: inline-block; white-space: normal;">
+                                                        <table align="undefined" cellspacing="0" cellpadding="0"
+                                                               style="text-align:inherit;margin:0;">
+                                                            <tbody>
+                                                            <tr style="text-align: inherit; color: inherit;">
+
+                                                                {% if signature.socialNetwork.linkedin is not null %}
+                                                                    <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
+                                                                        rowspan="1" data-reply="3" colspan="1"
+                                                                        ddirection="3">
+                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.linkedin }}">
+                                                                            <img
+                                                                                    style="width:25px;height:25px;"
+                                                                                    width="25" height="25"
+                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/linkedin.png')) }}"
+                                                                                    alt="linkedin">
+                                                                        </a>
+                                                                    </td>
+                                                                {% endif %}
+
+                                                                {% if signature.socialNetwork.github is not null %}
+                                                                    <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
+                                                                        rowspan="1" data-reply="3" colspan="1"
+                                                                        ddirection="3">
+                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.github }}">
+                                                                            <img
+                                                                                    style="width:25px;height:25px;"
+                                                                                    width="25" height="25"
+                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/github.png')) }}"
+                                                                                    alt="github">
+                                                                        </a>
+                                                                    </td>
+                                                                {% endif %}
+
+                                                                {% if signature.socialNetwork.website is not null %}
+                                                                    <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
+                                                                        rowspan="1" data-reply="3" colspan="1"
+                                                                        ddirection="3">
+                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.website }}">
+                                                                            <img
+                                                                                    style="width:25px;height:25px;"
+                                                                                    width="25" height="25"
+                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/website.png')) }}"
+                                                                                    alt="website">
+                                                                        </a>
+                                                                    </td>
+                                                                {% endif %}
+
+                                                                {% if signature.socialNetwork.instagram is not null %}
+                                                                    <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
+                                                                        rowspan="1" data-reply="3" colspan="1"
+                                                                        ddirection="3">
+                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.instagram }}">
+                                                                            <img
+                                                                                    style="width:25px;height:25px;"
+                                                                                    width="25" height="25"
+                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/instagram.png')) }}"
+                                                                                    alt="instagram">
+                                                                        </a>
+                                                                    </td>
+                                                                {% endif %}
+
+                                                                {% if signature.socialNetwork.discord is not null %}
+                                                                    <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
+                                                                        rowspan="1" data-reply="3" colspan="1"
+                                                                        ddirection="3">
+                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.discord }}">
+                                                                            <img
+                                                                                    style="width:25px;height:25px;"
+                                                                                    width="25" height="25"
+                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/discord.png')) }}"
+                                                                                    alt="discord">
+                                                                        </a>
+                                                                    </td>
+                                                                {% endif %}
+                                                            </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 10px;"></p>
+
+            </code>
+        </div>
+    </div>
+{% endblock %}

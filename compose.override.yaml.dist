@@ -1,0 +1,4 @@
+services:
+    php:
+        ports:
+          - "8000:80"

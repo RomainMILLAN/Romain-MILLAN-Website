@@ -1,0 +1,10 @@
+@import "~bootstrap/scss/bootstrap";
+
+.w-40 {
+  width: 40%;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+}

@@ -1,0 +1,28 @@
+services:
+    php:
+        build: 
+            context: ./.docker/php
+            args:
+                SERVER_NAME: ${SERVER_NAME}
+        container_name: php
+        volumes:
+            - ./.docker/php/vhosts:/etc/apache2/sites-enabled
+            - ./app:/var/www/app
+        restart: unless-stopped
+        networks:
+            - rm-web_network
+
+    node:
+        build:
+            context: ./.docker/node/
+            args:
+                - APP_USER_ID=${APP_USER_ID}
+                - APP_GROUP_ID=${APP_GROUP_ID}
+        user: ${APP_USER_ID}:${APP_GROUP_ID}
+        volumes:
+            - ./app:/project
+        networks:
+            - rm-web_network
+
+networks:
+    rm-web_network:

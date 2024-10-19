@@ -1,0 +1,30 @@
+seo:
+    resource: '../src/AppContext/Infrastructure/Symfony/Controller/SEO/**/*'
+    type: attribute
+    name_prefix: app_seo_
+    options:
+        expose: true
+
+front:
+    resource: '../src/FrontContext/Infrastructure/Symfony/Controller/**/*'
+    type: attribute
+    name_prefix: app_front_
+    prefix: /{_locale}
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        _locales: '%locale%'
+    options:
+        expose: true
+
+signature:
+    resource: '../src/SignatureContext/Infrastructure/Symfony/Controller/**/*'
+    type: attribute
+    name_prefix: app_signature_
+    prefix: /signature
+    options:
+        expose: true
+
+redirect:
+    path: /
+    controller: App\AppContext\Infrastructure\Symfony\Controller\RedirectController::redirectToLocale

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+
+    <section class="full-page--container">
+
+        <img class="full-page-img" src="{{ asset('build/app/static/img/logo/head-right-two.png', 'app') }}" alt="Icone full Romain MILLAN"/>
+
+        <div class="full-page-title-text--container">
+
+            <div class="full-page-title-text">
+
+                <h2>{{ smallTitle }}</h2>
+                <h1>
+                    {{ bigTitle }}
+                </h1>
+                {% if returnHomepage %}
+                    <a class="full-page-return-homepage desktop" href="{{ path('app_front_homepage') }}"><p>Retour à la page d'accueil ></p></a>
+                {% endif %}
+
+            </div>
+
+            {% include 'components/socialNetworkFullPage.html.twig' %}
+
+        </div>
+
+    </section>
+
+{% endblock %}
