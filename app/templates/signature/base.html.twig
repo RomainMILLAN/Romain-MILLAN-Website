@@ -1,3 +1,4 @@
+{% trans_default_domain 'signature' %}
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
@@ -12,6 +13,13 @@
     {% include 'signature/partial/header.html.twig' %}
 {% endblock %}
 
+{% block footer_attribut %}
+    class="mt-auto text-center text-lg-start bg-body-tertiary text-muted mt-5"
+{% endblock %}
+
 {% block footer %}
-    {% include 'signature/partial/footer.html.twig' %}
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        <p>© 2023-{{ 'now' | date('Y') }} <twig:RomainMillan style="" width="125px" type="filled-black-animation"/>, {{ 'footer.all_right_reserved'|trans }}</p>
+        <p>{{ 'footer.no_reproduce'|trans }}</p>
+    </div>
 {% endblock %}
