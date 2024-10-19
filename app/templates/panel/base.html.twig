@@ -1,0 +1,22 @@
+{% trans_default_domain 'panel' %}
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('panel', null, 'panel') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('panel', null, 'panel') }}
+{% endblock %}
+
+{% block header %}
+    {% include 'panel/partial/header.html.twig' %}
+{% endblock %}
+
+{% block footer_attribut %}
+    class="mt-auto text-center text-lg-start bg-body-tertiary text-muted mt-5"
+{% endblock %}
+
+{% block footer %}
+    {% include 'panel/partial/footer.html.twig' %}
+{% endblock %}

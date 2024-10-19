@@ -1,0 +1,17 @@
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="w-100 d-flex flex-row justify-content-between">
+                <a class="navbar-brand" href="{{ path('app_panel_dashboard') }}">
+                    <img src="{{ asset('build/panel/static/img/logo/romainmillan-panel.svg', 'panel') }}" class="w-25" alt="Romain Millan">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            {% include 'panel/partial/menu.html.twig' %}
+        </div>
+    </nav>
+</header>
