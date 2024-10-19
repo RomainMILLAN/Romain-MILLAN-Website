@@ -1,0 +1,17 @@
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="w-100 d-flex flex-row justify-content-between">
+                <a class="navbar-brand" href="{{ path('app_signature_create') }}">
+                    <img src="{{ asset('build/signature/static/img/logo/romainmillan-signature.svg', 'signature') }}" class="w-25" alt="Romain Millan / Signature">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            {% include 'signature/partial/menu.html.twig' %}
+        </div>
+    </nav>
+</header>

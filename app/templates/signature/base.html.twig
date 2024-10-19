@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('signature', null, 'signature') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('signature', null, 'signature') }}
+{% endblock %}
+
+{% block header %}
+    {% include 'signature/partial/header.html.twig' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'signature/partial/footer.html.twig' %}
+{% endblock %}

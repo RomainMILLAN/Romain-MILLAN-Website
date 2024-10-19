@@ -1,4 +1,7 @@
 {
+    "arkounay/ux-collection": {
+        "version": "4.0.2"
+    },
     "doctrine/doctrine-bundle": {
         "version": "2.11",
         "recipe": {

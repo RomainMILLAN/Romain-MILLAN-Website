@@ -21,6 +21,7 @@ signature:
     resource: '../src/SignatureContext/Infrastructure/Symfony/Controller/**/*'
     type: attribute
     name_prefix: app_signature_
+    prefix: /signature
     options:
         expose: true
 

@@ -300,6 +300,7 @@
       <path value="$PROJECT_DIR$/app/vendor/theseer/tokenizer" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/ux-live-component" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/ux-twig-component" />
+      <path value="$PROJECT_DIR$/app/vendor/arkounay/ux-collection" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />

@@ -47,4 +47,7 @@ return [
     Symfony\UX\LiveComponent\LiveComponentBundle::class => [
         'all' => true,
     ],
+    Arkounay\Bundle\UxCollectionBundle\ArkounayUxCollectionBundle::class => [
+        'all' => true,
+    ],
 ];

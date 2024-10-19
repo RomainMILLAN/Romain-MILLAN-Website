@@ -1,5 +1,3 @@
-{% trans_default_domain 'app' %}
-
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -36,7 +34,7 @@
 		<link rel="mask-icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" color="#000000">
 	</head>
 
-	<body data-turbo="true" {% block body_attribut %} {% endblock %}
+	<body data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}
 	>
 		<header>
 			{% block header %}{% endblock %}

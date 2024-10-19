@@ -27,6 +27,7 @@ webpack_encore:
     builds:
         app: '%kernel.project_dir%/public/build/app'
         front: '%kernel.project_dir%/public/build/front'
+        signature: '%kernel.project_dir%/public/build/signature'
 
         # pass the build name as the 3rd argument to the Twig functions
         # {{ encore_entry_script_tags('entry1', null, 'frontend') }}
@@ -38,6 +39,8 @@ framework:
                 json_manifest_path: '%kernel.project_dir%/public/build/app/manifest.json'
             front:
                 json_manifest_path: '%kernel.project_dir%/public/build/front/manifest.json'
+            signature:
+                json_manifest_path: '%kernel.project_dir%/public/build/signature/manifest.json'
 
 #when@prod:
 #    webpack_encore:
