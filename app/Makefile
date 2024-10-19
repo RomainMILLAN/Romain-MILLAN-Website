@@ -93,3 +93,11 @@ bump:
 	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(COMPOSER_FILE)
 	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(PACKAGE_FILE)
 	@sed -i '' 's/^VERSION=.*/VERSION=$(VERSION)/' $(ENV_FILE)
+
+deploy: vendor-build
+	@echo "🗃️ Dump configuration for $(ENV) environment"
+	@composer dump-env $(ENV)
+	@echo "🗑️ Clear cache"
+	@php bin/console cache:clear
+	@echo "🌱 Warmup cache"
+	@php bin/console cache:warmup
