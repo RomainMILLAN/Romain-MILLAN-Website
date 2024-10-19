@@ -15,7 +15,7 @@ help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
 install:		## Start project
-install: vendors start proxy asset
+install: vendors start proxy assets
 # install: config vendors npm start assets
 
 restart:	## Restart project
@@ -26,7 +26,7 @@ stop: symfony-stop
 	@$(SF) proxy:stop
 
 start: 	## Start project
-start: symfony-start asset
+start: symfony-start assets
 	@$(SF) proxy:start
 
 proxy:
@@ -48,6 +48,9 @@ vendors:	## Install php dependencies
 vendor-build:	## Install php dependencies
 	@composer install --no-dev --optimize-autoloader
 
+npm:		## Install front dependencies (server)
+	$(NPM) install
+
 ##
 ## —— Cache 🗃️ ————————————————————————————————————————————————————————————————
 cc:			## Clear cache
@@ -55,20 +58,16 @@ cc:			## Clear cache
 
 ##
 ## —— Assets ✨ ————————————————————————————————————————————————————————————————
-asset: remove-last-assets build		## Build assets
+assets:		## Build assets - dev version
+assets:	npm
+	$(NPM) run dev
+
+build:		## Build assets - prod version
+build: npm
+	$(NPM) run build
 
 watch:		## Watch assets
-	$(CONSOLE) sass:build --watch
-
-compile:	## Asset Mapper Compile
-	$(CONSOLE) asset-map:compile
-
-remove-last-assets:
-	rm -rf public/assets
-
-build:		## Build assets
-	$(CONSOLE) sass:build
-	make compile
+	$(NPM) run watch
 ##
 ## —— Code Quality ✅ ————————————————————————————————————————————————————————————————
 phpstan:	## Run phpstan

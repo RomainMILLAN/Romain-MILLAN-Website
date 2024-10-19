@@ -1,0 +1,17 @@
+
+{% trans_default_domain 'app' %}
+
+<a class="project_card" href="{{ path('app_project', {'project_name': project_name}) }}">
+    <div >
+        <h2>
+            {{ project_title }}
+
+            <span class="project_status project_{{ project_status }}">{{ project_year }}</span>
+        </h2>
+
+        <div class="project_description">
+            <img src="{{ asset('build/front/static/img/skills/'~project_skill~'.svg', 'front') }}" alt="Icone {{ project_skill }}"/>
+            <p>{{ project_description }}</p>
+        </div>
+    </div>
+</a>

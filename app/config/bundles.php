@@ -38,7 +38,13 @@ return [
     Symfony\Bundle\MakerBundle\MakerBundle::class => [
         'dev' => true,
     ],
-    Symfonycasts\SassBundle\SymfonycastsSassBundle::class => [
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => [
+        'all' => true,
+    ],
+    Symfony\UX\TwigComponent\TwigComponentBundle::class => [
+        'all' => true,
+    ],
+    Symfony\UX\LiveComponent\LiveComponentBundle::class => [
         'all' => true,
     ],
 ];

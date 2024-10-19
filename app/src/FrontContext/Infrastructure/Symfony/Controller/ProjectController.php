@@ -24,7 +24,7 @@ class ProjectController extends AbstractController
     ): Response {
         $project_title = $this->translator->trans('project.' . $project_name . '.title', [], 'app');
 
-        return $this->render('portfolio/project.html.twig', [
+        return $this->render('front/portfolio/project.html.twig', [
             'project_title' => $project_title,
             'project_name' => $project_name,
         ]);

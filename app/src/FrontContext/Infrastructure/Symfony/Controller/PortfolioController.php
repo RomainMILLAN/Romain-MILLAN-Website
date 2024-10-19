@@ -17,6 +17,6 @@ class PortfolioController extends AbstractController
 {
     public function __invoke(): Response
     {
-        return $this->render('portfolio/portfolio.html.twig');
+        return $this->render('front/portfolio/portfolio.html.twig');
     }
 }

@@ -19,21 +19,26 @@
 		<meta name="turbo-refresh-scroll" content="preserve">
 		<meta name="turbo-prefetch" content="true">
 		<meta name="view-transition" content="same-origin">
-		<link rel="shortcut icon" href="{{ asset('static/img/logo/icon.svg') }}" type="image/x-icon">
-		<link rel="mask-icon" href="{{ asset('static/img/logo/icon.svg') }}" color="#000000">
 
 		<meta name="turbo-prefetch" content="true">
 
 		{% block stylesheets %}
-			<link rel="stylesheet" href="{{ asset('styles/app.scss') }}" data-turbo-track="reload">
-			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/solid.css">
-			{{ ux_controller_link_tags() }}
+			{{ encore_entry_link_tags('front', null, 'front') }}
+			{{ encore_entry_link_tags('app', null, 'app') }}
 		{% endblock %}
+
+		{% block javascripts %}
+			<script type="text/javascript" src="{{ asset('tarteaucitron/tarteaucitron.js', 'front') }}"></script>
+			{{ encore_entry_script_tags('front', null, 'front') }}
+			{{ encore_entry_script_tags('app', null, 'app') }}
+		{% endblock %}
+		<link rel="shortcut icon" href="{{ asset('static/img/logo/icon.svg', 'app') }}" type="image/x-icon">
+		<link rel="mask-icon" href="{{ asset('static/img/logo/icon.svg', 'app') }}" color="#000000">
 	</head>
 
 	<body data-turbo="true" {% block body_attribut %} {% endblock %}
 	>
-		<header data-controller="hello">
+		<header>
 			{% block header %}{% endblock %}
 		</header>
 
