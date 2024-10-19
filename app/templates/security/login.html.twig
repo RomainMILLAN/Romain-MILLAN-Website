@@ -1,0 +1,45 @@
+{% extends 'security/base.html.twig' %}
+
+{% block title '- Connexion' %}
+
+{% block turbo 'false' %}
+
+{% block main %}
+    <style>
+        .form-signin {
+            max-width: 500px;
+            padding: 1rem;
+        }
+    </style>
+
+    <header class="navbar navbar-dark bg-dark pt-1 ps-2 h-25">
+        <div class="d-flex flex-column justify-content-start m-0 p-2">
+            <img class="m-0" src="{{ asset('build/app/static/img/logo/romainmillan.svg', 'app') }}" style="height: 50px;" alt="Romain MILLAN">
+        </div>
+    </header>
+
+    <main class="h-75 m-auto" style="margin-top: 250px !important">
+        <section class="m-auto">
+            <div class="w-100 form-signin m-auto">
+
+                <form action="{{ path('app_security_login') }}" method="post">
+
+                    <div class="form-floating">
+                        <input id="username" name="_username" value="{{ last_username }}" type="text" class="form-control {% if error %}is-invalid{% endif %}" placeholder="Identifiant">
+                        <label for="username" class="fw-medium required">Identifiant</label>
+                    </div>
+
+                    <div class="form-floating mt-2">
+                        <input type="password" name="_password" class="form-control {% if error %}is-invalid{% endif %}" id="password" placeholder="Mot de passe">
+                        <label for="password" class="fw-medium required">Mot de passe</label>
+                    </div>
+                    {% if error %}
+                        <p class="text-danger fw-medium text-end m-0 p-0">{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                    {% endif %}
+
+                    <button class="mt-5 w-100 btn btn-lg btn-outline-dark" type="submit">Se connecter</button>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}

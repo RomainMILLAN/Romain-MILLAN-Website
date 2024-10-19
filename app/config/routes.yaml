@@ -25,6 +25,22 @@ signature:
     options:
         expose: true
 
+security:
+    resource: '../src/SecurityContext/Infrastructure/Symfony/Controller/**/*'
+    type: attribute
+    name_prefix: app_security_
+    prefix: /security
+    options:
+        expose: true
+
+panel:
+    resource: '../src/PanelContext/Infrastructure/Symfony/Controller/**/*'
+    type: attribute
+    name_prefix: app_panel_
+    prefix: /panel
+    options:
+        expose: true
+
 redirect:
     path: /
     controller: App\AppContext\Infrastructure\Symfony\Controller\RedirectController::redirectToLocale

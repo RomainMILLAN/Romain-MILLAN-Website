@@ -9,11 +9,11 @@ if (!Encore.isRuntimeEnvironmentConfigured())
 
 Encore
   // directory where compiled assets will be stored
-  .setOutputPath('public/build/signature')
+  .setOutputPath('public/build/panel')
   // public path used by the web server to access the output path
-  .setPublicPath('/build/signature')
+  .setPublicPath('/build/panel')
   // only needed for CDN's or subdirectory deploy
-  .setManifestKeyPrefix('build/signature')
+  .setManifestKeyPrefix('build/panel')
 
   /*
     * ENTRY CONFIG
@@ -21,13 +21,13 @@ Encore
     * Each entry will result in one JavaScript file (e.g. app.js)
     * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
     */
-  .addEntry('signature', './assets/signature/app.ts')
+  .addEntry('panel', './assets/panel/app.ts')
 
   // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
   .splitEntryChunks()
 
   // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-  .enableStimulusBridge('./assets/signature/controllers.json')
+  .enableStimulusBridge('./assets/panel/controllers.json')
 
   // will require an extra script tag for runtime.js
   // but, you probably want this, unless you're building a single-page app
@@ -71,27 +71,20 @@ Encore
 
   // uncomment to get integrity="..." attributes on your script & link tags
   // requires WebpackEncoreBundle 1.4 or higher
-  .enableIntegrityHashes(Encore.isProduction())
+  //.enableIntegrityHashes(Encore.isProduction())
 
   // uncomment if you're having problems with a jQuery plugin
   .autoProvidejQuery()
 
   .copyFiles([
     {
-      from: './assets/signature/static',
+      from: './assets/panel/static',
       to: 'static/[path][name].[hash:8].[ext]'
     }
   ])
 
-  .copyFiles([
-    {
-      from: './assets/signature/signature',
-      to: 'signature/[path][name].[ext]'
-    }
-  ])
-
-const Signature = Encore.getWebpackConfig()
-Signature.name = 'signature'
+const Panel = Encore.getWebpackConfig()
+Panel.name = 'panel'
 Encore.reset()
 
-module.exports = Signature
+module.exports = Panel
