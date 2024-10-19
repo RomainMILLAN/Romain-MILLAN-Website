@@ -10,5 +10,4 @@ enum RouteCollection: string implements RouteCollectionInterface
     use AppSignatureContextRouteCollectionTrait;
 
     case CREATE = 'create';
-    case GENERATE = 'generate';
 }

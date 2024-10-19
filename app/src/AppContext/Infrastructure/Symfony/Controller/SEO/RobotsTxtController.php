@@ -17,13 +17,15 @@ class RobotsTxtController extends AbstractController
 {
     public function __invoke(string $env): Response
     {
-        $disallowedRoutes = ($env === 'prod')
-            ? []
+        $disallowedRoutes = ($env !== 'prod')
+            ? [
+                'app_signature_create' => '',
+            ]
             : ['*'];
 
         $disallowedPaths = [];
 
-        $disallowAll = \count($disallowedRoutes) === 1 && $disallowedRoutes[0] === '*';
+        $disallowAll = \count($disallowedRoutes) === 1 && '*' === ($disallowedRoutes[0] ?? []);
 
         return $this->render('seo/robots.txt.twig', [
             'disallowedRoutes' => $disallowedRoutes,
