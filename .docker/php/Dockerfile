@@ -2,7 +2,6 @@ FROM php:8.3-apache
 
 LABEL maintainer="Romain MILLAN <contact@romainmillan.fr>"
 ARG SERVER_NAME
-RUN echo ${SERVER_NAME}
 
 RUN echo "ServerName ${SERVER_NAME}" >> /etc/apache2/apache2.conf
 

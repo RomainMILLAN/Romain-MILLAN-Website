@@ -6,7 +6,7 @@ services:
                 SERVER_NAME: ${SERVER_NAME}
         container_name: php
         volumes:
-            - ./php/vhosts:/etc/apache2/sites-enabled
+            - ./.docker/php/vhosts:/etc/apache2/sites-enabled
             - ./app:/var/www/app
         restart: unless-stopped
         networks:
