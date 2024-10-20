@@ -14,6 +14,9 @@
                             <a class="nav-link {% if current_route() is same as ('app_panel_prod_01_uptime_kuma') %}active{% endif %}" href="{{ path('app_panel_prod_01_uptime_kuma') }}">Statuts (P01)</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {% if current_route() is same as ('app_panel_prod_01_dockge') %}active{% endif %}" href="{{ path('app_panel_prod_01_dockge') }}">Dockge (P01)</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {% if current_route() is same as ('app_panel_cloud_uptime_robot') %}active{% endif %}" href="{{ path('app_panel_cloud_uptime_robot') }}">Statuts (CLOUD)</a>
                         </li>
                         <li class="nav-item dropdown">
