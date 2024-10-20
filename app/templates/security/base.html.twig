@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+    <link rel="manifest" href="{{ asset('build/app/pwa/site.webmanifest', 'app') }}">
+{% endblock %}
+
 {% block stylesheets %}
     {{ encore_entry_link_tags('panel', null, 'panel') }}
 {% endblock %}

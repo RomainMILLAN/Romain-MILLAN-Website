@@ -82,6 +82,12 @@ Encore
       to: 'static/[path][name].[hash:8].[ext]'
     }
   ])
+  .copyFiles([
+    {
+      from: './assets/app/pwa',
+      to: 'pwa/[path][name].[ext]'
+    }
+  ])
 
 const App = Encore.getWebpackConfig()
 App.name = 'app'
