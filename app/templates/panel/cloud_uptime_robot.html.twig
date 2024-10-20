@@ -1,7 +1,3 @@
-{% extends 'panel/base.html.twig' %}
-
-{% block main %}
-    <section class="p-5">
-        <iframe id="myIframe" src="https://stats.uptimerobot.com/Lu6FocUXKu" width="100%" height="900px"></iframe>
-    </section>
-{% endblock %}
+{% extends 'panel/frameServices.html.twig' %}
+{% set link = 'https://stats.uptimerobot.com/Lu6FocUXKu' %}
+{% set openLink = 'https://dashboard.uptimerobot.com/monitors' %}

@@ -1,7 +1,3 @@
-{% extends 'panel/base.html.twig' %}
-
-{% block main %}
-    <section class="p-5">
-        <iframe id="myIframe" src="https://status.romainmillan.fr/status/romain-millan-full-8669879448845433875949387677245" width="100%" height="900px"></iframe>
-    </section>
-{% endblock %}
+{% extends 'panel/frameServices.html.twig' %}
+{% set link = 'https://status.romainmillan.fr/status/romain-millan-full-8669879448845433875949387677245' %}
+{% set openLink = 'https://status.romainmillan.fr/manage-status-page' %}
