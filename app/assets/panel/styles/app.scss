@@ -22,3 +22,12 @@ main {
 }
 
 $primary: #ff0000;
+
+@media (min-width: 1000px) {
+    .w-xl-50 {
+        width: 50%;
+    }
+    .w-xl-45 {
+        width: 45%;
+    }
+}
