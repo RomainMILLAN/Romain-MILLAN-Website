@@ -36,7 +36,7 @@
 
 	<body data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}
 	>
-		<header>
+		<header {% block header_attributes '' %}>
 			{% block header %}{% endblock %}
 		</header>
 

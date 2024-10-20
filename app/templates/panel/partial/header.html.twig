@@ -1,0 +1,39 @@
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="w-100 d-flex flex-row justify-content-between">
+                <div class="d-flex flex-row">
+                    <a class="navbar-brand" href="{{ path('app_panel_dashboard') }}">
+                        <img src="{{ asset('build/panel/static/img/logo/romainmillan-panel.svg', 'panel') }}" width="200px" alt="Romain Millan">
+                    </a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-none d-lg-flex flex-row align-items-center gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link {% if current_route() is same as ('app_panel_dashboard') %}active{% endif %}" aria-current="page" href="{{ path('app_panel_dashboard') }}">Tableau de bord</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if current_route() is same as ('app_panel_prod_01_uptime_kuma') %}active{% endif %}" href="{{ path('app_panel_prod_01_uptime_kuma') }}">Statuts (P01)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if current_route() is same as ('app_panel_prod_01_dockge') %}active{% endif %}" href="{{ path('app_panel_prod_01_dockge') }}">Dockge (P01)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if current_route() is same as ('app_panel_cloud_uptime_robot') %}active{% endif %}" href="{{ path('app_panel_cloud_uptime_robot') }}">Statuts (CLOUD)</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mon compte</a>
+                            <ul class="dropdown-menu position-absolute">
+                                <li><a class="dropdown-item" href="{{ path('app_security_logout') }}">Déconnexion</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            {% include 'panel/partial/menu.html.twig' %}
+        </div>
+    </nav>
+</header>

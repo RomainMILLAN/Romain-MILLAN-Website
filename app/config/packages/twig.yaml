@@ -1,6 +1,15 @@
 twig:
     file_name_pattern: '*.twig'
 
+    globals:
+        p1_dockge: '%env(P1_DOCKGE)%'
+        p1_uptime_kuma_iframe_link: '%env(P1_UPTIME_KUMA_IFRAME_LINK)%'
+        p1_uptime_kuma_open_link: '%env(P1_UPTIME_KUMA_OPEN_LINK)%'
+        cl_uptime_robot_iframe_link: '%env(CL_UPTIME_ROBOT_IFRAME_LINK)%'
+        cl_uptime_robot_open_link: '%env(CL_UPTIME_ROBOT_OPEN_LINK)%'
+
+        version: '%env(VERSION)%'
+
 when@test:
     twig:
         strict_variables: true

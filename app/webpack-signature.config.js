@@ -82,12 +82,13 @@ Encore
       to: 'static/[path][name].[hash:8].[ext]'
     }
   ])
-    .copyFiles([
-      {
-        from: './assets/signature/signature',
-        to: 'signature/[path][name].[ext]'
-      }
-    ])
+
+  .copyFiles([
+    {
+      from: './assets/signature/signature',
+      to: 'signature/[path][name].[ext]'
+    }
+  ])
 
 const Signature = Encore.getWebpackConfig()
 Signature.name = 'signature'
