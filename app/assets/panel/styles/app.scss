@@ -31,3 +31,8 @@ $primary: #ff0000;
         width: 45%;
     }
 }
+
+.nav-item h5::after {
+    content: " :";
+
+}
