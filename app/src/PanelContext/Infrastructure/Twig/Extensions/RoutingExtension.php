@@ -35,7 +35,7 @@ class RoutingExtension extends AbstractExtension
         $request = $this->requestStack->getMainRequest();
 
         $currentRoute = $this->getRouteFromRequest();
-        /** @psalm-var array $currentRouteParams */
+        /** @psalm-var array<mixed> $currentRouteParams */
         $currentRouteParams = $request?->attributes->get('_route_params') ?? [];
 
         return $this->urlGenerator->generate($currentRoute, $currentRouteParams);

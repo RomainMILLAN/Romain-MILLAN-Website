@@ -8,6 +8,8 @@ twig:
         cl_uptime_robot_iframe_link: '%env(CL_UPTIME_ROBOT_IFRAME_LINK)%'
         cl_uptime_robot_open_link: '%env(CL_UPTIME_ROBOT_OPEN_LINK)%'
 
+        version: '%env(VERSION)%'
+
 when@test:
     twig:
         strict_variables: true

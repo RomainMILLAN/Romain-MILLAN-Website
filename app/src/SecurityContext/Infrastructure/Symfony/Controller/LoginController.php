@@ -18,7 +18,7 @@ class LoginController extends AbstractController
     ): Response {
         if ($this->getUser() !== null) {
             return $this->redirectToRoute(
-                \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::HOMEPAGE->prefixed()
+                \App\PanelContext\Infrastructure\Symfony\Controller\RouteCollection::DASHBOARD->prefixed(),
             );
         }
 
