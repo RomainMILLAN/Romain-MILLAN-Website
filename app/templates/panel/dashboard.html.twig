@@ -4,4 +4,47 @@
     <section class="p-5">
         <h1>Bonjour {{ app.user }} 👋,</h1>
     </section>
+
+    <section class="p-5">
+        <div>
+            <h2>Panel</h2>
+
+            <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
+                <a href="{{ path('app_panel_prod_01_uptime_kuma') }}" class="btn btn-dark btn-lg">Statut <span class="badge text-white text-bg-info">PROD 01</span></a>
+                <a href="{{ path('app_panel_cloud_uptime_robot') }}" class="btn btn-dark btn-lg">Statut <span class="badge text-white text-bg-info">CLOUD</span></a>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h2>Production 01</h2>
+
+            <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
+                <a href="https://status.romainmillan.fr/" target="_blank" class="btn btn-primary btn-lg">Uptime Kuma</a>
+                <a href="https://passwords.romainmillan.fr/" target="_blank" class="btn btn-primary btn-lg">Vaultwarden</a>
+                <a href="https://client-web-infra.pve2.umdev.fr/" target="_blank" class="btn btn-secondary btn-lg">Ngnix Proxy Manager</a>
+                <a href="https://prod.romainmillan.fr/" target="_blank" class="btn btn-secondary btn-lg">Dockge</a>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h2>Production 02</h2>
+
+            <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
+                <a href="http://192.168.1.29:8006/" target="_blank" class="btn btn-secondary btn-lg">PVE <span class="badge text-white text-bg-warning">Local</span></a>
+                <a href="http://192.168.1.161:3000/" target="_blank" class="btn btn-secondary btn-lg">Grafana <span class="badge text-white text-bg-warning">Local</span></a>
+                <a href="http://192.168.1.152:81/" target="_blank" class="btn btn-secondary btn-lg">Ngnix Proxy Manager <span class="badge text-white text-bg-warning">Local</span></a>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h2>Cloud</h2>
+
+            <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
+                <a href="https://www.ovh.com/manager/#/hub" target="_blank" class="btn btn-primary btn-lg">OVH Cloud</a>
+                <a href="https://dashboard.uptimerobot.com/monitors" target="_blank" class="btn btn-primary btn-lg">Uptime Robot</a>
+            </div>
+        </div>
+    </section>
+    <nav class="ms-5">
+    </nav>
 {% endblock %}

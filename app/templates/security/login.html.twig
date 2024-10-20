@@ -4,6 +4,13 @@
 
 {% block turbo 'false' %}
 
+{% block header_attributes 'class="navbar navbar-dark bg-dark pt-1 ps-2 h-25"' %}
+{% block header %}
+    <div class="d-flex flex-column justify-content-start m-0 p-2">
+        <img class="m-0" src="{{ asset('build/app/static/img/logo/romainmillan.svg', 'app') }}" style="height: 50px;" alt="Romain MILLAN">
+    </div>
+{% endblock %}
+
 {% block main %}
     <style>
         .form-signin {
@@ -11,12 +18,6 @@
             padding: 1rem;
         }
     </style>
-
-    <header class="navbar navbar-dark bg-dark pt-1 ps-2 h-25">
-        <div class="d-flex flex-column justify-content-start m-0 p-2">
-            <img class="m-0" src="{{ asset('build/app/static/img/logo/romainmillan.svg', 'app') }}" style="height: 50px;" alt="Romain MILLAN">
-        </div>
-    </header>
 
     <main class="h-75 m-auto" style="margin-top: 250px !important">
         <section class="m-auto">
