@@ -291,6 +291,9 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symplify/phpstan-rules" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symplify/rule-doc-generator-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/var" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/kevinpapst/tabler-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

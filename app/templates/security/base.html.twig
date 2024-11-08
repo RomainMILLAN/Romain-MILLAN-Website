@@ -1,13 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends '@Tabler/security.html.twig' %}
+
+{% block title 'RM Panel - Sécurité' %}
 
 {% block head %}
-    <link rel="manifest" href="{{ asset('build/app/pwa/site.webmanifest', 'app') }}">
+    {% include '@Tabler/includes/html_head.html.twig' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="turbo-refresh-method" content="morph">
+    <meta name="turbo-refresh-scroll" content="preserve">
+    <meta name="turbo-prefetch" content="true">
+    <meta name="view-transition" content="same-origin">
+    <link rel="shortcut icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" type="image/x-icon">
+    <link rel="mask-icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" color="#000000">
 {% endblock %}
 
-{% block stylesheets %}
-    {{ encore_entry_link_tags('panel', null, 'panel') }}
+{% block logo_login %}
+    <img src="{{ asset('build/panel/static/img/logo/romainmillan-panel-black.svg', 'panel') }}" alt="">
 {% endblock %}
 
-{% block javascripts %}
-    {{ encore_entry_script_tags('panel', null, 'panel') }}
-{% endblock %}
+{% block remember_me '' %}
+{% block login_social_auth '' %}
