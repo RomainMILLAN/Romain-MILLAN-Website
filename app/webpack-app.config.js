@@ -27,7 +27,7 @@ Encore
   .splitEntryChunks()
 
   // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-  //.enableStimulusBridge('./assets/front/controllers.json')
+  .enableStimulusBridge('./assets/app/controllers.json')
 
   // will require an extra script tag for runtime.js
   // but, you probably want this, unless you're building a single-page app
