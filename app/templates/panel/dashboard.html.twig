@@ -1,8 +1,18 @@
 {% extends 'panel/base.html.twig' %}
 
-
 {% block page_content %}
     <section class="container-xl">
+        <div class="row row-deck row-cards">
+            <twig:MonitorStatus
+                    monitorStatus="up"
+            />
+            <twig:MonitorStatus
+                    monitorStatus="down"
+            />
+        </div>
+    </section>
+
+    <section class="container-xl mt-3">
         <div class="row row-cards">
             <h2>Self Hosted</h2>
 
