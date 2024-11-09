@@ -3,10 +3,17 @@
 {% set link = link ?? '' %}
 {% set openLink = openLink ?? link %}
 
-{% block main %}
-    <section class="p-5">
-        <twig:panel:openPage link="{{ openLink }}"></twig:panel:openPage>
+{% block page_actions %}
+    <div class="btn-list">
+        <a href="{{ openLink }}" target="_blank" class="btn btn-outline-primary d-none d-sm-inline-block">
+            <i class="fa fa-share"></i>
+            Ouvrir dans une autre page
+        </a>
+    </div>
+{% endblock %}
 
+{% block page_content %}
+    <section class="container-xl">
         <iframe id="myIframe" src="{{ link }}" width="100%" height="900px"></iframe>
     </section>
 {% endblock %}

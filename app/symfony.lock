@@ -41,6 +41,9 @@
             ".php-cs-fixer.dist.php"
         ]
     },
+    "kevinpapst/tabler-bundle": {
+        "version": "1.5.3"
+    },
     "phpstan/phpstan": {
         "version": "1.12",
         "recipe": {

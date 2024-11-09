@@ -1,101 +1,199 @@
 {% extends 'panel/base.html.twig' %}
 
-{% block main %}
-    <section class="p-5">
-        <h1>Bonjour {{ app.user }} 👋,</h1>
-    </section>
 
-    <section class="p-5 d-flex flex-column flex-lg-row justify-content-around">
-        <div class="card w-xl-45">
-            <div class="card-header">
-                <h2>Self-hosted</h2>
-            </div>
+{% block page_content %}
+    <section class="container-xl">
+        <div class="row row-cards">
+            <h2>Self Hosted</h2>
 
-            <div class="card-body ms-2">
-                <div>
-                    <h3>Panel</h3>
+            <twig:panel:dashboard:serviceCard
+                    title="Uptime Kuma"
+                    description="Monitoring des services"
+                    avatar="uptime-kuma"
+                    actions="{{ [
+                        {url: 'https://status.romainmillan.fr'},
+                        {url: path('app_panel_prod_01_uptime_kuma'), icon: 'person-through-window', title: 'Interface', target: '_self'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 01', color: 'purple'},
+                    ] }}"
+            />
 
-                    <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
-                        <a href="{{ path('app_panel_prod_01_uptime_kuma') }}" class="btn btn-dark btn-lg">Statuts <span class="badge text-white text-bg-info">PROD 01</span></a>
-                        <a href="{{ path('app_panel_cloud_uptime_robot') }}" class="btn btn-dark btn-lg">Statuts <span class="badge text-white text-bg-info">CLOUD</span></a>
-                    </div>
-                </div>
+            <twig:panel:dashboard:serviceCard
+                    title="Vaultwarden"
+                    description="Gestionnaire de mot de passe"
+                    avatar="bitwarden"
+                    actions="{{ [
+                        {url: 'https://passwords.romainmillan.fr'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 02', color: 'purple'},
+                    ] }}"
+            />
 
-                <div class="mt-4">
-                    <h3>Production 01</h3>
+            <twig:panel:dashboard:serviceCard
+                    title="Dockge"
+                    description="Gestionnaire de conteneurs"
+                    avatar="dockge-light"
+                    actions="{{ [
+                        {url: 'https://prod.romainmillan.fr/'},
+                        {url: path('app_panel_prod_01_dockge'), icon: 'person-through-window', title: 'Interface', target: '_self'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 01', color: 'purple'},
+                    ] }}"
+            />
 
-                    <div class="ms-3 d-flex flex-column flex-lg-row flex-lg-wrap justify-content-start gap-2" >
-                        <a href="https://status.romainmillan.fr/" target="_blank" class="btn btn-primary btn-lg">Uptime Kuma</a>
-                        <a href="https://passwords.romainmillan.fr/" target="_blank" class="btn btn-primary btn-lg">Vaultwarden</a>
-                        <a href="https://passwords.romainmillan.fr/admin/" target="_blank" class="btn btn-secondary btn-lg">Vaultwarden <span class="badge text-white text-bg-warning">Admin</span></a>
-                        <a href="https://client-web-infra.pve2.umdev.fr/" target="_blank" class="btn btn-secondary btn-lg">Ngnix Proxy Manager</a>
-                        <a href="https://prod.romainmillan.fr/" target="_blank" class="btn btn-secondary btn-lg">Dockge</a>
-                    </div>
-                </div>
+            <twig:panel:dashboard:serviceCard
+                    title="PVE"
+                    description="Gestionnaire de VM"
+                    avatar="proxmox"
+                    actions="{{ [
+                        {url: 'http://192.168.1.29:8006/'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 02', color: 'purple'},
+                        {name: 'LOCAL', color: 'orange'},
+                    ] }}"
+            />
 
-                <div class="mt-4">
-                    <h3>Production 02</h3>
+            <twig:panel:dashboard:serviceCard
+                    title="Nginx Proxy Manager"
+                    description="Gestionnaire de reverse proxy"
+                    avatar="nginx-proxy-manager"
+                    actions="{{ [
+                        {url: 'http://192.168.1.152:81/'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 02', color: 'purple'},
+                        {name: 'LOCAL', color: 'orange'},
+                    ] }}"
+            />
 
-                    <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
-                        <a href="http://192.168.1.29:8006/" target="_blank" class="btn btn-secondary btn-lg">PVE <span class="badge text-white text-bg-warning">Local</span></a>
-                        <a href="http://192.168.1.152:81/" target="_blank" class="btn btn-secondary btn-lg">Ngnix Proxy Manager <span class="badge text-white text-bg-warning">Local</span></a>
-                    </div>
-                </div>
+            <twig:panel:dashboard:serviceCard
+                    title="Nginx Proxy Manager"
+                    description="Gestionnaire de reverse proxy"
+                    avatar="nginx-proxy-manager"
+                    actions="{{ [
+                        {url: 'https://client-web-infra.pve2.umdev.fr/'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 01', color: 'purple'},
+                    ] }}"
+            />
 
-                <div class="mt-4">
-                    <h3>Cloud</h3>
+            <twig:panel:dashboard:serviceCard
+                    title="OVH Cloud"
+                    description="Hébergement des services & Nom de domaine"
+                    avatar="ovh"
+                    actions="{{ [
+                        {url: 'https://www.ovh.com/manager/#/hub'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'CLOUD', color: 'purple'},
+                    ] }}"
+            />
 
-                    <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
-                        <a href="https://www.ovh.com/manager/#/hub" target="_blank" class="btn btn-primary btn-lg">OVH Cloud</a>
-                        <a href="https://dashboard.uptimerobot.com/monitors" target="_blank" class="btn btn-primary btn-lg">Uptime Robot</a>
-                    </div>
-                </div>
-            </div>
+            <twig:panel:dashboard:serviceCard
+                    title="Uptime Robot"
+                    description="Monitoring des services les plus importants"
+                    avatar="uptime-kuma"
+                    actions="{{ [
+                        {url: 'https://dashboard.uptimerobot.com/monitors'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'CLOUD', color: 'purple'},
+                    ] }}"
+            />
+
+            <twig:panel:dashboard:serviceCard
+                    title="Vaultwarden"
+                    description="Administration du gestionnaire de mot de passe"
+                    avatar="bitwarden"
+                    actions="{{ [
+                        {url: 'https://passwords.romainmillan.fr/admin/'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 02', color: 'purple'},
+                    ] }}"
+            />
         </div>
 
-        <div class="card w-xl-45 mt-4 mt-lg-0">
-            <div class="card-header">
-                <h2>Raccourcis</h2>
-            </div>
+        <div class="row row-cards mt-5">
+            <h2>Raccourcis</h2>
 
-            <div class="card-body ms-2">
-                <div>
-                    <h3>Développement</h3>
-
-                    <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
-                        <a href="https://github.com/RomainMILLAN" target="_blank" class="btn btn-primary btn-lg">Github</a>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <h3>Hébergement</h3>
-
-                    <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
-                        <a href="https://tteck.github.io/Proxmox/" target="_blank" class="btn btn-primary btn-lg">Scripts proxmox</a>
-                    </div>
-                </div>
-
-                <div class="mt-4">
-                    <h3>Client</h3>
-
-                    <div class="row ms-2">
-                        <h4>A.G.E.S.</h4>
-
-                        <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
-                            <a href="https://github.com/orgs/ages-sete/repositories" target="_blank" class="btn btn-primary btn-lg">Github</a>
-                            <a href="https://achacha.o2switch.net:2083/" target="_blank" class="btn btn-primary btn-lg">Espace Technique</a>
-                            <a href="https://clients.o2switch.fr/auth/connexion" target="_blank" class="btn btn-primary btn-lg">Espace Client</a>
-                        </div>
-                    </div>
-                    <div class="row ms-2 mt-2">
-                        <h4>BTeck</h4>
-
-                        <div class="ms-3 d-flex flex-column flex-lg-row justify-content-start gap-2">
-                            <a href="https://gitlab.umdev.fr/bteck1/website" target="_blank" class="btn btn-primary btn-lg">Gitlab <span class="badge text-white text-bg-secondary">UMDEV</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <twig:panel:dashboard:serviceCard
+                    title="Github"
+                    description="Gestionnaire de code"
+                    avatar="github"
+                    actions="{{ [
+                        {url: 'https://github.com/RomainMILLAN'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'Développement', color: 'blue'},
+                    ] }}"
+            />
+            <twig:panel:dashboard:serviceCard
+                title="Proxmox Scripts"
+                description="Un lot de scripts pour Proxmox"
+                avatar="proxmox"
+                actions="{{ [
+                    {url: 'https://community-scripts.github.io/ProxmoxVE/'},
+                ] }}"
+                tags="{{ [
+                    {name: 'Hébergement', color: 'blue'},
+                ] }}"
+            />
+            <twig:panel:dashboard:serviceCard
+                    title="Github"
+                    description="Code source du projet"
+                    avatar="github"
+                    actions="{{ [
+                        {url: 'https://github.com/orgs/ages-sete/repositories'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'Client', color: 'blue'},
+                        {name: 'A.G.E.S.', color: 'yellow'},
+                    ] }}"
+            />
+            <twig:panel:dashboard:serviceCard
+                    title="Espace Technique"
+                    description="Espace technique de l'hébergement."
+                    avatar="servarr"
+                    actions="{{ [
+                        {url: 'https://achacha.o2switch.net:2083/'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'Client', color: 'blue'},
+                        {name: 'A.G.E.S.', color: 'yellow'},
+                    ] }}"
+            />
+            <twig:panel:dashboard:serviceCard
+                    title="Espace Client"
+                    description="Espace client de l'hébergement."
+                    avatar="servarr"
+                    actions="{{ [
+                        {url: 'https://clients.o2switch.fr/auth/connexion'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'Client', color: 'blue'},
+                        {name: 'A.G.E.S.', color: 'yellow'},
+                    ] }}"
+            />
+            <twig:panel:dashboard:serviceCard
+                    title="Gitlab"
+                    description="Code source du projet."
+                    avatar="gitlab"
+                    actions="{{ [
+                        {url: 'https://gitlab.umdev.fr/bteck1/website'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'Client', color: 'blue'},
+                        {name: 'BTeck', color: 'yellow'},
+                        {name: 'UMDev', color: 'red'},
+                    ] }}"
+            />
         </div>
+
     </section>
 {% endblock %}

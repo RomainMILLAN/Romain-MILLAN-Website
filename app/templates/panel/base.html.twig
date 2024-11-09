@@ -1,26 +1,62 @@
-{% trans_default_domain 'panel' %}
-{% extends 'base.html.twig' %}
+{% extends '@Tabler/layout-horizontal.html.twig' %}
+
+{% block page_actions '' %}
+{% block page_pretitle '' %}
+{% block navbar_search '' %}
 
 {% block head %}
-    <link rel="manifest" href="{{ asset('build/app/pwa/site.webmanifest', 'app') }}">
+    {% include '@Tabler/includes/html_head.html.twig' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="turbo-refresh-method" content="morph">
+    <meta name="turbo-refresh-scroll" content="preserve">
+    <meta name="turbo-prefetch" content="true">
+    <meta name="view-transition" content="same-origin">
+    <link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
+    <link rel="mask-icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" color="#000000">
+    <title>RM Panel</title>
+{% endblock %}
+
+{% block page_subtitle '' %}
+
+{% block footer %}
+    <footer id="{% block footer_id %}{% endblock %}" class="footer footer-transparent d-print-none">
+        <div class="{{ ''|tabler_container }}">
+            <div class="row text-center align-items-center flex-row-reverse">
+                <div class="col-lg-auto ms-lg-auto">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank"
+                                                        class="link-secondary" rel="noopener">Template</a></li>
+                        <li class="list-inline-item"><a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" target="_blank"
+                                                        class="link-secondary" rel="noopener">Source code</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                    <ul class="list-inline list-inline-dots mb-0">
+                        <li class="list-inline-item">
+                            Copyright &copy; 2023-{{ 'now' | date('Y') }}
+                            <twig:RomainMillan style="" width="125px" type="filled-black-animation"/>.
+                            Tout droits réservé.
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" class="link-secondary" rel="noopener">v{{ version }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block stylesheets %}
-    {{ encore_entry_link_tags('panel', null, 'panel') }}
+    {{ parent() }}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
 {% endblock %}
 
 {% block javascripts %}
-    {{ encore_entry_script_tags('panel', null, 'panel') }}
-{% endblock %}
-
-{% block header %}
-    {% include 'panel/partial/header.html.twig' %}
-{% endblock %}
-
-{% block footer_attribut %}
-    class="mt-auto text-center text-lg-start bg-body-tertiary text-muted mt-5"
-{% endblock %}
-
-{% block footer %}
-    {% include 'panel/partial/footer.html.twig' %}
+    {{ parent() }}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/twig.min.js"></script>
+    <script>hljs.highlightAll();</script>
 {% endblock %}
