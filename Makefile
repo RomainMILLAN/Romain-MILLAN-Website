@@ -48,7 +48,6 @@ docker-down: 	## Down dockers containers
 ##
 ## —— Configuration 📋 ————————————————————————————————————————————————————————————————
 config: env.local app-env.local ## Configure the project
-	@cp compose.override.yaml.dist compose.override.yaml
 
 env.local:
 	@echo "📝 Configuring env local config"
