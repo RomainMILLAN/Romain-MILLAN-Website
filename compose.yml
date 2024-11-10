@@ -9,8 +9,6 @@ services:
             - ./.docker/php/vhosts:/etc/apache2/sites-enabled
             - ./app:/var/www/app
         restart: unless-stopped
-        networks:
-            - rm-web_network
 
     node:
         build:
@@ -21,8 +19,5 @@ services:
         user: ${APP_USER_ID}:${APP_GROUP_ID}
         volumes:
             - ./app:/project
-        networks:
-            - rm-web_network
 
-networks:
-    rm-web_network:
+networks: {}
