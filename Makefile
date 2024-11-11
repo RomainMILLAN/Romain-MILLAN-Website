@@ -18,7 +18,7 @@ DCE=$(DC) exec
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
-install: config	docker-start dependencies deploy	## Install project
+install: config	docker-start dependencies deploy docker-node-stop	## Install project
 
 deploy:	docker-start	## Deploy project into containers
 	@echo "✨ Install assets"
@@ -41,6 +41,9 @@ docker-start: 	## Start dockers containers
 
 docker-stop: 	## Stop dockers containers
 	@$(DC) stop
+
+docker-node-stop:
+	@$(DC) stop node
 
 docker-down: 	## Down dockers containers
 	@$(DC) down

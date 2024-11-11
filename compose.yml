@@ -9,6 +9,7 @@ services:
             - ./.docker/php/vhosts:/etc/apache2/sites-enabled
             - ./app:/var/www/app
         restart: unless-stopped
+        network_mode: host
 
     node:
         build:
