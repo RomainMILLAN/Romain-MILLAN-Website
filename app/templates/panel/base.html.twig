@@ -4,6 +4,19 @@
 {% block page_pretitle '' %}
 {% block navbar_search '' %}
 
+{% block app_logo %}
+    <h1 class="navbar-brand d-none-navbar-horizontal pe-0 pe-md-3 navbar-brand-autodark">
+        <a href="{{ path('tabler_welcome'|tabler_route) }}">
+            <img
+                    class="navbar-brand-image"
+                    src="{{ asset('build/panel/static/img/logo/romainmillan-panel.svg', 'panel') }}"
+                    width="110" height="32"
+                    alt=""
+            >
+        </a>
+    </h1>
+{% endblock %}
+
 {% block head %}
     {% include '@Tabler/includes/html_head.html.twig' %}
     <meta charset="UTF-8">
