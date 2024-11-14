@@ -4,9 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/app/src" isTestSource="false" packagePrefix="App\" />
-      <sourceFolder url="file://$MODULE_DIR$/app/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/app/tests" isTestSource="true" packagePrefix="App\Tests\" />
-      <sourceFolder url="file://$MODULE_DIR$/app/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/var" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
@@ -229,9 +227,6 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/twig-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/twig-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/type-info" />
-      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/ux-live-component" />
-      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/ux-turbo" />
-      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/ux-twig-component" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/validator" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/var-exporter" />
