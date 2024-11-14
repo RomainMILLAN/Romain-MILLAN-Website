@@ -31,8 +31,12 @@
     <link rel="mask-icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" color="#000000">
     <title>RM Panel</title>
 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
     {{ encore_entry_link_tags('panel', null, 'panel') }}
     {{ encore_entry_script_tags('panel', null, 'panel') }}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/twig.min.js"></script>
+    <script>hljs.highlightAll();</script>
 {% endblock %}
 
 {% block page_subtitle '' %}
@@ -64,16 +68,4 @@
             </div>
         </div>
     </footer>
-{% endblock %}
-
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/twig.min.js"></script>
-    <script>hljs.highlightAll();</script>
 {% endblock %}
