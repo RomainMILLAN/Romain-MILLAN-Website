@@ -30,6 +30,9 @@
     <link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
     <link rel="mask-icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" color="#000000">
     <title>RM Panel</title>
+
+    {{ encore_entry_link_tags('panel', null, 'panel') }}
+    {{ encore_entry_script_tags('panel', null, 'panel') }}
 {% endblock %}
 
 {% block page_subtitle '' %}
