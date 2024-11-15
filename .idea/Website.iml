@@ -4,7 +4,6 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/app/src" isTestSource="false" packagePrefix="App\" />
-      <sourceFolder url="file://$MODULE_DIR$/app/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/app/tests" isTestSource="true" packagePrefix="App\Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/var" />
@@ -294,6 +293,11 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symplify/phpstan-rules" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symplify/rule-doc-generator-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/lcobucci/jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/mercure" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/mercure-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/mercure-notifier" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/ux-notify" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
