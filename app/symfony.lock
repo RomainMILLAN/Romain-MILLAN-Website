@@ -276,7 +276,7 @@
         ]
     },
     "symfony/ux-live-component": {
-        "version": "2.20",
+        "version": "2.21",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -288,10 +288,10 @@
         ]
     },
     "symfony/ux-turbo": {
-        "version": "v2.14.0"
+        "version": "v2.21.0"
     },
     "symfony/ux-twig-component": {
-        "version": "2.20",
+        "version": "2.21",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",

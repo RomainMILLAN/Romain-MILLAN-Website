@@ -12,7 +12,7 @@ use Symfony\UX\LiveComponent\DefaultActionTrait;
 
 #[AsLiveComponent(
     name: 'MonitorStatus',
-    template: 'components/MonitorStatus.html.twig'
+    template: 'components/panel/monitorStatus.html.twig'
 )]
 class MonitorStatusComponent
 {

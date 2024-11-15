@@ -7,3 +7,5 @@ import './bootstrap.ts';
  * which should already be in your base.html.twig.
  */
 import './styles/app.scss';
+
+import '../../public/bundles/tabler/tabler.js';

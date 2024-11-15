@@ -9,6 +9,9 @@
             <twig:MonitorStatus
                     monitorStatus="down"
             />
+            <twig:MonitorStatus
+                    monitorStatus="maintenance"
+            />
         </div>
     </section>
 
@@ -113,18 +116,6 @@
                     ] }}"
                     tags="{{ [
                         {name: 'CLOUD', color: 'purple'},
-                    ] }}"
-            />
-
-            <twig:panel:dashboard:serviceCard
-                    title="Vaultwarden"
-                    description="Administration du gestionnaire de mot de passe"
-                    avatar="bitwarden"
-                    actions="{{ [
-                        {url: 'https://passwords.romainmillan.fr/admin/'},
-                    ] }}"
-                    tags="{{ [
-                        {name: 'PROD 02', color: 'purple'},
                     ] }}"
             />
         </div>
