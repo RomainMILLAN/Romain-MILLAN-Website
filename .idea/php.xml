@@ -302,11 +302,6 @@
       <path value="$PROJECT_DIR$/app/vendor/symfony/ux-twig-component" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/ux-live-component" />
       <path value="$PROJECT_DIR$/app/vendor/symfony/ux-turbo" />
-      <path value="$PROJECT_DIR$/app/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/app/vendor/symfony/mercure-notifier" />
-      <path value="$PROJECT_DIR$/app/vendor/symfony/ux-notify" />
-      <path value="$PROJECT_DIR$/app/vendor/symfony/mercure" />
-      <path value="$PROJECT_DIR$/app/vendor/symfony/mercure-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3" />
