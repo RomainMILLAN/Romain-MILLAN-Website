@@ -33,6 +33,18 @@
             />
 
             <twig:panel:dashboard:serviceCard
+                    title="Finance"
+                    description="Gestionnaire de finance fait maison"
+                    avatar="php"
+                    actions="{{ [
+                        {url: 'https://finance.romainmillan.fr/app'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 02', color: 'purple'},
+                    ] }}"
+            />
+
+            <twig:panel:dashboard:serviceCard
                     title="Vaultwarden"
                     description="Gestionnaire de mot de passe"
                     avatar="bitwarden"
