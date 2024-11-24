@@ -5,8 +5,11 @@ namespace App\PanelContext\Domain\UptimeKuma;
 class Monitor
 {
     private MonitorStatus $status;
+
     private float $responseTime;
+
     private CertValidationStatus $certValidationStatus;
+
     private int $certExpiryDays;
 
     public function __construct(

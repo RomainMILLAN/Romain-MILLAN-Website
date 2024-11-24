@@ -9,7 +9,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MenuBuilderSubscriber implements EventSubscriberInterface
 {
-
     public static function getSubscribedEvents(): array
     {
         return [
@@ -61,15 +60,14 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
 
 
         $this->activateByRoute(
-            $event->getRequest()->get('_route'),
+            $event->getRequest()
+                ->get('_route'),
             $event->getItems()
         );
     }
 
-
-
     /**
-     * @param string $route
+     * @param string          $route
      * @param MenuItemModel[] $items
      */
     protected function activateByRoute($route, $items)

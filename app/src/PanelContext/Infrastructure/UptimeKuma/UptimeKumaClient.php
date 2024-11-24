@@ -12,9 +12,9 @@ readonly class UptimeKumaClient
     public function __construct(
         private HttpClientInterface $client,
         #[Autowire(env: 'UPTIME_KUMA_API_BASE_URL')]
-        private string              $uptimeKumaBaseUrl,
+        private string $uptimeKumaBaseUrl,
         #[Autowire(env: 'UPTIME_KUMA_API_KEY')]
-        private string              $uptimeKumaApiKey,
+        private string $uptimeKumaApiKey,
     ) {
     }
 

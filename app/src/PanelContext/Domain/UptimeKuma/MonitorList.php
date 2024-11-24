@@ -5,8 +5,10 @@ namespace App\PanelContext\Domain\UptimeKuma;
 class MonitorList
 {
     private array $monitors = [];
-    public function __construct(array $monitors) {
-        $this->monitors = array_filter($monitors, fn($monitor) => $monitor->getType() !== 'group');
+
+    public function __construct(array $monitors)
+    {
+        $this->monitors = array_filter($monitors, fn ($monitor) => $monitor->getType() !== 'group');
     }
 
     public function isAnyMonitorDown(): bool
@@ -16,12 +18,13 @@ class MonitorList
                 return true;
             }
         }
+
         return false;
     }
 
     public function countByStatus(string $status): int
     {
-        return count(array_filter($this->monitors, fn($monitor) => $monitor->getStatus()->value === $status));
+        return count(array_filter($this->monitors, fn ($monitor) => $monitor->getStatus()->value === $status));
     }
 
     public function percentOfStatus(string $status): float
@@ -32,6 +35,7 @@ class MonitorList
         }
 
         $count = $this->countByStatus($status);
+
         return ($count / $total) * 100;
     }
 
@@ -45,7 +49,7 @@ class MonitorList
             $responseTime = $monitor->getResponseTime();
             if ($responseTime >= 0) {
                 $totalResponseTime += $responseTime;
-                $count++;
+                ++$count;
             }
         }
 

@@ -24,11 +24,11 @@ readonly class UserDetailSubscriber implements EventSubscriberInterface
 
     public function onShowUser(UserDetailsEvent $event): void
     {
-        if (null === $this->security->getUser()) {
+        if ($this->security->getUser() === null) {
             return;
         }
 
-        /* @var $myUser InMemoryUser */
+        /** @var InMemoryUser $myUser */
         $myUser = $this->security->getUser();
 
         $user = new UserModel('1', $myUser->getUserIdentifier());

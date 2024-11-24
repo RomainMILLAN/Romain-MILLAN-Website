@@ -32,7 +32,8 @@ class MonitorStatusComponent
     public function fetchData(): MonitorList
     {
         $this->monitorList = new MonitorList($this->uptimeKumaResponseParser->parseMonitors(
-            $this->uptimeKumaClient->request('metrics')->getContent()
+            $this->uptimeKumaClient->request('metrics')
+                ->getContent()
         ));
 
         return $this->monitorList;

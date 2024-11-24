@@ -9,6 +9,7 @@ portfolio:
       projects: Projets
       fomations_experiences: Formations et Expériences
       contact: Contact
+      panel: Accedez au panel
   home:
     status: ~ Développeur
     continue: Continuer

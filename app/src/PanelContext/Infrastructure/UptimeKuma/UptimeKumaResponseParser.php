@@ -14,7 +14,7 @@ class UptimeKumaResponseParser
         $monitors = [];
 
         foreach ($metricsData as $metricName => $entries) {
-            if (!is_array($entries)) {
+            if (! is_array($entries)) {
                 continue;
             }
 
@@ -25,11 +25,11 @@ class UptimeKumaResponseParser
 
 
                 $name = $labelData['monitor_name'] ?? null;
-                if (!$name) {
+                if (! $name) {
                     continue;
                 }
 
-                if (!isset($monitors[$name])) {
+                if (! isset($monitors[$name])) {
                     $monitors[$name] = new Monitor(
                         $name,
                         $labelData['monitor_type'] ?? null,
@@ -74,7 +74,7 @@ class UptimeKumaResponseParser
             if ($matches) {
                 $metricName = $matches[1];
                 $labels = $matches[2] ?? null;
-                $value = is_numeric($matches[3]) ? (float)$matches[3] : $matches[3];
+                $value = is_numeric($matches[3]) ? (float) $matches[3] : $matches[3];
 
                 if ($labels) {
                     $metricsArray[$metricName][] = [$labels, $value];
