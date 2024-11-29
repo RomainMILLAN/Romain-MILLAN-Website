@@ -99,6 +99,12 @@ portfolio:
       location: Spiriit, France
       current: false
     5:
+      title: Développeur Web
+      date: Décembre 2023 - Aujourd'hui
+      city: Sète, France
+      location: A.G.E.S., France
+      current: true
+    6:
       title: Développeur Symfony
       title_extended: Backend
       date: Septembre 2024 - Aujourd'hui
