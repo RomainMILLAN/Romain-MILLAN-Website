@@ -26,6 +26,14 @@ deploy:	docker-start	## Deploy project into containers
 	@echo "🚀 Deploy the project"
 	$(DCE) php make deploy ENV=$(ENV)
 
+dev: ## Launch application in development mode
+	@echo "🚀 Launching application in development mode"
+	@cd app && make start
+
+dev-stop: ## Launch application in development mode
+	@echo "🚀 Stopping application in development mode"
+	@cd app && make stop
+
 dependencies: vendor assets
 
 vendor:
