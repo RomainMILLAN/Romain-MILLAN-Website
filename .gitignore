@@ -2,3 +2,4 @@ compose.override.yaml
 .env.deploy
 .env.local
 .idea/
+app/src/AppContext/Infrastructure/Symfony/Command/SandboxCommand.php
