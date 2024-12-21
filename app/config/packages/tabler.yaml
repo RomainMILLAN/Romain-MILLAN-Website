@@ -15,7 +15,7 @@ tabler:
         # true = dark mode, false = light mode (on menu)
         navbar_dark: true
         # true = boxed layout, false = full-screen
-        boxed_layout: true
+        boxed_layout: false
         # false = left to right, true = right to left
         rtl_mode: false
         # true = only avatar, false = show username and title as well
