@@ -9,3 +9,4 @@ import './bootstrap.ts';
 import './styles/app.scss';
 
 import '../../public/bundles/tabler/tabler.js';
+import '../rm-tag/tag.css';
