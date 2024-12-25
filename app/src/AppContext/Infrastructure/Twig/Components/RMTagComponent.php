@@ -26,10 +26,11 @@ class RMTagComponent
     public bool $isStrokeAnimated = false;
 
     public bool $hasRedirect = false;
+    public string $classes = "";
 
     public function getStyleClasses(): string
     {
-        $result = '';
+        $result = $this->classes;
 
         if (! $this->isFilledBlack && ! $this->isFilledWhite) {
             $result .= ' rm-tag-fill-transparent';
@@ -44,11 +45,11 @@ class RMTagComponent
         }
 
         if ($this->isFillAnimated) {
-            $result .= ' rm-tag-fill-animated';
+            $result .= ' rm-tag-enable-fill-animation';
         }
 
         if ($this->isStrokeAnimated) {
-            $result .= ' rm-tag-stroke-animated';
+            $result .= ' rm-tag-enable-stroke-animation';
         }
 
         return $result;
