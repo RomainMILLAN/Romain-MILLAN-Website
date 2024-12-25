@@ -85,4 +85,4 @@ app-env.local:
 
 prod: ## Deploy to production server
 	@echo "🚩 Deploying to server ($(SERVER))"
-	@ssh -A $(SERVER) 'cd $(DOMAIN) && git pull origin main && make deploy'
+	@ssh -A $(SERVER) 'cd $(DOMAIN) && git pull origin main && git submodule update --init --remote --recursive && make deploy'
