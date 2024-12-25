@@ -15,8 +15,8 @@ portfolio:
     continue: Continuer
   aboutme:
     title: Qui suis-je ?
-    description: Étudiant en Informatique de 20 ans, actuellement dans un BUT Informatique.
-    paragraph_one: Mon parcours inclut une expérience en alternance au sein d'une agence web, où je fusionne mes connaissances académiques avec des applications pratiques.
+    description: Développeur spécialisé dans le web, avec une expertise particulière dans le framework Symfony.
+    paragraph_one: Actuellement développeur backend dans une agence web à Montpellier, j'utilise le framework Symfony pour mes projets, tout en explorant diverses technologies à travers des projets annexes.
     paragraph_two: Passionnée par les technologies, je possède un éventail de technologies.
     download_cv: Télécharger mon CV
   projects:
