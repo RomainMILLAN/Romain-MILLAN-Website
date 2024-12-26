@@ -17,7 +17,7 @@ portfolio:
     title: Qui suis-je <span class="colored">?</span>
     description: Développeur spécialisé dans le web, avec une expertise particulière dans le framework Symfony.
     paragraph_one: Actuellement développeur backend dans une agence web à Montpellier, j'utilise le framework Symfony pour mes projets, tout en explorant diverses technologies à travers des projets annexes.
-    paragraph_two: Passionnée par les technologies, je possède un éventail de technologies.
+    paragraph_two: Passionnée par les technologies, je possède un éventail de technologies et de compétences.
     download_cv: Télécharger mon CV
   projects:
     title: Mes projets
