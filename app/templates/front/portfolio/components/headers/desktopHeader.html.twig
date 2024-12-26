@@ -3,10 +3,12 @@
 
 <div class="desktop_header">
     <div class="desktop_nav-logo">
-        {# <h1>{{ 'global.title'|trans }}</h1> #}
-        <a href="{{ path('app_front_portfolio') }}">
-            <img src="{{ asset('build/front/static/img/logo/romainmillan.svg', 'front') }}" alt="Logo de Romain MILLAN"/>
-        </a>
+        <twig:rm-tag
+            width="200px"
+            isStrokeWhite="true"
+            isStrokeAnimated="true"
+            hasRedirect="true"
+        />
     </div>
     <nav>
         <li onclick="scrollToIdDiv('home')">{{ 'portfolio.header.nav.home'|trans }}</li>
