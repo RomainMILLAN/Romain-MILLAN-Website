@@ -1,16 +1,14 @@
 {% trans_default_domain 'front' %}
 
 <a class="project_card" href="{{ path('app_front_project', {'project_name': project_name}) }}">
-    <div >
-        <h2>
-            {{ project_title }}
+    <img src="{{ asset('build/front/static/img/projects'~project_card_image, 'front') }}" alt="{{ project_title }}">
 
-            <span class="project_status project_{{ project_status }}">{{ project_year }}</span>
-        </h2>
+    <div class="project_card_content">
+        <h2>{{ project_title }}</h2>
+        <p>{{ project_description }}</p>
 
-        <div class="project_description">
-            <img src="{{ asset('build/front/static/img/skills/'~project_skill~'.svg', 'front') }}" alt="Icone {{ project_skill }}"/>
-            <p>{{ project_description }}</p>
+        <div class="project_card_footer">
+            <span class="project_status project_status_{{ project_status }}">{{ project_year }}</span>
         </div>
     </div>
 </a>

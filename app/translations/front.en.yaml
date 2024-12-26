@@ -70,7 +70,7 @@ project:
   rm-web:
     title: My own website
     description: My portfolio and much more.
-    description_long: The establishment of my own website, along with all the administrative elements that come with it.
+    description_long: I set out to design my own website, which will include not only my portfolio but also a management panel and links to my third-party services. Additionally, I have integrated a signature generation tool.
   discord_edt_um:
     title: Discord EDT UM
     description: I've created a bot for the Discord application to display the timetables of the University of Montpellier.
