@@ -37,14 +37,13 @@ portfolio:
     description: Plusieurs choix s'offrent à vous !
     email-1: contact@romainmillan.fr
     email-2: romainmillan34560@gmail.com
+    resume: Curriculum Vitae
     linkedin: in/romain-millan/
-    instagram: millan_romain
     github: RomainMILLAN
     links:
       email-1: mailto:contact@romainmillan.fr
       email-2: mailto:romainmillan34560@gmail.com
       linkedin: https://www.linkedin.com/in/romain-millan/
-      instagram: https://www.instagram.com/millan_romain/
       github: https://github.com/RomainMILLAN/
   footer:
     all_right_reserved: Tous droits réservés.

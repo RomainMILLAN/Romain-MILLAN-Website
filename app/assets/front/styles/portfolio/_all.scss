@@ -12,6 +12,13 @@
   }
 }
 
+.download_cv_btn {
+  background-color: $primary;
+}
+.download_cv_btn:after {
+  background-color: $primary;
+}
+
 @import "mobile_header";
 @import "desktop_header";
 
