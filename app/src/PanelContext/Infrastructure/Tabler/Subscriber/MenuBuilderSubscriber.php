@@ -4,6 +4,7 @@ namespace App\PanelContext\Infrastructure\Tabler\Subscriber;
 
 use App\PanelContext\Infrastructure\Symfony\Controller\RouteCollection;
 use KevinPapst\TablerBundle\Event\MenuEvent;
+use KevinPapst\TablerBundle\Model\MenuItemInterface;
 use KevinPapst\TablerBundle\Model\MenuItemModel;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -58,7 +59,6 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
             )
         );
 
-
         $this->activateByRoute(
             $event->getRequest()
                 ->get('_route'),
@@ -67,10 +67,9 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
     }
 
     /**
-     * @param string          $route
-     * @param MenuItemModel[] $items
+     * @param MenuItemModel[]|MenuItemInterface[] $items
      */
-    protected function activateByRoute($route, $items)
+    protected function activateByRoute(string $route, array $items): void
     {
         foreach ($items as $item) {
             if ($item->hasChildren()) {

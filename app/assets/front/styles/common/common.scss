@@ -1,0 +1,14 @@
+body {
+  background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Inter", serif;
+  color: var(--text-color);
+}
+
+main {
+  width: 95%;
+  margin: auto;
+  padding-top: 75px;
+}

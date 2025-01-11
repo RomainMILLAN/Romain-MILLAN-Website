@@ -2,8 +2,6 @@
 
 namespace App\SignatureContext\Domain\DTO;
 
-use Doctrine\ORM\Mapping\Embedded;
-
 class SignatureDTO
 {
     public string $firstName;
@@ -26,7 +24,6 @@ class SignatureDTO
      */
     public array $phones = [];
 
-    #[Embedded]
     public SignatureSocialNetworkDTO $socialNetwork;
 
     public function fullName(): string

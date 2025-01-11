@@ -1,0 +1,29 @@
+@media (width > 450px) {
+  .desktop_header {
+    display: flex !important;
+  }
+}
+
+.desktop_header {
+  position: fixed;
+  width: 100%;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  &--navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    &_item {
+      text-decoration: none;
+      color: var(--text-color);
+      font-family: "Inter", serif;
+    }
+  }
+}

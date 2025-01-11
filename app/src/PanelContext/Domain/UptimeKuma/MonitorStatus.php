@@ -2,6 +2,8 @@
 
 namespace App\PanelContext\Domain\UptimeKuma;
 
+use App\PanelContext\Domain\Exception\APIDataNotFound;
+
 enum MonitorStatus: string
 {
     case UP = 'up';
@@ -16,6 +18,7 @@ enum MonitorStatus: string
             1 => self::UP,
             2 => self::PENDING,
             3 => self::MAINTENANCE,
+            default => throw new APIDataNotFound(),
         };
     }
 }

@@ -18,6 +18,9 @@ readonly class UptimeKumaClient
     ) {
     }
 
+    /**
+     * @param array<mixed> $options
+     */
     public function request(string $uri, string $method = Request::METHOD_GET, array $options = []): ResponseInterface
     {
         return $this->client->request(

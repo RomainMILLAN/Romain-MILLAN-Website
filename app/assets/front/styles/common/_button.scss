@@ -1,0 +1,25 @@
+.btn {
+  border: 1px solid var(--text-color);
+  font-family: "Inter", serif;
+  border-radius: 5px;
+  padding: 5px 20px;
+  box-shadow: -1px 1px 1px black;
+  transition: .5s;
+}
+.btn:hover {
+  box-shadow: -2px 2px 1px black;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--background-secondary);
+}
+.btn-secondary:hover {
+  background-color: var(--background-secondary-hover);
+}

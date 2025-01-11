@@ -18,7 +18,6 @@ class SitemapPagesController extends AbstractController
     public function __invoke(): Response
     {
         $pageRoutes = [
-            \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::HOMEPAGE->prefixed(),
             \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::PORTFOLIO->prefixed(),
         ];
 

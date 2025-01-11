@@ -10,6 +10,6 @@ class RedirectController extends AbstractController
 {
     public function redirectToLocale(): Response
     {
-        return $this->redirectToRoute(RouteCollection::HOMEPAGE->prefixed());
+        return $this->redirectToRoute(RouteCollection::PORTFOLIO->prefixed());
     }
 }
