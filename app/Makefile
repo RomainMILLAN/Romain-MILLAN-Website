@@ -15,8 +15,7 @@ help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
 install:		## Start project
-install: vendors start proxy assets
-# install: config vendors npm start assets
+install: submodules vendors start proxy assets
 
 restart:	## Restart project
 restart: stop start
@@ -26,7 +25,7 @@ stop: symfony-stop
 	@$(SF) proxy:stop
 
 start: 	## Start project
-start: symfony-start assets
+start: submodules symfony-start assets
 	@$(SF) proxy:start
 
 proxy:
@@ -42,6 +41,9 @@ symfony-stop: 	## Stop symfony server
 
 ##
 ## —— Dependencies 📁 ————————————————————————————————————————————————————————————————
+submodules:		## Initialise and update submodule
+	@git submodule update --init --recursive
+
 vendors:	## Install php dependencies
 	@$(COMPOSER) install
 
