@@ -2,6 +2,7 @@ global:
   title: "Romain MILLAN"
 
 navigation:
+  title: "Navigation"
   portfolio: "Mon portfolio"
   aboutme: "A propos"
   works: "Mes travaux"
@@ -103,6 +104,15 @@ formations:
       description: ""
       icon: "iut_mtp.png"
 
+contact:
+  title: "Contact"
+  email: "Mail"
+  github: "Github"
+  cv: "Curriculum Vitae"
+  linkedin: "LinkedIn"
+
+legalMentions:
+  title: "Mentions Légales"
 
 footer:
   all_right_reserved: "Tous droits réservés."

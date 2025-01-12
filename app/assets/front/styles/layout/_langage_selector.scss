@@ -1,0 +1,17 @@
+.language_picker {
+  &--container {
+    font-family: "Inter", serif;
+
+    select {
+      padding: 5px 15px;
+      border: 1px solid var(--text-color);
+      border-radius: 5px;
+      box-shadow: 1px 1px 1px var(--text-color);
+      background-color: var(--background-secondary);
+      transition: .3s;
+    }
+    select:hover {
+      box-shadow: 2px 2px 1px var(--text-color);
+    }
+  }
+}

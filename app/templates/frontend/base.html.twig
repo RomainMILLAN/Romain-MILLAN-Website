@@ -45,8 +45,21 @@
                     <li>
                         <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'formations'}) }}>{{ 'navigation.formations'|trans }}</a>
                     </li>
+                    <li>
+                        <form action="#" class="language_picker--container">
+                            <label>
+                                <select
+                                        onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
+                                        name="language_picker--select"
+                                >
+                                    <option lang="fr" {% if is_current_language('fr') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'fr'}) }}">Français</option>
+                                    <option lang="en" {% if is_current_language('en') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'en'}) }}">English</option>
+                                </select>
+                            </label>
+                        </form>
+                    </li>
                     <li class="nav_small">
-                        <p>© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
+                        <p>© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}" style="padding: 0; margin: 0;">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
                         <p>{{ 'footer.no_reproduce'|trans }}</p>
                     </li>
 
@@ -70,6 +83,19 @@
             <a class="desktop_header--navigation_item cursor-pointer" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>{{ 'navigation.aboutme'|trans }}</a>
             <a class="desktop_header--navigation_item cursor-pointer" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'work'}) }}>{{ 'navigation.works'|trans }}</a>
             <a class="desktop_header--navigation_item cursor-pointer" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'experiences'}) }}>{{ 'navigation.experiences'|trans }}</a>
+
+            <form action="#" class="language_picker--container">
+                <label>
+                    <select
+                        onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
+                        name="language_picker--select"
+                    >
+                        <option lang="fr" {% if is_current_language('fr') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'fr'}) }}">Français</option>
+                        <option lang="en" {% if is_current_language('en') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'en'}) }}">English</option>
+                    </select>
+                </label>
+            </form>
+
         </nav>
 
     </section>
@@ -83,17 +109,17 @@
             <img src="{{ asset('build/front/static/img/logo/icon.svg', 'front') }}" alt="Icone Romain MILLAN"/>
 
             <div class="footer_navigation--item flex-column m-0 p-0">
-                <h6 class="text-underline m-0">Navigation</h6>
-                <a href="{{ path('app_front_portfolio') }}">Portfolio</a>
-                <a href="#">Mentions Légales</a>
+                <h6 class="text-underline m-0">{{ 'navigation.title'|trans }}</h6>
+                <a href="{{ path('app_front_portfolio') }}">{{ 'navigation.portfolio'|trans }}</a>
+                <a href="#">{{ 'legalMentions.title'|trans }}</a>
             </div>
 
             <div class="footer_navigation--item flex-column m-0 p-0">
-                <h6 class="text-underline m-0">Contact</h6>
-                <a href="mailto:contact@romainmillan.fr">Mail</a>
-                <a href="https://github.com/RomainMILLAN/">Github</a>
-                <a href="{{ asset('build/front/static/upload/CV_MILLAN_Romain.pdf', 'front') }}" target="_blank">Curriculum Vitae</a>
-                <a href="https://www.linkedin.com/in/romain-millan/">LinkedIn</a>
+                <h6 class="text-underline m-0">{{ 'contact.title'|trans }}</h6>
+                <a href="mailto:contact@romainmillan.fr">{{ 'contact.email'|trans }}</a>
+                <a href="https://github.com/RomainMILLAN/">{{ 'contact.github'|trans }}</a>
+                <a href="{{ asset('build/front/static/upload/CV_MILLAN_Romain.pdf', 'front') }}" target="_blank">{{ 'contact.cv'|trans }}</a>
+                <a href="https://www.linkedin.com/in/romain-millan/">{{ 'contact.linkedin'|trans }}</a>
             </div>
 
         </div>
