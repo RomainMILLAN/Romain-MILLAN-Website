@@ -8,6 +8,7 @@ navigation:
   works: "Mes travaux"
   experiences: "Mes expériences"
   formations: "Mes formations"
+  panel: "Accédez au panel"
 
 home:
   title: "Plus qu'un développeur, <br/>Votre prochain talent !"
