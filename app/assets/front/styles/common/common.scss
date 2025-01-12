@@ -27,6 +27,11 @@ main {
   }
 }
 
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
 /**
 CONTAINER / FLEX
  */
@@ -52,6 +57,10 @@ CONTAINER / FLEX
   justify-content: end;
 }
 
+.justify-content-between {
+  justify-content: space-between;
+}
+
 .align-items-center {
   align-items: center;
 }
@@ -62,6 +71,10 @@ CONTAINER / FLEX
 
 .align-items-end {
   align-items: end;
+}
+
+.gap-5 {
+  gap: 5px;
 }
 
 .gap-20 {

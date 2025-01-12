@@ -14,6 +14,49 @@ aboutme:
     second: "Passionné par les nouvelles technologies et le développement, j'ai une volonté accrue d'apprendre de nouvelles compétences. Je cherche constamment à me challenger en découvrant de nouveaux langages et frameworks, afin d'élargir mes horizons et d'améliorer mes pratiques professionnelles."
     third: "Mon objectif est de réaliser un développement durable et de qualité, en mettant l'accent sur l'innovation et l'efficacité."
 
+work:
+  title: "Mes Travaux"
+
+works:
+  list:
+    1: "ages"
+    2: "waps"
+    3: "voteit"
+  ages:
+    title: "Association Générale des Étudiants de Sète"
+    description: "Dans le cadre de ce projet, j'ai eu l'opportunité de concevoir et de développer un site internet pour une association étudiante basée à Sète. L'objectif principal était de fournir une plateforme conviviale et attrayante qui reflète les valeurs et les activités de l'association, tout en facilitant la communication entre les membres et le public."
+    card_image: /ages/home.png
+    skills:
+      1: "Symfony"
+      2: "PHP"
+      3: "Twig"
+    links:
+      1:
+        icon: "streamline:web-solid"
+        link: "https://ages-sete.fr/"
+  waps:
+    title: "Waps"
+    description: "Dans le cadre de ce projet, j'ai participé à une SAÉ (Situation d'Apprentissage et d'Évaluation) visant à créer une carte interactive capable de générer des itinéraires personnalisés. L'objectif principal était de développer des algorithmes pour calculer les chemins les plus courts en un temps minimal."
+    skills:
+      1: "PHP"
+    card_image: /waps/desktop.png
+    links:
+      1:
+        icon: "mdi:github"
+        link: "https://github.com/RomainMILLAN/SAE-4.01-Waps/"
+  voteit:
+    title: "Vote It"
+    description: "Dans le cadre d'une Situation d'Apprentissage et d'Évaluation (SAE), j'ai conçu et développé une application web de forum en ligne. L'objectif principal était de maîtriser le PHP et l'utilisation de bases de données, tout en créant une plateforme interactive où les utilisateurs peuvent échanger des idées, poser des questions et voter sur les sujets."
+    skills:
+      1: "PHP"
+    card_image: /voteit/desktop_list.png
+    links:
+      1:
+        icon: "mdi:github"
+        link: "https://github.com/RomainMILLAN/SAE-3.01-VoteIt/"
+
+
+
 footer:
   all_right_reserved: Tous droits réservés.
   no_reproduce: Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite.

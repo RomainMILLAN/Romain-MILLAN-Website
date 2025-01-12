@@ -166,4 +166,90 @@
         </style>
 
     </section>
+
+    <section id="work" class="container">
+        <div class="title--container">
+            <h2>{{ 'work.title'|trans }}</h2>
+        </div>
+
+        <div class="work--content grid--container gap-20 justify-content-center">
+
+            {% for i in 1..100 %}
+
+                {% if "works.list.#{ i }"|trans != "works.list.#{ i }" %}
+                    {% set project_name = "works.list.#{ i }"|trans %}
+                    {% set project_image = "works.#{ project_name }.card_image"|trans %}
+
+                    <article class="card--container">
+
+                        <div class="card--illustration">
+                            <img height="100px" src="{{ asset('build/front/static/img/projects'~project_image, 'front') }}" alt="Google Illustration">
+                        </div>
+
+                        <div class="card--header">
+                            <p class="text-bold">{{ "works.#{project_name}.title"|trans }}</p>
+                        </div>
+
+                        <div class="card--content">
+                            <p>{{ "works.#{project_name}.description"|trans }}</p>
+                        </div>
+
+                        <div class="card--footer flex-row justify-content-between gap-5">
+
+                            <div>
+                                {% for i in 10..1 %}
+                                    {% if "works.#{project_name}.links.#{ i }.icon"|trans != "works.#{project_name}.links.#{ i }.icon" %}
+                                        <a href="{{ "works.#{project_name}.links.#{ i }.link"|trans }}" target="_blank">
+                                            <twig:ux:icon
+                                                    name="{{ "works.#{project_name}.links.#{ i }.icon"|trans }}"
+                                                    width="20"
+                                            />
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            <div>
+                                {% for i in 10..1 %}
+                                    {% if "works.#{project_name}.skills.#{ i }"|trans != "works.#{project_name}.skills.#{ i }" %}
+                                        <span class="card-tag">{{ "works.#{project_name}.skills.#{ i }"|trans }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        </div>
+
+                    </article>
+                {% endif %}
+
+            {% endfor %}
+
+
+
+        </div>
+
+        <style>
+            #work {
+                .work--content {
+                    margin-top: 50px;
+
+                    article {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @media (width > 450px) {
+                #work {
+                    .work--content {
+                        gap: 50px;
+
+                        article {
+                            width: 500px;
+                        }
+                    }
+                }
+            }
+        </style>
+    </section>
 {% endblock %}

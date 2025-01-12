@@ -5,18 +5,55 @@
        <h2>User Interface</h2>
    </div>
 
-    <section>
-        <h1>H1</h1>
-        <h2>H2</h2>
-        <h3>H3</h3>
-        <h4>H4</h4>
-        <h5>H5</h5>
-        <h6>H6</h6>
-        <p>Paragraph</p>
-    </section>
+    <section class="flex-column gap-20">
+        <section>
+            <h1>H1</h1>
+            <h2>H2</h2>
+            <h3>H3</h3>
+            <h4>H4</h4>
+            <h5>H5</h5>
+            <h6>H6</h6>
+            <p>Paragraph</p>
+        </section>
 
-    <section>
-        <button class="btn btn-primary">Primary Button</button>
-        <button class="btn btn-secondary">Secondary Button</button>
+        <section>
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+        </section>
+
+        <section>
+            <article class="card--container">
+                <div class="card--illustration">
+                    <img height="100px" src="https://digitalarcane.com/wp-content/uploads/2023/08/image-88-e1692385167766.png" alt="Google Illustration">
+                </div>
+                <div class="card--header">
+                    <p>Card title</p>
+                </div>
+                <div class="card--content">
+                    <p>Card description</p>
+                </div>
+                <div class="card--footer flex-row justify-content-between gap-5">
+
+                    <div>
+                        <a href="#">
+                            <twig:ux:icon name="streamline:web-solid" width="20"/>
+                        </a>
+                        <a href="#">
+                            <twig:ux:icon name="streamline:web-solid" width="20"/>
+                        </a>
+                        <a href="#">
+                            <twig:ux:icon name="streamline:web-solid" width="20"/>
+                        </a>
+                    </div>
+
+                    <div>
+                        <span class="card-tag">Card</span>
+                        <span class="card-tag">Tag</span>
+                    </div>
+
+                </div>
+            </article>
+        </section>
+
     </section>
 {% endblock %}
