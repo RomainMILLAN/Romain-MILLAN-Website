@@ -1,0 +1,47 @@
+footer {
+  background-color: var(--background-secondary);
+  width: 100%;
+  min-height: 200px;
+  gap: 10px;
+
+  div {
+    width: 95%;
+    margin: auto;
+
+    img {
+      display: none;
+    }
+
+    .footer_navigation {
+      &--container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      &--item {
+        p, a {
+          margin-left: 5px;
+          font-family: "Inter", serif;
+        }
+      }
+    }
+  }
+
+  p {
+    font-size: .75rem;
+  }
+}
+
+@media (width > 450px) {
+  footer {
+
+    div {
+      width: 75%;
+
+      img {
+        display: block;
+        width: 50px;
+        margin-right: 100px;
+      }
+    }
+  }
+}

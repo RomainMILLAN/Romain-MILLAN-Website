@@ -1,6 +1,7 @@
 {% extends 'frontend/base.html.twig' %}
 
 {% trans_default_domain 'front' %}
+{% block body_attribut %}{{ stimulus_controller('scroll-to') }}{% endblock %}
 
 {% block main %}
 
@@ -22,7 +23,7 @@
 
         </div>
 
-        <div id='home--scroll_down' class="flex-row justify-content-center">
+        <div id='home--scroll_down' class="flex-row justify-content-center" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>
             <twig:ux:icon name="lineicons:scroll-down-2" width="50"/>
         </div>
 

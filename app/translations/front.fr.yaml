@@ -3,6 +3,10 @@ global:
 
 navigation:
   portfolio: "Mon portfolio"
+  aboutme: "A propos"
+  works: "Mes travaux"
+  experiences: "Mes expériences"
+  formations: "Mes formations"
 
 home:
   title: "Plus qu'un développeur, <br/>Votre prochain talent !"

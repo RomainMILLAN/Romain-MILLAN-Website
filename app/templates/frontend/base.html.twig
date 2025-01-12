@@ -30,7 +30,19 @@
                     />
 
                     <li>
-                        <a href="{{ path('app_front_portfolio') }}#home">{{ 'navigation.portfolio'|trans }}</a>
+                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'home'}) }}>{{ 'navigation.portfolio'|trans }}</a>
+                    </li>
+                    <li>
+                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>{{ 'navigation.aboutme'|trans }}</a>
+                    </li>
+                    <li>
+                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'work'}) }}>{{ 'navigation.works'|trans }}</a>
+                    </li>
+                    <li>
+                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'experiences'}) }}>{{ 'navigation.experiences'|trans }}</a>
+                    </li>
+                    <li>
+                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'formations'}) }}>{{ 'navigation.formations'|trans }}</a>
                     </li>
                     <li class="nav_small">
                         <p>© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
@@ -53,9 +65,40 @@
         />
 
         <nav class="desktop_header--navigation">
-            <a class="desktop_header--navigation_item" href="#">{{ 'navigation.portfolio'|trans }}</a>
+            <a class="desktop_header--navigation_item" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'home'}) }}>{{ 'navigation.portfolio'|trans }}</a>
+            <a class="desktop_header--navigation_item" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>{{ 'navigation.aboutme'|trans }}</a>
+            <a class="desktop_header--navigation_item" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'work'}) }}>{{ 'navigation.works'|trans }}</a>
+            <a class="desktop_header--navigation_item" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'experiences'}) }}>{{ 'navigation.experiences'|trans }}</a>
             <a href="#" class="desktop_header--navigation_item btn btn-primary">Test</a>
         </nav>
 
     </section>
+{% endblock %}
+
+{% block footer %}
+    <div>
+        <div class="footer_navigation--container flex-row align-items-start justify-content-start">
+
+            <img src="{{ asset('build/front/static/img/logo/icon.svg', 'front') }}" alt="Icone Romain MILLAN"/>
+
+            <div class="footer_navigation--item flex-column m-0 p-0">
+                <h6 class="text-underline m-0">Navigation</h6>
+                <a href="{{ path('app_front_portfolio') }}">Portfolio</a>
+                <a href="#">Mentions Légales</a>
+            </div>
+
+            <div class="footer_navigation--item flex-column m-0 p-0">
+                <h6 class="text-underline m-0">Contact</h6>
+                <a href="mailto:contact@romainmillan.fr">Mail</a>
+                <a href="https://github.com/RomainMILLAN/">Github</a>
+                <a href="{{ asset('build/front/static/upload/CV_MILLAN_Romain.pdf', 'front') }}" target="_blank">Curriculum Vitae</a>
+                <a href="https://www.linkedin.com/in/romain-millan/">LinkedIn</a>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <p class="text-italic">© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
+    </div>
 {% endblock %}
