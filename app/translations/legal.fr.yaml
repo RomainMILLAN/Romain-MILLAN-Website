@@ -1,0 +1,38 @@
+terms_of_use:
+  title: "Mentions Légales"
+  effectiveOn: "En vigueur au 12/01/2025"
+  description:
+    description: "Conformément aux dispositions de la loi n°2004-575 du 21 juin 2004 pour la Confiance en l’économie numérique, il est porté à la connaissance des utilisateurs et visiteurs, ci-après l' <span class='text-bold'>'Utilisateur'</span>, du site <a href='https://romainmillan.fr/'>https://romainmillan.fr/</a>, ci-après le <span class='text-bold'>'Site'</span>, les présentes mentions légales."
+    connectAndNavigate: "La connexion et la navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales."
+    acceptTermsOfUse: "Ces dernières sont accessibles sur le Site à la rubrique 'Mentions légales'."
+  editor:
+    title: "Édition du site"
+    description: "L’édition et la direction de la publication du Site est assurée par Monsieur MILLAN Romain, dont l'adresse e-mail est '<a href='mailto:contact@romainmillan.fr'>contact@romainmillan.fr</a>', ci-après l'<span class='text-bold'>'Éditeur'</span>."
+  hosting:
+    title: "Hébergeur"
+    description: "L'hébergeur du Site est la société Bteck, dont le siège social est situé au 97 Place Alphonse Laveran, 34090 Montpellier."
+    siret: "SIRET : 94999538500018"
+  cgu:
+    title: "1. Conditions générales d’utilisation"
+    description: "L’Utilisateur s’engage à utiliser le Site dans le respect des lois et règlements en vigueur, ainsi que des présentes mentions légales. Toute utilisation abusive, frauduleuse ou malveillante du Site est interdite. L'Éditeur se réserve le droit de suspendre ou bloquer l'accès au Site en cas de non-respect de ces conditions."
+  editorResponsability:
+    title: "2. Responsabilité de l’Éditeur"
+    description: "L’Éditeur s’efforce de fournir des informations fiables et à jour sur le Site, mais ne peut garantir l’exactitude, la complétude ou l’actualité des informations publiées. Il ne peut être tenu responsable des dommages résultant de l’utilisation du Site, notamment en cas d’erreurs, d’omissions, d’indisponibilité ou d’attaques informatiques."
+  intellectualProperty:
+    title: "3. Propriété intellectuelle"
+    description: "Tous les contenus présents sur le Site (textes, images, graphismes, logos, vidéos, etc.) sont protégés par le droit d’auteur et les lois applicables en matière de propriété intellectuelle. Toute reproduction, diffusion, modification ou utilisation, même partielle, de ces contenus est strictement interdite sans l’autorisation écrite préalable de l’Éditeur."
+  applicableLawAndJurisdiction:
+    title: "4. Droit applicable et juridictions compétentes"
+    description: "Les présentes mentions légales sont régies par le droit français. En cas de litige, seuls les tribunaux du ressort de Montpellier seront compétents."
+  cookieUse:
+    title: "5. Utilisation des cookies"
+    description: "Le Site utilise des cookies pour améliorer l’expérience utilisateur et fournir des statistiques anonymes sur la fréquentation. Vous pouvez configurer votre navigateur pour refuser les cookies ou recevoir une notification lorsqu’un cookie est installé. Certains cookies essentiels sont toutefois nécessaires au bon fonctionnement du Site."
+  privacyPolicy:
+    title: "6. Politique de confidentialité"
+    description: "Les données personnelles collectées sur le Site sont utilisées uniquement à des fins de gestion des demandes ou d’amélioration des services. Elles ne seront jamais transmises à des tiers sans consentement explicite. L’Utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition à ses données personnelles, qu’il peut exercer en contactant l’Éditeur à l’adresse : '<a href='mailto:contact@romainmillan.fr'>contact@romainmillan.fr</a>'."
+  computerSecurity:
+    title: "9. Sécurité informatique"
+    description: "L’Éditeur met en œuvre des mesures techniques et organisationnelles pour sécuriser les données personnelles et protéger le Site contre les intrusions. Cependant, l’Éditeur ne peut être tenu responsable des conséquences d’une attaque informatique ou d’une défaillance technique indépendante de sa volonté."
+  updateDate:
+    title: "10. Date de mise à jour"
+    description: "Les présentes mentions légales ont été mises à jour le 12/01/2025. L’Éditeur se réserve le droit de les modifier à tout moment. Les modifications entreront en vigueur dès leur publication sur le Site."
