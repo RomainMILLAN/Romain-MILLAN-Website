@@ -29,7 +29,7 @@
 
         <style>
             #home {
-                margin-top: 150px;
+                margin-top: 0;
 
                 #home--title {
                     gap: 5px;
@@ -47,12 +47,13 @@
                 }
 
                 #home--scroll_down {
-                    margin-top: 400px;
+                    margin-top: 200px;
                 }
             }
 
             @media (width <= 300px) {
                 #home {
+
                     div {
                         flex-direction: column;
                         align-items: center;
@@ -62,6 +63,8 @@
             }
             @media (width > 450px) {
                 #home {
+                    margin-top: 150px;
+
                     #home--title {
                         gap: 50px;
 
@@ -75,6 +78,10 @@
                                 width: 250px !important;
                             }
                         }
+                    }
+
+                    #home--scroll_down {
+                        margin-top: 400px;
                     }
                 }
             }
