@@ -19,6 +19,7 @@ class SitemapPagesController extends AbstractController
     {
         $pageRoutes = [
             \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::PORTFOLIO->prefixed(),
+            \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::TERMS_OF_USE->prefixed(),
         ];
 
         return $this->render('seo/sitemap/pages.xml.twig', [

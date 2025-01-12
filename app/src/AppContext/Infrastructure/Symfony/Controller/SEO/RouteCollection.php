@@ -16,5 +16,4 @@ enum RouteCollection: string implements RouteCollectionInterface
     case SITEMAP_INDEX = 'sitemap_index';
 
     case SITEMAP_PAGES = 'sitemap_pages';
-    case SITEMAP_PROJECTS = 'sitemap_projects';
 }
