@@ -36,7 +36,7 @@
 		{% endblock %}
 	</head>
 
-	<body data-turbo="{% block turbo 'true' %}" class="dark-mode" {% block body_attribut %} {% endblock %}>
+	<body {{ stimulus_controller('light-mode') }} {{ stimulus_target('light-mode', 'body') }} data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}>
 
 		<header {% block header_attributes '' %}>
 			{% block header %}{% endblock %}

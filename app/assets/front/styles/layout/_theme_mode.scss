@@ -1,0 +1,13 @@
+.theme_mode {
+  &--container {
+    color: var(--text-color);
+  }
+
+  &--item {
+    margin: auto;
+  }
+}
+
+#themeMode-light {
+  flex-direction: column;
+}
