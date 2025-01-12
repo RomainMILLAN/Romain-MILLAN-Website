@@ -1,6 +1,17 @@
-{% include 'components/fullPage.html.twig' with {
-  'smallTitle': 'Merci de réessayer plus tard',
-  'bigTitle': 'Une erreur est survenue.',
-  'className': 'fp_error',
-  'returnHomepage': true,
-}%}
+{% extends 'frontend/base.html.twig' %}
+{% trans_default_domain 'error' %}
+
+{% block main %}
+  <section class="error--container flex-column justify-content-center align-items-start">
+
+    <div class="error--content">
+      <h1>{{ 'error.title'|trans }}</h1>
+      <p>{% block description %}{{ 'error.description'|trans }}{% endblock %}</p>
+
+      <a href="{{ path('app_front_portfolio') }}" class="error--content_action btn btn-primary">{{ 'error.action'|trans }}</a>
+    </div>
+
+    {% block illustration %}<img src="{{ asset('build/front/static/img/illustrations/Error.svg', 'front') }}" class="error--illustration" alt="">{% endblock %}
+
+  </section>
+{% endblock %}

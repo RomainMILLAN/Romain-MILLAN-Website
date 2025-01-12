@@ -8,6 +8,9 @@ use App\PanelContext\Domain\UptimeKuma\MonitorStatus;
 
 class UptimeKumaResponseParser
 {
+    /**
+     * @return array<mixed>
+     */
     public function parseMonitors(string $content): array
     {
         $metricsData = $this->parseMetrics($content);
@@ -60,6 +63,9 @@ class UptimeKumaResponseParser
         return array_values($monitors);
     }
 
+    /**
+     * @return array<mixed>
+     */
     private function parseMetrics(string $content): array
     {
         $lines = explode("\n", $content);

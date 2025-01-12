@@ -1,10 +1,21 @@
-@import 'common/colors';
-@import 'common/variables';
-@import 'common/common';
-@import 'common/rm-animated';
-@import '../../rm-tag/tag.css';
+@use '../../rm-tag/tag.css';
+@use 'reset.scss';
 
-$maxWidthMobile: 1000px;
+@use 'common/variables';
+@use 'common/common';
+@use 'common/title';
+@use 'common/button';
+@use 'common/card';
+@use 'common/grid';
+
+@use 'layout/header/mobile';
+@use 'layout/header/desktop';
+@use 'layout/footer';
+@use 'layout/error';
+@use 'layout/langage_selector';
+@use 'layout/terms_of_use';
+
+@use 'layout/portfolio/containers';
 
 @font-face {
     font-family: "Inter";
@@ -15,72 +26,3 @@ $maxWidthMobile: 1000px;
     font-family: "FiraCode";
     src: url("fonts/FiraCode-VariableFont.ttf") format("opentype");
 }
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', serif;
-    color: $textColor-white;
-}
-
-a {
-    text-decoration: none;
-}
-
-body {
-    background-color: $backgroundBlack;
-}
-
-footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    flex-direction: column;
-
-    p {
-        font-size: 10px;
-        font-family: "FiraCode", serif;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        text-align: left;
-    }
-}
-
-.separed_tabs {
-    width: 250px;
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #353535;
-    margin: auto;
-    padding: 0;
-}
-
-.desktop, .desktop_block {
-    display: none;
-}
-.mobile {
-    display: flex;
-}
-.mobile_block {
-    display: block;
-}
-@media (min-width: $maxWidthMobile) {
-    .desktop {
-        display: flex;
-    }
-    .desktop_block {
-        display: block;
-    }
-    .mobile, .mobile_block {
-        display: none;
-    }
-}
-
-.colored {
-    color: $primary;
-}
-
-@import 'layout/fullPage';
-@import 'portfolio/all.scss';

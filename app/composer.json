@@ -2,7 +2,7 @@
     "type": "project",
     "name": "romainmillan/website",
     "description": "Website (portfolio) of Romain Millan",
-    "version": "2.2.2",
+    "version": "2.3",
     "keywords": ["symfony", "website", "portfolio"],
     "homepage": "https://romainmillan.fr/",
     "authors": [
@@ -52,6 +52,7 @@
         "symfony/string": "7.2.*",
         "symfony/translation": "7.2.*",
         "symfony/twig-bundle": "7.2.*",
+        "symfony/ux-icons": "^2.22",
         "symfony/ux-live-component": "^2.21",
         "symfony/ux-turbo": "^2.21",
         "symfony/ux-twig-component": "^2.21",

@@ -26,7 +26,8 @@ class RMTagComponent
     public bool $isStrokeAnimated = false;
 
     public bool $hasRedirect = false;
-    public string $classes = "";
+
+    public string $classes = '';
 
     public function getStyleClasses(): string
     {

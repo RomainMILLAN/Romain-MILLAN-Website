@@ -18,8 +18,15 @@ readonly class UptimeKumaClient
     ) {
     }
 
-    public function request(string $uri, string $method = Request::METHOD_GET, array $options = []): ResponseInterface
+    /**
+     * @param array<mixed> $options
+     */
+    public function request(string $uri, string $method = Request::METHOD_GET, array $options = []): ?ResponseInterface
     {
+        if ($this->uptimeKumaBaseUrl === "") {
+            return null;
+        }
+
         return $this->client->request(
             method: $method,
             url: sprintf('%s/%s', $this->uptimeKumaBaseUrl, $uri),

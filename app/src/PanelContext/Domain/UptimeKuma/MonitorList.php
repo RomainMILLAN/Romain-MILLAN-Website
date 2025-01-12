@@ -4,8 +4,14 @@ namespace App\PanelContext\Domain\UptimeKuma;
 
 class MonitorList
 {
+    /**
+     * @var array<Monitor>
+     */
     private array $monitors = [];
 
+    /**
+     * @param array<Monitor> $monitors
+     */
     public function __construct(array $monitors)
     {
         $this->monitors = array_filter($monitors, fn ($monitor) => $monitor->getType() !== 'group');
@@ -13,8 +19,9 @@ class MonitorList
 
     public function isAnyMonitorDown(): bool
     {
+        /** @var Monitor $monitor */
         foreach ($this->monitors as $monitor) {
-            if ($monitor->getStatus()->value === MonitorStatus::DOWN) {
+            if ($monitor->getStatus()->value === MonitorStatus::DOWN->value) {
                 return true;
             }
         }

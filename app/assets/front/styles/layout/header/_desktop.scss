@@ -1,0 +1,45 @@
+@media (width > 450px) {
+  .desktop_header {
+    display: flex !important;
+  }
+}
+
+.desktop_header {
+  position: fixed;
+  width: 100%;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  background: var(--header-background-color);
+
+  &--navigation {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+
+    &_item {
+      text-decoration: none;
+      color: var(--text-color);
+      font-family: "Inter", serif;
+      transition: .3s;
+    }
+    &_item::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width .3s;
+    }
+    &_item:hover {
+      font-weight: bolder;
+    }
+    &_item:hover::after {
+      width: 100%;
+    }
+  }
+}

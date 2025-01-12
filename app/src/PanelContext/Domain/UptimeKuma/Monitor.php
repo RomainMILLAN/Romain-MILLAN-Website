@@ -13,11 +13,11 @@ class Monitor
     private int $certExpiryDays;
 
     public function __construct(
-        private string $name,
-        private ?string $type = null,
-        private ?string $url = null,
-        private ?string $hostname = null,
-        private ?string $port = null,
+        private readonly string $name,
+        private readonly ?string $type = null,
+        private readonly ?string $url = null,
+        private readonly ?string $hostname = null,
+        private readonly ?string $port = null,
     ) {
     }
 

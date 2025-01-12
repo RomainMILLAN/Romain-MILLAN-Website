@@ -1,0 +1,7 @@
+error:
+  title: "Oops,"
+  description: "An error occurred, please try again."
+  action: "Return to home"
+
+404:
+  description: "You must have gotten lost."

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ app.locale }}">
 	<head>
 		<title>
 			Romain MILLAN
 			{% block title %}{% endblock %}
 		</title>
+
 		<meta name="description" content="Portfolio de Romain MILLAN">
 		<meta name="og:title" property="og:title" content="Romain MILLAN">
 		<meta property="og:type" content="website">
@@ -13,13 +14,15 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<link rel="shortcut icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" type="image/x-icon">
+		<link rel="mask-icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" color="#000000">
+
 		<meta name="turbo-refresh-method" content="morph">
 		<meta name="turbo-refresh-scroll" content="preserve">
 		<meta name="turbo-prefetch" content="true">
 		<meta name="view-transition" content="same-origin">
 		{% block head '' %}
-
-		<meta name="turbo-prefetch" content="true">
 
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('front', null, 'front') }}
@@ -31,12 +34,10 @@
 			{{ encore_entry_script_tags('front', null, 'front') }}
 			{{ encore_entry_script_tags('app', null, 'app') }}
 		{% endblock %}
-		<link rel="shortcut icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" type="image/x-icon">
-		<link rel="mask-icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" color="#000000">
 	</head>
 
-	<body data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}
-	>
+	<body data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}>
+
 		<header {% block header_attributes '' %}>
 			{% block header %}{% endblock %}
 		</header>
@@ -48,5 +49,6 @@
 		<footer {% block footer_attribut '' %}>
 			{% block footer %}{% endblock %}
 		</footer>
-		</body>
-	</html>
+
+	</body>
+</html>

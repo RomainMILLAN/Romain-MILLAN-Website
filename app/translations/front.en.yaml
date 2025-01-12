@@ -1,91 +1,121 @@
-portfolio:
-  header:
-    nav:
-      home: Home
-      aboutme: About me
-      projects: Projects
-      fomations_experiences: Educations and experiences
-      contact: Contact
-  home:
-    status: ~ Developer
-    continue: Continue
-  aboutme:
-    title: Who am I?
-    description: 20 years old computer science student, currently studying for a computer science degree.
-    paragraph_one: My career path includes work-study experience in a web agency, where I combine my academic knowledge with practical applications.
-    paragraph_two: Passionate about technology, I have a wide range of technologies.
-    download_cv: Download my french resume
-  projects:
-    title: My projects
-    description: Here are just a few of the projects I've completed during my years as a developer.
-    return_to_project: Back to projects
-  formations:
-    title: Educations
-    description: I've had the opportunity to train in various places.
-  experiences:
-    title: Experiences
-    description: In recent years, I've been able to work in variety of fields.
-  formations_experiences:
-    title: Educations and experiences
-    description: In recent years, I have been able to study and work in a number of fields.
-  contact:
-    title: How to contact me
-    description: There are so many choices !
-    resume: Resume
-  footer:
-    all_right_reserved: All rights reserved.
-    no_reproduce: Any reproduction, distribution, modification or use of all or part of the content of this website without the prior written authorization of Romain MILLAN is strictly prohibited.
+global:
+  title: "Romain MILLAN"
 
-  formation:
-    1:
-      title: College
-      date: September 2014 - June 2018
-    2:
-      title: High school
-      title_extended: STI2D - SIN
-      date: September 2018 - June 2021
-    3:
-      title_extended: RACDV Option
-      date: September 2021 - September 2024
-  experience:
-    1:
-      title: Order picker
-      date: July 2021 - August 2021
-    2:
-      title: Forklift operator
-      date: July 2022 - August 2022
-    3:
-      title: Development Internship
-      date: April 2023 - July 2023
-    4:
-      title: Work-study student in the development field
-      date: September 2023 - August 2024
-    5:
-      title: Symfony Developer
-      date: September 2024 - Now
+navigation:
+  title: "Navigation"
+  portfolio: "My portfolio"
+  aboutme: "About me"
+  works: "My works"
+  experiences: "My experiences"
+  formations: "My education"
+  panel: "Access the panel"
 
-project:
+home:
+  title: "More than a developer, <br/>Your next talent!"
+
+aboutme:
+  title: "~ Web Developer"
+  action: "Discover my french resume"
+  content:
+    one: "<span class='paragraph-article-first-letter'>I</span> am <span class='text-bold text-primary'>Romain MILLAN</span>, a <span class='text-bold'>backend</span> web developer specializing in website development, mainly using the Symfony framework. Currently working at a web agency in Montpellier, where I strive to find technical solutions tailored to my clients' challenges."
+    second: "Passionate about new technologies and development, I have a strong desire to learn new skills. I am constantly seeking challenges by exploring new languages and frameworks to broaden my horizons and improve my professional practices."
+    third: "My goal is to deliver sustainable and high-quality development, focusing on innovation and efficiency."
+
+work:
+  title: "My Works"
+
+works:
+  list:
+    1: "ages"
+    2: "waps"
+    3: "voteit"
   ages:
-    description: Creation of a website for a student association in Sète.
-    description_long: I had the opportunity to design the website for the Association Générale des Étudiants de Sète. This website was built using the Symfony framework. The aim was to improve communication between all the student associations in Sète, and also to create a system for registering for events. Finally, an association membership system has been set up to enable students to identify themselves with an association.
-  rm-web:
-    title: My own website
-    description: My portfolio and much more.
-    description_long: I set out to design my own website, which will include not only my portfolio but also a management panel and links to my third-party services. Additionally, I have integrated a signature generation tool.
-  discord_edt_um:
-    title: Discord EDT UM
-    description: I've created a bot for the Discord application to display the timetables of the University of Montpellier.
-    description_long: I've created a bot discord allowing you to view courses at the University of Montpellier using the iCal links available.
-  ndi2023:
-    description: Organization of "La Nuit de l'Informatique" event.
-    description_long: During my third year of BUT informatique at the IUT de Montpellier/Sète, I had the opportunity to actively participate in the organization of the event "La Nuit de l'Info", which took place on the night of December 7-8, 2023. This event was available on two sites, at the IUT de Montpellier/Sète and at Polytech.
+    title: "General Association of Students of Sète"
+    description: "For this project, I had the opportunity to design and develop a website for a student association based in Sète. The main goal was to provide a user-friendly and attractive platform that reflects the association's values and activities while facilitating communication between members and the public."
+    card_image: "/waps/desktop.png"
+    skills:
+      1: "Symfony"
+      2: "PHP"
+      3: "Twig"
+    links:
+      1:
+        icon: "streamline:web-solid"
+        link: "https://ages-sete.fr/"
   waps:
-    description: SAE to create a map capable of generating itineraries.
-    description_long: During my second year at BUT Informatique, thanks to my team, I was able to work on the design of a web application aimed at displaying and generating the shortest itineraries possible.
+    title: "Waps"
+    description: "As part of this project, I participated in a Learning and Evaluation Situation (SAÉ) aimed at creating an interactive map capable of generating personalized routes. The main objective was to develop algorithms to calculate the shortest paths in minimal time."
+    skills:
+      1: "PHP"
+    card_image: "/waps/desktop.png"
+    links:
+      1:
+        icon: "mdi:github"
+        link: "https://github.com/RomainMILLAN/SAE-4.01-Waps/"
   voteit:
-    description: Student project, an online forum web application.
-    description_long: The Vote It project is an online forum platform. This application allows users to ask questions, answer them and then vote. What's more, an authentication system has been set up for enhanced security.
-  les_aventuriers_du_rail:
-    title: Railway Adventure
-    description: Board games recreated in java.
-    description_long: I was able to recreate the board game 'Les aventuriers du rail' in Java with Java FX..
+    title: "Vote It"
+    description: "As part of a Learning and Evaluation Situation (SAE), I designed and developed a web forum application. The main goal was to master PHP and database usage while creating an interactive platform where users can exchange ideas, ask questions, and vote on topics."
+    skills:
+      1: "PHP"
+    card_image: "/voteit/desktop_list.png"
+    links:
+      1:
+        icon: "mdi:github"
+        link: "https://github.com/RomainMILLAN/SAE-3.01-VoteIt/"
+
+experiences:
+  title: "Professional Experiences"
+  list:
+    1:
+      title: "Forklift Operator"
+      date: "July/August 2022"
+      location: "Clermont l'Hérault, France"
+      description: "As a forklift operator during my student job, I handled a forklift to load and unload delivery trucks. I was also responsible for managing drums of pool products, ensuring compliance with safety standards, and maintaining an efficient workflow."
+      icon: "somedi.jpg"
+    2:
+      title: "Backend Developer"
+      date: "2023 - Present"
+      location: "Sète, France"
+      description: "This project involved creating a website in <span class='text-bold'>Symfony PHP</span> for a student association in Sète (<span class='text-italic'>General Association of Students of Sète</span>). The platform allows users to view and join various associations while facilitating event management. Members can register for activities, manage their profiles, and receive notifications. An administrative interface was also set up to enable managers to efficiently handle associations and users. The goal was to enhance student engagement and improve communication within the association."
+      icon: "ages.png"
+    3:
+      title: "Backend Developer"
+      date: "2023 - Present"
+      location: "Montpellier, France"
+      description: "As a backend web developer at <span class='text-bold'>Spiriit</span>, I mainly worked with the <span class='text-bold'>Symfony</span> framework to create and optimize web applications. My responsibilities included designing APIs and business applications, managing databases, and improving website performance. I worked closely with frontend teams to ensure smooth integration and contributed to various projects such as <a href='https://www.julbo.com/' class='text-underline'>Julbo</a> and <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
+      icon: "spiriit.svg"
+
+formations:
+  title: "Education"
+  list:
+    1:
+      title: "Middle School"
+      date: "2014 - 2018"
+      location: "Loupian, France"
+      description: ""
+      icon: "academie_ent.jpg"
+    2:
+      title: "High School (STI2D - SIN)"
+      date: "2018 - 2021"
+      location: "Sète, France"
+      description: ""
+      icon: "academie_ent.jpg"
+    3:
+      title: "Bachelor's Degree in Computer Science (RACDV Option)"
+      date: "2021 - 2024"
+      location: "Montpellier/Sète, France"
+      description: ""
+      icon: "iut_mtp.png"
+
+contact:
+  title: "Contact"
+  email: "Mail"
+  github: "Github"
+  cv: "Curriculum Vitae"
+  linkedin: "LinkedIn"
+
+terms_of_use:
+  title: "Legal Mentions"
+
+footer:
+  all_right_reserved: "All rights reserved."
+  no_reproduce: "Any reproduction, distribution, modification, or use of any part of this website's content without prior written permission from Romain MILLAN is strictly prohibited."

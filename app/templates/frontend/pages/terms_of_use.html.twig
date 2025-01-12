@@ -1,0 +1,50 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% trans_default_domain 'legal' %}
+
+{% block main %}
+    <div class="title--container">
+        <h1>{{ 'terms_of_use.title'|trans }}</h1>
+    </div>
+
+    <section class="terms_of_use--container">
+
+        <p class="text-italic">{{ 'terms_of_use.effectiveOn'|trans }}</p>
+
+        <p>{{ 'terms_of_use.description.description'|trans|raw }}</span></p>
+        <p>{{ 'terms_of_use.description.connectAndNavigate'|trans|raw }}</p>
+        <p>{{ 'terms_of_use.description.acceptTermsOfUse'|trans|raw }}</p>
+
+        <h2>{{ 'terms_of_use.editor.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.editor.description'|trans|raw }}</p>
+
+        <h2>{{ 'terms_of_use.hosting.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.hosting.description'|trans|raw }}</p>
+        <p>{{ 'terms_of_use.hosting.siret'|trans|raw }}</p>
+
+        <h2>{{ 'terms_of_use.cgu.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.cgu.description'|trans }}</p>
+
+        <h2>{{ 'terms_of_use.editorResponsability.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.editorResponsability.description'|trans }}</p>
+
+        <h2>{{ 'terms_of_use.intellectualProperty.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.intellectualProperty.description'|trans }}</p>
+
+        <h2>{{ 'terms_of_use.applicableLawAndJurisdiction.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.applicableLawAndJurisdiction.description'|trans }}</p>
+
+        <h2>{{ 'terms_of_use.cookieUse.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.cookieUse.description'|trans }}</p>
+
+        <h2>{{ 'terms_of_use.privacyPolicy.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.privacyPolicy.description'|trans }}</p>
+
+        <h2>{{ 'terms_of_use.computerSecurity.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.computerSecurity.description'|trans }}</p>
+
+        <h2>{{ 'terms_of_use.updateDate.title'|trans }}</h2>
+        <p>{{ 'terms_of_use.updateDate.description'|trans }}</p>
+
+    </section>
+{% endblock %}

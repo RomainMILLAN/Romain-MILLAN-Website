@@ -1,0 +1,41 @@
+.card {
+  &--container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--text-color);
+    box-shadow: -2px 2px 2px black;
+    padding: 5px;
+    transition: .5s;
+  }
+
+  &--illustration {
+    img, svg {
+      border-radius: 10px 10px 0 0;
+      width: 100% !important;
+      object-fit: cover;
+    }
+  }
+
+  &--content {
+   padding-left: 5px;
+  }
+
+  &--footer {
+    padding-top: 25px;
+    margin-top: auto;
+  }
+}
+
+.card--container:hover {
+    box-shadow: -4px 4px 3px black;
+}
+
+.card-tag {
+  background-color: var(--background-color);
+  border-radius: 100px;
+  font-family: Inter, serif;
+  font-weight: lighter;
+  padding: 2.5px 15px;
+}

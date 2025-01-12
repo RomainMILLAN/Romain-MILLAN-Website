@@ -1,0 +1,334 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% trans_default_domain 'front' %}
+{% block body_attribut %}{{ stimulus_controller('scroll-to') }}{% endblock %}
+
+{% block main %}
+
+    <section id="home" class="container">
+
+        <div id="home--title" class="flex flex-row justify-content-center align-items-start">
+
+            <img src="{{ asset('build/front/static/img/logo/rm-photo.png', 'front') }}" alt="Romain MILLAN"/>
+
+            <div>
+                <p>{{ 'home.title'|trans|raw }}</p>
+
+                <twig:rm-tag
+                        isFilledBlack="true"
+                        isFillAnimated="true"
+                        hasRedirect="true"
+                />
+            </div>
+
+        </div>
+
+        <div id='home--scroll_down' class="flex-row justify-content-center" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>
+            <twig:ux:icon name="lineicons:scroll-down-2" width="50"/>
+        </div>
+
+        <style>
+            #home {
+                margin-top: 0;
+
+                #home--title {
+                    gap: 5px;
+
+                    img {
+                        border-radius: 100%;
+                        width: 150px;
+                    }
+
+                    div {
+                        svg {
+                            width: 200px;
+                        }
+                    }
+                }
+
+                #home--scroll_down {
+                    margin-top: 200px;
+                }
+            }
+
+            @media (width <= 300px) {
+                #home {
+
+                    div {
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                    }
+                }
+            }
+            @media (width > 450px) {
+                #home {
+                    margin-top: 150px;
+
+                    #home--title {
+                        gap: 50px;
+
+                        img {
+                            border-radius: 75px;
+                            width: 250px;
+                        }
+
+                        div {
+                            svg {
+                                width: 250px !important;
+                            }
+                        }
+                    }
+
+                    #home--scroll_down {
+                        margin-top: 400px;
+                    }
+                }
+            }
+        </style>
+
+    </section>
+
+    <section id="aboutme" class="container flex-column align-items-end">
+
+        <div class="aboutme_title--container flex-row justify-content-center align-items-start">
+
+            <div class="flex-column justify-content-end align-items-end">
+                <twig:rm-tag
+                    width="200px"
+                    isFilledBlack="true"
+                    isFillAnimated="true"
+                    hasRedirect="true"
+                />
+                <p class="text-italic">{{ 'aboutme.title'|trans }}</p>
+            </div>
+
+            <img src="{{ asset('build/front/static/img/logo/rm-photo.png', 'front') }}" alt="Romain MILLAN"/>
+        </div>
+
+        <div class="aboutme_content--container flex-column justify-content-center align-items-center gap-20">
+
+            <p>{{ 'aboutme.content.one'|trans|raw }}</p>
+            <p>{{ 'aboutme.content.second'|trans|raw }}</p>
+            <p>{{ 'aboutme.content.third'|trans|raw }}</p>
+
+            <a href="{{ asset('build/front/static/upload/CV_MILLAN_Romain.pdf', 'front') }}" download="MILLAN Romain - CV" target="_blank" class="btn btn-primary">{{ 'aboutme.action'|trans }}</a>
+
+        </div>
+
+        <style>
+            #aboutme {
+                .aboutme_title--container {
+                    gap: 15px;
+
+                    img {
+                        border-radius: 100%;
+                        width: 125px;
+                    }
+                }
+
+                .aboutme_content--container {
+                    a {
+                        margin-top: 75px;
+                    }
+                }
+            }
+            @media (width > 450px) {
+                #aboutme {
+
+                    .aboutme_title--container {
+                        width: 100%;
+                        justify-content: space-between;
+                        flex-direction: row-reverse;
+
+                        img {
+                            border-radius: 50px;
+                            width: 150px;
+                        }
+
+                        svg {
+                            width: 250px;
+                        }
+                    }
+
+                    .aboutme_content--container {
+                        width: 60%;
+                        margin-top: -50px;
+                    }
+                }
+            }
+
+            @media (width > 900px) {
+                #aboutme {
+                    .aboutme_title--container {
+                        img {
+                            width: 300px;
+                        }
+                    }
+
+                    .aboutme_content--container {
+                        margin-top: -150px;
+                    }
+                }
+            }
+
+        </style>
+
+    </section>
+
+    <section id="work" class="container">
+        <div class="title--container">
+            <h2>{{ 'work.title'|trans }}</h2>
+        </div>
+
+        <div class="work--content grid--container gap-20 justify-content-center">
+
+            {% for i in 1..100 %}
+
+                {% if "works.list.#{ i }"|trans != "works.list.#{ i }" %}
+                    {% set project_name = "works.list.#{ i }"|trans %}
+                    {% set project_image = "works.#{ project_name }.card_image"|trans %}
+
+                    <article class="card--container">
+
+                        <div class="card--illustration">
+                            <img height="100px" src="{{ asset('build/front/static/img/projects'~project_image, 'front') }}" alt="Google Illustration">
+                        </div>
+
+                        <div class="card--header">
+                            <p class="text-bold">{{ "works.#{project_name}.title"|trans }}</p>
+                        </div>
+
+                        <div class="card--content">
+                            <p>{{ "works.#{project_name}.description"|trans }}</p>
+                        </div>
+
+                        <div class="card--footer flex-row justify-content-between gap-5">
+
+                            <div>
+                                {% for i in 10..1 %}
+                                    {% if "works.#{project_name}.links.#{ i }.icon"|trans != "works.#{project_name}.links.#{ i }.icon" %}
+                                        <a href="{{ "works.#{project_name}.links.#{ i }.link"|trans }}" target="_blank">
+                                            <twig:ux:icon
+                                                    name="{{ "works.#{project_name}.links.#{ i }.icon"|trans }}"
+                                                    width="20"
+                                            />
+                                        </a>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            <div>
+                                {% for i in 10..1 %}
+                                    {% if "works.#{project_name}.skills.#{ i }"|trans != "works.#{project_name}.skills.#{ i }" %}
+                                        <span class="card-tag">{{ "works.#{project_name}.skills.#{ i }"|trans }}</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                        </div>
+
+                    </article>
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        <style>
+            #work {
+                .work--content {
+                    margin-top: 50px;
+
+                    article {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @media (width > 450px) {
+                #work {
+                    .work--content {
+                        gap: 50px;
+
+                        article {
+                            width: 500px;
+                        }
+                    }
+                }
+            }
+        </style>
+    </section>
+
+    <section id="experiences_and_formations" class="container flex-column">
+
+        <section id="experiences" class="container flex-column gap-20">
+
+            <div class="title--container">
+                <h2>{{ 'experiences.title'|trans }}</h2>
+            </div>
+
+            {% for i in 100..1 %}
+
+                {% if "experiences.list.#{ i }.title"|trans != "experiences.list.#{ i }.title" %}
+                    {% set image = "experiences.list.#{ i }.icon"|trans %}
+
+                    <twig:frontend:card_info
+                            date="{{ "experiences.list.#{ i }.date"|trans }}"
+                            location="{{ "experiences.list.#{ i }.location"|trans }}"
+                            asset="{{ asset('build/front/static/img/enterprises/'~image, 'front') }}"
+                            icon="{{ image }}"
+                            title="{{ "experiences.list.#{ i }.title"|trans }}"
+                            description="{{ "experiences.list.#{ i }.description"|trans|raw }}"
+                    />
+                {% endif %}
+
+            {% endfor %}
+
+        </section>
+
+        <section id="formations" class="container flex-column gap-20">
+
+            <div class="title--container">
+                <h2>{{ 'formations.title'|trans }}</h2>
+            </div>
+
+            {% for i in 100..1 %}
+
+                {% if "formations.list.#{ i }.title"|trans != "formations.list.#{ i }.title" %}
+                    {% set image = "formations.list.#{ i }.icon"|trans %}
+
+                    <twig:frontend:card_info
+                            date="{{ "formations.list.#{ i }.date"|trans }}"
+                            location="{{ "formations.list.#{ i }.location"|trans }}"
+                            asset="{{ asset('build/front/static/img/enterprises/'~image, 'front') }}"
+                            icon="{{ image }}"
+                            title="{{ "formations.list.#{ i }.title"|trans }}"
+                            description="{{ "formations.list.#{ i }.description"|trans|raw }}"
+                    />
+                {% endif %}
+
+            {% endfor %}
+
+        </section>
+
+        <style>
+            #experiences, #formations {
+                gap: 50px;
+            }
+
+            @media (width > 450px) {
+                #experiences_and_formations {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                #experiences, #formations {
+                    width: 45%;
+                }
+            }
+        </style>
+
+    </section>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+error:
+  title: "Oups,"
+  description: "Un problème est survenue, merci de réessayer."
+  action: "Retourner à l'accueil"
+
+404:
+  description: "Vous vous êtes surement perdu."

@@ -1,0 +1,38 @@
+terms_of_use:
+  title: "Legal Mentions"
+  effectiveOn: "Effective as of 01/12/2025"
+  description:
+    description: "In accordance with the provisions of Law No. 2004-575 of June 21, 2004, on Confidence in the Digital Economy, users and visitors, hereinafter referred to as the <span class='text-bold'>'User'</span>, of the website <a href='https://romainmillan.fr/'>https://romainmillan.fr/</a>, hereinafter referred to as the <span class='text-bold'>'Website'</span>, are informed of these legal notices."
+    connectAndNavigate: "Connecting to and navigating the Website by the User implies full and unconditional acceptance of these legal notices."
+    acceptTermsOfUse: "These notices are accessible on the Website in the 'Legal Mentions' section."
+  editor:
+    title: "Website Editing"
+    description: "The editing and publication management of the Website is ensured by Mr. MILLAN Romain, whose email address is '<a href='mailto:contact@romainmillan.fr'>contact@romainmillan.fr</a>', hereinafter referred to as the <span class='text-bold'>'Editor'</span>."
+  hosting:
+    title: "Hosting"
+    description: "The Website is hosted by the company Bteck, whose headquarters are located at 97 Place Alphonse Laveran, 34090 Montpellier."
+    siret: "SIRET: 94999538500018"
+  cgu:
+    title: "1. General Terms of Use"
+    description: "The User agrees to use the Website in compliance with the laws and regulations in force, as well as these legal notices. Any abusive, fraudulent, or malicious use of the Website is prohibited. The Editor reserves the right to suspend or block access to the Website in case of non-compliance with these conditions."
+  editorResponsability:
+    title: "2. Editor’s Responsibility"
+    description: "The Editor strives to provide reliable and up-to-date information on the Website but cannot guarantee the accuracy, completeness, or timeliness of the published information. They cannot be held responsible for damages resulting from the use of the Website, particularly in the event of errors, omissions, unavailability, or cyberattacks."
+  intellectualProperty:
+    title: "3. Intellectual Property"
+    description: "All content on the Website (texts, images, graphics, logos, videos, etc.) is protected by copyright and applicable intellectual property laws. Any reproduction, distribution, modification, or use, even partial, of this content is strictly prohibited without prior written authorization from the Editor."
+  applicableLawAndJurisdiction:
+    title: "4. Applicable Law and Jurisdiction"
+    description: "These legal notices are governed by French law. In case of a dispute, only the courts within the jurisdiction of Montpellier will be competent."
+  cookieUse:
+    title: "5. Use of Cookies"
+    description: "The Website uses cookies to improve the user experience and provide anonymous statistics on site traffic. You can configure your browser to refuse cookies or notify you when a cookie is installed. However, certain essential cookies are necessary for the proper functioning of the Website."
+  privacyPolicy:
+    title: "6. Privacy Policy"
+    description: "Personal data collected on the Website is used solely for handling requests or improving services. It will never be shared with third parties without explicit consent. The User has the right to access, rectify, delete, and oppose their personal data, which they can exercise by contacting the Editor at '<a href='mailto:contact@romainmillan.fr'>contact@romainmillan.fr</a>'."
+  computerSecurity:
+    title: "9. Computer Security"
+    description: "The Editor implements technical and organizational measures to secure personal data and protect the Website from intrusions. However, the Editor cannot be held responsible for the consequences of a cyberattack or technical failure beyond their control."
+  updateDate:
+    title: "10. Update Date"
+    description: "These legal notices were last updated on 01/12/2025. The Editor reserves the right to modify them at any time. Changes will take effect upon their publication on the Website."

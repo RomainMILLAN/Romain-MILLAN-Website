@@ -27,14 +27,15 @@ class MonitorStatusComponent
         private readonly UptimeKumaClient $uptimeKumaClient,
         private readonly UptimeKumaResponseParser $uptimeKumaResponseParser,
     ) {
+        $this->monitorList = new MonitorList([]);
     }
 
     public function fetchData(): MonitorList
     {
-        $this->monitorList = new MonitorList($this->uptimeKumaResponseParser->parseMonitors(
-            $this->uptimeKumaClient->request('metrics')
-                ->getContent()
-        ));
+        $uptimeResponse = $this->uptimeKumaClient->request('metrics');
+        if ($uptimeResponse !== null) {
+            $this->monitorList = new MonitorList($this->uptimeKumaResponseParser->parseMonitors($uptimeResponse->getContent()));
+        }
 
         return $this->monitorList;
     }

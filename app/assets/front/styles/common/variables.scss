@@ -1,0 +1,21 @@
+:root {
+  --background-color: #FFFDF7;
+  --background-secondary: #F7F3E3;
+  --background-secondary-hover: #F4F0E1;
+
+  --header-background-color: rgba(255, 253, 247, 0.5);
+
+  --text-color: #1E293B;
+  --text-color-secondary: #626770;
+
+  --primary: #FACD23;
+  --primary-hover: #F4C71F;
+
+  --mobile-width: 480px;
+}
+
+body.dark-mode {
+  --background-color: #252422;
+
+  --header-background-color: rgba(37, 36, 34, 0.5);
+}
