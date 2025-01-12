@@ -101,6 +101,14 @@ TEXT
   font-weight: 700;
 }
 
-.fst-italic {
+.text-italic {
   font-style: italic;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-underline {
+  text-decoration: underline;
 }

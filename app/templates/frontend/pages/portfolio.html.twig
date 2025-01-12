@@ -91,7 +91,7 @@
                     isFillAnimated="true"
                     hasRedirect="true"
                 />
-                <p class="fst-italic">{{ 'aboutme.title'|trans }}</p>
+                <p class="text-italic">{{ 'aboutme.title'|trans }}</p>
             </div>
 
             <img src="{{ asset('build/front/static/img/logo/rm-photo.png', 'front') }}" alt="Romain MILLAN"/>
@@ -224,8 +224,6 @@
 
             {% endfor %}
 
-
-
         </div>
 
         <style>
@@ -251,5 +249,76 @@
                 }
             }
         </style>
+    </section>
+
+    <section id="experiences_and_formations" class="container flex-column">
+
+        <section id="experiences" class="container flex-column gap-20">
+
+            <div class="title--container">
+                <h2>{{ 'experiences.title'|trans }}</h2>
+            </div>
+
+            {% for i in 100..1 %}
+
+                {% if "experiences.list.#{ i }.title"|trans != "experiences.list.#{ i }.title" %}
+                    {% set image = "experiences.list.#{ i }.icon"|trans %}
+
+                    <twig:frontend:card_info
+                            date="{{ "experiences.list.#{ i }.date"|trans }}"
+                            location="{{ "experiences.list.#{ i }.location"|trans }}"
+                            asset="{{ asset('build/front/static/img/enterprises/'~image, 'front') }}"
+                            icon="{{ image }}"
+                            title="{{ "experiences.list.#{ i }.title"|trans }}"
+                            description="{{ "experiences.list.#{ i }.description"|trans|raw }}"
+                    />
+                {% endif %}
+
+            {% endfor %}
+
+        </section>
+
+        <section id="formations" class="container flex-column gap-20">
+
+            <div class="title--container">
+                <h2>{{ 'formations.title'|trans }}</h2>
+            </div>
+
+            {% for i in 100..1 %}
+
+                {% if "formations.list.#{ i }.title"|trans != "formations.list.#{ i }.title" %}
+                    {% set image = "formations.list.#{ i }.icon"|trans %}
+
+                    <twig:frontend:card_info
+                            date="{{ "formations.list.#{ i }.date"|trans }}"
+                            location="{{ "formations.list.#{ i }.location"|trans }}"
+                            asset="{{ asset('build/front/static/img/enterprises/'~image, 'front') }}"
+                            icon="{{ image }}"
+                            title="{{ "formations.list.#{ i }.title"|trans }}"
+                            description="{{ "formations.list.#{ i }.description"|trans|raw }}"
+                    />
+                {% endif %}
+
+            {% endfor %}
+
+        </section>
+
+        <style>
+            #experiences, #formations {
+                gap: 50px;
+            }
+
+            @media (width > 450px) {
+                #experiences_and_formations {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                #experiences, #formations {
+                    width: 45%;
+                }
+            }
+        </style>
+
     </section>
 {% endblock %}

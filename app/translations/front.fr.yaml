@@ -1,8 +1,8 @@
 global:
-  title: Romain MILLAN
+  title: "Romain MILLAN"
 
 navigation:
-  portfolio: Mon portfolio
+  portfolio: "Mon portfolio"
 
 home:
   title: "Plus qu'un développeur, <br/>Votre prochain talent !"
@@ -25,7 +25,7 @@ works:
   ages:
     title: "Association Générale des Étudiants de Sète"
     description: "Dans le cadre de ce projet, j'ai eu l'opportunité de concevoir et de développer un site internet pour une association étudiante basée à Sète. L'objectif principal était de fournir une plateforme conviviale et attrayante qui reflète les valeurs et les activités de l'association, tout en facilitant la communication entre les membres et le public."
-    card_image: /ages/home.png
+    card_image: "/waps/desktop.png"
     skills:
       1: "Symfony"
       2: "PHP"
@@ -39,7 +39,7 @@ works:
     description: "Dans le cadre de ce projet, j'ai participé à une SAÉ (Situation d'Apprentissage et d'Évaluation) visant à créer une carte interactive capable de générer des itinéraires personnalisés. L'objectif principal était de développer des algorithmes pour calculer les chemins les plus courts en un temps minimal."
     skills:
       1: "PHP"
-    card_image: /waps/desktop.png
+    card_image: "/waps/desktop.png"
     links:
       1:
         icon: "mdi:github"
@@ -49,14 +49,57 @@ works:
     description: "Dans le cadre d'une Situation d'Apprentissage et d'Évaluation (SAE), j'ai conçu et développé une application web de forum en ligne. L'objectif principal était de maîtriser le PHP et l'utilisation de bases de données, tout en créant une plateforme interactive où les utilisateurs peuvent échanger des idées, poser des questions et voter sur les sujets."
     skills:
       1: "PHP"
-    card_image: /voteit/desktop_list.png
+    card_image: "/voteit/desktop_list.png"
     links:
       1:
         icon: "mdi:github"
         link: "https://github.com/RomainMILLAN/SAE-3.01-VoteIt/"
 
+experiences:
+  title: "Expériences Professionnelle"
+  list:
+    1:
+      title: "Cariste"
+      date: "Juillet/Aout 2022"
+      location: "Clermont l'hérault, France"
+      description: "En tant que cariste dans le cadre de mon travail étudiant, j'ai manipulé un chariot élévateur pour charger et décharger des camions de livraison. J'étais également responsable de la gestion de bidons de produits pour piscines, en veillant à respecter les normes de sécurité et à assurer un flux de travail efficace."
+      icon: "somedi.jpg"
+    2:
+      title: "Développeur Backend"
+      date: "2023 - Aujourd'hui"
+      location: "Sète, France"
+      description: "Ce projet a consisté en la création d'un site internet en <span class='text-bold'>Symfony PHP</span> pour une association étudiante sétoise (<span class='text-italic'>Association Générale des Étudiants Sétois</span>). La plateforme permet aux utilisateurs de consulter et d'adhérer aux différentes associations, tout en facilitant la gestion des événements. Les membres peuvent s'inscrire à des activités, gérer leur profil et recevoir des notifications. Une interface administrative a également été mise en place pour permettre aux responsables de gérer efficacement les associations et les utilisateurs. L'objectif était de renforcer l'engagement des étudiants et d'améliorer la communication au sein de l'association."
+      icon: "ages.png"
+    3:
+      title: "Développeur Backend"
+      date: "2023 - Aujourd'hui"
+      location: "Montpellier, France"
+      description: "En tant que développeur web backend chez <span class='text-bold'>Spiriit</span>, j'ai principalement travaillé avec le framework <span class='text-bold'>Symfony</span> pour créer et optimiser des applications web. Mes responsabilités incluaient la conception d'API et d'applications métier, la gestion des bases de données et l'amélioration des performances des sites. J'ai collaboré étroitement avec les équipes frontend pour assurer une intégration fluide et contribuer à des projets variés tels que <a href='https://www.julbo.com/' class='text-underline'>Julbo</a> ou encore <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
+      icon: "spiriit.svg"
+
+formations:
+  title: "Formations"
+  list:
+    1:
+      title: "Collège"
+      date: "2014 - 2018"
+      location: "Loupian, France"
+      description: ""
+      icon: "academie_ent.jpg"
+    2:
+      title: "Lycée (STI2D - SIN)"
+      date: "2018 - 2021"
+      location: "Sète, France"
+      description: ""
+      icon: "academie_ent.jpg"
+    3:
+      title: "BUT Informatique (Option RACDV)"
+      date: "2021 - 2024"
+      location: "Montpellier/Sète, France"
+      description: ""
+      icon: "iut_mtp.png"
 
 
 footer:
-  all_right_reserved: Tous droits réservés.
-  no_reproduce: Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite.
+  all_right_reserved: "Tous droits réservés."
+  no_reproduce: "Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite."
