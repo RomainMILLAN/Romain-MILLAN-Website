@@ -14,6 +14,7 @@ home:
 
 aboutme:
   title: "~ Web Developer"
+  action: "Discover my french resume"
   content:
     one: "<span class='paragraph-article-first-letter'>I</span> am <span class='text-bold text-primary'>Romain MILLAN</span>, a <span class='text-bold'>backend</span> web developer specializing in website development, mainly using the Symfony framework. Currently working at a web agency in Montpellier, where I strive to find technical solutions tailored to my clients' challenges."
     second: "Passionate about new technologies and development, I have a strong desire to learn new skills. I am constantly seeking challenges by exploring new languages and frameworks to broaden my horizons and improve my professional practices."

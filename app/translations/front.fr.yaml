@@ -14,6 +14,7 @@ home:
 
 aboutme:
   title: "~ Développeur Web"
+  action: "Découvrir mon CV"
   content:
     one: "<span class='paragraph-article-first-letter'>J</span>e suis <span class='text-bold text-primary'>Romain MILLAN</span>, développeur web <span class='text-bold'>backend</span> spécialisé dans le développement de sites internet, principalement avec le framework Symfony. Actuellement, au sein d'une agence web à Montpellier, où je m'efforce de trouver des solutions techniques adaptées aux problématiques de mes clients."
     second: "Passionné par les nouvelles technologies et le développement, j'ai une volonté accrue d'apprendre de nouvelles compétences. Je cherche constamment à me challenger en découvrant de nouveaux langages et frameworks, afin d'élargir mes horizons et d'améliorer mes pratiques professionnelles."
