@@ -107,6 +107,9 @@
                 </label>
             </form>
 
+            {% if app.user is not null %}
+                <a href="{{ path('app_panel_dashboard') }}" class="btn btn-primary">Mon compte</a>
+            {% endif %}
         </nav>
 
     </section>
