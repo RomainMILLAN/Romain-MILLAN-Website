@@ -5,6 +5,14 @@
   padding: 5px 20px;
   box-shadow: -1px 1px 1px black;
   transition: .5s;
+  text-decoration: none;
+  color: currentColor;
+  font-size: 1rem;
+}
+@media (width > 450px) {
+  .btn {
+    font-size: 1.25rem;
+  }
 }
 .btn:hover {
   box-shadow: -2px 2px 1px black;

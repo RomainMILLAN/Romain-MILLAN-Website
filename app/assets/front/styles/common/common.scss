@@ -7,8 +7,87 @@ h1, h2, h3, h4, h5, h6, p {
   color: var(--text-color);
 }
 
+p {
+  font-size: 1rem;
+}
+@media (width > 450px) {
+  p {
+    font-size: 1.25rem;
+  }
+}
+
 main {
   width: 95%;
   margin: auto;
   padding-top: 75px;
+}
+@media (width > 450px) {
+  main {
+    width: 75%;
+  }
+}
+
+/**
+CONTAINER / FLEX
+ */
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-end {
+  justify-content: end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: start;
+}
+
+.align-items-end {
+  align-items: end;
+}
+
+.gap-20 {
+  gap: 20px;
+}
+
+/**
+TEXT
+ */
+.paragraph-article-first-letter {
+  font-size: 1.5rem;
+}
+@media (width > 450px) {
+  .paragraph-article-first-letter {
+    font-size: 1.75rem;
+  }
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.fst-italic {
+  font-style: italic;
 }

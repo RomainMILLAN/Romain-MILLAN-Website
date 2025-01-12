@@ -9,6 +9,9 @@
 @use 'layout/header/mobile';
 @use 'layout/header/header';
 
+@use 'layout/portfolio/containers';
+@use 'layout/portfolio/home';
+
 @font-face {
     font-family: "Inter";
     src: url("fonts/Inter-VariableFont.ttf") format("opentype");

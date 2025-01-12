@@ -1,5 +1,169 @@
 {% extends 'frontend/base.html.twig' %}
 
-{% block main %}
+{% trans_default_domain 'front' %}
 
+{% block main %}
+    <section id="home" class="container">
+
+        <div id="home--title" class="flex flex-row justify-content-center align-items-start">
+
+            <img src="{{ asset('build/front/static/img/logo/rm-photo.png', 'front') }}" alt="Romain MILLAN"/>
+
+            <div>
+                <p>{{ 'home.title'|trans|raw }}</p>
+
+                <twig:rm-tag
+                        isFilledBlack="true"
+                        isFillAnimated="true"
+                        hasRedirect="true"
+                />
+            </div>
+
+        </div>
+
+        <div id='home--scroll_down' class="flex-row justify-content-center">
+            <twig:ux:icon name="lineicons:scroll-down-2" width="50"/>
+        </div>
+
+        <style>
+            #home {
+                margin-top: 150px;
+
+                #home--title {
+                    gap: 5px;
+
+                    img {
+                        border-radius: 100%;
+                        width: 150px;
+                    }
+
+                    div {
+                        svg {
+                            width: 200px;
+                        }
+                    }
+                }
+
+                #home--scroll_down {
+                    margin-top: 400px;
+                }
+            }
+
+            @media (width <= 300px) {
+                #home {
+                    div {
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                    }
+                }
+            }
+            @media (width > 450px) {
+                #home {
+                    #home--title {
+                        gap: 50px;
+
+                        img {
+                            border-radius: 75px;
+                            width: 250px;
+                        }
+
+                        div {
+                            svg {
+                                width: 250px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        </style>
+
+    </section>
+
+    <section id="aboutme" class="container flex-column align-items-end">
+
+        <div class="aboutme_title--container flex-row justify-content-center align-items-start">
+
+            <div class="flex-column justify-content-end align-items-end">
+                <twig:rm-tag
+                    width="200px"
+                    isFilledBlack="true"
+                    isFillAnimated="true"
+                    hasRedirect="true"
+                />
+                <p class="fst-italic">{{ 'aboutme.title'|trans }}</p>
+            </div>
+
+            <img src="{{ asset('build/front/static/img/logo/rm-photo.png', 'front') }}" alt="Romain MILLAN"/>
+        </div>
+
+        <div class="aboutme_content--container flex-column justify-content-center align-items-center gap-20">
+
+            <p>{{ 'aboutme.content.one'|trans|raw }}</p>
+            <p>{{ 'aboutme.content.second'|trans|raw }}</p>
+            <p>{{ 'aboutme.content.third'|trans|raw }}</p>
+
+            <a href="{{ asset('build/front/static/upload/CV_MILLAN_Romain.pdf', 'front') }}" download="MILLAN Romain - CV" target="_blank" class="btn btn-primary">Découvrir mon CV</a>
+
+        </div>
+
+        <style>
+            #aboutme {
+                .aboutme_title--container {
+                    gap: 15px;
+
+                    img {
+                        border-radius: 100%;
+                        width: 125px;
+                    }
+                }
+
+                .aboutme_content--container {
+                    a {
+                        margin-top: 75px;
+                    }
+                }
+            }
+            @media (width > 450px) {
+                #aboutme {
+
+                    .aboutme_title--container {
+                        width: 100%;
+                        justify-content: space-between;
+                        flex-direction: row-reverse;
+
+                        img {
+                            border-radius: 50px;
+                            width: 150px;
+                        }
+
+                        svg {
+                            width: 250px;
+                        }
+                    }
+
+                    .aboutme_content--container {
+                        width: 60%;
+                        margin-top: -50px;
+                    }
+                }
+            }
+
+            @media (width > 900px) {
+                #aboutme {
+                    .aboutme_title--container {
+                        img {
+                            width: 300px;
+                        }
+                    }
+
+                    .aboutme_content--container {
+                        margin-top: -150px;
+                    }
+                }
+            }
+
+        </style>
+
+    </section>
 {% endblock %}

@@ -14,12 +14,10 @@ use Symfony\Component\Routing\Attribute\Route;
 )]
 class UiController extends AbstractController
 {
-
     public function __invoke(): Response
     {
         return $this->render(
             view: 'frontend/pages/ui.html.twig',
         );
     }
-
 }

@@ -4,6 +4,16 @@ global:
 navigation:
   portfolio: Mon portfolio
 
+home:
+  title: "Plus qu'un développeur, <br/>Votre prochain talent !"
+
+aboutme:
+  title: "~ Développeur Web"
+  content:
+    one: "<span class='paragraph-article-first-letter'>J</span>e suis <span class='text-bold text-primary'>Romain MILLAN</span>, développeur web <span class='text-bold'>backend</span> spécialisé dans le développement de sites internet, principalement avec le framework Symfony. Actuellement, au sein d'une agence web à Montpellier, où je m'efforce de trouver des solutions techniques adaptées aux problématiques de mes clients."
+    second: "Passionné par les nouvelles technologies et le développement, j'ai une volonté accrue d'apprendre de nouvelles compétences. Je cherche constamment à me challenger en découvrant de nouveaux langages et frameworks, afin d'élargir mes horizons et d'améliorer mes pratiques professionnelles."
+    third: "Mon objectif est de réaliser un développement durable et de qualité, en mettant l'accent sur l'innovation et l'efficacité."
+
 footer:
   all_right_reserved: Tous droits réservés.
   no_reproduce: Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite.
