@@ -31,19 +31,19 @@
                     />
 
                     <li>
-                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'home'}) }}>{{ 'navigation.portfolio'|trans }}</a>
+                        <a href="{{ path('app_front_portfolio') }}#home">{{ 'navigation.portfolio'|trans }}</a>
                     </li>
                     <li>
-                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>{{ 'navigation.aboutme'|trans }}</a>
+                        <a href="{{ path('app_front_portfolio') }}#aboutme">{{ 'navigation.aboutme'|trans }}</a>
                     </li>
                     <li>
-                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'work'}) }}>{{ 'navigation.works'|trans }}</a>
+                        <a href="{{ path('app_front_portfolio') }}#work">{{ 'navigation.works'|trans }}</a>
                     </li>
                     <li>
-                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'experiences'}) }}>{{ 'navigation.experiences'|trans }}</a>
+                        <a href="{{ path('app_front_portfolio') }}#experiences">{{ 'navigation.experiences'|trans }}</a>
                     </li>
                     <li>
-                        <a role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'formations'}) }}>{{ 'navigation.formations'|trans }}</a>
+                        <a href="{{ path('app_front_portfolio') }}#formations">{{ 'navigation.formations'|trans }}</a>
                     </li>
                     <li>
                         <form action="#" class="language_picker--container">
@@ -79,10 +79,21 @@
         />
 
         <nav class="desktop_header--navigation">
-            <a class="desktop_header--navigation_item cursor-pointer" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'home'}) }}>{{ 'navigation.portfolio'|trans }}</a>
-            <a class="desktop_header--navigation_item cursor-pointer" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>{{ 'navigation.aboutme'|trans }}</a>
-            <a class="desktop_header--navigation_item cursor-pointer" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'work'}) }}>{{ 'navigation.works'|trans }}</a>
-            <a class="desktop_header--navigation_item cursor-pointer" tabindex="0" role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'experiences'}) }}>{{ 'navigation.experiences'|trans }}</a>
+            {% macro desktopLink(text, id) %}
+                <a class="desktop_header--navigation_item cursor-pointer" tabindex="0"
+                    {% if is_current_portfolio() %}
+                       role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: id}) }}
+                    {% else %}
+                        {% set hrefLink = path('app_front_portfolio') ~ '#' ~ id %}
+                        href="{{ hrefLink }}"
+                    {% endif %}
+                >{{ text }}</a>
+            {% endmacro %}
+
+            {{ _self.desktopLink('navigation.portfolio'|trans, 'home') }}
+            {{ _self.desktopLink('navigation.aboutme'|trans, 'aboutme') }}
+            {{ _self.desktopLink('navigation.works'|trans, 'work') }}
+            {{ _self.desktopLink('navigation.experiences'|trans, 'experiences') }}
 
             <form action="#" class="language_picker--container">
                 <label>

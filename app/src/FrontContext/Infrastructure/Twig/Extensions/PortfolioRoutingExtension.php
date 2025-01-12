@@ -2,11 +2,12 @@
 
 namespace App\FrontContext\Infrastructure\Twig\Extensions;
 
+use App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class LanguageExtension extends AbstractExtension
+class PortfolioRoutingExtension extends AbstractExtension
 {
     public function __construct(
         private readonly RequestStack $requestStack
@@ -16,13 +17,15 @@ class LanguageExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('is_current_language', [$this, 'isCurrentLanguage']),
+            new TwigFunction('is_current_portfolio', [$this, 'isCurrentPortfolio']),
         ];
     }
 
-    public function isCurrentLanguage(string $languageCode): bool
+    public function isCurrentPortfolio(): bool
     {
-        if ($this->requestStack->getCurrentRequest()->getLocale() === mb_strtolower($languageCode)) {
+        if ($this->requestStack->getMainRequest()->attributes->get(
+            '_route'
+        ) === RouteCollection::PORTFOLIO->prefixed()) {
             return true;
         }
 

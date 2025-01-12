@@ -14,12 +14,10 @@ use Symfony\Component\Routing\Attribute\Route;
 )]
 class TermsOfUseController extends AbstractController
 {
-
     public function __invoke(): Response
     {
         return $this->render(
             view: 'frontend/pages/terms_of_use.html.twig',
         );
     }
-
 }
