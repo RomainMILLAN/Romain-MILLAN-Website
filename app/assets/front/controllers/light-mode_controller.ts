@@ -8,7 +8,7 @@ export default class extends Controller {
   declare readonly bodyTarget: HTMLInputElement;
 
   connect() {
-    console.log("LightMode controller connected");
+    console.log("LightMode controller connected 💡");
   }
 
   public switchToLightMode(): void {
