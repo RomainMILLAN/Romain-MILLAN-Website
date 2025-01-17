@@ -220,7 +220,7 @@
                             <div>
                                 {% for i in 10..1 %}
                                     {% if "works.#{project_name}.skills.#{ i }"|trans != "works.#{project_name}.skills.#{ i }" %}
-                                        <span class="card-tag">{{ "works.#{project_name}.skills.#{ i }"|trans }}</span>
+                                        <span class="card-tag text-color">{{ "works.#{project_name}.skills.#{ i }"|trans }}</span>
                                     {% endif %}
                                 {% endfor %}
                             </div>

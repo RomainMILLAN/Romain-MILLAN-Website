@@ -105,6 +105,10 @@ TEXT
   }
 }
 
+.text-color {
+  color: var(--text-color);
+}
+
 .text-primary {
   color: var(--primary);
 }
