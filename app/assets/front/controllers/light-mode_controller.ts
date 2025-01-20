@@ -9,6 +9,8 @@ export default class extends Controller {
 
   connect() {
     console.log("LightMode controller connected 💡");
+
+    this.detectThemeChange();
   }
 
   public switchToLightMode(): void {
@@ -21,6 +23,24 @@ export default class extends Controller {
     this.darkTarget.style.display = 'none';
     this.lightTarget.style.display = 'flex';
     this.bodyTarget.classList.add('dark-mode');
+  }
+
+  public detectThemeChange(): void {
+    const darkModeMediaQuery: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+
+    if (darkModeMediaQuery.matches) {
+      this.switchToDarkMode();
+    } else {
+      this.switchToLightMode()
+    }
+
+    darkModeMediaQuery.addEventListener('change', (event: MediaQueryListEvent): void => {
+      if (event.matches) {
+        this.switchToDarkMode();
+      } else {
+        this.switchToLightMode()
+      }
+    });
   }
 
 }
