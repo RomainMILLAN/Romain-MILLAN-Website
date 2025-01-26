@@ -32,7 +32,7 @@ works:
   ages:
     title: "Association Générale des Étudiants de Sète"
     description: "Dans le cadre de ce projet, j'ai eu l'opportunité de concevoir et de développer un site internet pour une association étudiante basée à Sète. L'objectif principal était de fournir une plateforme conviviale et attrayante qui reflète les valeurs et les activités de l'association, tout en facilitant la communication entre les membres et le public."
-    card_image: "/waps/desktop.png"
+    card_image: "/ages/home.png"
     skills:
       1: "Symfony"
       2: "PHP"
