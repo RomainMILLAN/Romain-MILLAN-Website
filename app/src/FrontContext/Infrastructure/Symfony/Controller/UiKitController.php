@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FrontContext\Infrastructure\Symfony\Controller;
+namespace Front\Infrastructure\Symfony\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Attribute\When;

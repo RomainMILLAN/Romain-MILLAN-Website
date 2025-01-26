@@ -73,12 +73,16 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/AppContext/",
+            "Front\\": "src/FrontContext/",
+            "Panel\\": "src/PanelContext/",
+            "Security\\": "src/SecurityContext/",
+            "Signature\\": "src/SignatureContext/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "App\\Tests\\": "tests/AppContext/"
         }
     },
     "replace": {

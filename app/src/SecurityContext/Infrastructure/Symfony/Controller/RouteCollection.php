@@ -1,9 +1,9 @@
 <?php
 
-namespace App\SecurityContext\Infrastructure\Symfony\Controller;
+namespace Security\Infrastructure\Symfony\Controller;
 
-use App\AppContext\Infrastructure\Symfony\Router\RouteCollectionInterface;
-use App\SecurityContext\Infrastructure\Symfony\Router\AppSecurityContextRouteCollectionTrait;
+use App\Infrastructure\Symfony\Router\RouteCollectionInterface;
+use Security\Infrastructure\Symfony\Router\AppSecurityContextRouteCollectionTrait;
 
 enum RouteCollection: string implements RouteCollectionInterface
 {

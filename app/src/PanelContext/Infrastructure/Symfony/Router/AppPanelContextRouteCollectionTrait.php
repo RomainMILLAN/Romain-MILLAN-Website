@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\PanelContext\Infrastructure\Symfony\Router;
+namespace Panel\Infrastructure\Symfony\Router;
 
 trait AppPanelContextRouteCollectionTrait
 {

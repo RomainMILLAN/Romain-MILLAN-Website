@@ -1,11 +1,11 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\Twig\Components;
+namespace Panel\Infrastructure\Twig\Components;
 
-use App\PanelContext\Domain\UptimeKuma\MonitorList;
-use App\PanelContext\Domain\UptimeKuma\MonitorStatus;
-use App\PanelContext\Infrastructure\UptimeKuma\UptimeKumaClient;
-use App\PanelContext\Infrastructure\UptimeKuma\UptimeKumaResponseParser;
+use Panel\Domain\UptimeKuma\MonitorList;
+use Panel\Domain\UptimeKuma\MonitorStatus;
+use Panel\Infrastructure\UptimeKuma\UptimeKumaClient;
+use Panel\Infrastructure\UptimeKuma\UptimeKumaResponseParser;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;

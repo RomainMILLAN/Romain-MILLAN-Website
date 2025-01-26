@@ -1,8 +1,8 @@
 <?php
 
-namespace App\AppContext\Infrastructure\Symfony\Controller;
+namespace App\Infrastructure\Symfony\Controller;
 
-use App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection;
+use Front\Infrastructure\Symfony\Controller\RouteCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 

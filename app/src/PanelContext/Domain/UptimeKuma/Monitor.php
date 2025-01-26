@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PanelContext\Domain\UptimeKuma;
+namespace Panel\Domain\UptimeKuma;
 
 class Monitor
 {

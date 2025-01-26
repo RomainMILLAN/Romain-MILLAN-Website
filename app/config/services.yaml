@@ -19,11 +19,30 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
-        resource: '../src/'
+        resource: '../src/AppContext/'
         exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
+            - '../src/AppContext/{Domain/Model}'
+            - '../src/AppContext/Kernel.php'
+
+    Front\:
+        resource: '../src/FrontContext/'
+        exclude:
+            - '../src/FrontContext/{Domain/Model}'
+
+    Panel\:
+        resource: '../src/PanelContext/'
+        exclude:
+            - '../src/PanelContext/{Domain/Model}'
+
+    Security\:
+        resource: '../src/SecurityContext/'
+        exclude:
+            - '../src/SecurityContext/{Domain/Model}'
+
+    Signature\:
+        resource: '../src/SignatureContext/'
+        exclude:
+            - '../src/SignatureContext/{Domain/Model}'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

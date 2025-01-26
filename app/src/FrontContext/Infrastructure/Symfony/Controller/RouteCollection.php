@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\FrontContext\Infrastructure\Symfony\Controller;
+namespace Front\Infrastructure\Symfony\Controller;
 
-use App\AppContext\Infrastructure\Symfony\Router\RouteCollectionInterface;
-use App\FrontContext\Infrastructure\Symfony\Router\AppFrontContextRouteCollectionTrait;
+use App\Infrastructure\Symfony\Router\RouteCollectionInterface;
+use Front\Infrastructure\Symfony\Router\AppFrontContextRouteCollectionTrait;
 
 enum RouteCollection: string implements RouteCollectionInterface
 {

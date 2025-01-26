@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\UptimeKuma;
+namespace Panel\Infrastructure\UptimeKuma;
 
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\FrontContext\Infrastructure\Twig\Extensions;
+namespace Front\Infrastructure\Twig\Extensions;
 
-use App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection;
+use Front\Infrastructure\Symfony\Controller\RouteCollection;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;

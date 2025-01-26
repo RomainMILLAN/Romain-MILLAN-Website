@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\Twig\Extensions;
+namespace Panel\Infrastructure\Twig\Extensions;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

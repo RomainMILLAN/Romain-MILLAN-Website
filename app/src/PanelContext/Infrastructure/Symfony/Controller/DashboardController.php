@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\Symfony\Controller;
+namespace Panel\Infrastructure\Symfony\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

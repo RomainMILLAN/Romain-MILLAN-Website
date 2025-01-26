@@ -1,8 +1,8 @@
 <?php
 
-namespace App\SignatureContext\Domain\Form;
+namespace Signature\Domain\Form;
 
-use App\SignatureContext\Domain\DTO\SignatureSocialNetworkDTO;
+use Signature\Domain\DTO\SignatureSocialNetworkDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;

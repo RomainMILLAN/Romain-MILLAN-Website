@@ -1,8 +1,8 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\Tabler\Subscriber;
+namespace Panel\Infrastructure\Tabler\Subscriber;
 
-use App\PanelContext\Infrastructure\Symfony\Controller\RouteCollection;
+use Panel\Infrastructure\Symfony\Controller\RouteCollection;
 use KevinPapst\TablerBundle\Event\MenuEvent;
 use KevinPapst\TablerBundle\Model\MenuItemInterface;
 use KevinPapst\TablerBundle\Model\MenuItemModel;

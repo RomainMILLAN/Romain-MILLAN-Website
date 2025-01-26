@@ -1,8 +1,8 @@
 <?php
 
-namespace App\SignatureContext\Domain\Form;
+namespace Signature\Domain\Form;
 
-use App\SignatureContext\Domain\DTO\SignaturePhoneDTO;
+use Signature\Domain\DTO\SignaturePhoneDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
