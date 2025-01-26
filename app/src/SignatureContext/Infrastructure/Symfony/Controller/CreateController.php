@@ -1,8 +1,8 @@
 <?php
 
-namespace App\SignatureContext\Infrastructure\Symfony\Controller;
+namespace Signature\Infrastructure\Symfony\Controller;
 
-use App\SignatureContext\Domain\Form\SignatureType;
+use Signature\Domain\Form\SignatureType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

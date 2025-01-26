@@ -1,8 +1,8 @@
 <?php
 
-namespace App\SignatureContext\Domain\Form;
+namespace Signature\Domain\Form;
 
-use App\SignatureContext\Domain\DTO\SignatureEmailDTO;
+use Signature\Domain\DTO\SignatureEmailDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,11 +26,8 @@ class SignatureEmailType extends AbstractType
                         'max' => 255,
                     ]),
                 ],
-                'attr' => [
-                    'class' => 'form-control',
-                ],
                 'row_attr' => [
-                    'class' => 'form-group mb-3',
+                    'class' => 'form--input',
                 ],
             ])
             ->add('email', TextType::class, [
@@ -45,10 +42,9 @@ class SignatureEmailType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'john.doe@yopmail.fr',
-                    'class' => 'form-control',
                 ],
                 'row_attr' => [
-                    'class' => 'form-group',
+                    'class' => 'form--input',
                 ],
             ])
         ;

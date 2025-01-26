@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\UptimeKuma;
+namespace Panel\Infrastructure\UptimeKuma;
 
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,7 +23,7 @@ readonly class UptimeKumaClient
      */
     public function request(string $uri, string $method = Request::METHOD_GET, array $options = []): ?ResponseInterface
     {
-        if ($this->uptimeKumaBaseUrl === "") {
+        if ($this->uptimeKumaBaseUrl === '') {
             return null;
         }
 

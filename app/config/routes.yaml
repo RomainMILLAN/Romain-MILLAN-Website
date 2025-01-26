@@ -43,4 +43,4 @@ panel:
 
 redirect:
     path: /
-    controller: App\AppContext\Infrastructure\Symfony\Controller\RedirectController::redirectToLocale
+    controller: App\Infrastructure\Symfony\Controller\RedirectController::redirectToLocale

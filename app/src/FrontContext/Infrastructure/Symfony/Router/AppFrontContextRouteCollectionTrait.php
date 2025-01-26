@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\FrontContext\Infrastructure\Symfony\Router;
+namespace Front\Infrastructure\Symfony\Router;
 
 trait AppFrontContextRouteCollectionTrait
 {

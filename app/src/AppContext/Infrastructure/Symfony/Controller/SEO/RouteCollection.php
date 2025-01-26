@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\AppContext\Infrastructure\Symfony\Controller\SEO;
+namespace App\Infrastructure\Symfony\Controller\SEO;
 
-use App\AppContext\Infrastructure\Symfony\Router\AppSEORouteCollectionTrait;
-use App\AppContext\Infrastructure\Symfony\Router\RouteCollectionInterface;
+use App\Infrastructure\Symfony\Router\AppSEORouteCollectionTrait;
+use App\Infrastructure\Symfony\Router\RouteCollectionInterface;
 
 enum RouteCollection: string implements RouteCollectionInterface
 {

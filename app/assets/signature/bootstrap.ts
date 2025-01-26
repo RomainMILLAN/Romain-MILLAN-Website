@@ -10,7 +10,7 @@ if(Turbo) {
 
 // Registers Stimulus controllers from controllers.json and in the controllers/ directory
 export const app = startStimulusApp(require.context(
-    '@symfony/stimulus-bridge/lazy-controller-loader!./controllers',
+    '@symfony/stimulus-bridge/lazy-controller-loader!./../app/controllers',
     true,
     /\.[jt]sx?$/
 ));

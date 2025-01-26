@@ -1,9 +1,9 @@
 <?php
 
-namespace App\SignatureContext\Domain\Form;
+namespace Signature\Domain\Form;
 
-use App\SignatureContext\Domain\DTO\SignatureDTO;
 use Arkounay\Bundle\UxCollectionBundle\Form\UxCollectionType;
+use Signature\Domain\DTO\SignatureDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
@@ -19,7 +19,6 @@ class SignatureType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class, [
-                'label' => 'Prénom',
                 'required' => true,
                 'constraints' => [
                     new NotBlank(),
@@ -85,7 +84,7 @@ class SignatureType extends AbstractType
                 'allow_delete' => true,
                 'display_sort_buttons' => true,
                 'allow_drag_and_drop' => true,
-                'add_class' => 'btn btn-primary float-end',
+                'add_class' => 'btn btn-primary',
                 'min' => 1,
             ])
 
@@ -97,7 +96,7 @@ class SignatureType extends AbstractType
                 'allow_delete' => true,
                 'display_sort_buttons' => true,
                 'allow_drag_and_drop' => true,
-                'add_class' => 'btn btn-primary float-end',
+                'add_class' => 'btn btn-primary',
                 'min' => 1,
             ])
 

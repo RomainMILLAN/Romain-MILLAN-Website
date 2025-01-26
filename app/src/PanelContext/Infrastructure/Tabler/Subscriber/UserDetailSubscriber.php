@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\Tabler\Subscriber;
+namespace Panel\Infrastructure\Tabler\Subscriber;
 
 use KevinPapst\TablerBundle\Event\UserDetailsEvent;
 use KevinPapst\TablerBundle\Model\UserModel;

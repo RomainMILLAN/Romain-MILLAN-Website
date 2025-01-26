@@ -1,6 +1,6 @@
 <?php
 
-namespace App\FrontContext\Infrastructure\Twig\Extensions;
+namespace Front\Infrastructure\Twig\Extensions;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;

@@ -1,0 +1,23 @@
+navigation:
+  title: "Navigation"
+  portfolio: "Mon portfolio"
+  aboutme: "A propos"
+  works: "Mes travaux"
+  experiences: "Mes expériences"
+  formations: "Mes formations"
+  panel: "Accédez au panel"
+
+contact:
+  title: "Contact"
+  email: "Mail"
+  github: "Github"
+  cv: "Curriculum Vitae"
+  linkedin: "LinkedIn"
+
+terms_of_use:
+  title: "Mentions Légales"
+
+footer:
+  all_right_reserved: "Tous droits réservés."
+  no_reproduce: "Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite."
+

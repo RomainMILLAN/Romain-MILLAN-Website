@@ -21,8 +21,36 @@
             <button class="btn btn-secondary">Secondary Button</button>
         </section>
 
+        <section class="form--container">
+            <div class="form--errors">
+                <p>Erreur</p>
+            </div>
+
+            <section>
+                <div class="form--input">
+                    <label for="ui-input" class="required">UI Input</label>
+                    <input type="text" name="ui-input" id="ui-input" placeholder="Placeholder Text"/>
+                </div>
+                <div class="form--input">
+                    <label for="ui-input" class="required">UI Group Input</label>
+                    <div class="form--input-group">
+                        <p class="form--input-group-text">https://romainmillan.fr/text-test-text/test-text-test/</p>
+                        <input type="text" name="ui-input" id="ui-input" placeholder="Placeholder Text"/>
+                    </div>
+                </div>
+                <div class="form--input">
+                    <label for="ui-select">UI Select</label>
+                    <select name="ui-select" id="ui-select">
+                        <option value="test1" selected>Option Test 1</option>
+                        <option value="test2" disabled>Option Test 2</option>
+                        <option value="test3">Option Test 3</option>
+                    </select>
+                </div>
+            </section>
+        </section>
+
         <section>
-            <article class="card--container">
+            <article class="card">
                 <div class="card--illustration">
                     <img height="100px" src="https://digitalarcane.com/wp-content/uploads/2023/08/image-88-e1692385167766.png" alt="Google Illustration">
                 </div>

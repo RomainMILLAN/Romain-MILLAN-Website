@@ -1,8 +1,8 @@
 <?php
 
-namespace App\PanelContext\Domain\UptimeKuma;
+namespace Panel\Domain\UptimeKuma;
 
-use App\PanelContext\Domain\Exception\APIDataNotFound;
+use Panel\Domain\Exception\APIDataNotFound;
 
 enum CertValidationStatus: string
 {

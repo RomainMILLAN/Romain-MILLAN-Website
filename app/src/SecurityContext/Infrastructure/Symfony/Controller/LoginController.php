@@ -1,6 +1,6 @@
 <?php
 
-namespace App\SecurityContext\Infrastructure\Symfony\Controller;
+namespace Security\Infrastructure\Symfony\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +18,7 @@ class LoginController extends AbstractController
     ): Response {
         if ($this->getUser() !== null) {
             return $this->redirectToRoute(
-                \App\PanelContext\Infrastructure\Symfony\Controller\RouteCollection::DASHBOARD->prefixed(),
+                \Panel\Infrastructure\Symfony\Controller\RouteCollection::DASHBOARD->prefixed(),
             );
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PanelContext\Domain\Exception;
+namespace Panel\Domain\Exception;
 
 class APIDataNotFound extends \Exception
 {

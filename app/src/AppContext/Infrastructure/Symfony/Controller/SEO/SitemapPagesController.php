@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\AppContext\Infrastructure\Symfony\Controller\SEO;
+namespace App\Infrastructure\Symfony\Controller\SEO;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,8 +18,8 @@ class SitemapPagesController extends AbstractController
     public function __invoke(): Response
     {
         $pageRoutes = [
-            \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::PORTFOLIO->prefixed(),
-            \App\FrontContext\Infrastructure\Symfony\Controller\RouteCollection::TERMS_OF_USE->prefixed(),
+            \Front\Infrastructure\Symfony\Controller\RouteCollection::PORTFOLIO->prefixed(),
+            \Front\Infrastructure\Symfony\Controller\RouteCollection::TERMS_OF_USE->prefixed(),
         ];
 
         return $this->render('seo/sitemap/pages.xml.twig', [

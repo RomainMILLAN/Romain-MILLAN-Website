@@ -9,11 +9,13 @@
 {% endif %}
 
 {% block main %}
-    <div class="card w-75 m-auto mt-5 mb-5">
+    {% trans_default_domain 'signature' %}
+    <article class="card">
         <div class="card-header">
-            <h3>Rendu de votre signature</h3>
+            <h1>{{ 'generate.title'|trans }}</h1>
         </div>
-        <div class="card-body">
+
+        <div class="card--content">
             <code>
 
                 <p>Cordialement,</p><br>
@@ -178,5 +180,6 @@
 
             </code>
         </div>
-    </div>
+
+    </article>
 {% endblock %}

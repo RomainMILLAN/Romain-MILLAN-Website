@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\SignatureContext\Infrastructure\Symfony\Router;
+namespace Signature\Infrastructure\Symfony\Router;
 
 trait AppSignatureContextRouteCollectionTrait
 {

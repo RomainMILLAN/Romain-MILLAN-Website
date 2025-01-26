@@ -1,6 +1,6 @@
 <?php
 
-namespace App\SignatureContext\Domain\DTO;
+namespace Signature\Domain\DTO;
 
 class SignatureSocialNetworkDTO
 {

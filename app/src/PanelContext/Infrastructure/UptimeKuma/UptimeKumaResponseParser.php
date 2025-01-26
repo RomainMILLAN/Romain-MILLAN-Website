@@ -1,10 +1,10 @@
 <?php
 
-namespace App\PanelContext\Infrastructure\UptimeKuma;
+namespace Panel\Infrastructure\UptimeKuma;
 
-use App\PanelContext\Domain\UptimeKuma\CertValidationStatus;
-use App\PanelContext\Domain\UptimeKuma\Monitor;
-use App\PanelContext\Domain\UptimeKuma\MonitorStatus;
+use Panel\Domain\UptimeKuma\CertValidationStatus;
+use Panel\Domain\UptimeKuma\Monitor;
+use Panel\Domain\UptimeKuma\MonitorStatus;
 
 class UptimeKumaResponseParser
 {

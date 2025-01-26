@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\AppContext\Infrastructure\Symfony\Controller\SEO;
+namespace App\Infrastructure\Symfony\Controller\SEO;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,7 +31,7 @@ class RobotsTxtController extends AbstractController
 
         $disallowedPaths = [];
 
-        $disallowAll = \count($disallowedRoutes) === 1 && '*' === ($disallowedRoutes[0] ?? []);
+        $disallowAll = \count($disallowedRoutes) === 1 && $disallowedRoutes[0] === '*';
 
         return $this->render('seo/robots.txt.twig', [
             'disallowedRoutes' => $disallowedRoutes,
