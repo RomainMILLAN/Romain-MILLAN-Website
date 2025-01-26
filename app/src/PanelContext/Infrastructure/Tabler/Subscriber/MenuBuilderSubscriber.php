@@ -2,10 +2,10 @@
 
 namespace Panel\Infrastructure\Tabler\Subscriber;
 
-use Panel\Infrastructure\Symfony\Controller\RouteCollection;
 use KevinPapst\TablerBundle\Event\MenuEvent;
 use KevinPapst\TablerBundle\Model\MenuItemInterface;
 use KevinPapst\TablerBundle\Model\MenuItemModel;
+use Panel\Infrastructure\Symfony\Controller\RouteCollection;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class MenuBuilderSubscriber implements EventSubscriberInterface
@@ -54,7 +54,7 @@ class MenuBuilderSubscriber implements EventSubscriberInterface
             new MenuItemModel(
                 identifier: 'signature',
                 label: 'Signature',
-                route: \App\SignatureContext\Infrastructure\Symfony\Controller\RouteCollection::CREATE->prefixed(),
+                route: \Signature\Infrastructure\Symfony\Controller\RouteCollection::CREATE->prefixed(),
                 icon: 'fas fa-signature',
             )
         );

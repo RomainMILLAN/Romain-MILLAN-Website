@@ -1,0 +1,10 @@
+.btn-collection-container {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 5px;
+  justify-content: end;
+}
+
+.btn-collection-remove {
+  background-color: var(--background-danger);
+}

@@ -26,11 +26,8 @@ class SignatureEmailType extends AbstractType
                         'max' => 255,
                     ]),
                 ],
-                'attr' => [
-                    'class' => 'form-control',
-                ],
                 'row_attr' => [
-                    'class' => 'form-group mb-3',
+                    'class' => 'form--input',
                 ],
             ])
             ->add('email', TextType::class, [
@@ -45,10 +42,9 @@ class SignatureEmailType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'john.doe@yopmail.fr',
-                    'class' => 'form-control',
                 ],
                 'row_attr' => [
-                    'class' => 'form-group',
+                    'class' => 'form--input',
                 ],
             ])
         ;

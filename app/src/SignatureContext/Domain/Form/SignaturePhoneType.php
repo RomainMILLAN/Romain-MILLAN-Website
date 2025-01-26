@@ -26,11 +26,8 @@ class SignaturePhoneType extends AbstractType
                         'max' => 255,
                     ]),
                 ],
-                'attr' => [
-                    'class' => 'form-control',
-                ],
                 'row_attr' => [
-                    'class' => 'form-group mb-3',
+                    'class' => 'form--input',
                 ],
             ])
             ->add('phoneNumber', TelType::class, [
@@ -48,7 +45,7 @@ class SignaturePhoneType extends AbstractType
                     'class' => 'form-control',
                 ],
                 'row_attr' => [
-                    'class' => 'form-group',
+                    'class' => 'form--input',
                 ],
             ])
         ;

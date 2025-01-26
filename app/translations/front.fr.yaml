@@ -1,15 +1,6 @@
 global:
   title: "Romain MILLAN"
 
-navigation:
-  title: "Navigation"
-  portfolio: "Mon portfolio"
-  aboutme: "A propos"
-  works: "Mes travaux"
-  experiences: "Mes expériences"
-  formations: "Mes formations"
-  panel: "Accédez au panel"
-
 home:
   title: "Plus qu'un développeur, <br/>Votre prochain talent !"
 
@@ -105,17 +96,3 @@ formations:
       location: "Montpellier/Sète, France"
       description: ""
       icon: "iut_mtp.png"
-
-contact:
-  title: "Contact"
-  email: "Mail"
-  github: "Github"
-  cv: "Curriculum Vitae"
-  linkedin: "LinkedIn"
-
-terms_of_use:
-  title: "Mentions Légales"
-
-footer:
-  all_right_reserved: "Tous droits réservés."
-  no_reproduce: "Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite."

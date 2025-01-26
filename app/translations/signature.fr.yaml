@@ -1,3 +1,24 @@
-footer:
-  all_right_reserved: Tous droits réservés.
-  no_reproduce: Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite de Romain MILLAN est strictement interdite.
+action:
+  save: "Sauvegarder"
+  cancel: "Annuler"
+
+create:
+  title: "Générer votre signature"
+  description: "Générer votre propre signature email personnaliser."
+  form:
+    general_information:
+      title: "Information générales"
+      lastName: "Nom de famille"
+      firstName: "Prénom"
+      status: "Statut"
+      logo: "Votre logo"
+      accentColor: "Couleur d'accentuation"
+    emails:
+      title: "Vo・tre・s adresse(s) email(s)"
+    phones:
+      title: "Vo・tre・s numéro(s) de téléphone(s)"
+    social_networks:
+      title: "Vo・tre・s réseaux sociaux"
+
+generate:
+  title: "Votre signature générer"

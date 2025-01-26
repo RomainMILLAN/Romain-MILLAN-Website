@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app.locale }}">
+<html lang="{{ app.locale }}" {{ stimulus_controller('scroll-to light-mode') }}>
 	<head>
 		<title>
 			Romain MILLAN
@@ -22,6 +22,7 @@
 		<meta name="turbo-refresh-scroll" content="preserve">
 		<meta name="turbo-prefetch" content="true">
 		<meta name="view-transition" content="same-origin">
+
 		{% block head '' %}
 
 		{% block stylesheets %}
@@ -36,10 +37,132 @@
 		{% endblock %}
 	</head>
 
-	<body {{ stimulus_controller('scroll-to light-mode') }} {{ stimulus_target('light-mode', 'body') }} data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}>
+	<body {{ stimulus_target('light-mode', 'body') }} data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}>
 
 		<header {% block header_attributes '' %}>
-			{% block header %}{% endblock %}
+			{% block header %}
+				{% trans_default_domain 'app' %}
+
+				<section class="mobile_header">
+
+					<div id="mobile_nav--container">
+
+						<div class="mobile_nav--background"></div>
+						<div class="mobile_nav--header">
+							<a class="mobile_nav-logo" href="{{path('app_front_portfolio')}}">
+								<img src="{{asset('build/front/static/img/logo/icon.svg', 'front')}}" alt="Icone RomainMILLAN"/>
+							</a>
+							<div class="mobile_nav--button" tabindex="110">
+								<span class="mobile_nav--button_icon"></span>
+								<span class="mobile_nav--button_icon"></span>
+								<span class="mobile_nav--button_icon"></span>
+							</div>
+						</div>
+
+						<div id="mobile_nav--content" tabindex="0">
+
+							<ul>
+
+								<twig:rm-tag
+										width="230px"
+										isFilledBlack="true"
+										hasRedirect="true"
+								/>
+
+								<li>
+									<a href="{{ path('app_front_portfolio') }}#home">{{ 'navigation.portfolio'|trans }}</a>
+								</li>
+								<li>
+									<a href="{{ path('app_front_portfolio') }}#aboutme">{{ 'navigation.aboutme'|trans }}</a>
+								</li>
+								<li>
+									<a href="{{ path('app_front_portfolio') }}#work">{{ 'navigation.works'|trans }}</a>
+								</li>
+								<li>
+									<a href="{{ path('app_front_portfolio') }}#experiences">{{ 'navigation.experiences'|trans }}</a>
+								</li>
+								<li>
+									<a href="{{ path('app_front_portfolio') }}#formations">{{ 'navigation.formations'|trans }}</a>
+								</li>
+								<li>
+									<form action="#" class="language_picker--container">
+										<label>
+											<select
+													onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
+													name="language_picker--select"
+											>
+												<option lang="fr" {% if is_current_language('fr') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'fr'}) }}">Français</option>
+												<option lang="en" {% if is_current_language('en') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'en'}) }}">English</option>
+											</select>
+										</label>
+									</form>
+								</li>
+								<li class="nav_small">
+									<p>© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}" style="padding: 0; margin: 0;">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
+									<p>{{ 'footer.no_reproduce'|trans }}</p>
+								</li>
+
+							</ul>
+
+						</div>
+					</div>
+
+				</section>
+
+				<section class="desktop_header">
+
+				<twig:rm-tag
+						width="230px"
+						isFilledBlack="true"
+						hasRedirect="true"
+				/>
+
+				<nav class="desktop_header--navigation">
+					{% macro desktopLink(text, id) %}
+						<a class="desktop_header--navigation_item cursor-pointer" tabindex="0"
+								{% if is_current_portfolio() %}
+									role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: id}) }}
+								{% else %}
+									{% set hrefLink = path('app_front_portfolio') ~ '#' ~ id %}
+									href="{{ hrefLink }}"
+								{% endif %}
+						>{{ text }}</a>
+					{% endmacro %}
+
+					{{ _self.desktopLink('navigation.portfolio'|trans, 'home') }}
+					{{ _self.desktopLink('navigation.aboutme'|trans, 'aboutme') }}
+					{{ _self.desktopLink('navigation.works'|trans, 'work') }}
+					{{ _self.desktopLink('navigation.experiences'|trans, 'experiences') }}
+
+					<form action="#" class="language_picker--container">
+						<label>
+							<select
+									onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
+									name="language_picker--select"
+							>
+								<option lang="fr" {% if is_current_language('fr') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'fr'}) }}">Français</option>
+								<option lang="en" {% if is_current_language('en') %}selected{% endif %} value="{{ path('app_front_portfolio', {'_locale': 'en'}) }}">English</option>
+							</select>
+						</label>
+					</form>
+
+					<div class="theme_mode--container flex-row align-items-center justify-content-center">
+						<div id="themeMode-light" class="theme_mode--item d-none justify-content-center align-items-center" {{ stimulus_action('light-mode', 'switchToLightMode', 'click') }} {{ stimulus_target('light-mode', 'light') }}>
+							<twig:ux:icon name="material-symbols:light-mode" width="25"/>
+						</div>
+
+						<div id="themeMode-dark" class="theme_mode--item flex-column justify-content-center align-items-center" {{ stimulus_action('light-mode', 'switchToDarkMode', 'click') }} {{ stimulus_target('light-mode', 'dark') }}>
+							<twig:ux:icon  name="material-symbols:dark-mode" width="25"/>
+						</div>
+					</div>
+
+					{% if app.user is not null %}
+						<a href="{{ path('app_panel_dashboard') }}" class="btn btn-primary">{{ 'navigation.panel'|trans }}</a>
+					{% endif %}
+				</nav>
+
+				</section>
+			{% endblock %}
 		</header>
 
 		<main>
@@ -47,7 +170,35 @@
 		</main>
 
 		<footer {% block footer_attribut '' %}>
-			{% block footer %}{% endblock %}
+			{% block footer %}
+				{% trans_default_domain 'app' %}
+
+				<div>
+					<div class="footer_navigation--container flex-row align-items-start justify-content-start">
+
+						<img src="{{ asset('build/front/static/img/logo/icon.svg', 'front') }}" alt="Icone Romain MILLAN"/>
+
+						<div class="footer_navigation--item flex-column m-0 p-0">
+							<h6 class="text-underline m-0">{{ 'navigation.title'|trans }}</h6>
+							<a href="{{ path('app_front_portfolio') }}">{{ 'navigation.portfolio'|trans }}</a>
+							<a href="{{ path('app_front_terms_of_use') }}">{{ 'terms_of_use.title'|trans }}</a>
+						</div>
+
+						<div class="footer_navigation--item flex-column m-0 p-0">
+							<h6 class="text-underline m-0">{{ 'contact.title'|trans }}</h6>
+							<a href="mailto:contact@romainmillan.fr">{{ 'contact.email'|trans }}</a>
+							<a href="https://github.com/RomainMILLAN/">{{ 'contact.github'|trans }}</a>
+							<a href="{{ asset('build/front/static/upload/CV_MILLAN_Romain.pdf', 'front') }}" target="_blank">{{ 'contact.cv'|trans }}</a>
+							<a href="https://www.linkedin.com/in/romain-millan/">{{ 'contact.linkedin'|trans }}</a>
+						</div>
+
+					</div>
+
+					<hr>
+
+					<p class="text-italic">© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
+				</div>
+			{% endblock %}
 		</footer>
 
 	</body>

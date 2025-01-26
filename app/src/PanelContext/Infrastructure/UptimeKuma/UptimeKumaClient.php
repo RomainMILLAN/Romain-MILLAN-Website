@@ -23,7 +23,7 @@ readonly class UptimeKumaClient
      */
     public function request(string $uri, string $method = Request::METHOD_GET, array $options = []): ?ResponseInterface
     {
-        if ($this->uptimeKumaBaseUrl === "") {
+        if ($this->uptimeKumaBaseUrl === '') {
             return null;
         }
 

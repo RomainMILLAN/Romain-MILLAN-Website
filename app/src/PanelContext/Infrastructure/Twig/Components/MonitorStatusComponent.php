@@ -34,7 +34,9 @@ class MonitorStatusComponent
     {
         $uptimeResponse = $this->uptimeKumaClient->request('metrics');
         if ($uptimeResponse !== null) {
-            $this->monitorList = new MonitorList($this->uptimeKumaResponseParser->parseMonitors($uptimeResponse->getContent()));
+            $this->monitorList = new MonitorList($this->uptimeKumaResponseParser->parseMonitors(
+                $uptimeResponse->getContent()
+            ));
         }
 
         return $this->monitorList;
