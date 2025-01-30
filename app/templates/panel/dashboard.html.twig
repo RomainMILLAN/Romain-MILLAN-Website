@@ -59,7 +59,7 @@
             <twig:panel:dashboard:serviceCard
                     title="Dockge"
                     description="Gestionnaire de conteneurs"
-                    avatar="dockge-light"
+                    avatar="dockge"
                     actions="{{ [
                         {url: 'https://prod.romainmillan.fr/'},
                         {url: path('app_panel_prod_01_dockge'), icon: 'person-through-window', title: 'Interface', target: '_self'},
@@ -73,6 +73,19 @@
                     title="PVE"
                     description="Gestionnaire de VM"
                     avatar="proxmox"
+                    actions="{{ [
+                        {url: 'http://192.168.1.29:8006/'},
+                    ] }}"
+                    tags="{{ [
+                        {name: 'PROD 02', color: 'purple'},
+                        {name: 'LOCAL', color: 'orange'},
+                    ] }}"
+            />
+
+            <twig:panel:dashboard:serviceCard
+                    title="Home Assistant"
+                    description="Pour la gestion de la domotique"
+                    avatar="home-assistant"
                     actions="{{ [
                         {url: 'http://192.168.1.29:8006/'},
                     ] }}"
