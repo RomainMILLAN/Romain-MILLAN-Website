@@ -21,9 +21,8 @@ class RobotsTxtController extends AbstractController
             ? [
                 'app_signature_create' => '',
                 'app_panel_dashboard' => '',
-                'app_panel_prod_01_uptime_kuma' => '',
-                'app_panel_cloud_uptime_robot' => '',
-                'app_panel_prod_01_dockge' => '',
+                'app_panel_service_prod_01_uptime_kuma' => '',
+                'app_panel_service_prod_01_dockge' => '',
                 'app_security_login' => '',
                 'app_security_logout' => '',
             ]

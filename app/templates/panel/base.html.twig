@@ -27,7 +27,6 @@
         {% endblock %}
 
     </head>
-{#    <body data-bs-theme="dark" {{ stimulus_target('theme-mode', 'body') }}>#}
     <body {{ stimulus_target('theme-mode', 'body') }}>
         <div class="page">
 
@@ -48,7 +47,6 @@
 
                     <div class="navbar-nav flex-row order-md-last">
                         <div class="d-none d-md-flex me-2">
-                            {# @TODO : Rework light mode #}
                             <a role="button" {{ stimulus_action('theme-mode', 'switchToDarkMode') }} class="nav-link px-0 hide-theme-dark" data-bs-toggle="tooltip"
                                data-bs-placement="bottom" aria-label="Enable dark mode"
                                data-bs-original-title="Enable dark mode">
@@ -64,9 +62,9 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
                                aria-label="Open user menu">
-                                <span class="avatar avatar-sm">
-                                    <img src="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" alt="">
-                                </span>
+                            <span class="avatar avatar-sm">
+                                <img src="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" alt="">
+                            </span>
                                 <div class="d-none d-xl-block ps-2">
                                     <div>{{ app.user }}</div>
                                     <div class="mt-1 small text-secondary">Administrateur</div>
@@ -84,24 +82,24 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ path('app_panel_dashboard') }}">
-                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                            <twig:ux:icon name="tabler:home" width="24" height="24" />
-                                        </span>
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <twig:ux:icon name="tabler:home" width="24" height="24" />
+                                    </span>
                                         <span class="nav-link-title">
-                                            Accueil
-                                        </span>
+                                        Accueil
+                                    </span>
                                     </a>
                                 </li>
 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
                                        data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                            <twig:ux:icon name="tabler:server" width="24" height="24" />
-                                        </span>
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <twig:ux:icon name="tabler:server" width="24" height="24" />
+                                    </span>
                                         <span class="nav-link-title">
-                                            Services
-                                        </span>
+                                        Services
+                                    </span>
                                     </a>
                                     <div class="dropdown-menu">
                                         <a class="dropdown-item" href="{{ path('app_panel_service_prod_01_uptime_kuma') }}" rel="noopener">
@@ -115,12 +113,12 @@
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ path('app_signature_create') }}">
-                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                            <twig:ux:icon name="tabler:signature" width="24" height="24" />
-                                        </span>
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <twig:ux:icon name="tabler:signature" width="24" height="24" />
+                                    </span>
                                         <span class="nav-link-title">
-                                            Signature
-                                        </span>
+                                        Signature
+                                    </span>
                                     </a>
                                 </li>
 

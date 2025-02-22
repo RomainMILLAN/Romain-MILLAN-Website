@@ -1,23 +1,71 @@
-{% extends '@Tabler/security.html.twig' %}
+<html lang="fr" {{ stimulus_controller('theme-mode') }}>
+<head>
+    <title>Romain MILLAN - Panel</title>
 
-{% block title 'RM Panel - Sécurité' %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href=".{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
 
-{% block head %}
-    {% include '@Tabler/includes/html_head.html.twig' %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="turbo-refresh-method" content="morph">
-    <meta name="turbo-refresh-scroll" content="preserve">
-    <meta name="turbo-prefetch" content="true">
-    <meta name="view-transition" content="same-origin">
-    <link rel="shortcut icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" type="image/x-icon">
-    <link rel="mask-icon" href="{{ asset('build/app/static/img/logo/icon.svg', 'app') }}" color="#000000">
-{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('panel', null, 'panel') }}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0/dist/css/tabler.min.css">
+    {% endblock %}
 
-{% block logo_login %}
-    <img src="{{ asset('build/panel/static/img/logo/romainmillan-panel-black.svg', 'panel') }}" alt="">
-{% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('panel', null, 'panel') }}
+        <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0/dist/js/tabler.min.js"></script>
+    {% endblock %}
 
-{% block remember_me '' %}
-{% block login_social_auth '' %}
+</head>
+<body {{ stimulus_target('theme-mode', 'body') }}>
+    <div class="page">
+        <div class="container container-tight py-4">
+
+            <div class="text-center mb-4">
+                <a href="{{ path('app_security_login') }}" class="navbar-brand navbar-brand-autodark">
+                    <img src="{{ asset('build/panel/static/img/logo/romainmillan-panel-black.svg', 'panel') }}" alt="Romain MILLAN">
+                </a>
+            </div>
+
+            <div class="card card-md">
+                <div class="card-body">
+
+                    <h2 class="h2 text-center mb-4">Connexion à votre espace sécurisé</h2>
+
+                    <form action="{{ path('app_security_login') }}" method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Identifiant</label>
+                            <input type="text" name="_username" class="form-control" placeholder="identifier" autocomplete="off">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Votre mot de passe</label>
+                            <input type="password" name="_password" class="form-control" placeholder="********" autocomplete="off">
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary w-100">Connexion</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="text-center text-secondary mt-3">
+                Copyright © 2023{% if date('now')|date('Y') != '2023' %}-{{ date('now')|date('Y') }}{% endif %}
+
+                <twig:rm-tag
+                        width="100px"
+                        isFilledBlack="true"
+                        hasRedirect="true"
+                />
+
+                Tous droits réservés.
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
