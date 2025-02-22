@@ -25,12 +25,12 @@
                     {% endif %}
 
                     <a href="{{ action.url }}" target="{{ urlTarget }}" class="card-btn">
-                        {% set actionIcon = 'link' %}
+                        {% set actionIcon = 'tabler:link' %}
                         {% if action.icon is defined %}
                             {% set actionIcon = action.icon %}
                         {% endif %}
 
-                        <i class="fa fa-{{ actionIcon }} me-2"></i>
+                        <twig:ux:icon name="{{ actionIcon }}" class="me-2" width="24" height="24" />
                         {% if action.title is defined %}
                             {{ action.title }}
                         {% else %}
