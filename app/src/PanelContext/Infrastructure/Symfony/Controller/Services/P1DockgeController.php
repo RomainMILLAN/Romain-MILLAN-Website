@@ -16,11 +16,10 @@ use Symfony\Component\Routing\Attribute\Route;
 )]
 class P1DockgeController extends AbstractController
 {
-
     public function __invoke(
-        #[Autowire('%env(P1_DOCKGE)%')] string $link,
-    ): Response
-    {
+        #[Autowire('%env(P1_DOCKGE)%')]
+        string $link,
+    ): Response {
         return $this->render(
             view: 'panel/service.html.twig',
             parameters: [
@@ -29,5 +28,4 @@ class P1DockgeController extends AbstractController
             ]
         );
     }
-
 }
