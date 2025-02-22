@@ -10,7 +10,6 @@ enum RouteCollection: string implements RouteCollectionInterface
     use AppPanelContextRouteCollectionTrait;
 
     case DASHBOARD = 'dashboard';
-    case PROD_01_UPTIME_KUMA = 'prod_01_uptime_kuma';
-    case CLOUD_UPTIME_ROBOT = 'cloud_uptime_robot';
-    case PROD_01_DOCKGE = 'prod_01_dockge';
+    case SERVICE_PROD_01_UPTIME_KUMA = 'service_prod_01_uptime_kuma';
+    case SERVICE_PROD_01_DOCKGE = 'service_prod_01_dockge';
 }

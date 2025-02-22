@@ -1,76 +1,205 @@
-{% extends '@Tabler/layout-horizontal.html.twig' %}
+<html lang="fr" {{ stimulus_controller('theme-mode') }}>
+    <head>
+        <title>Romain MILLAN - Panel</title>
 
-{% block body_start %} data-turbo='true'{% endblock %}
-{% block page_actions '' %}
-{% block page_pretitle '' %}
-{% block navbar_search '' %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-{% block app_logo %}
-    <h1 class="navbar-brand d-none-navbar-horizontal pe-0 pe-md-3 navbar-brand-autodark">
-        <a href="{{ path('tabler_welcome'|tabler_route) }}">
-            <img
-                    class="navbar-brand-image"
-                    src="{{ asset('build/panel/static/img/logo/romainmillan-panel.svg', 'panel') }}"
-                    width="110" height="32"
-                    alt=""
-            >
-        </a>
-    </h1>
-{% endblock %}
+        <meta name="msapplication-TileColor" content="#066fd1">
+        <meta name="theme-color" content="#066fd1">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <link rel="icon" href=".{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
 
-{% block head %}
-    {% include '@Tabler/includes/html_head.html.twig' %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="turbo-refresh-method" content="morph">
-    <meta name="turbo-refresh-scroll" content="preserve">
-    <meta name="turbo-prefetch" content="true">
-    <meta name="view-transition" content="same-origin">
-    <link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
-    <link rel="mask-icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" color="#000000">
-    <title>RM Panel</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('panel', null, 'panel') }}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0/dist/css/tabler.min.css">
+        {% endblock %}
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-    {{ encore_entry_link_tags('panel', null, 'panel') }}
-    {{ encore_entry_script_tags('panel', null, 'panel') }}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/twig.min.js"></script>
-    <script>hljs.highlightAll();</script>
-{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('panel', null, 'panel') }}
+            <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0/dist/js/tabler.min.js"></script>
+        {% endblock %}
 
-{% block page_subtitle '' %}
+    </head>
+{#    <body data-bs-theme="dark" {{ stimulus_target('theme-mode', 'body') }}>#}
+    <body {{ stimulus_target('theme-mode', 'body') }}>
+        <div class="page">
 
-{% block footer %}
-    <footer id="{% block footer_id %}{% endblock %}" class="footer footer-transparent d-print-none">
-        <div class="{{ ''|tabler_container }}">
-            <div class="row text-center align-items-center flex-row-reverse">
-                <div class="col-lg-auto ms-lg-auto">
-                    <ul class="list-inline list-inline-dots mb-0">
-                        <li class="list-inline-item"><a href="https://github.com/tabler/tabler" target="_blank"
-                                                        class="link-secondary" rel="noopener">Template</a></li>
-                        <li class="list-inline-item"><a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" target="_blank"
-                                                        class="link-secondary" rel="noopener">Source code</a></li>
-                    </ul>
+
+            <header class="navbar navbar-expand-md navbar-overlap d-print-none" data-bs-theme="dark">
+                <div class="container-xl">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+                            aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                        <a href="{{ path('app_panel_dashboard') }}">
+                            <img src="{{ asset('build/panel/static/img/logo/romainmillan-panel.svg', 'panel') }}" width="150px" alt="Icon">
+                        </a>
+                    </div>
+
+                    <div class="navbar-nav flex-row order-md-last">
+                        <div class="d-none d-md-flex me-2">
+                            {# @TODO : Rework light mode #}
+                            <a role="button" {{ stimulus_action('theme-mode', 'switchToDarkMode') }} class="nav-link px-0 hide-theme-dark" data-bs-toggle="tooltip"
+                               data-bs-placement="bottom" aria-label="Enable dark mode"
+                               data-bs-original-title="Enable dark mode">
+                                <twig:ux:icon name="tabler:moon" width="24" height="24" />
+                            </a>
+                            <a role="button" {{ stimulus_action('theme-mode', 'switchToLightMode') }} class="nav-link px-0 hide-theme-light" data-bs-toggle="tooltip"
+                               data-bs-placement="bottom" aria-label="Enable light mode"
+                               data-bs-original-title="Enable light mode">
+                                <twig:ux:icon name="tabler:sun" width="24" height="24" />
+                            </a>
+                        </div>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                               aria-label="Open user menu">
+                                <span class="avatar avatar-sm">
+                                    <img src="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" alt="">
+                                </span>
+                                <div class="d-none d-xl-block ps-2">
+                                    <div>{{ app.user }}</div>
+                                    <div class="mt-1 small text-secondary">Administrateur</div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light">
+                                <a href="{{ path('app_security_logout') }}" class="dropdown-item">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbar-menu">
+                        <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
+                            <ul class="navbar-nav">
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_panel_dashboard') }}">
+                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                            <twig:ux:icon name="tabler:home" width="24" height="24" />
+                                        </span>
+                                        <span class="nav-link-title">
+                                            Accueil
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
+                                       data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                            <twig:ux:icon name="tabler:server" width="24" height="24" />
+                                        </span>
+                                        <span class="nav-link-title">
+                                            Services
+                                        </span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ path('app_panel_service_prod_01_uptime_kuma') }}" rel="noopener">
+                                            Uptime Kuma
+                                        </a>
+                                        <a class="dropdown-item" href="{{ path('app_panel_service_prod_01_dockge') }}" rel="noopener">
+                                            Dockge
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_signature_create') }}">
+                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                            <twig:ux:icon name="tabler:signature" width="24" height="24" />
+                                        </span>
+                                        <span class="nav-link-title">
+                                            Signature
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-                    <ul class="list-inline list-inline-dots mb-0">
-                        <li class="list-inline-item">
-                            Copyright &copy; 2023-{{ 'now' | date('Y') }}
-                            <twig:rm-tag
-                                    width="125px"
-                                    isFilledBlack="true"
-                                    isFillAnimated="true"
-                                    hasRedirect="true"
-                            />
-                            Tout droits réservé.
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" class="link-secondary" rel="noopener">v{{ version }}</a>
-                        </li>
-                    </ul>
+            </header>
+
+
+            <div class="page-wrapper">
+
+                <div class="page-header d-print-none text-white">
+                    <div class="container-xl">
+                        <div class="row g-2 align-items-center">
+                            <div class="col">
+
+                                <div class="page-pretitle">
+                                    {% block pretitle 'Panel' %}
+                                </div>
+
+                                <h2 class="page-title">
+                                    {% block title 'Dashboard' %}
+                                </h2>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="page-body">
+
+                    {% block content '' %}
+
+                </div>
+
+                <footer class="footer footer-transparent d-print-none">
+                    <div class="container-xl">
+                        <div class="row text-center align-items-center flex-row-reverse">
+
+                            <div class="col-lg-auto ms-lg-auto">
+                                <ul class="list-inline list-inline-dots mb-0">
+
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Template</a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" target="_blank" class="link-secondary" rel="noopener">Source code</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                                <ul class="list-inline list-inline-dots mb-0">
+
+                                    <li class="list-inline-item">
+                                        Copyright © 2023{% if date('now')|date('Y') != '2023' %}-{{ date('now')|date('Y') }}{% endif %}
+
+                                        <twig:rm-tag
+                                                width="100px"
+                                                isFilledWhite="true"
+                                                isFillAnimated="true"
+                                                hasRedirect="true"
+                                        />
+
+                                        Tous droits réservés.
+                                    </li>
+
+                                    <li class="list-inline-item">
+                                        <a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" class="link-secondary" rel="noopener">v{{ version }}</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </div>
-    </footer>
-{% endblock %}
+    </body>
+</html>

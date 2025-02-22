@@ -4,24 +4,30 @@
 
     <div class="card">
         <div class="card-body">
+
             <div class="d-flex align-items-center">
                 <div class="subheader">Monitor {{ this.monitorStatus }}</div>
             </div>
+
             <div class="h1 mb-3">{{ monitorList.countByStatus(this.monitorStatus) }}</div>
+
             <div class="d-flex mb-2">
                 <div>Taux</div>
                 <div class="ms-auto">
-                        <span class="text-{{ this.getColor(monitorsStatusPercent) }} d-inline-flex align-items-center lh-1">
-                          {{ monitorsStatusPercent }}%
-                          <i class="fa fa-arrow-trend-{{ this.monitorStatus }}"></i>
-                        </span>
+                    <span class="text-{{ this.getColor(monitorsStatusPercent) }} d-inline-flex align-items-center lh-1">
+                      {{ monitorsStatusPercent }}%
+                      <i class="fa fa-arrow-trend-{{ this.monitorStatus }}"></i>
+                    </span>
                 </div>
             </div>
+
             <div class="progress progress-sm">
                 <div class="progress-bar bg-primary" style="width: {{ monitorsStatusPercent }}%" role="progressbar" aria-valuenow="{{ monitorsStatusPercent }}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ monitorsStatusPercent }}% Complete">
                     <span class="visually-hidden">{{ monitorsStatusPercent }}% des moniteurs</span>
                 </div>
             </div>
+
         </div>
     </div>
+
 </div>

@@ -1,0 +1,31 @@
+<?php
+
+namespace Panel\Infrastructure\Symfony\Controller\Services;
+
+use Panel\Infrastructure\Symfony\Controller\RouteCollection;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+#[Route(
+    path: '/service/prod01/dockge',
+    name: RouteCollection::SERVICE_PROD_01_DOCKGE->value,
+    methods: [Request::METHOD_GET],
+)]
+class P1DockgeController extends AbstractController
+{
+    public function __invoke(
+        #[Autowire('%env(P1_DOCKGE)%')]
+        string $link,
+    ): Response {
+        return $this->render(
+            view: 'panel/service.html.twig',
+            parameters: [
+                'link' => $link,
+                'title' => 'Dockge',
+            ]
+        );
+    }
+}

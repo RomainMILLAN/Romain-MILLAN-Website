@@ -35,9 +35,6 @@ return [
     Arkounay\Bundle\UxCollectionBundle\ArkounayUxCollectionBundle::class => [
         'all' => true,
     ],
-    KevinPapst\TablerBundle\TablerBundle::class => [
-        'all' => true,
-    ],
     Symfony\UX\TwigComponent\TwigComponentBundle::class => [
         'all' => true,
     ],
