@@ -18,7 +18,8 @@
   "private": true,
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
-    "@tabler/core": "^1.0.0"
+    "@tabler/core": "^1.0.0",
+    "mermaid": "^11.4.1"
   },
   "devDependencies": {
     "@arkounay/ux-collection": "file:vendor/arkounay/ux-collection/assets",
