@@ -1,5 +1,29 @@
 {% extends 'security/base.html.twig' %}
 
-{% block login_box_msg %}
-    Connexion à votre espace sécurisée.
+{% block content %}
+    <div class="card card-md">
+        <div class="card-body">
+
+            <h2 class="h2 text-center mb-4">Connexion à votre espace sécurisé</h2>
+
+            <form action="{{ path('app_security_login') }}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Identifiant</label>
+                    <input type="text" name="_username" class="form-control" placeholder="identifier" autocomplete="off">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Votre mot de passe</label>
+                    <input type="password" name="_password" class="form-control" placeholder="********" autocomplete="off">
+                </div>
+
+                <input type="hidden" name="_target_path" value="{{ path('app_panel_dashboard') }}">
+
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary w-100">Connexion</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
 {% endblock %}
