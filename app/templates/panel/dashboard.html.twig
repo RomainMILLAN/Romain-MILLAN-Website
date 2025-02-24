@@ -84,6 +84,19 @@
                 />
 
                 <twig:panel:dashboard:serviceCard
+                        title="Wireguard"
+                        description="Pour la gestion de la domotique"
+                        avatar="wireguard"
+                        actions="{{ [
+                            {url: 'http://192.168.1.151:10086/#/'},
+                        ] }}"
+                        tags="{{ [
+                            {name: 'PROD 02', color: 'purple'},
+                            {name: 'LOCAL', color: 'orange'},
+                        ] }}"
+                />
+
+                <twig:panel:dashboard:serviceCard
                         title="Home Assistant"
                         description="Pour la gestion de la domotique"
                         avatar="home-assistant"
