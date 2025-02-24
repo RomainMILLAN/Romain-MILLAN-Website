@@ -63,7 +63,7 @@ experiences:
       description: "As a forklift operator during my student job, I handled a forklift to load and unload delivery trucks. I was also responsible for managing drums of pool products, ensuring compliance with safety standards, and maintaining an efficient workflow."
       icon: "somedi.jpg"
     2:
-      title: "Backend Developer"
+      title: "Developer"
       date: "2023 - Present"
       location: "Sète, France"
       description: "This project involved creating a website in <span class='text-bold'>Symfony PHP</span> for a student association in Sète (<span class='text-italic'>General Association of Students of Sète</span>). The platform allows users to view and join various associations while facilitating event management. Members can register for activities, manage their profiles, and receive notifications. An administrative interface was also set up to enable managers to efficiently handle associations and users. The goal was to enhance student engagement and improve communication within the association."

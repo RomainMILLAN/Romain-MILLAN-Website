@@ -63,7 +63,7 @@ experiences:
       description: "En tant que cariste dans le cadre de mon travail étudiant, j'ai manipulé un chariot élévateur pour charger et décharger des camions de livraison. J'étais également responsable de la gestion de bidons de produits pour piscines, en veillant à respecter les normes de sécurité et à assurer un flux de travail efficace."
       icon: "somedi.jpg"
     2:
-      title: "Développeur Backend"
+      title: "Développeur"
       date: "2023 - Aujourd'hui"
       location: "Sète, France"
       description: "Ce projet a consisté en la création d'un site internet en <span class='text-bold'>Symfony PHP</span> pour une association étudiante sétoise (<span class='text-italic'>Association Générale des Étudiants Sétois</span>). La plateforme permet aux utilisateurs de consulter et d'adhérer aux différentes associations, tout en facilitant la gestion des événements. Les membres peuvent s'inscrire à des activités, gérer leur profil et recevoir des notifications. Une interface administrative a également été mise en place pour permettre aux responsables de gérer efficacement les associations et les utilisateurs. L'objectif était de renforcer l'engagement des étudiants et d'améliorer la communication au sein de l'association."
