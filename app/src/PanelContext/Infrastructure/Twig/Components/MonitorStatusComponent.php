@@ -60,4 +60,9 @@ class MonitorStatusComponent
 
         return 'green';
     }
+
+    public function hasAvailableFetch(): bool
+    {
+        return $this->uptimeKumaClient->hasAvailableClient();
+    }
 }
