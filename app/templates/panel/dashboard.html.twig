@@ -34,6 +34,19 @@
                 />
 
                 <twig:panel:dashboard:serviceCard
+                        title="Zoraxy"
+                        description="Reverse proxy"
+                        avatar="zoraxy"
+                        actions="{{ [
+                            {url: 'http://192.168.1.240:8000/'},
+                        ] }}"
+                        tags="{{ [
+                            {name: 'PROD 02', color: 'purple'},
+                            {name: 'LOCAL', color: 'orange'},
+                        ] }}"
+                />
+
+                <twig:panel:dashboard:serviceCard
                         title="Finance"
                         description="Gestionnaire de finance fait maison"
                         avatar="php"
