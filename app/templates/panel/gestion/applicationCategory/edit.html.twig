@@ -1,0 +1,18 @@
+{% extends 'panel/gestion/applicationCategory/base.html.twig' %}
+
+{% block content %}
+    <div class="col-11 col-md-10 col-xl-8 d-flex flex-row justify-content-center me-auto ms-auto">
+
+        <twig:panel:form
+            cancelLink="{{ path('app_panel_gestion_application_category_list') }}"
+            form="{{ form }}"
+        >
+            {% block title 'Édition de la catégorie "'~entity.name~'"' %}
+
+            {% block content %}
+                {% include 'panel/gestion/applicationCategory/_form_content.html.twig' %}
+            {% endblock %}
+        </twig:panel:form>
+
+    </div>
+{% endblock %}

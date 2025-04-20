@@ -30,6 +30,19 @@
     <body {{ stimulus_target('theme-mode', 'body') }}>
         <div class="page">
 
+            <div class="toast-container position-fixed bottom-0 end-0 p-3" {{ stimulus_controller('flash') }} id="toastsNotifications">
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }} alert-dismissible" role="alert">
+                            <div class="alert-icon">
+                                <twig:ux:icon name="{{ alert_icon(type) }}" width="24" height="24"/>
+                            </div>
+                            {{ message }}
+{#                            <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>#}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
 
             <header class="navbar navbar-expand-md navbar-overlap d-print-none" data-bs-theme="dark">
                 <div class="container-xl">
@@ -133,12 +146,28 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
+                                       data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <twig:ux:icon name="tabler:server" width="24" height="24" />
+                                    </span>
+                                        <span class="nav-link-title">
+                                        Gestion
+                                    </span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}" rel="noopener">
+                                            Catégorie d'application
+                                        </a>
+                                    </div>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
                 </div>
             </header>
-
 
             <div class="page-wrapper">
 
@@ -156,14 +185,16 @@
                                 </h2>
 
                             </div>
+
+                            <div class="col-auto ms-auto d-print-none">
+                                {% block header_action '' %}
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="page-body">
-
                     {% block content '' %}
-
                 </div>
 
                 <footer class="footer footer-transparent d-print-none">
@@ -209,6 +240,7 @@
                     </div>
                 </footer>
             </div>
+
         </div>
     </body>
 </html>

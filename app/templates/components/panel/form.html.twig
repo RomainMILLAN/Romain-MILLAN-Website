@@ -1,0 +1,28 @@
+{% props form = null, cancelLink = '#' %}
+
+<div class="card w-100">
+    {{ form_start(form, {
+        attr: {
+            class: 'mb-0'
+        }
+    }) }}
+
+    <div class="card-header">
+        <h3 class="card-title">{% block title '' %}</h3>
+    </div>
+
+    <div class="card-body">
+
+            {% block content '' %}
+
+    </div>
+
+    <div class="card-footer text-end">
+        <div class="d-flex">
+            <a href="{{ cancelLink }}" class="btn btn-link">Annuler</a>
+            <button type="submit" class="btn btn-primary ms-auto">Envoyer</button>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+</div>
