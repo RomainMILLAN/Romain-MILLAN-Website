@@ -14,7 +14,7 @@ class SwitchType extends AbstractType
             'class' => 'form-check form-switch ms-2 mb-3 p-0',
         ]);
         $resolver->setDefault('attr', [
-            'class' => 'form-check-input'
+            'class' => 'form-check-input',
         ]);
         $resolver->setDefault('required', false);
     }

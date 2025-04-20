@@ -18,8 +18,9 @@ class ApplicationCategoryRepository extends ServiceEntityRepository
 
     public function save(ApplicationCategory $object): void
     {
-        $this->getEntityManager()->persist($object);
-        $this->getEntityManager()->flush();
+        $this->getEntityManager()
+            ->persist($object);
+        $this->getEntityManager()
+            ->flush();
     }
-
 }

@@ -44,6 +44,6 @@ readonly class UptimeKumaClient
 
     public function hasAvailableClient(): bool
     {
-        return ('' !== $this->uptimeKumaBaseUrl) && ('' !== $this->uptimeKumaApiKey);
+        return ($this->uptimeKumaBaseUrl !== '') && ($this->uptimeKumaApiKey !== '');
     }
 }

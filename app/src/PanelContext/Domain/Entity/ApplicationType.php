@@ -1,14 +1,15 @@
 <?php
 
-namespace Panel\Domain\Entity;
+namespace Panel\Domain\Entity\Entity;
 
+use App\Repository\ApplicationTypeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Panel\Infrastructure\Symfony\Repository\ApplicationCategoryRepository;
+use Panel\Domain\Entity\Application;
 
-#[ORM\Entity(repositoryClass: ApplicationCategoryRepository::class)]
-class ApplicationCategory
+#[ORM\Entity(repositoryClass: ApplicationTypeRepository::class)]
+class ApplicationType
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -18,13 +19,13 @@ class ApplicationCategory
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column]
-    public ?bool $inAccordion = true;
+    #[ORM\Column(length: 255)]
+    private ?string $color = null;
 
     /**
      * @var Collection<int, Application>
      */
-    #[ORM\OneToMany(targetEntity: Application::class, mappedBy: 'category')]
+    #[ORM\ManyToMany(targetEntity: Application::class, mappedBy: 'type')]
     private Collection $applications;
 
     public function __construct()
@@ -49,6 +50,18 @@ class ApplicationCategory
         return $this;
     }
 
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): static
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Application>
      */
@@ -61,7 +74,7 @@ class ApplicationCategory
     {
         if (! $this->applications->contains($application)) {
             $this->applications->add($application);
-            $application->setCategory($this);
+            $application->addType($this);
         }
 
         return $this;
@@ -70,10 +83,7 @@ class ApplicationCategory
     public function removeApplication(Application $application): static
     {
         if ($this->applications->removeElement($application)) {
-            // set the owning side to null (unless already changed)
-            if ($application->getCategory() === $this) {
-                $application->setCategory(null);
-            }
+            $application->removeType($this);
         }
 
         return $this;

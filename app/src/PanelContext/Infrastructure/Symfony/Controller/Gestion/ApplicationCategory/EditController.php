@@ -18,7 +18,6 @@ use Symfony\Component\Routing\Attribute\Route;
 )]
 class EditController extends AbstractController
 {
-
     public function __construct(
         private readonly ApplicationCategoryRepository $repository,
     ) {
@@ -26,7 +25,10 @@ class EditController extends AbstractController
 
     public function __invoke(
         Request $request,
-        #[MapEntity(mapping: ['id' => 'id'])] ApplicationCategory $entity,
+        #[MapEntity(mapping: [
+            'id' => 'id',
+        ])]
+        ApplicationCategory $entity,
     ): Response {
         $form = $this->createForm(ApplicationCategoryForm::class, $entity);
         $form->handleRequest($request);
@@ -50,5 +52,4 @@ class EditController extends AbstractController
             ],
         );
     }
-
 }

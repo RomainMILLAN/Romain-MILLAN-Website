@@ -15,7 +15,6 @@ use Symfony\Component\Routing\Attribute\Route;
 )]
 class ListController extends AbstractController
 {
-
     public function __construct(
         private readonly ApplicationCategoryRepository $applicationCategoryRepository,
     ) {
@@ -30,5 +29,4 @@ class ListController extends AbstractController
             ],
         );
     }
-
 }

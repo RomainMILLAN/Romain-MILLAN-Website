@@ -17,14 +17,16 @@ use Symfony\Component\Routing\Attribute\Route;
 )]
 class DeleteController extends AbstractController
 {
-
     public function __construct(
         private EntityManagerInterface $entityManager,
     ) {
     }
 
     public function __invoke(
-        #[MapEntity(mapping: ['id' => 'id'])] ApplicationCategory $entity,
+        #[MapEntity(mapping: [
+            'id' => 'id',
+        ])]
+        ApplicationCategory $entity,
     ): Response {
         $this->entityManager->remove($entity);
         $this->entityManager->flush();
@@ -36,5 +38,4 @@ class DeleteController extends AbstractController
 
         return $this->redirectToRoute(RouteCollection::LIST->prefixed());
     }
-
 }
