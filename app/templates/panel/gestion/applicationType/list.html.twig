@@ -1,0 +1,47 @@
+{% extends 'panel/gestion/applicationType/base.html.twig' %}
+
+{% block header_action %}
+    <div class="btn-list">
+        <a href="{{ path('app_panel_gestion_application_type_create') }}" class="btn btn-primary btn-5 d-none d-sm-inline-block">
+            <twig:ux:icon class="icon icon-2" name="tabler:plus" width="24px" height="24px"/>
+
+            Crée un nouveau type
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-11 col-md-10 col-xl-8 d-flex flex-row justify-content-center me-auto ms-auto">
+
+        <twig:panel:list
+                data="{{ types }}"
+        >
+            {% block title 'Liste des types' %}
+
+            {% block thead %}
+                <th>Nom</th>
+                <th>Couleur</th>
+                <th></th>
+            {% endblock %}
+
+            {% block content %}
+                <td>{{ object.name }}</td>
+                <td style="color: {{ object.color }};">{{ object.color }}</td>
+                <td class="text-end">
+                    <a href="{{ path('app_panel_gestion_application_type_edit', {'id': object.id}) }}">
+                        {{ ux_icon('tabler:edit', {width: "24px", height: '24px', class: 'text-black'}) }}
+                    </a>
+
+                    <button type="button" class="btn btn-action" data-bs-toggle="modal" data-bs-target="#delete-application-type-{{ object.id }}">
+                        {{ ux_icon('tabler:http-delete', {width: "24px", height: '24px', class: 'text-black'}) }}
+                    </button>
+                </td>
+
+                {% include 'components/panel/modal/delete.html.twig' with {
+                    id: 'delete-application-type-'~object.id,
+                    href: path('app_panel_gestion_application_type_delete', {id: object.id})
+                } %}
+            {% endblock %}
+        </twig:panel:list>
+    </div>
+{% endblock %}

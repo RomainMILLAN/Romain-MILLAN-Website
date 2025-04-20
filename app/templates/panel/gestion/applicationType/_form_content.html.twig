@@ -1,0 +1,13 @@
+<div class="mb-3">
+    <label class="form-label">{{ form_label(form.name) }}</label>
+    {{ form_widget(form.name, {attr: {
+        class: 'form-control',
+    }}) }}
+</div>
+
+<div class="mb-3">
+    <label class="form-label">{{ form_label(form.color) }}</label>
+    {{ form_widget(form.color, {attr: {
+        class: 'form-control',
+    }}) }}
+</div>

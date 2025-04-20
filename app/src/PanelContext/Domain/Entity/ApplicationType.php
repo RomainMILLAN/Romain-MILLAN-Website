@@ -1,12 +1,11 @@
 <?php
 
-namespace Panel\Domain\Entity\Entity;
+namespace Panel\Domain\Entity;
 
-use App\Repository\ApplicationTypeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Panel\Domain\Entity\Application;
+use Panel\Infrastructure\Symfony\Repository\ApplicationTypeRepository;
 
 #[ORM\Entity(repositoryClass: ApplicationTypeRepository::class)]
 class ApplicationType
@@ -17,10 +16,10 @@ class ApplicationType
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    public ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $color = null;
+    public ?string $color = null;
 
     /**
      * @var Collection<int, Application>
@@ -33,33 +32,9 @@ class ApplicationType
         $this->applications = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getColor(): ?string
-    {
-        return $this->color;
-    }
-
-    public function setColor(string $color): static
-    {
-        $this->color = $color;
-
-        return $this;
     }
 
     /**

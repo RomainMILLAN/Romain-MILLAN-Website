@@ -5,7 +5,6 @@ namespace Panel\Domain\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Panel\Domain\Entity\Entity\ApplicationType;
 use Panel\Infrastructure\Symfony\Repository\ApplicationRepository;
 
 #[ORM\Entity(repositoryClass: ApplicationRepository::class)]
