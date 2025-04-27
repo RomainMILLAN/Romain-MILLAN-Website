@@ -12,6 +12,7 @@ use Panel\Domain\Entity\ApplicationType;
 class ApplicationFixtures extends Fixture implements DependentFixtureInterface
 {
     public const string ONE = 'application_one';
+
     public const string TWO = 'application_two';
 
     public function load(ObjectManager $manager): void
