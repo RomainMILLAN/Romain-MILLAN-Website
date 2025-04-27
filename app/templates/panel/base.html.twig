@@ -27,7 +27,7 @@
         {% endblock %}
 
     </head>
-    <body {{ stimulus_target('theme-mode', 'body') }}>
+    <body {{ stimulus_target('theme-mode', 'body') }} data-turbo="false">
         <div class="page">
 
             <div class="toast-container position-fixed bottom-0 end-0 p-3" {{ stimulus_controller('flash') }} id="toastsNotifications">
