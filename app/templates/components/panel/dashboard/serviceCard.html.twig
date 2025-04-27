@@ -1,44 +1,31 @@
-{% props title = 'Romain MILLAN', description = 'Site Internet', avatar = '', tags = [], actions = [] %}
+{% props application = null %}
 
-{% set avatarUrl = 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/'~avatar~'.svg' %}
+{% set avatarUrl = 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/'~application.icon~'.svg' %}
 
 <div class="col-md-6 col-lg-3">
     <div class="card">
         <div class="card-body p-4 text-center">
             <img class="avatar avatar-xl mb-3 rounded" src="{{ avatarUrl }}" alt="Service Avatar">
-            <h3 class="m-0 mb-1">{{ title }}</h3>
-            <div class="text-secondary">{{ description }}</div>
-            {% if tags is not empty %}
+            <h3 class="m-0 mb-1">{{ application.name }}</h3>
+            <div class="text-secondary">{{ application.description }}</div>
+            {% if application.type is not empty %}
                 <div class="mt-3">
-                    {% for tag in tags %}
-                        <span class="badge bg-{{ tag.color }}-lt">{{ tag.name }}</span>
+                    {% for tag in application.type %}
+                        <span class="badge" style="background-color: {{ tag.color }} !important;">{{ tag.name }}</span>
                     {% endfor %}
                 </div>
             {% endif %}
         </div>
-        {% if actions is not empty %}
-            <div class="d-flex">
-                {% for action in actions %}
-                    {% set urlTarget = '_blank' %}
-                    {% if action.target is defined %}
-                        {% set urlTarget = action.target %}
-                    {% endif %}
+        <div class="d-flex">
+            <a href="{{ application.url }}" target="_blank" class="card-btn">
+                <twig:ux:icon name="tabler:link" class="me-2" width="24" height="24" />
+                Lien
+            </a>
 
-                    <a href="{{ action.url }}" target="{{ urlTarget }}" class="card-btn">
-                        {% set actionIcon = 'tabler:link' %}
-                        {% if action.icon is defined %}
-                            {% set actionIcon = action.icon %}
-                        {% endif %}
-
-                        <twig:ux:icon name="{{ actionIcon }}" class="me-2" width="24" height="24" />
-                        {% if action.title is defined %}
-                            {{ action.title }}
-                        {% else %}
-                            Lien
-                        {% endif %}
-                    </a>
-                {% endfor %}
-            </div>
-        {% endif %}
+            <a href="{{ path('app_panel_application_interface', {id: application.id}) }}" target="_self" class="card-btn">
+                <twig:ux:icon name="tabler:app-window" class="me-2" width="24" height="24" />
+                Interface
+            </a>
+        </div>
     </div>
 </div>

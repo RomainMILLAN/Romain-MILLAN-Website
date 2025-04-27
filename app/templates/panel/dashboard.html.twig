@@ -17,278 +17,53 @@
         </div>
 
         <section class="container-xl mt-3">
-            <div class="row row-cards">
-                <h2>Self Hosted</h2>
+            {% for category in dashboardCategories %}
+                <div class="row row-cards mt-2">
+                    <h2>{{ category.name }}</h2>
 
-                <twig:panel:dashboard:serviceCard
-                        title="Uptime Kuma"
-                        description="Monitoring des services"
-                        avatar="uptime-kuma"
-                        actions="{{ [
-                            {url: 'https://uptime.prod1.infra.romainmillan.fr'},
-                            {url: path('app_panel_service_prod_01_uptime_kuma'), icon: 'tabler:app-window', title: 'Interface', target: '_self'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 01', color: 'purple'},
-                        ] }}"
-                />
+                    {% for application in category.applications %}
+                        <twig:panel:dashboard:serviceCard
+                            :application="application"
+                        />                        
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </section>
 
-                <twig:panel:dashboard:serviceCard
-                        title="Zoraxy"
-                        description="Reverse proxy"
-                        avatar="zoraxy"
-                        actions="{{ [
-                            {url: 'http://192.168.1.240:8000/'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 02', color: 'purple'},
-                            {name: 'LOCAL', color: 'orange'},
-                        ] }}"
-                />
 
-                <twig:panel:dashboard:serviceCard
-                        title="Finance"
-                        description="Gestionnaire de finance fait maison"
-                        avatar="php"
-                        actions="{{ [
-                            {url: 'https://finance.romainmillan.fr/app'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 02', color: 'purple'},
-                        ] }}"
-                />
+        {% if accordionCategories|length > 0 %}            
+            <section class="container-xl mt-3">
+                <div class="row row-cards mt-5">
+                    <h2>Raccourcis</h2>
 
-                <twig:panel:dashboard:serviceCard
-                        title="Vaultwarden"
-                        description="Gestionnaire de mot de passe"
-                        avatar="bitwarden"
-                        actions="{{ [
-                            {url: 'https://vault.romainmillan.fr'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 02', color: 'purple'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="Dockge"
-                        description="Gestionnaire de conteneurs"
-                        avatar="dockge"
-                        actions="{{ [
-                            {url: 'https://dockge.prod1.infra.romainmillan.fr/'},
-                            {url: path('app_panel_service_prod_01_dockge'), icon: 'tabler:app-window', title: 'Interface', target: '_self'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 01', color: 'purple'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="PVE"
-                        description="Gestionnaire de VM"
-                        avatar="proxmox"
-                        actions="{{ [
-                            {url: 'http://192.168.1.29:8006/'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 02', color: 'purple'},
-                            {name: 'LOCAL', color: 'orange'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="Wireguard"
-                        description="Pour la gestion de la domotique"
-                        avatar="wireguard"
-                        actions="{{ [
-                            {url: 'http://192.168.1.151:10086/#/'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 02', color: 'purple'},
-                            {name: 'LOCAL', color: 'orange'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="Home Assistant"
-                        description="Pour la gestion de la domotique"
-                        avatar="home-assistant"
-                        actions="{{ [
-                            {url: 'http://192.168.1.48:8123/'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 02', color: 'purple'},
-                            {name: 'LOCAL', color: 'orange'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="Nginx Proxy Manager"
-                        description="Gestionnaire de reverse proxy"
-                        avatar="nginx-proxy-manager"
-                        actions="{{ [
-                            {url: 'http://192.168.1.152:81/'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 02', color: 'purple'},
-                            {name: 'LOCAL', color: 'orange'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="Nginx Proxy Manager"
-                        description="Gestionnaire de reverse proxy"
-                        avatar="nginx-proxy-manager"
-                        actions="{{ [
-                            {url: 'https://client-web-infra.pve2.umdev.fr/'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'PROD 01', color: 'purple'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="OVH Cloud"
-                        description="Hébergement des services & Nom de domaine"
-                        avatar="ovh"
-                        actions="{{ [
-                            {url: 'https://www.ovh.com/manager/#/hub'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'CLOUD', color: 'purple'},
-                        ] }}"
-                />
-
-                <twig:panel:dashboard:serviceCard
-                        title="Uptime Robot"
-                        description="Monitoring des services les plus importants"
-                        avatar="uptime-kuma"
-                        actions="{{ [
-                            {url: 'https://dashboard.uptimerobot.com/monitors'},
-                        ] }}"
-                        tags="{{ [
-                            {name: 'CLOUD', color: 'purple'},
-                        ] }}"
-                />
-            </div>
-
-            <div class="row row-cards mt-5">
-                <h2>Raccourcis</h2>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="accordion" id="accordion-example">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-1">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ages" aria-expanded="false">
-                                        Association Générale des Étudiants Sétois
-                                    </button>
-                                </h2>
-                                <div id="collapse-ages" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
-                                    <div class="accordion-body pt-0 d-flex row row-cards">
-                                        <twig:panel:dashboard:serviceCard
-                                            title="Github"
-                                            description="Code source du projet"
-                                            avatar="github"
-                                            actions="{{ [
-                                                {url: 'https://github.com/orgs/ages-sete/repositories'},
-                                            ] }}"
-                                            tags="{{ [
-                                                {name: 'Client', color: 'blue'},
-                                                {name: 'A.G.E.S.', color: 'yellow'},
-                                            ] }}"
-                                    />
-                                    <twig:panel:dashboard:serviceCard
-                                            title="Espace Technique"
-                                            description="Espace technique de l'hébergement."
-                                            avatar="servarr"
-                                            actions="{{ [
-                                                {url: 'https://achacha.o2switch.net:2083/'},
-                                            ] }}"
-                                            tags="{{ [
-                                                {name: 'Client', color: 'blue'},
-                                                {name: 'A.G.E.S.', color: 'yellow'},
-                                            ] }}"
-                                    />
-                                    <twig:panel:dashboard:serviceCard
-                                            title="Espace Client"
-                                            description="Espace client de l'hébergement."
-                                            avatar="servarr"
-                                            actions="{{ [
-                                                {url: 'https://clients.o2switch.fr/auth/connexion'},
-                                            ] }}"
-                                            tags="{{ [
-                                                {name: 'Client', color: 'blue'},
-                                                {name: 'A.G.E.S.', color: 'yellow'},
-                                            ] }}"
-                                    />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-bteck" aria-expanded="false">
-                                        Bteck/Yggame
-                                    </button>
-                                </h2>
-                                <div id="collapse-bteck" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
-                                    <div class="accordion-body pt-0 d-flex row row-cards">
-                                        <twig:panel:dashboard:serviceCard
-                                            title="Gitlab"
-                                            description="Code source du projet."
-                                            avatar="gitlab"
-                                            actions="{{ [
-                                                {url: 'https://gitlab.umdev.fr/bteck1/website'},
-                                            ] }}"
-                                            tags="{{ [
-                                                {name: 'Client', color: 'blue'},
-                                                {name: 'BTeck', color: 'yellow'},
-                                                {name: 'UMDev', color: 'red'},
-                                            ] }}"
-                                    />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-autre">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-autre" aria-expanded="false">
-                                        Autre
-                                    </button>
-                                </h2>
-                                <div id="collapse-autre" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
-                                    <div class="accordion-body pt-0 d-flex row row-cards">
-                                        <twig:panel:dashboard:serviceCard
-                                            title="Github"
-                                            description="Gestionnaire de code"
-                                            avatar="github"
-                                            actions="{{ [
-                                                {url: 'https://github.com/RomainMILLAN'},
-                                            ] }}"
-                                            tags="{{ [
-                                                {name: 'Développement', color: 'blue'},
-                                            ] }}"
-                                        />
-                                        <twig:panel:dashboard:serviceCard
-                                            title="Proxmox Scripts"
-                                            description="Un lot de scripts pour Proxmox"
-                                            avatar="proxmox"
-                                            actions="{{ [
-                                                {url: 'https://community-scripts.github.io/ProxmoxVE/'},
-                                            ] }}"
-                                            tags="{{ [
-                                                {name: 'Hébergement', color: 'blue'},
-                                            ] }}"
-                                        />
-                                    </div>
-                                </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="accordion" id="accordion-example">
+                                {% for category in accordionCategories %}
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading-1">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ages" aria-expanded="false">
+                                                {{ category.name }}
+                                            </button>
+                                        </h2>
+                                        <div id="collapse-ages" class="accordion-collapse collapse" data-bs-parent="#accordion-example">
+                                            <div class="accordion-body pt-0 d-flex row row-cards">
+                                                {% for application in category.applications %}
+                                                    <twig:panel:dashboard:serviceCard
+                                                        :application="application"
+                                                    />                        
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>                                
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
+
                 </div>
-
-            </div>
-
-        </section>
+            </section>
+        {% endif %}
 
     </div>
 {% endblock %}

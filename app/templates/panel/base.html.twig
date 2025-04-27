@@ -84,7 +84,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light">
-                                <a href="{{ path('app_security_logout') }}" class="dropdown-item">Logout</a>
+                                <a href="{{ path('app_security_logout') }}" class="dropdown-item">Déconnexion</a>
                             </div>
                         </div>
                     </div>
@@ -104,25 +104,26 @@
                                     </a>
                                 </li>
 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
-                                       data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <twig:ux:icon name="tabler:server" width="24" height="24" />
-                                    </span>
-                                        <span class="nav-link-title">
-                                        Services
-                                    </span>
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ path('app_panel_service_prod_01_uptime_kuma') }}" rel="noopener">
-                                            Uptime Kuma
+                                {% if services_has_interfaces()|length > 0 %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                                <twig:ux:icon name="tabler:server" width="24" height="24" />
+                                            </span>
+                                                <span class="nav-link-title">
+                                                Services
+                                            </span>
                                         </a>
-                                        <a class="dropdown-item" href="{{ path('app_panel_service_prod_01_dockge') }}" rel="noopener">
-                                            Dockge
-                                        </a>
-                                    </div>
-                                </li>
+                                        <div class="dropdown-menu">
+                                            {% for application in services_has_interfaces() %}
+                                                <a class="dropdown-item" href="{{ path('app_panel_application_interface', {id: application.id}) }}" rel="noopener">
+                                                    {{ application.name }}
+                                                </a>                                            
+                                            {% endfor %}
+                                        </div>
+                                    </li>
+                                {% endif %}
 
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ path('app_signature_create') }}">
@@ -146,28 +147,30 @@
                                     </a>
                                 </li>
 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
-                                       data-bs-auto-close="outside" role="button" aria-expanded="false">
-                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                        <twig:ux:icon name="tabler:server" width="24" height="24" />
-                                    </span>
-                                        <span class="nav-link-title">
-                                        Gestion
-                                    </span>
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ path('app_panel_gestion_application_list') }}" rel="noopener">
-                                            Application
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown"
+                                        data-bs-auto-close="outside" role="button" aria-expanded="false">
+                                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                            <twig:ux:icon name="tabler:server" width="24" height="24" />
+                                        </span>
+                                            <span class="nav-link-title">
+                                            Gestion
+                                        </span>
                                         </a>
-                                        <a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}" rel="noopener">
-                                            Catégorie d'application
-                                        </a>
-                                        <a class="dropdown-item" href="{{ path('app_panel_gestion_application_type_list') }}" rel="noopener">
-                                            Type d'application
-                                        </a>
-                                    </div>
-                                </li>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{{ path('app_panel_gestion_application_list') }}" rel="noopener">
+                                                Application
+                                            </a>
+                                            <a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}" rel="noopener">
+                                                Catégorie d'application
+                                            </a>
+                                            <a class="dropdown-item" href="{{ path('app_panel_gestion_application_type_list') }}" rel="noopener">
+                                                Type d'application
+                                            </a>
+                                        </div>
+                                    </li>
+                                {% endif %}
 
                             </ul>
                         </div>
