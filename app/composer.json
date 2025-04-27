@@ -55,6 +55,7 @@
         "symfony/string": "7.2.*",
         "symfony/translation": "7.2.*",
         "symfony/twig-bundle": "7.2.*",
+        "symfony/ux-autocomplete": "*",
         "symfony/ux-icons": "^2.23",
         "symfony/ux-live-component": "^2.21",
         "symfony/ux-turbo": "^2.21",

@@ -15,4 +15,12 @@ class ApplicationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Application::class);
     }
+
+    public function save(Application $entity)
+    {
+        $this->getEntityManager()
+            ->persist($entity);
+        $this->getEntityManager()
+            ->flush();
+    }
 }

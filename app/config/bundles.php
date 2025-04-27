@@ -57,4 +57,7 @@ return [
         'dev' => true,
         'test' => true,
     ],
+    Symfony\UX\Autocomplete\AutocompleteBundle::class => [
+        'all' => true,
+    ],
 ];

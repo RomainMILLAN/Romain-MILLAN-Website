@@ -8,11 +8,11 @@ use Panel\Domain\Entity\ApplicationType;
 
 class ApplicationTypeFixtures extends Fixture
 {
-    public const string LOCAL = 'application_type_local';
+    public const LOCAL = 'application_type_local';
 
-    public const string PROD01 = 'application_type_prod_01';
+    public const PROD01 = 'application_type_prod_01';
 
-    public const string PROD02 = 'application_type_prod_02';
+    public const PROD02 = 'application_type_prod_02';
 
     public function load(ObjectManager $manager): void
     {
