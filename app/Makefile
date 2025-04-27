@@ -54,6 +54,44 @@ npm:		## Install front dependencies (server)
 	$(NPM) install
 
 ##
+## —— Database 🗃️————————————————
+.PHONY: db-diff
+db-diff: ## Generate a new migration
+	@$(CONSOLE) doctrine:migration:diff
+
+.PHONY: db-migrate
+db-migrate: ## Execute all not migrate migrations
+	@$(CONSOLE) doctrine:migration:migrate --no-interaction
+
+db-fixtures: ## Load fixtures
+	@$(CONSOLE) doctrine:fixtures:load -n --append
+
+.PHONY: db-reset
+db-reset: ## Reset database and execute migrations
+	@echo "💥 Drop the database."
+	@$(CONSOLE) doctrine:database:drop --force
+	@echo "🏗️ Create new database."
+	@$(CONSOLE) doctrine:database:create
+	@echo "🚚 Run all migrations."
+	@make db-migrate
+
+.PHONY: db-import
+db-import: ## Reset database with given DUMP variable
+	@:$(call check_defined, DUMP, sql file)
+	@docker cp ./var/$(DUMP) $(shell $(DC) ps -q database):/$(DUMP)
+	@echo '🗃️ Reseting and import database.'
+	@$(DCE) database reset $(DUMP) > /dev/null
+	@echo '✅ Your dump ($(DUMP)) is been imported.'
+
+.PHONY: db-dump
+db-dump: ## Save database to a sql file
+	@:$(call check_defined, DUMP, sql file)
+	@echo '🗃️ Saving database.'
+	@$(DCE) database save $(DUMP) > /dev/null
+	@echo '🗃️ Copy to local.'
+	@docker cp $(shell $(DC) ps -q database):/$(DUMP) ./var/$(DUMP)
+
+##
 ## —— Cache 🗃️ ————————————————————————————————————————————————————————————————
 cc:			## Clear cache
 	$(CONSOLE) ca:cl -e $(or $(ENV), 'dev')

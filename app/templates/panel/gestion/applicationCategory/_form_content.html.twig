@@ -1,8 +1,17 @@
-<div class="mb-3">
-    <label class="form-label">{{ form_label(form.name) }}</label>
-    {{ form_widget(form.name, {attr: {
-        class: 'form-control',
-    }}) }}
+<div class="d-flex flex-row justify-content-between mb-3">
+    <div class="col-md-6 px-2">
+        <label class="form-label">{{ form_label(form.name) }}</label>
+        {{ form_widget(form.name, {attr: {
+            class: 'form-control',
+        }}) }}
+    </div>
+
+    <div class="col-md-6 px-2">
+        <label class="form-label">{{ form_label(form.orderNumber) }}</label>
+        {{ form_widget(form.orderNumber, {attr: {
+            class: 'form-control',
+        }}) }}
+    </div>
 </div>
 
 <div class="mb-3">

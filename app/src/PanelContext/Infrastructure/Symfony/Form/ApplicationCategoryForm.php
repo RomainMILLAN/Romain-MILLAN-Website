@@ -5,6 +5,7 @@ namespace Panel\Infrastructure\Symfony\Form;
 use Panel\Domain\Entity\ApplicationCategory;
 use Panel\Domain\FormType\SwitchType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,6 +22,10 @@ class ApplicationCategoryForm extends AbstractType
             ->add('inAccordion', SwitchType::class, [
                 'required' => false,
                 'label' => 'Dans l\'accordéon',
+            ])
+            ->add('orderNumber', NumberType::class, [
+                'required' => true,
+                'label' => 'Numéro d\'ordre',
             ])
         ;
     }

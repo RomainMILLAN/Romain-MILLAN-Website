@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250420110146 extends AbstractMigration
+final class Version20250427061010 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -36,7 +36,7 @@ final class Version20250420110146 extends AbstractMigration
             CREATE INDEX IDX_28A7126E2EF289A0 ON application_application_type (application_type_id)
         SQL);
         $this->addSql(<<<'SQL'
-            CREATE TABLE application_category (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL, in_accordion BOOLEAN NOT NULL)
+            CREATE TABLE application_category (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL, in_accordion BOOLEAN NOT NULL, order_number INTEGER NOT NULL)
         SQL);
         $this->addSql(<<<'SQL'
             CREATE TABLE application_type (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255) NOT NULL, color VARCHAR(255) NOT NULL)

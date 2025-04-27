@@ -25,7 +25,9 @@ class ListController extends AbstractController
         return $this->render(
             view: 'panel/gestion/applicationCategory/list.html.twig',
             parameters: [
-                'categories' => $this->applicationCategoryRepository->findAll(),
+                'categories' => $this->applicationCategoryRepository->findBy(criteria: [], orderBy: [
+                    'orderNumber' => 'ASC',
+                ]),
             ],
         );
     }

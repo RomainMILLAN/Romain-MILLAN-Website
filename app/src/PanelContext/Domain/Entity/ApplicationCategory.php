@@ -16,10 +16,13 @@ class ApplicationCategory
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    public ?string $name = null;
 
     #[ORM\Column]
     public ?bool $inAccordion = true;
+
+    #[ORM\Column(nullable: false)]
+    public ?int $orderNumber = 0;
 
     /**
      * @var Collection<int, Application>
@@ -37,18 +40,6 @@ class ApplicationCategory
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, Application>
      */
@@ -61,7 +52,7 @@ class ApplicationCategory
     {
         if (! $this->applications->contains($application)) {
             $this->applications->add($application);
-            $application->setCategory($this);
+            $application->category = $this;
         }
 
         return $this;
@@ -70,9 +61,8 @@ class ApplicationCategory
     public function removeApplication(Application $application): static
     {
         if ($this->applications->removeElement($application)) {
-            // set the owning side to null (unless already changed)
-            if ($application->getCategory() === $this) {
-                $application->setCategory(null);
+            if ($application->category === $this) {
+                $application->category = null;
             }
         }
 
