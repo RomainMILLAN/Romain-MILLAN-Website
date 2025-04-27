@@ -12,6 +12,7 @@ use Panel\Domain\Entity\ApplicationType;
 class ApplicationFixtures extends Fixture implements DependentFixtureInterface
 {
     public const string ONE = 'application_one';
+    public const string TWO = 'application_two';
 
     public function load(ObjectManager $manager): void
     {
@@ -24,6 +25,18 @@ class ApplicationFixtures extends Fixture implements DependentFixtureInterface
             category: $this->getReference(ApplicationCategoryFixtures::SELF_HOSTED, ApplicationCategory::class),
             types: [$this->getReference(ApplicationTypeFixtures::LOCAL, ApplicationType::class)],
             reference: self::ONE,
+            manager: $manager,
+        );
+
+        $this->loadInReference(
+            name: 'Deu',
+            description: 'Description deux',
+            url: 'https://google.fr/',
+            icon: 'zoraxy',
+            hasInterface: false,
+            category: $this->getReference(ApplicationCategoryFixtures::CLIENT_ONE, ApplicationCategory::class),
+            types: [$this->getReference(ApplicationTypeFixtures::PROD02, ApplicationType::class)],
+            reference: self::TWO,
             manager: $manager,
         );
     }
