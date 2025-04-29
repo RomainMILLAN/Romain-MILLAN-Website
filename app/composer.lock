@@ -8819,16 +8819,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.13.0",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "024473a478be9df5fdaca2c793f2232fe788e414"
+                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/024473a478be9df5fdaca2c793f2232fe788e414",
-                "reference": "024473a478be9df5fdaca2c793f2232fe788e414",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/1720ddd719e16cf0db4eb1c6eca108031636d46c",
+                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c",
                 "shasum": ""
             },
             "require": {
@@ -8867,7 +8867,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.0"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.1"
             },
             "funding": [
                 {
@@ -8875,7 +8875,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-02-12T12:17:51+00:00"
+            "time": "2025-04-29T12:36:36+00:00"
         },
         {
             "name": "nette/utils",
@@ -9141,16 +9141,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.12.24",
+            "version": "1.12.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "338b92068f58d9f8035b76aed6cf2b9e5624c025"
+                "reference": "e310849a19e02b8bfcbb63147f495d8f872dd96f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/338b92068f58d9f8035b76aed6cf2b9e5624c025",
-                "reference": "338b92068f58d9f8035b76aed6cf2b9e5624c025",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/e310849a19e02b8bfcbb63147f495d8f872dd96f",
+                "reference": "e310849a19e02b8bfcbb63147f495d8f872dd96f",
                 "shasum": ""
             },
             "require": {
@@ -9195,7 +9195,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-16T13:01:53+00:00"
+            "time": "2025-04-27T12:20:45+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -11384,21 +11384,21 @@
         },
         {
             "name": "symfony/maker-bundle",
-            "version": "v1.62.1",
+            "version": "v1.63.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/maker-bundle.git",
-                "reference": "468ff2708200c95ebc0d85d3174b6c6711b8a590"
+                "reference": "69478ab39bc303abfbe3293006a78b09a8512425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/468ff2708200c95ebc0d85d3174b6c6711b8a590",
-                "reference": "468ff2708200c95ebc0d85d3174b6c6711b8a590",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/69478ab39bc303abfbe3293006a78b09a8512425",
+                "reference": "69478ab39bc303abfbe3293006a78b09a8512425",
                 "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "^2.0",
-                "nikic/php-parser": "^4.18|^5.0",
+                "nikic/php-parser": "^5.0",
                 "php": ">=8.1",
                 "symfony/config": "^6.4|^7.0",
                 "symfony/console": "^6.4|^7.0",
@@ -11456,7 +11456,7 @@
             ],
             "support": {
                 "issues": "https://github.com/symfony/maker-bundle/issues",
-                "source": "https://github.com/symfony/maker-bundle/tree/v1.62.1"
+                "source": "https://github.com/symfony/maker-bundle/tree/v1.63.0"
             },
             "funding": [
                 {
@@ -11472,7 +11472,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-01-15T00:21:40+00:00"
+            "time": "2025-04-26T01:41:37+00:00"
         },
         {
             "name": "symfony/phpunit-bridge",
@@ -11640,20 +11640,20 @@
         },
         {
             "name": "symplify/coding-standard",
-            "version": "12.3.2",
+            "version": "12.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symplify/coding-standard.git",
-                "reference": "0f1591e1b2f3ee21b3a1a1dbccaa7ebc6f0bccd9"
+                "reference": "389d92487734a85ebe72cd196314d02475f6f181"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/0f1591e1b2f3ee21b3a1a1dbccaa7ebc6f0bccd9",
-                "reference": "0f1591e1b2f3ee21b3a1a1dbccaa7ebc6f0bccd9",
+                "url": "https://api.github.com/repos/symplify/coding-standard/zipball/389d92487734a85ebe72cd196314d02475f6f181",
+                "reference": "389d92487734a85ebe72cd196314d02475f6f181",
                 "shasum": ""
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "^3.73.1",
+                "friendsofphp/php-cs-fixer": "^3.75.0",
                 "nette/utils": "^4.0",
                 "php": ">=8.2"
             },
@@ -11661,7 +11661,7 @@
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^11.5",
-                "rector/rector": "^2.0",
+                "rector/rector": "^2.0.13",
                 "squizlabs/php_codesniffer": "^3.12",
                 "symplify/easy-coding-standard": "^12.5",
                 "symplify/phpstan-extensions": "^12.0",
@@ -11681,7 +11681,7 @@
             "description": "Set of Symplify rules for PHP_CodeSniffer and PHP CS Fixer.",
             "support": {
                 "issues": "https://github.com/symplify/coding-standard/issues",
-                "source": "https://github.com/symplify/coding-standard/tree/12.3.2"
+                "source": "https://github.com/symplify/coding-standard/tree/12.3.3"
             },
             "funding": [
                 {
@@ -11693,20 +11693,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-25T09:26:56+00:00"
+            "time": "2025-04-27T22:45:44+00:00"
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "12.5.12",
+            "version": "12.5.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/easy-coding-standard/easy-coding-standard.git",
-                "reference": "cb1ba037e756f8953d99789883879113daeb0ba9"
+                "reference": "3e99ec9bd64528cedb7f7e0a9e892a1c3c803935"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/cb1ba037e756f8953d99789883879113daeb0ba9",
-                "reference": "cb1ba037e756f8953d99789883879113daeb0ba9",
+                "url": "https://api.github.com/repos/easy-coding-standard/easy-coding-standard/zipball/3e99ec9bd64528cedb7f7e0a9e892a1c3c803935",
+                "reference": "3e99ec9bd64528cedb7f7e0a9e892a1c3c803935",
                 "shasum": ""
             },
             "require": {
@@ -11742,7 +11742,7 @@
             ],
             "support": {
                 "issues": "https://github.com/easy-coding-standard/easy-coding-standard/issues",
-                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/12.5.12"
+                "source": "https://github.com/easy-coding-standard/easy-coding-standard/tree/12.5.16"
             },
             "funding": [
                 {
@@ -11754,7 +11754,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-23T11:23:07+00:00"
+            "time": "2025-04-28T07:01:07+00:00"
         },
         {
             "name": "symplify/phpstan-rules",
