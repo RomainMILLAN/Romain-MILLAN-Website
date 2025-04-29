@@ -2,10 +2,10 @@
 
 namespace Panel\Domain\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Panel\Infrastructure\Symfony\Repository\ApplicationCategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: ApplicationCategoryRepository::class)]
 class ApplicationCategory
@@ -27,7 +27,7 @@ class ApplicationCategory
     /**
      * @var Collection<int, Application>
      */
-    #[ORM\OneToMany(targetEntity: Application::class, mappedBy: 'categories')]
+    #[ORM\ManyToMany(targetEntity: Application::class, mappedBy: 'categories')]
     private Collection $applications;
 
     public function __construct()
@@ -50,9 +50,9 @@ class ApplicationCategory
 
     public function addApplication(Application $application): static
     {
-        if (! $this->applications->contains($application)) {
+        if (!$this->applications->contains($application)) {
             $this->applications->add($application);
-            $application->category = $this;
+            $application->addCategory($this);
         }
 
         return $this;
@@ -61,9 +61,7 @@ class ApplicationCategory
     public function removeApplication(Application $application): static
     {
         if ($this->applications->removeElement($application)) {
-            if ($application->category === $this) {
-                $application->category = null;
-            }
+            $application->removeCategory($this);
         }
 
         return $this;

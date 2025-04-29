@@ -32,49 +32,25 @@ class Application
     public ?bool $hasInterface = null;
 
     /**
-     * @var Collection<int, ApplicationCategory>
-     */
-    #[ORM\ManyToMany(targetEntity: ApplicationCategory::class, inversedBy: 'applications')]
-    public Collection $categories;
-
-    /**
      * @var Collection<int, ApplicationType>
      */
     #[ORM\ManyToMany(targetEntity: ApplicationType::class, inversedBy: 'applications')]
     private Collection $type;
 
+    /**
+     * @var Collection<int, ApplicationCategory>
+     */
+    #[ORM\ManyToMany(targetEntity: ApplicationCategory::class, inversedBy: 'applications')]
+    private Collection $categories;
+
     public function __construct() {
-        $this->categories = new ArrayCollection();
         $this->type = new ArrayCollection();
+        $this->categories = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection<int, ApplicationCategory>
-     */
-    public function getCategories(): Collection
-    {
-        return $this->categories;
-    }
-
-    public function addCategories(ApplicationCategory $category): static
-    {
-        if (! $this->categories->contains($category)) {
-            $this->categories->add($category);
-        }
-
-        return $this;
-    }
-
-    public function removeCategories(ApplicationCategory $category): static
-    {
-        $this->categories->removeElement($category);
-
-        return $this;
     }
 
     /**
@@ -97,6 +73,30 @@ class Application
     public function removeType(ApplicationType $type): static
     {
         $this->type->removeElement($type);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ApplicationCategory>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(ApplicationCategory $category): static
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories->add($category);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(ApplicationCategory $category): static
+    {
+        $this->categories->removeElement($category);
 
         return $this;
     }
