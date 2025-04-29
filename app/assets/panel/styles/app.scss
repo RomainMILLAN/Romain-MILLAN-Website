@@ -1,11 +1,15 @@
 @import "~bootstrap/scss/bootstrap";
 //@import "@tabler/core/dist/css/tabler.min.css";
 @import '../../rm-tag/tag.css';
-//
-//.required::after {
-//    content: "*";
-//    color: red;
-//}
+$red: #fa5c7c;
+
+label.required {
+    &:after {
+        content: "*";
+        padding-left: 5px;
+        color: $red;
+    }
+}
 //
 //header {
 //    height: 75px;
