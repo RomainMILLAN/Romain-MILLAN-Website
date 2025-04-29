@@ -2,6 +2,7 @@
 
 namespace Panel\Domain\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -39,6 +40,10 @@ class Application
      */
     #[ORM\ManyToMany(targetEntity: ApplicationType::class, inversedBy: 'applications')]
     private Collection $type;
+
+    public function __construct() {
+        $this->type = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
