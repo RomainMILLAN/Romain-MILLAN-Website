@@ -31,10 +31,13 @@
             {% block content %}
                 <td>{{ object.name }}</td>
                 <td>{{ object.description }}</td>
-                <td>{{ object.icon }}</td>
+                <td>
+                    <img src="{{ 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/'~object.icon~'.svg' }}" alt="{{ object.icon }}" width="24px" height="24px">
+                    {{ object.icon }}
+                </td>
                 <td>{{ object.hasInterface ? 'Oui' : 'Non' }}</td>
-                <td>{{ object.category.name }}</td>
-                <td>{% for type in object.type %}{{ type.name }}{% if false == loop.last %},{% endif %}{% endfor %}</td>
+                <td>{% for category in object.categories %}{{ category.name }}{% if false == loop.last %}, {% endif %}{% endfor %}</td>
+                <td>{% for type in object.type %}{{ type.name }}{% if false == loop.last %}, {% endif %}{% endfor %}</td>
                 <td class="text-end">
                     <a href="{{ path('app_panel_gestion_application_edit', {'id': object.id}) }}">
                         {{ ux_icon('tabler:edit', {width: "24px", height: '24px', class: 'text-black'}) }}

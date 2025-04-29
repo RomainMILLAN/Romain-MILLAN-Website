@@ -27,13 +27,14 @@
         {{ form_widget(form.icon, {attr: {
             class: 'form-control',
         }}) }}
+        <p class="text-muted">Utiliser uniquement ce lot d'icone <a href="https://github.com/homarr-labs/dashboard-icons">https://github.com/homarr-labs/dashboard-icons</a></p>
     </div>
 </div>
 
 <div class="d-flex flex-row justify-content-between mb-3">
     <div class="col-md-6 px-2">
-        <label class="form-label">{{ form_label(form.category) }}</label>
-        {{ form_widget(form.category, {attr: {
+        <label class="form-label">{{ form_label(form.categories) }}</label>
+        {{ form_widget(form.categories, {attr: {
             class: 'form-control',
         }}) }}
     </div>

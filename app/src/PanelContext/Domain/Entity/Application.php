@@ -31,9 +31,11 @@ class Application
     #[ORM\Column]
     public ?bool $hasInterface = null;
 
-    #[ORM\ManyToOne(inversedBy: 'applications')]
-    #[ORM\JoinColumn(nullable: false)]
-    public ?ApplicationCategory $category = null;
+    /**
+     * @var Collection<int, ApplicationCategory>
+     */
+    #[ORM\ManyToMany(targetEntity: ApplicationCategory::class, inversedBy: 'applications')]
+    public Collection $categories;
 
     /**
      * @var Collection<int, ApplicationType>
@@ -42,12 +44,37 @@ class Application
     private Collection $type;
 
     public function __construct() {
+        $this->categories = new ArrayCollection();
         $this->type = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return Collection<int, ApplicationCategory>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategories(ApplicationCategory $category): static
+    {
+        if (! $this->categories->contains($category)) {
+            $this->categories->add($category);
+        }
+
+        return $this;
+    }
+
+    public function removeCategories(ApplicationCategory $category): static
+    {
+        $this->categories->removeElement($category);
+
+        return $this;
     }
 
     /**

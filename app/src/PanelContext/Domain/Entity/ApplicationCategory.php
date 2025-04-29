@@ -27,7 +27,7 @@ class ApplicationCategory
     /**
      * @var Collection<int, Application>
      */
-    #[ORM\OneToMany(targetEntity: Application::class, mappedBy: 'category')]
+    #[ORM\OneToMany(targetEntity: Application::class, mappedBy: 'categories')]
     private Collection $applications;
 
     public function __construct()

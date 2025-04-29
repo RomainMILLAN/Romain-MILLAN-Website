@@ -36,12 +36,13 @@ class ApplicationForm extends AbstractType
             ->add('hasInterface', SwitchType::class, [
                 'label' => 'À une interface',
             ])
-            ->add('category', EntityType::class, [
-                'label' => 'Catégorie',
+            ->add('categories', EntityType::class, [
+                'label' => 'Catégorie(s)',
                 'class' => ApplicationCategory::class,
                 'choice_label' => 'name',
                 'required' => true,
                 'autocomplete' => true,
+                'multiple' => true,
                 'attr' => [
                     'data-controller' => 'form-control select2',
                 ],
