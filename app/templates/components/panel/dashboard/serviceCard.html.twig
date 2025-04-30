@@ -22,10 +22,12 @@
                 Lien
             </a>
 
-            <a href="{{ path('app_panel_application_interface', {id: application.id}) }}" target="_self" class="card-btn">
-                <twig:ux:icon name="tabler:app-window" class="me-2" width="24" height="24" />
-                Interface
-            </a>
+            {% if application.hasInterface %}
+                <a href="{{ path('app_panel_application_interface', {id: application.id}) }}" target="_self" class="card-btn">
+                    <twig:ux:icon name="tabler:app-window" class="me-2" width="24" height="24" />
+                    Interface
+                </a>
+            {% endif %}
         </div>
     </div>
 </div>
