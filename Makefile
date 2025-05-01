@@ -214,8 +214,8 @@ bump:
 	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(PACKAGE_FILE)
 	@sed -i '' 's/^PROJECT_VERSION=.*/PROJECT_VERSION=$(VERSION)/' $(ENV_FILE)
 
-SERVER ?= finance.p
-DOMAIN ?= finance
+SERVER ?= server
+DOMAIN ?= /
 prod:
 	@echo "🚀 Deploying in production project."
-	@ssh -A $(SERVER) 'cd $(DOMAIN) && git restore package-lock.json && ./restart-prod.sh'
+	@ssh -A $(SERVER) 'cd $(DOMAIN) && git restore package-lock.json && ./bin/deploy-prod.sh'
