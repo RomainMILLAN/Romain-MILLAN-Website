@@ -66,44 +66,6 @@ npm:
 	$(NPM) install
 
 ##
-## —— Database 🗃️————————————————
-.PHONY: db-diff
-db-diff: ## Generate a new migration
-	@$(CONSOLE) doctrine:migration:diff
-
-.PHONY: db-migrate
-db-migrate: ## Execute all not migrate migrations
-	@$(CONSOLE) doctrine:migration:migrate --no-interaction
-
-db-fixtures: ## Load fixtures
-	@$(CONSOLE) doctrine:fixtures:load -n --append
-
-.PHONY: db-reset
-db-reset: ## Reset database and execute migrations
-	@echo "💥 Drop the database."
-	@$(CONSOLE) doctrine:database:drop --force
-	@echo "🏗️ Create new database."
-	@$(CONSOLE) doctrine:database:create
-	@echo "🚚 Run all migrations."
-	@make db-migrate
-
-.PHONY: db-import
-db-import: ## Reset database with given DUMP variable
-	@:$(call check_defined, DUMP, sql file)
-	@docker cp ./var/$(DUMP) $(shell $(DC) ps -q database):/$(DUMP)
-	@echo '🗃️ Reseting and import database.'
-	@$(DCE) database reset $(DUMP) > /dev/null
-	@echo '✅ Your dump ($(DUMP)) is been imported.'
-
-.PHONY: db-dump
-db-dump: ## Save database to a sql file
-	@:$(call check_defined, DUMP, sql file)
-	@echo '🗃️ Saving database.'
-	@$(DCE) database save $(DUMP) > /dev/null
-	@echo '🗃️ Copy to local.'
-	@docker cp $(shell $(DC) ps -q database):/$(DUMP) ./var/$(DUMP)
-
-##
 ## —— Cache 🗃️ ————————————————
 .PHONY: cc
 cc:			## Clear cache
@@ -212,7 +174,7 @@ bump:
 	@echo "Mise à jour de la version dans composer.json, package.json et .env vers $(VERSION)"
 	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(COMPOSER_FILE)
 	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(PACKAGE_FILE)
-	@sed -i '' 's/^PROJECT_VERSION=.*/PROJECT_VERSION=$(VERSION)/' $(ENV_FILE)
+	@sed -i '' 's/^VERSION=.*/VERSION=$(VERSION)/' $(ENV_FILE)
 
 SERVER ?= server
 DOMAIN ?= /
