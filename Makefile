@@ -1,88 +1,143 @@
 #
 # Made by Romain Millan © 2023-2024
 #
--include .env.deploy
--include .env
--include .env.local
-ifneq ("$(wildcard .env)","")
-    export $(shell sed 's/=.*//' .env)
-endif
 .DEFAULT_GLOBAL = help
 
-D=docker
-DC=$(D) compose
-DCE=$(DC) exec
+SF=symfony
+CONSOLE=$(SF) console
+COMPOSER=$(SF) composer
+NPM=npm
+ENV ?= dev
 
 ##
 ## —— Utils ⚙️ ————————————————————————————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
-install: config	docker-start dependencies deploy	## Install project
+install:		## Start project
+install: submodules vendors start proxy assets
 
-deploy:	docker-start	## Deploy project into containers
-	@echo "✨ Install assets"
-	@make assets
-	@echo "🚀 Deploy the project"
-	$(DCE) php make deploy ENV=$(ENV)
+restart:	## Restart project
+restart: stop start
 
-dev: ## Launch application in development mode
-	@echo "🚀 Launching application in development mode"
-	@cd app && make start
+stop:		## Stop project
+stop: symfony-stop
+	@$(SF) proxy:stop
 
-dev-stop: ## Launch application in development mode
-	@echo "🚀 Stopping application in development mode"
-	@cd app && make stop
+start: 	## Start project
+start: submodules symfony-start assets
+	@$(SF) proxy:start
 
-dependencies: vendor assets
-
-vendor:
-	$(DCE) php make vendor-build
-
-assets:
-	$(DCE) node make build
+proxy:
+	@$(SF) proxy:domain:attach romainmillan
 
 ##
-## —— Docker 🐳 ————————————————————————————————————————————————————————————————
-docker-start: 	## Start dockers containers
-	$(DC) --env-file ./.env.local --env-file ./.env up -d --build
+## —— Symfony 🧱 ————————————————————————————————————————————————————————————————
+symfony-start: 	## Start symfony server
+	@$(SF) server:start -d
 
-docker-stop: 	## Stop dockers containers
-	@$(DC) stop
-
-docker-down: 	## Down dockers containers
-	@$(DC) down
+symfony-stop: 	## Stop symfony server
+	@$(SF) server:stop
 
 ##
-## —— Configuration 📋 ————————————————————————————————————————————————————————————————
-config: env.local app-env.local ## Configure the project
+## —— Dependencies 📁 ————————————————————————————————————————————————————————————————
+submodules:		## Initialise and update submodule
+	@git submodule update --init --recursive
 
-env.local:
-	@echo "📝 Configuring env local config"
-	@rm -f .env.local
-	@touch .env.local
-	@echo "###> rm/environment ###" >> .env.local
-	@echo "APP_USER_ID=$(shell id -u)" >> .env.local
-	@echo "APP_GROUP_ID=$(shell id -g)" >> .env.local
-	@echo "###< rm/environment ###" >> .env.local
+vendors:	## Install php dependencies
+	@$(COMPOSER) install
 
-app-env.local:
-	@if [ ! -f ./app/.env.local ]; then \
-		@echo "📝 Configuring application env local config" \
-		touch ./app/.env.local; \
-		echo "###> rm/website ###" >> ./app/.env.local; \
-		echo "APP_ENV=$(ENV)" >> ./app/.env.local; \
-		echo "APP_DEBUG=0" >> ./app/.env.local; \
-		echo "###< rm/website ###" >> ./app/.env.local; \
-		echo ".env.local file created."; \
-	else \
-		echo ".env.local already exists, skipping."; \
-	fi
+vendor-build:	## Install php dependencies
+	@composer install --no-dev --optimize-autoloader
+
+npm:		## Install front dependencies (server)
+	$(NPM) install
+
+##
+## —— Database 🗃️————————————————
+.PHONY: db-diff
+db-diff: ## Generate a new migration
+	@$(CONSOLE) doctrine:migration:diff
+
+.PHONY: db-migrate
+db-migrate: ## Execute all not migrate migrations
+	@$(CONSOLE) doctrine:migration:migrate --no-interaction
+
+db-fixtures: ## Load fixtures
+	@$(CONSOLE) doctrine:fixtures:load -n --append
+
+.PHONY: db-reset
+db-reset: ## Reset database and execute migrations
+	@echo "💥 Drop the database."
+	@$(CONSOLE) doctrine:database:drop --force
+	@echo "🏗️ Create new database."
+	@$(CONSOLE) doctrine:database:create
+	@echo "🚚 Run all migrations."
+	@make db-migrate
+
+.PHONY: db-import
+db-import: ## Reset database with given DUMP variable
+	@:$(call check_defined, DUMP, sql file)
+	@docker cp ./var/$(DUMP) $(shell $(DC) ps -q database):/$(DUMP)
+	@echo '🗃️ Reseting and import database.'
+	@$(DCE) database reset $(DUMP) > /dev/null
+	@echo '✅ Your dump ($(DUMP)) is been imported.'
+
+.PHONY: db-dump
+db-dump: ## Save database to a sql file
+	@:$(call check_defined, DUMP, sql file)
+	@echo '🗃️ Saving database.'
+	@$(DCE) database save $(DUMP) > /dev/null
+	@echo '🗃️ Copy to local.'
+	@docker cp $(shell $(DC) ps -q database):/$(DUMP) ./var/$(DUMP)
+
+##
+## —— Cache 🗃️ ————————————————————————————————————————————————————————————————
+cc:			## Clear cache
+	$(CONSOLE) ca:cl -e $(or $(ENV), 'dev')
+
+##
+## —— Assets ✨ ————————————————————————————————————————————————————————————————
+assets:		## Build assets - dev version
+assets:	npm
+	$(NPM) run dev
+
+build:		## Build assets - prod version
+build: npm
+	$(NPM) run build
+
+watch:		## Watch assets
+	$(NPM) run watch
+##
+## —— Code Quality ✅ ————————————————————————————————————————————————————————————————
+phpstan:	## Run phpstan
+	@symfony php vendor/bin/phpstan analyse
+
+ecs:		## Coding standards
+	@symfony php vendor/bin/ecs check --fix
+
+quality: ecs phpstan
 
 ##
 ## —— Deploiement ☁️ ————————————————————————————————————————————————————————————————
-## Only for server(s) deployement
+COMPOSER_FILE=./composer.json
+PACKAGE_FILE=./package.json
+ENV_FILE=./.env
 
-prod: ## Deploy to production server
-	@echo "🚩 Deploying to server ($(SERVER))"
-	@ssh -A $(SERVER) 'cd $(DOMAIN) && git pull origin main && git submodule update --init --remote --recursive && make deploy'
+bump:
+	@if [ -z "$(VERSION)" ]; then \
+		echo "Erreur : Vous devez fournir une nouvelle version avec VERSION=x.x.x"; \
+		exit 1; \
+	fi
+	@echo "Mise à jour de la version dans composer.json, package.json et .env vers $(VERSION)"
+	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(COMPOSER_FILE)
+	@sed -i '' 's/"version": *"[0-9]*\.[0-9]*\.[0-9]*"/"version": "$(VERSION)"/' $(PACKAGE_FILE)
+	@sed -i '' 's/^VERSION=.*/VERSION=$(VERSION)/' $(ENV_FILE)
+
+deploy: vendor-build
+	@echo "🗃️ Dump configuration for $(ENV) environment"
+	@composer dump-env $(ENV)
+	@echo "🗑️ Clear cache"
+	@php bin/console cache:clear
+	@echo "🌱 Warmup cache"
+	@php bin/console cache:warmup
