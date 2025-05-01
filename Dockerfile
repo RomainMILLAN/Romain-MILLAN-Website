@@ -79,6 +79,12 @@ FROM frankenphp_base AS frankenphp_prod
 
 ENV APP_ENV=prod
 
+# Install NodeJS for assets build
+RUN apt-get update && apt-get install -y \
+    nodejs \
+    npm \
+	&& rm -rf /var/lib/apt/lists/*
+
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 COPY --link frankenphp/conf.d/20-app.prod.ini $PHP_INI_DIR/app.conf.d/
