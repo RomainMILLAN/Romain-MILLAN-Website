@@ -1,3 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% trans_default_domain 'front' %}
+
+{% block body_attribut %}
+    {{ stimulus_controller('tarteaucitron', {
+        logoUrl: absolute_url(asset('build/front/static/img/logo/icon.svg', 'front')),
+        matomoSiteId: matomo_site_id,
+        matomoHostValue: matomo_host,
+    }) }}
+{% endblock %}

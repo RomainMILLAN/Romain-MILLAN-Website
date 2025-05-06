@@ -3,6 +3,9 @@ twig:
 
     globals:
         version: '%env(VERSION)%'
+        matomo_site_id: '%env(MATOMO_SITE_ID)%'
+        matomo_host: '%env(MATOMO_HOST)%'
+
 
 when@test:
     twig:
