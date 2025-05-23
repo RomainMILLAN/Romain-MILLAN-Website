@@ -18,8 +18,9 @@ work:
 works:
   list:
     1: "ages"
-    2: "waps"
-    3: "voteit"
+    2: "jiraservicedesk"
+    3: "waps"
+    4: "voteit"
   ages:
     title: "Association Générale des Étudiants de Sète"
     description: "Dans le cadre de ce projet, j'ai eu l'opportunité de concevoir et de développer un site internet pour une association étudiante basée à Sète. L'objectif principal était de fournir une plateforme conviviale et attrayante qui reflète les valeurs et les activités de l'association, tout en facilitant la communication entre les membres et le public."
@@ -32,6 +33,19 @@ works:
       1:
         icon: "streamline:web-solid"
         link: "https://ages-sete.fr/"
+  jiraservicedesk:
+    title: "Outil Jira Clients"
+    description: "Pour améliorer la collaboration entre clients et équipe de production, j’ai développé une interface connectée à Jira via son API. Elle permet de visualiser un Kanban synchronisé, ainsi que de créer et modifier des tickets en temps réel."
+    card_image: "/jiraservicedesk/logo.png"
+    skills:
+      1: "Symfony"
+      2: "PHP"
+      3: "Twig"
+      4: "Jira"
+    links:
+      1:
+        icon: "mdi:github"
+        link: "https://github.com/RomainMILLAN/JiraServiceDesk"
   waps:
     title: "Waps"
     description: "Dans le cadre de ce projet, j'ai participé à une SAÉ (Situation d'Apprentissage et d'Évaluation) visant à créer une carte interactive capable de générer des itinéraires personnalisés. L'objectif principal était de développer des algorithmes pour calculer les chemins les plus courts en un temps minimal."
@@ -72,7 +86,7 @@ experiences:
       title: "Développeur Backend"
       date: "2023 - Aujourd'hui"
       location: "Montpellier, France"
-      description: "En tant que développeur web backend chez <span class='text-bold'>Spiriit</span>, j'ai principalement travaillé avec le framework <span class='text-bold'>Symfony</span> pour créer et optimiser des applications web. Mes responsabilités incluaient la conception d'API et d'applications métier, la gestion des bases de données et l'amélioration des performances des sites. J'ai collaboré étroitement avec les équipes frontend pour assurer une intégration fluide et contribuer à des projets variés tels que <a href='https://www.julbo.com/' class='text-underline'>Julbo</a> ou encore <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
+      description: "En tant que développeur web backend chez <span class='text-bold'>Spiriit</span>, j'ai principalement travaillé avec le framework <span class='text-bold'>Symfony</span> pour créer et optimiser des applications web. Mes responsabilités incluaient la conception d'API et d'applications métier, la gestion des bases de données et l'amélioration des performances des sites. J'ai collaboré étroitement avec les équipes frontend pour assurer une intégration fluide et contribuer à des projets variés tels que <a href='https://www.julbo.com/' class='text-underline'>Julbo</a>, <a href='https://store.bandainamcoent.eu/' class='text-underline'>Bandaï Namco Store</a> ou encore <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
       icon: "spiriit.svg"
 
 formations:

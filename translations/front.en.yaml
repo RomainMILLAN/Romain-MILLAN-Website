@@ -18,8 +18,9 @@ work:
 works:
   list:
     1: "ages"
-    2: "waps"
-    3: "voteit"
+    2: "jiraservicedesk"
+    3: "waps"
+    4: "voteit"
   ages:
     title: "General Association of Students of Sète"
     description: "For this project, I had the opportunity to design and develop a website for a student association based in Sète. The main goal was to provide a user-friendly and attractive platform that reflects the association's values and activities while facilitating communication between members and the public."
@@ -32,6 +33,19 @@ works:
       1:
         icon: "streamline:web-solid"
         link: "https://ages-sete.fr/"
+  jiraservicedesk:
+    title: "Jira Customer Tool"
+    description: "To enhance collaboration between clients and the production team, I developed an interface connected to Jira through its API. It allows users to view a synchronized Kanban board and to create or edit tickets in real time."
+    card_image: "/jiraservicedesk/logo.png"
+    skills:
+      1: "Symfony"
+      2: "PHP"
+      3: "Twig"
+      4: "Jira"
+    links:
+      1:
+        icon: "mdi:github"
+        link: "https://github.com/RomainMILLAN/JiraServiceDesk"
   waps:
     title: "Waps"
     description: "As part of this project, I participated in a Learning and Evaluation Situation (SAÉ) aimed at creating an interactive map capable of generating personalized routes. The main objective was to develop algorithms to calculate the shortest paths in minimal time."
@@ -72,7 +86,7 @@ experiences:
       title: "Backend Developer"
       date: "2023 - Present"
       location: "Montpellier, France"
-      description: "As a backend web developer at <span class='text-bold'>Spiriit</span>, I mainly worked with the <span class='text-bold'>Symfony</span> framework to create and optimize web applications. My responsibilities included designing APIs and business applications, managing databases, and improving website performance. I worked closely with frontend teams to ensure smooth integration and contributed to various projects such as <a href='https://www.julbo.com/' class='text-underline'>Julbo</a> and <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
+      description: "As a backend web developer at <span class='text-bold'>Spiriit</span>, I mainly worked with the <span class='text-bold'>Symfony</span> framework to create and optimize web applications. My responsibilities included designing APIs and business applications, managing databases, and improving website performance. I worked closely with frontend teams to ensure smooth integration and contributed to various projects such as <a href='https://www.julbo.com/' class='text-underline'>Julbo</a>, <a href='https://store.bandainamcoent.eu/' class='text-underline'>Bandaï Namco Store</a> and <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
       icon: "spiriit.svg"
 
 formations:
