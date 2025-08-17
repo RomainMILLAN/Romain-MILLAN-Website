@@ -3,6 +3,11 @@ framework:
     secret: '%env(APP_SECRET)%'
     csrf_protection: false
 
+    trusted_proxies: '127.0.0.1,romainmillan.fr,REMOTE_ADDR'
+    trusted_headers: [ 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-host' ]
+    http_method_override: false
+    handle_all_throwables: true
+
     # Note that the session will be started ONLY if you read or write from it.
     session: true
 
