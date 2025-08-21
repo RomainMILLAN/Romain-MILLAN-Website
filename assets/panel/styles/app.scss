@@ -10,34 +10,11 @@ label.required {
         color: $red;
     }
 }
-//
-//header {
-//    height: 75px;
-//}
-//
-//footer {
-//    height: 100px;
-//}
-//
-//main {
-//    min-height: calc(100vh - 100px - 75px);
-//}
-//
-//.main-min-height {
-//    min-height: calc(100vh - 100px - 75px);
-//}
-//
-//$primary: #ff0000;
-//
-//@media (min-width: 1000px) {
-//    .w-xl-50 {
-//        width: 50%;
-//    }
-//    .w-xl-45 {
-//        width: 45%;
-//    }
-//}
-//
-//.nav-item h5::after {
-//    content: " :";
-//}
+
+html {
+    height: 100vh !important;
+}
+
+body, .page, .page-body {
+    height: 100% !important;
+}
