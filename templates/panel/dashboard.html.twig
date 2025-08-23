@@ -36,29 +36,25 @@
                 <div class="row row-cards mt-5">
                     <h2>Raccourcis</h2>
 
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="accordion" id="accordion-applications">
-                                {% for category in accordionCategories %}
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="heading-1">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ category.name|slug }}" aria-expanded="false">
-                                                {{ category.name }}
-                                            </button>
-                                        </h2>
-                                        <div id="collapse-{{ category.name|slug }}" class="accordion-collapse collapse" data-bs-parent="#accordion-applications">
-                                            <div class="accordion-body pt-0 d-flex row row-cards">
-                                                {% for application in category.applications %}
-                                                    <twig:panel:dashboard:serviceCard
-                                                        :application="application"
-                                                    />                        
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>                                
-                                {% endfor %}
-                            </div>
-                        </div>
+                    <div class="accordion" id="accordion-applications">
+                        {% for category in accordionCategories %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ category.name|slug }}" aria-expanded="false">
+                                        {{ category.name }}
+                                    </button>
+                                </h2>
+                                <div id="collapse-{{ category.name|slug }}" class="accordion-collapse collapse" data-bs-parent="#accordion-applications">
+                                    <div class="accordion-body pt-0 d-flex row row-cards">
+                                        {% for application in category.applications %}
+                                            <twig:panel:dashboard:serviceCard
+                                                :application="application"
+                                            />                        
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>                                
+                        {% endfor %}
                     </div>
 
                 </div>
