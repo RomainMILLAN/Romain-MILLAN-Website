@@ -13,5 +13,9 @@
   "include": [
     "./**/*.ts",
     "../../../Library/Application Support/JetBrains/PhpStorm2023.3/javascript/extLibs/http_cdn.jsdelivr.net_npm_fullcalendar@6.1.5_index.global.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "vendor/**/assets/playwright.config.ts"
   ]
 }
