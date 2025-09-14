@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-11 col-md-10 col-xl-8 d-flex flex-row justify-content-center me-auto ms-auto">
+    <div class="col-11 col-md-10 d-flex flex-row justify-content-center me-auto ms-auto">
 
         <twig:panel:list
                 data="{{ applications }}"
@@ -20,24 +20,36 @@
 
             {% block thead %}
                 <th>Nom</th>
-                <th>Description</th>
-                <th>Icone</th>
-                <th>À une interface</th>
-                <th>Catégorie</th>
-                <th>Type</th>
+                <th class="d-none d-md-table-cell">Description</th>
+                <th class="d-none d-xl-table-cell">Interface</th>
+                <th class="d-none d-xxl-table-cell">Catégories</th>
                 <th></th>
             {% endblock %}
 
             {% block content %}
-                <td>{{ object.name }}</td>
-                <td>{{ object.description }}</td>
                 <td>
-                    <img src="{{ 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/'~object.icon~'.svg' }}" alt="{{ object.icon }}" width="24px" height="24px">
-                    {{ object.icon }}
+                    <span>
+                        <img src="{{ 'https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/'~object.icon~'.svg' }}" alt="{{ object.icon }}" width="24px" height="24px">
+                        {{ object.name }}
+                    </span>
+
+                    <span class="d-block d-md-none">{{ object.description }}</span>
                 </td>
-                <td>{{ object.hasInterface ? 'Oui' : 'Non' }}</td>
-                <td>{% for category in object.categories %}{{ category.name }}{% if false == loop.last %}, {% endif %}{% endfor %}</td>
-                <td>{% for type in object.type %}{{ type.name }}{% if false == loop.last %}, {% endif %}{% endfor %}</td>
+                <td class="d-none d-md-table-cell">{{ object.description }}</td>
+                <td class="d-none d-xl-table-cell">
+                    {% if object.hasInterface %}
+                        <span class="badge bg-success-lt">Active</span>
+                    {% else %}
+                        <span class="badge bg-danger-lt">Inactive</span>
+                    {% endif %}
+                </td>
+                <td class="d-none d-xxl-table-cell">
+                    <div class="badges-list">
+                        {% for category in object.categories %}
+                            <span class="badge">{{ category.name }}</span>
+                        {% endfor %}
+                    </div>
+                </td>
                 <td class="text-end">
                     <a href="{{ path('app_panel_gestion_application_edit', {'id': object.id}) }}">
                         {{ ux_icon('tabler:edit', {width: "24px", height: '24px', class: 'text-black'}) }}

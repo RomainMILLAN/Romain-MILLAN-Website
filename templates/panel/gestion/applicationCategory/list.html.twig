@@ -20,15 +20,15 @@
 
             {% block thead %}
                 <th>Nom</th>
-                <th>Dans l'accordéon</th>
-                <th>Numéro d'order</th>
+                <th class="d-none d-xl-table-cell">Dans l'accordéon</th>
+                <th class="d-none d-xl-table-cell">Numéro d'order</th>
                 <th></th>
             {% endblock %}
 
             {% block content %}
                 <td>{{ object.name }}</td>
-                <td>{{ object.inAccordion ? 'Oui' : 'Non' }}</td>
-                <td>{{ object.orderNumber }}</td>
+                <td class="d-none d-xl-table-cell">{{ object.inAccordion ? 'Oui' : 'Non' }}</td>
+                <td class="d-none d-xl-table-cell">{{ object.orderNumber }}</td>
                 <td class="text-end">
                     <a href="{{ path('app_panel_gestion_application_category_edit', {'id': object.id}) }}">
                         {{ ux_icon('tabler:edit', {width: "24px", height: '24px', class: 'text-black'}) }}
