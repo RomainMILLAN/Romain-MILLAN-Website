@@ -43,7 +43,8 @@ class Application
     #[ORM\ManyToMany(targetEntity: ApplicationCategory::class, inversedBy: 'applications')]
     private Collection $categories;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->type = new ArrayCollection();
         $this->categories = new ArrayCollection();
     }
@@ -87,7 +88,7 @@ class Application
 
     public function addCategory(ApplicationCategory $category): static
     {
-        if (!$this->categories->contains($category)) {
+        if (! $this->categories->contains($category)) {
             $this->categories->add($category);
         }
 

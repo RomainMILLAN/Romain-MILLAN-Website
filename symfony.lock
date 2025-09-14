@@ -88,6 +88,9 @@
             "tests/bootstrap.php"
         ]
     },
+    "spiriitlabs/form-filter-bundle": {
+        "version": "v12.0.1"
+    },
     "symfony/apache-pack": {
         "version": "1.0",
         "recipe": {

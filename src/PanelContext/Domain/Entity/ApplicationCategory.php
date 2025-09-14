@@ -2,10 +2,10 @@
 
 namespace Panel\Domain\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Panel\Infrastructure\Symfony\Repository\ApplicationCategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Panel\Infrastructure\Symfony\Repository\ApplicationCategoryRepository;
 
 #[ORM\Entity(repositoryClass: ApplicationCategoryRepository::class)]
 class ApplicationCategory
@@ -50,7 +50,7 @@ class ApplicationCategory
 
     public function addApplication(Application $application): static
     {
-        if (!$this->applications->contains($application)) {
+        if (! $this->applications->contains($application)) {
             $this->applications->add($application);
             $application->addCategory($this);
         }

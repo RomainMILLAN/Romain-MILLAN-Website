@@ -60,4 +60,7 @@ return [
     Symfony\UX\Autocomplete\AutocompleteBundle::class => [
         'all' => true,
     ],
+    Spiriit\Bundle\FormFilterBundle\SpiriitFormFilterBundle::class => [
+        'all' => true,
+    ],
 ];

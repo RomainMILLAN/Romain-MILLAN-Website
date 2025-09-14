@@ -18,6 +18,12 @@
         >
             {% block title 'Liste des applications' %}
 
+            {% block filterForm %}
+                {{ form_start(filterForm) }}
+                {{ form_row(filterForm.query, {attr: {class: 'form-control'}}) }}
+                {{ form_end(filterForm) }}
+            {% endblock %}
+
             {% block thead %}
                 <th>Nom</th>
                 <th class="d-none d-md-table-cell">Description</th>
