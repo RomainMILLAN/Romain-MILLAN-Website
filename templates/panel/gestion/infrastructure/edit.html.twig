@@ -1,0 +1,18 @@
+{% extends 'panel/gestion/infrastructure/base.html.twig' %}
+
+{% block content %}
+    <div class="col-11 col-md-10 col-xl-8 d-flex flex-row justify-content-center me-auto ms-auto">
+
+        <twig:panel:form
+            cancelLink="{{ path('app_panel_gestion_infrastructure_edit') }}"
+            form="{{ form }}"
+        >
+            {% block title 'Édition de l\'infrastructure' %}
+
+            {% block content %}
+                {% include 'panel/gestion/infrastructure/_form_content.html.twig' %}
+            {% endblock %}
+        </twig:panel:form>
+
+    </div>
+{% endblock %}
