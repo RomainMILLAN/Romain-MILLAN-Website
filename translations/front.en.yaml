@@ -24,7 +24,6 @@ works:
   ages:
     title: "General Association of Students of Sète"
     description: "For this project, I had the opportunity to design and develop a website for a student association based in Sète. The main goal was to provide a user-friendly and attractive platform that reflects the association's values and activities while facilitating communication between members and the public."
-    card_image: "/waps/desktop.png"
     skills:
       1: "Symfony"
       2: "PHP"
@@ -36,7 +35,6 @@ works:
   jiraservicedesk:
     title: "Jira Customer Tool"
     description: "To enhance collaboration between clients and the production team, I developed an interface connected to Jira through its API. It allows users to view a synchronized Kanban board and to create or edit tickets in real time."
-    card_image: "/jiraservicedesk/logo.png"
     skills:
       1: "Symfony"
       2: "PHP"
@@ -51,7 +49,6 @@ works:
     description: "As part of this project, I participated in a Learning and Evaluation Situation (SAÉ) aimed at creating an interactive map capable of generating personalized routes. The main objective was to develop algorithms to calculate the shortest paths in minimal time."
     skills:
       1: "PHP"
-    card_image: "/waps/desktop.png"
     links:
       1:
         icon: "mdi:github"
@@ -61,7 +58,6 @@ works:
     description: "As part of a Learning and Evaluation Situation (SAE), I designed and developed a web forum application. The main goal was to master PHP and database usage while creating an interactive platform where users can exchange ideas, ask questions, and vote on topics."
     skills:
       1: "PHP"
-    card_image: "/voteit/desktop_list.png"
     links:
       1:
         icon: "mdi:github"

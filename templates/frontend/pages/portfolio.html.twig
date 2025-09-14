@@ -186,12 +186,23 @@
 
                 {% if "works.list.#{ i }"|trans != "works.list.#{ i }" %}
                     {% set project_name = "works.list.#{ i }"|trans %}
-                    {% set project_image = "works.#{ project_name }.card_image"|trans %}
 
                     <article class="card">
 
-                        <div class="card--illustration">
-                            <img height="100px" src="{{ asset('build/front/static/img/projects'~project_image, 'front') }}" alt="Illustration">
+                        <div class="card--illustration card--illustration-carousel" {{ stimulus_controller('carousel', { interval: 3000, pauseOnHover: true, autoStart: true }) }}>
+                            <div class="carousel-track" {{ stimulus_target('carousel', 'track') }}>
+
+                                {% for illustration_id in 1..100 %}
+                                    {% if "works.#{ project_name }.illustrations.#{ illustration_id }"|trans != "works.#{ project_name }.illustrations.#{ illustration_id }" %}
+                                        {% set illustration_url = "works.#{ project_name }.illustrations.#{ illustration_id }"|trans %}
+                                        <div class="carousel-item" {{ stimulus_target('carousel', 'item') }}>
+                                            <img height="100px" src="{{ asset('build/front/static/img/projects'~illustration_url, 'front') }}" alt="Illustration {{ illustration_id }}">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+
                         </div>
 
                         <div class="card--header">
