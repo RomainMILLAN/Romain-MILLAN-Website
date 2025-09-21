@@ -44,3 +44,7 @@ panel:
 redirect:
     path: /
     controller: App\Infrastructure\Symfony\Controller\RedirectController::redirectToLocale
+
+healthcheck:
+    path: /_healthcheck
+    controller: App\Infrastructure\Symfony\Controller\HealthcheckController::__invoke
