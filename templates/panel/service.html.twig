@@ -1,6 +1,16 @@
 {% extends 'panel/base.html.twig' %}
 {% block pretitle 'Service' %}
-{% block title title %}
+{% set stimulusControllers = ['service-interface'] %}
+{% block title %}
+    <span class="d-flex flex-row align-items-center">
+        {{ title }}
+
+        <a role="button" {{ stimulus_action('service-interface', 'toggle') }}>
+            <i {{ stimulus_target('service-interface', 'iconeOpen') }}>{{ ux_icon('mdi:fullscreen', {width: "16px", height: '16px'}) }}</i>
+            <i {{ stimulus_target('service-interface', 'iconeExit') }}>{{ ux_icon('mdi:fullscreen-exit', {width: "16px", height: '16px'}) }}</i>
+        </a>
+    </span>
+{% endblock %}
 
 {% block content %}
     <iframe id="myIframe" src="{{ link }}" width="100%" height="100%"></iframe>
