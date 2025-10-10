@@ -7,8 +7,6 @@ export default class extends Controller {
   declare readonly bodyTarget: HTMLInputElement;
 
   connect() {
-    console.log("ThemeMode controller connected 💡");
-
     this.detectThemeChange();
   }
 

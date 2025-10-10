@@ -10,12 +10,6 @@ const app = startStimulusApp(require.context(
 // @ts-ignore
 import * as Turbo from '@hotwired/turbo';
 
-if(Turbo) {
-    console.log("Symfony UX/Turbo is enabled ✅")
-} else {
-    console.log("Symfony UX/Turbo is disable ❌")
-}
-
 const $ = require('jquery');
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
