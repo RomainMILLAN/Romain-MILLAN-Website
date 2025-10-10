@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app.locale }}" {{ stimulus_controller('scroll-to light-mode') }}>
+<html lang="{{ app.locale }}" {{ stimulus_controller('scroll-to theme') }}>
 	<head>
 		<title>
 			Romain MILLAN
@@ -37,7 +37,7 @@
 		{% endblock %}
 	</head>
 
-	<body {{ stimulus_target('light-mode', 'body') }} data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}>
+	<body {{ stimulus_target('theme', 'body') }} data-turbo="{% block turbo 'true' %}" {% block body_attribut %} {% endblock %}>
 
 		<header {% block header_attributes '' %}>
 			{% block header %}
@@ -147,11 +147,11 @@
 					</form>
 
 					<div class="theme_mode--container flex-row align-items-center justify-content-center">
-						<div id="themeMode-light" class="theme_mode--item d-none justify-content-center align-items-center" {{ stimulus_action('light-mode', 'switchToLightMode', 'click') }} {{ stimulus_target('light-mode', 'light') }}>
+						<div id="themeMode-light" class="theme_mode--item justify-content-center align-items-center" {{ stimulus_action('theme', 'switchToLightMode', 'click') }} {{ stimulus_target('theme', 'light') }}>
 							<twig:ux:icon name="material-symbols:light-mode" width="25"/>
 						</div>
 
-						<div id="themeMode-dark" class="theme_mode--item flex-column justify-content-center align-items-center" {{ stimulus_action('light-mode', 'switchToDarkMode', 'click') }} {{ stimulus_target('light-mode', 'dark') }}>
+						<div id="themeMode-dark" class="theme_mode--item flex-column justify-content-center align-items-center" {{ stimulus_action('theme', 'switchToDarkMode', 'click') }} {{ stimulus_target('theme', 'dark') }}>
 							<twig:ux:icon  name="material-symbols:dark-mode" width="25"/>
 						</div>
 					</div>
