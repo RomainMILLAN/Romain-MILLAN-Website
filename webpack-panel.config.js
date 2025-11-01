@@ -82,6 +82,12 @@ Encore
       to: 'static/[path][name].[hash:8].[ext]'
     }
   ])
+  .copyFiles([
+    {
+      from: './assets/panel/pwa',
+      to: 'pwa/[path][name].[ext]'
+    }
+  ])
 
 const Panel = Encore.getWebpackConfig()
 Panel.name = 'panel'

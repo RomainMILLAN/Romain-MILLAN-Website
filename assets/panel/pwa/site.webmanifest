@@ -1,5 +1,5 @@
 {
-    "name": "Panel - Romain MILLAN",
+    "name": "Romain MILLAN - Panel",
     "short_name": "Panel",
     "icons": [
         {
@@ -10,6 +10,6 @@
     ],
     "start_url": "/security/login",
     "display": "standalone",
-    "theme_color": "#FACD23",
-    "background_color": "#f1f1f1"
+    "theme_color": "#FE6A00",
+    "background_color": "#FFFFFF"
 }

@@ -7,31 +7,59 @@ export default class extends Controller {
   declare readonly bodyTarget: HTMLInputElement;
 
   connect() {
-    this.detectThemeChange();
+    this.applySavedTheme();
+    this.observeSystemPreference();
   }
 
   public switchToLightMode(): void {
-    this.bodyTarget.setAttribute('data-bs-theme', 'light')
+    this.setTheme("light");
   }
 
   public switchToDarkMode(): void {
-    this.bodyTarget.setAttribute('data-bs-theme', 'dark')
+    this.setTheme("dark");
   }
 
-  public detectThemeChange(): void {
-    const darkModeMediaQuery: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+  private setTheme(theme: "light" | "dark"): void {
+    const isDark = theme === "dark";
 
-    if (darkModeMediaQuery.matches) {
+    this.bodyTarget.classList.toggle("dark-mode", isDark);
+    document.documentElement.setAttribute("data-bs-theme", theme);
+
+    localStorage.setItem("theme", theme);
+  }
+
+  private applySavedTheme(): void {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      this.switchToDarkMode();
+    } else if (savedTheme === "light") {
+      this.switchToLightMode();
+    } else {
+      this.applySystemPreference();
+    }
+  }
+
+  private applySystemPreference(): void {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (prefersDark) {
       this.switchToDarkMode();
     } else {
-      this.switchToLightMode()
+      this.switchToLightMode();
     }
+  }
 
-    darkModeMediaQuery.addEventListener('change', (event: MediaQueryListEvent): void => {
-      if (event.matches) {
-        this.switchToDarkMode();
-      } else {
-        this.switchToLightMode()
+  private observeSystemPreference(): void {
+    const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    darkModeMediaQuery.addEventListener("change", (event: MediaQueryListEvent): void => {
+      if (!localStorage.getItem("theme")) {
+        if (event.matches) {
+          this.switchToDarkMode();
+        } else {
+          this.switchToLightMode();
+        }
       }
     });
   }
