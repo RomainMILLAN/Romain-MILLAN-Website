@@ -1,0 +1,3 @@
+[submodule "assets/rm-tag"]
+	path = assets/rm-tag
+	url = git@github.com:RomainMILLAN/Romain-MILLAN-Tag.git
