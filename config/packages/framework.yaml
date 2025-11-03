@@ -14,6 +14,9 @@ framework:
     #esi: true
     #fragments: true
 
+    router:
+        default_uri: '%env(ROUTER_REQUEST_CONTEXT_SCHEME)%://%env(ROUTER_REQUEST_CONTEXT_HOST)%/'
+
 when@test:
     framework:
         test: true
