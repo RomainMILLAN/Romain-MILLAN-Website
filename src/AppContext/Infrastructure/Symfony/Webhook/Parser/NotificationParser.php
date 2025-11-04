@@ -28,7 +28,7 @@ class NotificationParser extends AbstractRequestParser
         #[Autowire(env: 'WEBHOOK_ALLOWED_IPS')]
         string $allowedIps,
     ) {
-        $this->allowedIps = explode(';', $allowedIps);
+        $this->allowedIps = empty($allowedIps) ? [] : explode(';', $allowedIps);
     }
 
     #[\Override()]
@@ -42,7 +42,7 @@ class NotificationParser extends AbstractRequestParser
             throw new RejectWebhookException(Response::HTTP_NOT_ACCEPTABLE, 'Missing or incorrect signature.');
         }
 
-        if (isset($payload['message']) || $payload['message'] == null) {
+        if (isset($payload['message']) == false || $payload['message'] == null) {
             throw new RejectWebhookException(Response::HTTP_NOT_ACCEPTABLE, 'Missing or incorrect payload datas.');
         }
 
