@@ -5,6 +5,13 @@ seo:
     options:
         expose: true
 
+notification:
+    resource: '../src/AppContext/Infrastructure/Symfony/Controller/Notification/**/*'
+    type: attribute
+    name_prefix: app_notification_
+    options:
+        expose: true
+
 front:
     resource: '../src/FrontContext/Infrastructure/Symfony/Controller/**/*'
     type: attribute

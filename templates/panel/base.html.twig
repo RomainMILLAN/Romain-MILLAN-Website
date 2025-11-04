@@ -30,7 +30,7 @@
 
     </head>
 
-    <body {{ stimulus_target('theme-mode', 'body') }} data-turbo="false">
+    <body {{ stimulus_target('theme-mode', 'body') }} {{ stimulus_controller('notification', {notificationVapidPublicKey: push_notification_vapid_public_key, registerPushNotificationUrl: url('app_notification_register')}) }} data-turbo="false">
         <div class="page">
 
             <div class="toast-container position-fixed bottom-0 end-0 p-3" {{ stimulus_controller('flash') }} id="toastsNotifications">
@@ -45,6 +45,38 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
+            </div>
+
+            <div class="modal modal-blur fade" id="modal-push-notification" tabindex="-1" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-status bg-success"></div>
+                        <div class="modal-body text-center py-4">
+                        <!-- Download SVG icon from http://tabler.io/icons/icon/circle-check -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon mb-2 text-green icon-lg">
+                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                            <path d="M9 12l2 2l4 -4"></path>
+                        </svg>
+                        <h3>Notification Push</h3>
+                        <div class="text-secondary">
+                            En confirmant, vous enregistrez votre appareil pour l'envoi de notifications push via API.
+                        </div>
+                        </div>
+                        <div class="modal-footer">
+                        <div class="w-100">
+                            <div class="row">
+                            <div class="col">
+                                <a href="#" class="btn btn-3 w-100" data-bs-dismiss="modal"> Anuler </a>
+                            </div>
+                            <div class="col">
+                                <a href="#" role="button" {{ stimulus_action('notification', 'register') }} class="btn btn-success btn-4 w-100" data-bs-dismiss="modal"> Enregistrer </a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <header class="navbar navbar-expand-md navbar-overlap d-print-none" data-bs-theme="dark">
@@ -72,6 +104,12 @@
                                data-bs-placement="bottom" aria-label="Enable light mode"
                                data-bs-original-title="Enable light mode">
                                 <twig:ux:icon name="tabler:sun" width="24" height="24" />
+                            </a>
+                        </div>
+
+                        <div class="d-flex flex-column align-items-center justify-content-center me-2">
+                            <a role="button" data-bs-toggle="modal" data-bs-target="#modal-push-notification">
+                                <twig:ux:icon name="mingcute:notification-line" width="24" height="24" />
                             </a>
                         </div>
 

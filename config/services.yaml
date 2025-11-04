@@ -6,6 +6,7 @@
 parameters:
     locale: fr
     app_locales: fr|en
+    default_uri: '%env(ROUTER_REQUEST_CONTEXT_SCHEME)%://%env(ROUTER_REQUEST_CONTEXT_HOST)%/'
 
 services:
     # default configuration for services in *this* file
@@ -15,6 +16,7 @@ services:
 
         bind:
             string $env: '%kernel.environment%'
+            string $defaultUri: '%default_uri%'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

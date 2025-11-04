@@ -3,6 +3,7 @@ twig:
 
     globals:
         version: '%env(VERSION)%'
+        push_notification_vapid_public_key: '%env(VAPID_PUBLIC_KEY)%'
 
 when@test:
     twig:
