@@ -14,9 +14,9 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <link rel="icon" href=".{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
+        <link rel="icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/panel/static/img/logo/icon.png', 'panel') }}">
-        <link rel="shortcut icon" href="{{ asset('/build/panel/static/img/logo/favicon.ico') }}" type="image/ico">
+        <link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/favicon.ico', 'panel') }}" type="image/ico">
         <link rel="manifest" href="{{ asset('build/panel/pwa/site.webmanifest', 'panel') }}">
 
         {% block stylesheets %}
