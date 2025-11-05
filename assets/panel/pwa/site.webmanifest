@@ -8,7 +8,7 @@
             "sizes": "any"
         }
     ],
-    "start_url": "/fr/portfolio",
+    "start_url": "/start",
     "display": "standalone",
     "theme_color": "#FE6A00",
     "background_color": "#FFFFFF"
