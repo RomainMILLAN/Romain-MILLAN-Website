@@ -15,7 +15,6 @@ export default class extends Controller {
   }
 
   async register(): Promise<void> {
-    console.log(this.support());
       if (!this.support()) {
           return;
       }
@@ -31,7 +30,7 @@ export default class extends Controller {
       let registration = await navigator.serviceWorker.getRegistration();
 
       if (!registration) {
-          registration = await navigator.serviceWorker.register('/service_worker.js');
+          registration = await navigator.serviceWorker.register('/build/app/pwa/service_worker.js');
           console.log('[Notification/SW] Registered');
       } else {
           console.log('[Notification/SW] Already registered');
