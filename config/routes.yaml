@@ -55,7 +55,3 @@ redirect:
 healthcheck:
     path: /_healthcheck
     controller: App\Infrastructure\Symfony\Controller\HealthcheckController::__invoke
-
-pwa_start:
-    path: /start
-    controller: App\Infrastructure\Symfony\Controller\PWAStartController::__invoke
