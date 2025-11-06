@@ -41,9 +41,8 @@ class SendPushNotificationHandler
                 ],
             ]);
 
-            $payload = json_encode($command->notification->toArray());
             try {
-                $result = $webPush->sendOneNotification(
+                $webPush->sendOneNotification(
                     subscription: $subscription,
                     payload: json_encode($command->notification->toArray())
                 );

@@ -42,3 +42,11 @@ compose.override.yaml
 .env.deploy
 .env.local
 src/AppContext/Infrastructure/Symfony/Command/SandboxCommand.php
+
+public/entrypoints.json
+public/icons/
+public/loader.ts
+public/manifest.json
+public/runtime.js
+public/service_worker.js
+public/site.webmanifest

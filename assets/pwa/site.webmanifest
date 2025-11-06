@@ -8,8 +8,9 @@
             "sizes": "any"
         }
     ],
-    "start_url": "/start",
+    "start_url": "/",
     "display": "standalone",
     "theme_color": "#FE6A00",
-    "background_color": "#FFFFFF"
+    "background_color": "#FFFFFF",
+    "scope": "/"
 }

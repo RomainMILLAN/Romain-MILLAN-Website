@@ -29,7 +29,7 @@ self.addEventListener('push', async (event) => {
 self.addEventListener('notificationclick', function(event) {
   event.notification.close();
 
-  console.log('[PWA/ServiceWorker] notification click - action:', event.action);
+  console.log('[SW] notification click - action:', event.action);
 
   if (event.action === 'open') {
     event.waitUntil(

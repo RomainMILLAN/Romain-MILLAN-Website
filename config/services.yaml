@@ -6,7 +6,7 @@
 parameters:
     locale: fr
     app_locales: fr|en
-    default_uri: '%env(ROUTER_REQUEST_CONTEXT_SCHEME)%://%env(ROUTER_REQUEST_CONTEXT_HOST)%/'
+    default_uri: '%env(ROUTER_REQUEST_CONTEXT_SCHEME)%://%env(ROUTER_REQUEST_CONTEXT_HOST)%'
 
 services:
     # default configuration for services in *this* file

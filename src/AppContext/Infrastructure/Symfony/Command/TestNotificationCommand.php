@@ -13,6 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 #[AsCommand(
     name: 'app:notification:test',
@@ -24,6 +25,11 @@ class TestNotificationCommand extends Command
         private readonly PushNotificationRepository $pushNotificationRepository,
         private readonly TranslatorInterface $translator,
         private readonly MessageBusInterface $messageBus,
+        private readonly string $defaultUri,
+        #[Autowire(env: 'VAPID_PUBLIC_KEY')]
+        private string $vapidPublicKey,
+        #[Autowire(env: 'VAPID_PRIVATE_KEY')]
+        private string $vapidPrivateKey,
     ) {
         parent::__construct();
     }
@@ -36,7 +42,7 @@ class TestNotificationCommand extends Command
             new SendPushNotification(
                 notification: new Notification(
                     body: 'Test de notification',
-                    title: 'RomainMILLAN/Finance',
+                    title: 'RomainMILLAN/Panel',
                 ),
             ),
         );
