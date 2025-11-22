@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
-//@import "@tabler/core/dist/css/tabler.min.css";
 @import '../../rm-tag/tag.css';
+@import './overrides/navbar';
 $red: #fa5c7c;
 
 label.required {

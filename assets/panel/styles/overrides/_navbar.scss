@@ -1,0 +1,36 @@
+header.navbar {
+    height: auto !important;
+    min-height: auto !important;
+}
+
+#navbar-menu .navbar-nav {
+    .nav-link::after {
+        display: none !important;
+    }
+
+    .nav-link {
+        display: flex;
+        width: 100%;
+        justify-content: space-between !important;
+        align-items: center;
+        gap: 0.5rem;
+
+        &-content {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 0.5rem;
+        }
+
+        &-arrow {
+            display: none;
+            align-items: center;
+            height: 12px;
+            width: 12px;
+        }
+    }
+    
+    .nav-link.dropdown-toggle .nav-link-arrow {
+        display: flex;
+    }
+}

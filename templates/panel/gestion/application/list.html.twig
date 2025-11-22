@@ -2,11 +2,7 @@
 
 {% block header_action %}
     <div class="btn-list">
-        <a href="{{ path('app_panel_gestion_application_create') }}" class="btn btn-primary btn-5 d-none d-sm-inline-block">
-            <twig:ux:icon class="icon icon-2" name="tabler:plus" width="24px" height="24px"/>
-
-            Crée une nouvelle application
-        </a>
+        <twig:panel:button:link:primary title="Crée une nouvelle application" icon="tabler:plus" link="{{ path('app_panel_gestion_application_create') }}"/>
     </div>
 {% endblock %}
 
@@ -62,7 +58,7 @@
                     </a>
 
                     <button type="button" class="btn btn-action" data-bs-toggle="modal" data-bs-target="#delete-{{ object.id }}">
-                        {{ ux_icon('tabler:http-delete', {width: "24px", height: '24px', class: 'text-black'}) }}
+                        {{ ux_icon('tabler:trash', {width: "24px", height: '24px', class: 'text-danger'}) }}
                     </button>
                 </td>
 

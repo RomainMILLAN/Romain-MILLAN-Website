@@ -1,0 +1,21 @@
+{% props title = 'Title', icon = 'tabler:home' %}
+
+<li class="nav-item dropdown">
+	<a class="nav-link dropdown-toggle" role="button" aria-expanded="false" {{ stimulus_target('menu', 'dropdownToggle') }} {{ stimulus_action('menu', 'toggleDropdown') }}>
+		<div class="nav-link-content">
+			<span class="nav-link-icon d-md-none d-lg-inline-block">
+				<twig:ux:icon name="{{ icon }}" width="24" height="24"/>
+			</span>
+			<span class="nav-link-title">
+				{{ title }}
+			</span>
+		</div>
+
+		<span class="nav-link-arrow">
+			<twig:ux:icon name="tabler:chevron-down"/>
+		</span>
+	</a>
+	<div class="dropdown-menu" {{ stimulus_target('menu', 'dropdownMenu') }}>
+		{% block content '' %}
+	</div>
+</li>

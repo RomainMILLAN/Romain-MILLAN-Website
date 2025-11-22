@@ -1,0 +1,11 @@
+{% props title = '', icon = '', link = '' %}
+
+<a href="{{ link }}" class="btn btn-primary btn-5 d-none d-sm-inline-block">
+    <twig:ux:icon class="icon icon-2" name="{{ icon }}" width="24px" height="24px"/>
+
+    {{ title }}
+</a>
+
+<a href="{{ link }}" class="btn btn-primary btn-6 d-sm-none btn-icon">
+    <twig:ux:icon class="icon icon-2" name="{{ icon }}" width="24px" height="24px"/>
+</a>
