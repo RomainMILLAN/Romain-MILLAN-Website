@@ -6,6 +6,7 @@ use Panel\Domain\UptimeKuma\MonitorList;
 use Panel\Domain\UptimeKuma\MonitorStatus;
 use Panel\Infrastructure\UptimeKuma\UptimeKumaClient;
 use Panel\Infrastructure\UptimeKuma\UptimeKumaResponseParser;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
@@ -33,11 +34,13 @@ class MonitorStatusComponent
     public function fetchData(): MonitorList
     {
         $uptimeResponse = $this->uptimeKumaClient->request('metrics');
-        if ($uptimeResponse !== null) {
-            $this->monitorList = new MonitorList($this->uptimeKumaResponseParser->parseMonitors(
-                $uptimeResponse->getContent()
-            ));
+        if ($uptimeResponse === null || $uptimeResponse->getStatusCode() !== Response::HTTP_OK) {
+            return $this->monitorList;
         }
+
+        $this->monitorList = new MonitorList($this->uptimeKumaResponseParser->parseMonitors(
+            $uptimeResponse->getContent()
+        ));
 
         return $this->monitorList;
     }
