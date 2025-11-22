@@ -20,17 +20,23 @@ export default class extends Controller {
     this.pageHeaderPretitleTarget = document.getElementById('page-pretitle') as HTMLDivElement;
     this.pageBodyTarget = document.getElementById('page-body') as HTMLDivElement;
 
-    this.isFullscreen = false;
-    this.iconeExitTarget.classList.add('disappeared');
+    // Read fullscreen state from session storage
+    const storedFullscreen = sessionStorage.getItem('fullscreen');
+    this.isFullscreen = storedFullscreen === 'true';
+
+    // Initialize icons based on state
+    if (this.isFullscreen) {
+      this.enable(false); // false to prevent double sessionStorage set
+    } else {
+      this.disable(false);
+    }
   }
 
-  public toggle(): void
-  {
+  public toggle(): void {
     this.isFullscreen ? this.disable() : this.enable();
   }
 
-  public enable(): void
-  {
+  public enable(store: boolean = true): void {
     this.isFullscreen = true;
 
     this.footerTarget?.classList.add('disappeared');
@@ -41,10 +47,11 @@ export default class extends Controller {
 
     this.iconeOpenTarget.classList.add('disappeared');
     this.iconeExitTarget.classList.remove('disappeared');
+
+    if (store) sessionStorage.setItem('fullscreen', 'true');
   }
 
-  public disable(): void
-  {
+  public disable(store: boolean = true): void {
     this.isFullscreen = false;
 
     this.footerTarget?.classList.remove('disappeared');
@@ -55,6 +62,7 @@ export default class extends Controller {
 
     this.iconeExitTarget.classList.add('disappeared');
     this.iconeOpenTarget.classList.remove('disappeared');
-  }
 
+    if (store) sessionStorage.setItem('fullscreen', 'false');
+  }
 }
