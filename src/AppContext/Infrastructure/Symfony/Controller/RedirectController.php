@@ -11,7 +11,7 @@ class RedirectController extends AbstractController
 {
     public function redirectToLocale(): Response
     {
-        if (null !== $this->getUser()) {
+        if ($this->getUser() !== null) {
             return $this->redirectToRoute(SecurityRouteCollection::LOGIN->prefixed());
         }
 

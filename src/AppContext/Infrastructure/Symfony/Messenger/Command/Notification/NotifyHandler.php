@@ -35,9 +35,9 @@ class NotifyHandler
         } catch (HandlerFailedException $e) {
         }
 
-            $this->commandBus->dispatch(
-                new SendPushNotification($notification),
-            );
+        $this->commandBus->dispatch(
+            new SendPushNotification($notification),
+        );
 
         return;
     }
