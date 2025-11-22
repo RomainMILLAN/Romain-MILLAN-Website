@@ -45,7 +45,7 @@
                                     </button>
                                 </h2>
                                 <div id="collapse-{{ category.name|slug }}" class="accordion-collapse collapse" data-bs-parent="#accordion-applications">
-                                    <div class="accordion-body pt-0 d-flex row row-cards">
+                                    <div class="accordion-body pt-3 d-flex row row-cards">
                                         {% for application in category.applications %}
                                             <twig:panel:dashboard:serviceCard
                                                 :application="application"
