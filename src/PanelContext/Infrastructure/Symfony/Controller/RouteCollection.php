@@ -12,4 +12,5 @@ enum RouteCollection: string implements RouteCollectionInterface
     case DASHBOARD = 'dashboard';
     case INFRASTRUCTURE = 'infrastructure';
     case APPLICATION_INTERFACE = 'application_interface';
+    case APPLICATIONS_SEARCH_API = 'application_search_api';
 }

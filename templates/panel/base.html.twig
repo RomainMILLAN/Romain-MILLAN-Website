@@ -1,247 +1,261 @@
 {% set stimulusControllers = ['theme-mode']|merge(stimulusControllers|default([])) %}
 <html lang="fr" {{ stimulus_controller(stimulusControllers|join(' ')) }}>
-    <head>
-        <title>Romain MILLAN - Panel</title>
+	<head>
+		<title>Romain MILLAN - Panel</title>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <meta name="msapplication-TileColor" content="#066fd1">
-        <meta name="theme-color" content="#066fd1">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <link rel="icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/panel/static/img/logo/icon.png', 'panel') }}">
-        <link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/favicon.ico', 'panel') }}" type="image/ico">
-        <link rel="manifest" href="{{ asset('build/app/pwa/site.webmanifest', 'app') }}">
+		<meta name="msapplication-TileColor" content="#066fd1">
+		<meta name="theme-color" content="#066fd1">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<link rel="icon" href="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" type="image/x-icon">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/panel/static/img/logo/icon.png', 'panel') }}">
+		<link rel="shortcut icon" href="{{ asset('build/panel/static/img/logo/favicon.ico', 'panel') }}" type="image/ico">
+		<link rel="manifest" href="{{ asset('build/app/pwa/site.webmanifest', 'app') }}">
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('panel', null, 'panel') }}
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css">
-        {% endblock %}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('panel', null, 'panel') }}
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css">
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('panel', null, 'panel') }}
-            <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
-        {% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('panel', null, 'panel') }}
+			<script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
+		{% endblock %}
 
-    </head>
+	</head>
 
-    <body {{ stimulus_target('theme-mode', 'body') }} {{ stimulus_controller('notification', {notificationVapidPublicKey: push_notification_vapid_public_key, registerPushNotificationUrl: url('app_notification_register')}) }} data-turbo="false">
-        <div class="page">
+	<body {{ stimulus_target('theme-mode', 'body') }} {{ stimulus_controller('notification', {notificationVapidPublicKey: push_notification_vapid_public_key, registerPushNotificationUrl: url('app_notification_register')} ) }} data-turbo="false">
+		<div class="page">
 
-            <div class="toast-container position-fixed bottom-0 end-0 p-3" {{ stimulus_controller('flash') }} id="toastsNotifications">
-                {% for type, messages in app.flashes %}
-                    {% for message in messages %}
-                        <div class="alert alert-{{ type }} alert-dismissible" role="alert">
-                            <div class="alert-icon">
-                                <twig:ux:icon name="{{ alert_icon(type) }}" width="24" height="24"/>
-                            </div>
-                            {{ message }}
-{#                            <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>#}
-                        </div>
-                    {% endfor %}
-                {% endfor %}
-            </div>
+			<div class="toast-container position-fixed bottom-0 end-0 p-3" {{ stimulus_controller('flash') }} id="toastsNotifications">
+				{% for type, messages in app.flashes %}
+					{% for message in messages %}
+						<div class="alert alert-{{ type }} alert-dismissible" role="alert">
+							<div class="alert-icon">
+								<twig:ux:icon name="{{ alert_icon(type) }}" width="24" height="24"/>
+							</div>
+							{{ message }}
+							{#                            <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>#}
+						</div>
+					{% endfor %}
+				{% endfor %}
+			</div>
 
-            <div class="modal modal-blur fade" id="modal-push-notification" tabindex="-1" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        <div class="modal-status bg-success"></div>
-                        <div class="modal-body text-center py-4">
-                        <!-- Download SVG icon from http://tabler.io/icons/icon/circle-check -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon mb-2 text-green icon-lg">
-                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-                            <path d="M9 12l2 2l4 -4"></path>
-                        </svg>
-                        <h3>Notification Push</h3>
-                        <div class="text-secondary">
-                            En confirmant, vous enregistrez votre appareil pour l'envoi de notifications push via API.
-                        </div>
-                        </div>
-                        <div class="modal-footer">
-                        <div class="w-100">
-                            <div class="row">
-                            <div class="col">
-                                <a href="#" class="btn btn-3 w-100" data-bs-dismiss="modal"> Anuler </a>
-                            </div>
-                            <div class="col">
-                                <a href="#" role="button" {{ stimulus_action('notification', 'register') }} class="btn btn-success btn-4 w-100" data-bs-dismiss="modal"> Enregistrer </a>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<div class="modal modal-blur fade" id="modal-push-notification" tabindex="-1" style="display: none;" aria-hidden="true">
+				<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<div class="modal-status bg-success"></div>
+						<div
+							class="modal-body text-center py-4">
+							<!-- Download SVG icon from http://tabler.io/icons/icon/circle-check -->
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon mb-2 text-green icon-lg">
+								<path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+								<path d="M9 12l2 2l4 -4"></path>
+							</svg>
+							<h3>Notification Push</h3>
+							<div class="text-secondary">
+								En confirmant, vous enregistrez votre appareil pour l'envoi de notifications push via API.
+							</div>
+						</div>
+						<div class="modal-footer">
+							<div class="w-100">
+								<div class="row">
+									<div class="col">
+										<a href="#" class="btn btn-3 w-100" data-bs-dismiss="modal">
+											Anuler
+										</a>
+									</div>
+									<div class="col">
+										<a href="#" role="button" {{ stimulus_action('notification', 'register') }} class="btn btn-success btn-4 w-100" data-bs-dismiss="modal">
+											Enregistrer
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <header class="navbar navbar-expand-md navbar-overlap d-print-none" data-bs-theme="dark" {{ stimulus_controller('menu') }}>
-                <div class="container-xl">
+			<header class="navbar navbar-expand-md navbar-overlap d-print-none" data-bs-theme="dark" {{ stimulus_controller('menu') }}>
+				<div class="container-xl">
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" {{ stimulus_target('menu', 'actionButton')}} {{ stimulus_action('menu', 'toggle') }}
-                            aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" {{ stimulus_target('menu', 'actionButton')}} {{ stimulus_action('menu', 'toggle') }} aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
 
-                    <div class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                        <a href="{{ path('app_panel_dashboard') }}">
-                            <img src="{{ asset('build/panel/static/img/logo/romainmillan-panel.svg', 'panel') }}" width="150px" alt="Icon">
-                        </a>
-                    </div>
+					<div class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+						<a href="{{ path('app_panel_dashboard') }}">
+							<img src="{{ asset('build/panel/static/img/logo/romainmillan-panel.svg', 'panel') }}" width="150px" alt="Icon">
+						</a>
+					</div>
 
-                    <div class="navbar-nav flex-row order-md-last">
-                        <div class="d-flex me-2">
-                            <a role="button" {{ stimulus_action('theme-mode', 'switchToDarkMode') }} class="nav-link px-0 hide-theme-dark" data-bs-toggle="tooltip"
-                               data-bs-placement="bottom" aria-label="Enable dark mode"
-                               data-bs-original-title="Enable dark mode">
-                                <twig:ux:icon name="tabler:moon" width="24" height="24" />
-                            </a>
-                            <a role="button" {{ stimulus_action('theme-mode', 'switchToLightMode') }} class="nav-link px-0 hide-theme-light" data-bs-toggle="tooltip"
-                               data-bs-placement="bottom" aria-label="Enable light mode"
-                               data-bs-original-title="Enable light mode">
-                                <twig:ux:icon name="tabler:sun" width="24" height="24" />
-                            </a>
-                        </div>
+					<div class="navbar-nav flex-row order-md-last">
+						<div class="d-flex me-2">
+							<a role="button" {{ stimulus_action('theme-mode', 'switchToDarkMode') }} class="nav-link px-0 hide-theme-dark" data-bs-toggle="tooltip" data-bs-placement="bottom" aria-label="Enable dark mode" data-bs-original-title="Enable dark mode">
+								<twig:ux:icon name="tabler:moon" width="24" height="24"/>
+							</a>
+							<a role="button" {{ stimulus_action('theme-mode', 'switchToLightMode') }} class="nav-link px-0 hide-theme-light" data-bs-toggle="tooltip" data-bs-placement="bottom" aria-label="Enable light mode" data-bs-original-title="Enable light mode">
+								<twig:ux:icon name="tabler:sun" width="24" height="24"/>
+							</a>
+						</div>
 
-                        <div class="d-flex flex-column align-items-center justify-content-center me-2">
-                            <a role="button" data-bs-toggle="modal" data-bs-target="#modal-push-notification">
-                                <twig:ux:icon name="mingcute:notification-line" width="24" height="24" />
-                            </a>
-                        </div>
+						<div class="nav-item dropdown d-none d-md-flex me-3" {{ stimulus_controller('search', {searchUrl: url('app_panel_application_search_api')}) }}>
+							<form class="nav-link px-0 mb-0" {{ stimulus_target('search', 'form') }} {{ stimulus_action('search', 'openDropdown', 'click') }}>
+								<div class="input-group">
+									<input type="search" class="ps-2 form-control dropdown-toggle" placeholder="Rechercher..." id="top-search" {{ stimulus_target('search', 'input') }} {{ stimulus_action('search', 'onSearchInput') }}>
+								</div>
+							</form>
+							<div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card" {{ stimulus_target('search', 'dropdown') }}>
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title">Applications</div>
+									</div>
+									<div class="card-body scroll-y p-2" style="max-height: 50vh" {{ stimulus_target('search', 'resultContainer') }}>
+										<p class="fst-italic text-center">Rechercher ...</p>
+									</div>
+								</div>
+							</div>
+						</div>
 
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
-                               aria-label="Open user menu">
-                            <span class="avatar avatar-sm">
-                                <img src="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" alt="">
-                            </span>
-                                <div class="d-none d-xl-block ps-2">
-                                    <div>{{ app.user }}</div>
-                                    <div class="mt-1 small text-secondary">Administrateur</div>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light">
-                                <a href="{{ path('app_front_portfolio') }}" class="dropdown-item">Retour au site</a>
-                                <a href="{{ path('app_security_logout') }}" class="dropdown-item">Déconnexion</a>
-                            </div>
-                        </div>
-                    </div>
+						<div class="d-flex flex-column align-items-center justify-content-center me-2">
+							<a role="button" data-bs-toggle="modal" data-bs-target="#modal-push-notification">
+								<twig:ux:icon name="mingcute:notification-line" width="24" height="24"/>
+							</a>
+						</div>
 
-                    <div class="collapse navbar-collapse" id="navbar-menu" {{ stimulus_target('menu', 'container') }}>
-                        <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
-                            <ul class="navbar-nav">
+						<div class="nav-item dropdown">
+							<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+								<span class="avatar avatar-sm">
+									<img src="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" alt="">
+								</span>
+								<div class="d-none d-xl-block ps-2">
+									<div>{{ app.user }}</div>
+									<div class="mt-1 small text-secondary">Administrateur</div>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light">
+								<a href="{{ path('app_front_portfolio') }}" class="dropdown-item">Retour au site</a>
+								<a href="{{ path('app_security_logout') }}" class="dropdown-item">Déconnexion</a>
+							</div>
+						</div>
+					</div>
 
-                                <twig:panel:menu:item title="Accueil" icon="tabler:home" link="{{ path('app_panel_dashboard') }}"/>
-                                
-                                {% if services_has_interfaces()|length > 0 %}
-                                    <twig:panel:menu:item-group title="Services" icon="tabler:server">
-                                        <twig:block name="content">
-                                            {% for application in services_has_interfaces() %}
-                                                <a class="dropdown-item" href="{{ path('app_panel_application_interface', {id: application.id}) }}" rel="noopener">
-                                                    {{ application.name }}
-                                                </a>                                            
-                                            {% endfor %}
-                                        </twig:block>
-                                    </twig:panel:menu:item-group>
-                                {% endif %}
+					<div class="collapse navbar-collapse" id="navbar-menu" {{ stimulus_target('menu', 'container') }}>
+						<div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
+							<ul class="navbar-nav">
 
-                                <twig:panel:menu:item title="Signature" icon="tabler:signature" link="{{ path('app_signature_create') }}"/>
-                                <twig:panel:menu:item title="Infrastructure" icon="tabler:align-box-left-stretch" link="{{ path('app_panel_infrastructure') }}"/>
+								<twig:panel:menu:item title="Accueil" icon="tabler:home" link="{{ path('app_panel_dashboard') }}"/>
 
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <twig:panel:menu:item-group title="Gestion" icon="tabler:server">
-                                        <twig:block name="content">
-                                            <a class="dropdown-item" href="{{ path('app_panel_gestion_application_list') }}">Application</a>
-                                            <a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}">Catégorie d'application</a>
-                                            <a class="dropdown-item" href="{{ path('app_panel_gestion_application_type_list') }}">Type d'application</a>
-                                            <a class="dropdown-item" href="{{ path('app_panel_gestion_infrastructure_edit') }}">Infrastructure</a>                                          
-                                        </twig:block>
-                                    </twig:panel:menu:item-group>
-                                {% endif %}
+								{% if services_has_interfaces()|length > 0 %}
+									<twig:panel:menu:item-group title="Services" icon="tabler:server">
+										<twig:block name="content">
+											{% for application in services_has_interfaces() %}
+												<a class="dropdown-item" href="{{ path('app_panel_application_interface', {id: application.id}) }}" rel="noopener">
+													{{ application.name }}
+												</a>
+											{% endfor %}
+										</twig:block>
+									</twig:panel:menu:item-group>
+								{% endif %}
 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </header>
+								<twig:panel:menu:item title="Signature" icon="tabler:signature" link="{{ path('app_signature_create') }}"/>
+								<twig:panel:menu:item title="Infrastructure" icon="tabler:align-box-left-stretch" link="{{ path('app_panel_infrastructure') }}"/>
 
-            <div class="page-wrapper">
+								{% if is_granted('ROLE_ADMIN') %}
+									<twig:panel:menu:item-group title="Gestion" icon="tabler:server">
+										<twig:block name="content">
+											<a class="dropdown-item" href="{{ path('app_panel_gestion_application_list') }}">Application</a>
+											<a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}">Catégorie d'application</a>
+											<a class="dropdown-item" href="{{ path('app_panel_gestion_application_type_list') }}">Type d'application</a>
+											<a class="dropdown-item" href="{{ path('app_panel_gestion_infrastructure_edit') }}">Infrastructure</a>
+										</twig:block>
+									</twig:panel:menu:item-group>
+								{% endif %}
 
-                <div id="page-header" class="page-header d-print-none text-white">
-                    <div class="container-xl">
-                        <div class="row g-2 align-items-center">
-                            <div class="col">
+							</ul>
+						</div>
+					</div>
+				</div>
+			</header>
 
-                                <div class="page-pretitle" id="page-pretitle">
-                                    {% block pretitle 'Panel' %}
-                                </div>
+			<div class="page-wrapper">
 
-                                <h2 class="page-title">
-                                    {% block title 'Dashboard' %}
-                                </h2>
+				<div id="page-header" class="page-header d-print-none text-white">
+					<div class="container-xl">
+						<div class="row g-2 align-items-center">
+							<div class="col">
 
-                            </div>
+								<div class="page-pretitle" id="page-pretitle">
+									{% block pretitle 'Panel' %}
+								</div>
 
-                            <div class="col-auto ms-auto d-print-none">
-                                {% block header_action '' %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+								<h2 class="page-title">
+									{% block title 'Dashboard' %}
+								</h2>
 
-                <div class="page-body" id="page-body" style="margin-bottom: 0px;">
-                    {% block content '' %}
-                </div>
+							</div>
 
-                <footer id="footer" class="footer footer-transparent d-print-none">
-                    <div class="container-xl">
-                        <div class="row text-center align-items-center flex-row-reverse">
+							<div class="col-auto ms-auto d-print-none">
+								{% block header_action '' %}
+							</div>
+						</div>
+					</div>
+				</div>
 
-                            <div class="col-lg-auto ms-lg-auto">
-                                <ul class="list-inline list-inline-dots mb-0">
+				<div class="page-body" id="page-body" style="margin-bottom: 0px;">
+					{% block content '' %}
+				</div>
 
-                                    <li class="list-inline-item">
-                                        <a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Template</a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" target="_blank" class="link-secondary" rel="noopener">Source code</a>
-                                    </li>
+				<footer id="footer" class="footer footer-transparent d-print-none">
+					<div class="container-xl">
+						<div class="row text-center align-items-center flex-row-reverse">
 
-                                </ul>
-                            </div>
+							<div class="col-lg-auto ms-lg-auto">
+								<ul class="list-inline list-inline-dots mb-0">
 
-                            <div class="col-12 col-lg-auto mt-3 mt-lg-0">
-                                <ul class="list-inline list-inline-dots mb-0">
+									<li class="list-inline-item">
+										<a href="https://github.com/tabler/tabler" target="_blank" class="link-secondary" rel="noopener">Template</a>
+									</li>
+									<li class="list-inline-item">
+										<a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" target="_blank" class="link-secondary" rel="noopener">Source code</a>
+									</li>
 
-                                    <li class="list-inline-item">
-                                        Copyright © 2023{% if date('now')|date('Y') != '2023' %}-{{ date('now')|date('Y') }}{% endif %}
+								</ul>
+							</div>
 
-                                        <twig:rm-tag
-                                                width="100px"
-                                                isFilledBlack="true"
-                                                isFillAnimated="true"
-                                                hasRedirect="true"
-                                        />
+							<div class="col-12 col-lg-auto mt-3 mt-lg-0">
+								<ul class="list-inline list-inline-dots mb-0">
 
-                                        Tous droits réservés.
-                                    </li>
+									<li class="list-inline-item">
+										Copyright © 2023
+										{% if date('now')|date('Y') != '2023' %}-{{ date('now')|date('Y') }}
+										{% endif %}
 
-                                    <li class="list-inline-item">
-                                        <a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" class="link-secondary" rel="noopener">v{{ version }}</a>
-                                    </li>
+										<twig:rm-tag width="100px" isfilledblack="true" isfillanimated="true" hasredirect="true"/>
 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+										Tous droits réservés.
+									</li>
 
-        </div>
-    </body>
+									<li class="list-inline-item">
+										<a href="https://github.com/RomainMILLAN/Romain-MILLAN-Website" class="link-secondary" rel="noopener">v{{ version }}</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+
+		</div>
+	</body>
 </html>

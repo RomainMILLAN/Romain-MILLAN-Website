@@ -101,4 +101,9 @@ class Application
 
         return $this;
     }
+
+    public function getAvatarUrl(): string
+    {
+        return sprintf('https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/%s.svg', $this->icon);
+    }
 }
