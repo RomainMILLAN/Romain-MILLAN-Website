@@ -26,4 +26,14 @@ class ApplicationExtension
 
         return $application->url;
     }
+
+    #[AsTwigFunction('application_primary_url_target')]
+    public function getPrimaryUrlTargetType(Application $application): string
+    {
+        if ($application->hasInterface) {
+            return '_self';
+        }
+
+        return '_blank';
+    }
 }
