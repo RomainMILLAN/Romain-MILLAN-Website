@@ -149,33 +149,35 @@
 						<div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
 							<ul class="navbar-nav">
 
-								<twig:panel:menu:item title="Accueil" icon="tabler:home" link="{{ path('app_panel_dashboard') }}"/>
+								{% block header_navbar %}
+									<twig:panel:menu:item title="Accueil" icon="tabler:home" link="{{ path('app_panel_dashboard') }}"/>
 
-								{% if services_has_interfaces()|length > 0 %}
-									<twig:panel:menu:item-group title="Services" icon="tabler:server">
-										<twig:block name="content">
-											{% for application in services_has_interfaces() %}
-												<a class="dropdown-item" href="{{ path('app_panel_application_interface', {id: application.id}) }}" rel="noopener">
-													{{ application.name }}
-												</a>
-											{% endfor %}
-										</twig:block>
-									</twig:panel:menu:item-group>
-								{% endif %}
+									{% if services_has_interfaces()|length > 0 %}
+										<twig:panel:menu:item-group title="Services" icon="tabler:server">
+											<twig:block name="content">
+												{% for application in services_has_interfaces() %}
+													<a class="dropdown-item" href="{{ path('app_panel_application_interface', {id: application.id}) }}" rel="noopener">
+														{{ application.name }}
+													</a>
+												{% endfor %}
+											</twig:block>
+										</twig:panel:menu:item-group>
+									{% endif %}
 
-								<twig:panel:menu:item title="Signature" icon="tabler:signature" link="{{ path('app_signature_create') }}"/>
-								<twig:panel:menu:item title="Infrastructure" icon="tabler:align-box-left-stretch" link="{{ path('app_panel_infrastructure') }}"/>
+									<twig:panel:menu:item title="Signature" icon="tabler:signature" link="{{ path('app_signature_create') }}"/>
+									<twig:panel:menu:item title="Infrastructure" icon="tabler:align-box-left-stretch" link="{{ path('app_panel_infrastructure') }}"/>
 
-								{% if is_granted('ROLE_ADMIN') %}
-									<twig:panel:menu:item-group title="Gestion" icon="tabler:server">
-										<twig:block name="content">
-											<a class="dropdown-item" href="{{ path('app_panel_gestion_application_list') }}">Application</a>
-											<a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}">Catégorie d'application</a>
-											<a class="dropdown-item" href="{{ path('app_panel_gestion_application_type_list') }}">Type d'application</a>
-											<a class="dropdown-item" href="{{ path('app_panel_gestion_infrastructure_edit') }}">Infrastructure</a>
-										</twig:block>
-									</twig:panel:menu:item-group>
-								{% endif %}
+									{% if is_granted('ROLE_ADMIN') %}
+										<twig:panel:menu:item-group title="Gestion" icon="tabler:server">
+											<twig:block name="content">
+												<a class="dropdown-item" href="{{ path('app_panel_gestion_application_list') }}">Application</a>
+												<a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}">Catégorie d'application</a>
+												<a class="dropdown-item" href="{{ path('app_panel_gestion_application_type_list') }}">Type d'application</a>
+												<a class="dropdown-item" href="{{ path('app_panel_gestion_infrastructure_edit') }}">Infrastructure</a>
+											</twig:block>
+										</twig:panel:menu:item-group>
+									{% endif %}
+								{% endblock %}
 
 							</ul>
 						</div>

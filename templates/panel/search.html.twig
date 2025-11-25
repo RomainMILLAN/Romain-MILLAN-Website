@@ -1,0 +1,49 @@
+{% extends 'panel/base.html.twig' %}
+{% block title 'Recherche' %}
+
+{% block header_navbar %}
+    <twig:panel:menu:item title="Panel" icon="tabler:home" link="{{ path('app_panel_dashboard') }}"/>
+{% endblock %}
+
+{% block content %}
+	<div class="container-xl">
+
+		<div class="mb-3">
+            {{ form_start(form, {attr: {class: 'row g-2'}}) }}
+            
+                {{ form_row(form.query, {
+                    row_attr: {
+                        class: 'col',
+                    },
+                    attr: {
+                        class: 'form-control',
+                    },
+                }) }}
+
+                <div class="col-auto">
+                    <button type="submit" href="#" class="btn btn-2 btn-icon" aria-label="Button">
+                        <twig:ux:icon name="material-symbols:search-rounded" class="icon icon-2" />
+                    </button>
+                </div>
+
+            {{ form_end(form) }}
+		</div>
+
+	</div>
+
+    <div class="container-xl">
+        <div class="row row-deck row-cards justify-content-center mt-2">
+            <twig:MonitorStatus
+                    monitorStatus="up"
+            />
+
+            <twig:MonitorStatus
+                    monitorStatus="down"
+            />
+
+            <twig:MonitorStatus
+                    monitorStatus="maintenance"
+            />
+        </div>
+    </div>
+{% endblock %}
