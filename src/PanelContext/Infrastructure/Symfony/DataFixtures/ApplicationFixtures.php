@@ -24,9 +24,9 @@ class ApplicationFixtures extends Fixture implements DependentFixtureInterface
             icon: 'uptime-kuma',
             hasInterface: true,
             category: $this->getReference(ApplicationCategoryFixtures::SELF_HOSTED, ApplicationCategory::class),
-            types: [$this->getReference(ApplicationTypeFixtures::LOCAL, ApplicationType::class)],
             reference: self::ONE,
             manager: $manager,
+            types: [$this->getReference(ApplicationTypeFixtures::LOCAL, ApplicationType::class)],
         );
 
         $this->loadInReference(
@@ -36,9 +36,9 @@ class ApplicationFixtures extends Fixture implements DependentFixtureInterface
             icon: 'zoraxy',
             hasInterface: false,
             category: $this->getReference(ApplicationCategoryFixtures::CLIENT_ONE, ApplicationCategory::class),
-            types: [$this->getReference(ApplicationTypeFixtures::PROD02, ApplicationType::class)],
             reference: self::TWO,
             manager: $manager,
+            types: [$this->getReference(ApplicationTypeFixtures::PROD02, ApplicationType::class)],
         );
     }
 
@@ -60,9 +60,9 @@ class ApplicationFixtures extends Fixture implements DependentFixtureInterface
         string $icon,
         bool $hasInterface,
         ApplicationCategory $category,
-        array $types = [],
         string $reference,
         ObjectManager $manager,
+        array $types = [],
     ): void {
         $application = new Application();
         $application->name = $name;
