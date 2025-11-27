@@ -35,6 +35,7 @@ services:
         resource: '../src/PanelContext/'
         exclude:
             - '../src/PanelContext/{Domain/Model}'
+            - '../src/PanelContext/Infrastructure/Symfony/DataFixtures/'
 
     Security\:
         resource: '../src/SecurityContext/'
@@ -48,3 +49,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+when@dev:
+    services:
+        Panel\:
+        resource: '../src/PanelContext/'
+        exclude:
+            - '../src/PanelContext/{Domain/Model}'
