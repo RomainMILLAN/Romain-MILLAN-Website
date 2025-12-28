@@ -4,7 +4,7 @@
     <div class="card">
         <a href="{{ application_primary_url(application) }}" target="{{ application_primary_url_target(application) }}" class="card-body text-decoration-none p-4 text-center">
             <img class="avatar avatar-xl mb-3 p-2 rounded" src="{{ application.avatarUrl }}" alt="Service Avatar">
-            <h3 class="m-0 mb-1 text-black">{{ application.name }}</h3>
+            <h3 class="m-0 mb-1">{{ application.name }}</h3>
             <div class="text-secondary">{{ application.description }}</div>
             {% if application.type is not empty %}
                 <div class="mt-3">
