@@ -70,11 +70,11 @@ class ApplicationFixtures extends Fixture implements DependentFixtureInterface
         $application->url = $url;
         $application->icon = $icon;
         $application->hasInterface = $hasInterface;
-        $application->category = $category;
+        $application->addCategory($category);
 
-        // foreach ($types as $type) {
-        //     $application->addType($type);
-        // }
+        foreach ($types as $type) {
+            $application->addType($type);
+        }
 
         $manager->persist($application);
         $manager->flush();

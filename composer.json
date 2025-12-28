@@ -24,6 +24,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "arkounay/ux-collection": "^4.0",
+        "doctrine/collections": "^2.4",
         "doctrine/dbal": "^3",
         "doctrine/doctrine-bundle": "^2.14",
         "doctrine/doctrine-migrations-bundle": "^3.4",
