@@ -5,7 +5,7 @@
 
 	{% for application in applications %}
 		<div class="col-4">
-			<a href="{{ application_primary_url(application) }}" target="{{ application_primary_url_target(application) }}" class="d-flex flex-column flex-center text-center text-secondary py-2 px-2 link-hoverable">
+			<a {{ stimulus_action('search', 'closeDropdown') }} href="{{ application_primary_url(application) }}" target="{{ application_primary_url_target(application) }}" class="d-flex flex-column flex-center text-center text-secondary py-2 px-2 link-hoverable">
 				<img src="{{ application.avatarUrl }}" class="w-6 h-6 mx-auto mb-2" width="24" height="24" alt="">
 				<span class="h5">{{ application.name }}</span>
 			</a>

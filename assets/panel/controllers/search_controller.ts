@@ -1,5 +1,6 @@
 // @ts-ignore
 import { Controller } from '@hotwired/stimulus';
+// @ts-ignore
 import { useClickOutside, useDebounce } from 'stimulus-use';
 
 export default class extends Controller {
@@ -40,11 +41,13 @@ export default class extends Controller {
         this.dropdownTarget.classList.add('show');
         this.dropdownTarget.setAttribute('data-bs-popper', 'static');
     }
+    
     private closeDropdown(): void
     {
         this.dropdownTarget.classList.remove('show');
         this.dropdownTarget.removeAttribute('data-bs-popper');
         this.resultContainerTarget.innerHTML = this.defaultEmptyResult;
+        this.inputTarget.value = '';
     }
 
     private handleKeyDown = (event: KeyboardEvent): void => {
