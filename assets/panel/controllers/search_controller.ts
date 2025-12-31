@@ -42,12 +42,15 @@ export default class extends Controller {
         this.dropdownTarget.setAttribute('data-bs-popper', 'static');
     }
     
-    private closeDropdown(): void
+    private closeDropdown(resetInput: Boolean = true): void
     {
         this.dropdownTarget.classList.remove('show');
         this.dropdownTarget.removeAttribute('data-bs-popper');
         this.resultContainerTarget.innerHTML = this.defaultEmptyResult;
-        this.inputTarget.value = '';
+
+        if (resetInput) {
+            this.inputTarget.value = '';
+        }
     }
 
     private handleKeyDown = (event: KeyboardEvent): void => {
@@ -63,7 +66,7 @@ export default class extends Controller {
 
     public async search(query: any): Promise<void> {
         if (this.inputTarget.value.length < 3) {
-            this.closeDropdown()
+            this.closeDropdown(false)
             return;
         }
 
