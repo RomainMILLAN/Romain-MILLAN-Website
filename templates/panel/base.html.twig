@@ -98,8 +98,11 @@
 
 						<div class="nav-item dropdown d-none d-md-flex me-3" {{ stimulus_controller('search', {searchUrl: url('app_panel_application_search_api')}) }}>
 							<form class="nav-link px-0 mb-0" {{ stimulus_target('search', 'form') }} {{ stimulus_action('search', 'openDropdown', 'click') }}>
-								<div class="input-group">
-									<input type="search" class="ps-2 form-control dropdown-toggle" placeholder="Rechercher..." id="top-search" {{ stimulus_target('search', 'input') }} {{ stimulus_action('search', 'onSearchInput') }}>
+								<div class="input-group input-group-flat">
+									<input type="text" placeholder="Rechercher..." class="form-control" autocomplete="off" {{ stimulus_target('search', 'input') }} {{ stimulus_action('search', 'onSearchInput') }}>
+									<span class="input-group-text">
+									<kbd>ctrl + K</kbd>
+									</span>
 								</div>
 							</form>
 							<div class="dropdown-menu dropdown-menu-arrow dropdown-menu-end dropdown-menu-card" {{ stimulus_target('search', 'dropdown') }}>

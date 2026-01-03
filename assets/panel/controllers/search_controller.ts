@@ -25,14 +25,17 @@ export default class extends Controller {
         useClickOutside(this);
         useDebounce(this);
 
+        document.addEventListener('keydown', this.handleGlobalKeyDown);
         this.inputTarget.addEventListener('keydown', this.handleKeyDown);
-        this.formTarget.addEventListener('submit', function (event: any) {
+
+        this.formTarget.addEventListener('submit', (event: Event) => {
             event.preventDefault();
             this.onSearchInput();
-        })
+        });
     }
 
     disconnect(): void {
+        document.removeEventListener('keydown', this.handleGlobalKeyDown);
         this.inputTarget.removeEventListener('keydown', this.handleKeyDown);
     }
 
@@ -93,5 +96,29 @@ export default class extends Controller {
     public clickOutside() {
         this.closeDropdown();
     }
+
+    private handleGlobalKeyDown = (event: KeyboardEvent): void => {
+        if (
+            event.target instanceof HTMLInputElement ||
+            event.target instanceof HTMLTextAreaElement
+        ) {
+            if (event.key === 'Escape') {
+                this.closeDropdown();
+                this.inputTarget.blur();
+            }
+
+            return;
+        }
+
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+            event.preventDefault();
+
+            this.inputTarget.focus();
+            this.inputTarget.select();
+
+            this.openDropdown();
+        }
+    };
+
 
 }
