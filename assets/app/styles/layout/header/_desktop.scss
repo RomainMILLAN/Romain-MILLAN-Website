@@ -5,6 +5,7 @@
 }
 
 .desktop_header {
+  z-index: 1 !important;
   position: fixed;
   width: 100%;
   display: none;
