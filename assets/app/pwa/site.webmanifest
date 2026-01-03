@@ -15,7 +15,7 @@
             "purpose": "maskable"
         }
     ],
-    "start_url": "/",
+    "start_url": "/security/login",
     "display": "standalone",
     "theme_color": "#FE6A00",
     "background_color": "#FFFFFF",
