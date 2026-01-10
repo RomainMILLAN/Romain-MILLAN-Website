@@ -30,13 +30,13 @@ class NotifyHandler
 
         try {
             $this->commandBus->dispatch(
-                new SendSignalNotification($notification),
+                new SendPushNotification($notification),
             );
         } catch (HandlerFailedException $e) {
         }
 
         $this->commandBus->dispatch(
-            new SendPushNotification($notification),
+            new SendSignalNotification($notification),
         );
 
         return;
