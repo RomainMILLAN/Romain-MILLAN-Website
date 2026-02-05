@@ -162,6 +162,10 @@
 												{% for application in services_has_interfaces() %}
 													<a class="dropdown-item" href="{{ path('app_panel_application_interface', {id: application.id}) }}" rel="noopener">
 														{{ application.name }}
+
+														{% for tag in application.type %}
+															<span class="badge badge-sm" style="background-color: {{ tag.color }} !important;">{{ tag.name }}</span>
+														{% endfor %}
 													</a>
 												{% endfor %}
 											</twig:block>
