@@ -17,10 +17,27 @@ work:
 
 works:
   list:
-    1: "ages"
-    2: "jiraservicedesk"
-    3: "waps"
-    4: "voteit"
+    1: "codegamejam"
+    2: "ages"
+    3: "jiraservicedesk"
+    4: "waps"
+    5: "voteit"
+  codegamejam:
+    title: "Code Game Jam"
+    description: "J'ai participé à l’organisation de l’événement sur le site principal de Montpellier et j'ai aussi crée la plateforme  d’inscription. La plateforme centralise l’inscription des participants, la gestion des équipes, l’accès aux informations et le dépôt des rendus."
+    illustrations:
+      1: '/cgj/home.png'
+      2: '/cgj/login.png'
+      3: '/cgj/clic.png'
+      4: '/cgj/planning.png'
+    skills:
+      1: "Symfony"
+      2: "PHP"
+      3: "Twig"
+    links:
+      1:
+        icon: "streamline:web-solid"
+        link: "https://cgj.bpaul.fr/"
   ages:
     title: "Association Générale des Étudiants de Sète"
     description: "Dans le cadre de ce projet, j'ai eu l'opportunité de concevoir et de développer un site internet pour une association étudiante basée à Sète. L'objectif principal était de fournir une plateforme conviviale et attrayante qui reflète les valeurs et les activités de l'association, tout en facilitant la communication entre les membres et le public."

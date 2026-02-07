@@ -8,7 +8,7 @@
 
         <div id="home--title" class="flex flex-row justify-content-center align-items-start">
 
-            <img src="{{ asset('build/front/static/img/logo/rm-photo-2.jpeg', 'front') }}" alt="Romain MILLAN"/>
+            <img src="{{ asset('static/img/logo/rm-photo-2.jpeg', 'front') }}" alt="Romain MILLAN"/>
 
             <div>
                 <p>{{ 'home.title'|trans|raw }}</p>
@@ -102,7 +102,7 @@
                 <p style="margin-top: -20px;" class="text-italic">{{ 'aboutme.title'|trans }}</p>
             </div>
 
-            <img src="{{ asset('build/front/static/img/logo/rm-photo.png', 'front') }}" alt="Romain MILLAN"/>
+            <img src="{{ asset('static/img/logo/rm-photo.png', 'front') }}" alt="Romain MILLAN"/>
         </div>
 
         <div class="aboutme_content--container flex-column justify-content-center align-items-center gap-20">
@@ -111,7 +111,7 @@
             <p>{{ 'aboutme.content.second'|trans|raw }}</p>
             <p>{{ 'aboutme.content.third'|trans|raw }}</p>
 
-            <a href="{{ asset('build/front/static/upload/CV_MILLAN_Romain.pdf', 'front') }}" download="MILLAN Romain - CV" target="_blank" class="btn btn-primary">{{ 'aboutme.action'|trans }}</a>
+            <a href="{{ asset('static/upload/CV_MILLAN_Romain.pdf', 'front') }}" download="MILLAN Romain - CV" target="_blank" class="btn btn-primary">{{ 'aboutme.action'|trans }}</a>
 
         </div>
 
@@ -196,7 +196,7 @@
                                     {% if "works.#{ project_name }.illustrations.#{ illustration_id }"|trans != "works.#{ project_name }.illustrations.#{ illustration_id }" %}
                                         {% set illustration_url = "works.#{ project_name }.illustrations.#{ illustration_id }"|trans %}
                                         <div class="carousel-item" {{ stimulus_target('carousel', 'item') }}>
-                                            <img height="100px" src="{{ asset('build/front/static/img/projects'~illustration_url, 'front') }}" alt="Illustration {{ illustration_id }}">
+                                            <img height="100px" src="{{ asset('static/img/projects'~illustration_url, 'front') }}" alt="Illustration {{ illustration_id }}">
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -286,7 +286,7 @@
                     <twig:frontend:card_info
                             date="{{ "experiences.list.#{ i }.date"|trans }}"
                             location="{{ "experiences.list.#{ i }.location"|trans }}"
-                            asset="{{ asset('build/front/static/img/enterprises/'~image, 'front') }}"
+                            asset="{{ asset('static/img/enterprises/'~image, 'front') }}"
                             icon="{{ image }}"
                             title="{{ "experiences.list.#{ i }.title"|trans }}"
                             description="{{ "experiences.list.#{ i }.description"|trans|raw }}"
@@ -311,7 +311,7 @@
                     <twig:frontend:card_info
                             date="{{ "formations.list.#{ i }.date"|trans }}"
                             location="{{ "formations.list.#{ i }.location"|trans }}"
-                            asset="{{ asset('build/front/static/img/enterprises/'~image, 'front') }}"
+                            asset="{{ asset('static/img/enterprises/'~image, 'front') }}"
                             icon="{{ image }}"
                             title="{{ "formations.list.#{ i }.title"|trans }}"
                             description="{{ "formations.list.#{ i }.description"|trans|raw }}"
