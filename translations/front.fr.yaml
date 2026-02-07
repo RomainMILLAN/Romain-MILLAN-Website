@@ -100,7 +100,7 @@ experiences:
       icon: "somedi.jpg"
     2:
       title: "Développeur"
-      date: "2023 - Aujourd'hui"
+      date: "2023 - 2025"
       location: "Sète, France"
       description: "Ce projet a consisté en la création d'un site internet en <span class='text-bold'>Symfony PHP</span> pour une association étudiante sétoise (<span class='text-italic'>Association Générale des Étudiants Sétois</span>). La plateforme permet aux utilisateurs de consulter et d'adhérer aux différentes associations, tout en facilitant la gestion des événements. Les membres peuvent s'inscrire à des activités, gérer leur profil et recevoir des notifications. Une interface administrative a également été mise en place pour permettre aux responsables de gérer efficacement les associations et les utilisateurs. L'objectif était de renforcer l'engagement des étudiants et d'améliorer la communication au sein de l'association."
       icon: "ages.png"
@@ -108,7 +108,7 @@ experiences:
       title: "Développeur Backend"
       date: "2023 - Aujourd'hui"
       location: "Montpellier, France"
-      description: "En tant que développeur web backend chez <span class='text-bold'>Spiriit</span>, j'ai principalement travaillé avec le framework <span class='text-bold'>Symfony</span> pour créer et optimiser des applications web. Mes responsabilités incluaient la conception d'API et d'applications métier, la gestion des bases de données et l'amélioration des performances des sites. J'ai collaboré étroitement avec les équipes frontend pour assurer une intégration fluide et contribuer à des projets variés tels que <a href='https://www.julbo.com/' class='text-underline'>Julbo</a>, <a href='https://store.bandainamcoent.eu/' class='text-underline'>Bandaï Namco Store</a> ou encore <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
+      description: "En tant que développeur web backend chez <a href='https://spiriit.com/' class='text-bold'>Spiriit</a>, j'ai principalement travaillé avec le framework <a href='https://symfony.com/' class='text-bold'>Symfony</a> pour créer et optimiser des applications web. Mes responsabilités incluaient la conception d'API et d'applications métier, la gestion des bases de données et l'amélioration des performances des sites. J'ai collaboré étroitement avec les équipes frontend pour assurer une intégration fluide et contribuer à des projets variés tels que <a href='https://www.julbo.com/' class='text-underline'>Julbo</a>, <a href='https://store.bandainamcoent.eu/' class='text-underline'>Bandaï Namco Store</a> ou encore <a href='https://www.gainfrance.fr/' class='text-underline'>GAIN France</a>."
       icon: "spiriit.svg"
 
 formations:
