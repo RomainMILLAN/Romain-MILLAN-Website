@@ -5,7 +5,13 @@
 		{$FRANKENPHP_CONFIG}
 
 		worker {
-			file ./public/index.php
+			file ./public/index_website.php
+			env APP_RUNTIME Runtime\FrankenPhpSymfony\Runtime
+			{$FRANKENPHP_WORKER_CONFIG}
+		}
+
+		worker {
+			file ./public/index_admin.php
 			env APP_RUNTIME Runtime\FrankenPhpSymfony\Runtime
 			{$FRANKENPHP_WORKER_CONFIG}
 		}
@@ -48,13 +54,19 @@
 	# Disable Topics tracking if not enabled explicitly: https://github.com/jkarlin/topics
 	header ?Permissions-Policy "browsing-topics=()"
 
-	@phpRoute {
-		not path /.well-known/mercure*
+	@websiteRoute {
+		path /fr /fr/* /en /en/* /media/* /uploads/media/*
 		not file {path}
 	}
-	rewrite @phpRoute index.php
+	rewrite @websiteRoute index_website.php
 
-	@frontController path index.php
+	@adminRoute {
+		not path /fr /fr/* /en /en/* /media/* /uploads/media/* /.well-known/mercure*
+		not file {path}
+	}
+	rewrite @adminRoute index_admin.php
+
+	@frontController path index_website.php index_admin.php
 	php @frontController
 
 	file_server {

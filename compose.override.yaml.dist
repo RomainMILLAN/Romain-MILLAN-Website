@@ -7,6 +7,7 @@ services:
     volumes:
       - ./:/app
       - ./frankenphp/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./frankenphp/conf.d/10-app.ini:/usr/local/etc/php/app.conf.d/10-app.ini:ro
       - ./frankenphp/conf.d/20-app.dev.ini:/usr/local/etc/php/app.conf.d/20-app.dev.ini:ro
       # If you develop on Mac or Windows you can remove the vendor/ directory
       #  from the bind-mount for better performance by enabling the next line:
@@ -20,5 +21,9 @@ services:
       - host.docker.internal:host-gateway
     tty: true
   
+  database:
+    ports:
+      - "5432"
+
   mailpit:
     image: axllent/mailpit

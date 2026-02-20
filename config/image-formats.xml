@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<formats xmlns="http://schemas.sulu.io/media/formats"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://schemas.sulu.io/media/formats http://schemas.sulu.io/media/formats-1.1.xsd">
+
+    <format key="100x100">
+        <scale x="100" y="100" mode="outbound"/>
+    </format>
+
+    <format key="150x150">
+        <scale x="150" y="150" mode="outbound"/>
+    </format>
+
+    <format key="250x250">
+        <scale x="250" y="250" mode="outbound"/>
+    </format>
+
+    <format key="300x300">
+        <scale x="300" y="300" mode="outbound"/>
+    </format>
+
+    <format key="500x">
+        <scale x="500" mode="outbound"/>
+    </format>
+
+</formats>

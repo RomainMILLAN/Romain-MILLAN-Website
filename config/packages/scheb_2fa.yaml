@@ -1,0 +1,5 @@
+scheb_two_factor:
+    trusted_device:
+        enabled: true
+    email:
+        enabled: true

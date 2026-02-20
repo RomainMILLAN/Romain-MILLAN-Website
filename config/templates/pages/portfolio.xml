@@ -1,0 +1,249 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>portfolio</key>
+
+    <view>pages/portfolio</view>
+    <controller>Sulu\Content\UserInterface\Controller\Website\ContentController::indexAction</controller>
+    <cacheLifetime>86400</cacheLifetime>
+
+    <meta>
+        <title lang="fr">Portfolio</title>
+        <title lang="en">Portfolio</title>
+    </meta>
+
+    <properties>
+        <!-- Hero section -->
+        <section name="hero">
+            <meta>
+                <title lang="fr">Section Hero</title>
+                <title lang="en">Hero Section</title>
+            </meta>
+            <properties>
+                <property name="hero_photo" type="single_media_selection">
+                    <meta>
+                        <title lang="fr">Photo de profil</title>
+                        <title lang="en">Profile photo</title>
+                    </meta>
+                </property>
+                <property name="hero_title" type="text_editor">
+                    <meta>
+                        <title lang="fr">Titre principal</title>
+                        <title lang="en">Main title</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <!-- About section -->
+        <section name="about">
+            <meta>
+                <title lang="fr">Section À propos</title>
+                <title lang="en">About Section</title>
+            </meta>
+            <properties>
+                <property name="about_subtitle" type="text_line">
+                    <meta>
+                        <title lang="fr">Sous-titre</title>
+                        <title lang="en">Subtitle</title>
+                    </meta>
+                </property>
+                <property name="about_photo" type="single_media_selection">
+                    <meta>
+                        <title lang="fr">Photo À propos</title>
+                        <title lang="en">About Photo</title>
+                    </meta>
+                </property>
+                <property name="about_paragraph" type="text_editor">
+                    <meta>
+                        <title lang="fr">Contenu</title>
+                        <title lang="en">Content</title>
+                    </meta>
+                </property>
+                <property name="about_cv_label" type="text_line">
+                    <meta>
+                        <title lang="fr">Libellé bouton CV</title>
+                        <title lang="en">CV button label</title>
+                    </meta>
+                </property>
+                <property name="about_cv_file" type="single_media_selection">
+                    <meta>
+                        <title lang="fr">Fichier CV</title>
+                        <title lang="en">CV file</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+        <!-- Works section -->
+        <section name="works_section">
+            <meta>
+                <title lang="fr">Section Travaux</title>
+                <title lang="en">Works Section</title>
+            </meta>
+            <properties>
+                <property name="works_title" type="text_line">
+                    <meta>
+                        <title lang="fr">Titre des travaux</title>
+                        <title lang="en">Works title</title>
+                    </meta>
+                </property>
+                <block name="works" default-type="project">
+                    <meta>
+                        <title lang="fr">Projets</title>
+                        <title lang="en">Projects</title>
+                    </meta>
+                    <types>
+                        <type name="project">
+                            <meta>
+                                <title lang="fr">Projet</title>
+                                <title lang="en">Project</title>
+                            </meta>
+                            <properties>
+                                <property name="title" type="text_line" mandatory="true">
+                                    <meta>
+                                        <title lang="fr">Titre</title>
+                                        <title lang="en">Title</title>
+                                    </meta>
+                                </property>
+                                <property name="description" type="text_editor">
+                                    <meta>
+                                        <title lang="fr">Description</title>
+                                        <title lang="en">Description</title>
+                                    </meta>
+                                </property>
+                                <property name="illustrations" type="media_selection">
+                                    <meta>
+                                        <title lang="fr">Illustrations</title>
+                                        <title lang="en">Illustrations</title>
+                                    </meta>
+                                </property>
+                                <property name="skills" type="text_line">
+                                    <meta>
+                                        <title lang="fr">Compétences (séparées par des virgules)</title>
+                                        <title lang="en">Skills (comma-separated)</title>
+                                    </meta>
+                                </property>
+                                <block name="links" default-type="link">
+                                    <meta>
+                                        <title lang="fr">Liens</title>
+                                        <title lang="en">Links</title>
+                                    </meta>
+                                    <types>
+                                        <type name="link">
+                                            <meta>
+                                                <title lang="fr">Lien</title>
+                                                <title lang="en">Link</title>
+                                            </meta>
+                                            <properties>
+                                                <property name="icon" type="text_line">
+                                                    <meta>
+                                                        <title lang="fr">Icône (ex: mdi:github)</title>
+                                                        <title lang="en">Icon (e.g. mdi:github)</title>
+                                                    </meta>
+                                                </property>
+                                                <property name="url" type="text_line">
+                                                    <meta>
+                                                        <title lang="fr">URL</title>
+                                                        <title lang="en">URL</title>
+                                                    </meta>
+                                                </property>
+                                            </properties>
+                                        </type>
+                                    </types>
+                                </block>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+
+        <!-- Timeline sections (Experiences + Formations) -->
+        <section name="timeline">
+            <meta>
+                <title lang="fr">Sections Timeline</title>
+                <title lang="en">Timeline Sections</title>
+            </meta>
+            <properties>
+                <block name="timeline_sections" default-type="timeline_section">
+                    <meta>
+                        <title lang="fr">Sections (Expériences, Formations, ...)</title>
+                        <title lang="en">Sections (Experiences, Education, ...)</title>
+                    </meta>
+                    <types>
+                        <type name="timeline_section">
+                            <meta>
+                                <title lang="fr">Section Timeline</title>
+                                <title lang="en">Timeline Section</title>
+                            </meta>
+                            <properties>
+                                <property name="section_title" type="text_line" mandatory="true">
+                                    <meta>
+                                        <title lang="fr">Titre de la section</title>
+                                        <title lang="en">Section title</title>
+                                    </meta>
+                                </property>
+                                <property name="section_id" type="text_line">
+                                    <meta>
+                                        <title lang="fr">Identifiant HTML (ex: experiences)</title>
+                                        <title lang="en">HTML ID (e.g. experiences)</title>
+                                    </meta>
+                                </property>
+                                <block name="entries" default-type="timeline_entry">
+                                    <meta>
+                                        <title lang="fr">Entrées</title>
+                                        <title lang="en">Entries</title>
+                                    </meta>
+                                    <types>
+                                        <type name="timeline_entry">
+                                            <meta>
+                                                <title lang="fr">Entrée</title>
+                                                <title lang="en">Entry</title>
+                                            </meta>
+                                            <properties>
+                                                <property name="title" type="text_line" mandatory="true">
+                                                    <meta>
+                                                        <title lang="fr">Titre</title>
+                                                        <title lang="en">Title</title>
+                                                    </meta>
+                                                </property>
+                                                <property name="date" type="text_line">
+                                                    <meta>
+                                                        <title lang="fr">Date</title>
+                                                        <title lang="en">Date</title>
+                                                    </meta>
+                                                </property>
+                                                <property name="location" type="text_line">
+                                                    <meta>
+                                                        <title lang="fr">Lieu</title>
+                                                        <title lang="en">Location</title>
+                                                    </meta>
+                                                </property>
+                                                <property name="description" type="text_editor">
+                                                    <meta>
+                                                        <title lang="fr">Description</title>
+                                                        <title lang="en">Description</title>
+                                                    </meta>
+                                                </property>
+                                                <property name="icon" type="single_media_selection">
+                                                    <meta>
+                                                        <title lang="fr">Icône/Logo</title>
+                                                        <title lang="en">Icon/Logo</title>
+                                                    </meta>
+                                                </property>
+                                            </properties>
+                                        </type>
+                                    </types>
+                                </block>
+                            </properties>
+                        </type>
+                    </types>
+                </block>
+            </properties>
+        </section>
+    </properties>
+</template>
