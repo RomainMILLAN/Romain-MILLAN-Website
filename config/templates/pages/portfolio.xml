@@ -16,6 +16,13 @@
     </meta>
 
     <properties>
+        <property name="url" type="route" mandatory="true">
+            <meta>
+                <title lang="fr">URL</title>
+                <title lang="en">URL</title>
+            </meta>
+        </property>
+
         <!-- Hero section -->
         <section name="hero">
             <meta>
