@@ -9,7 +9,8 @@
       "Bash(grep:*)",
       "Bash(php bin/websiteconsole:*)",
       "Bash(docker compose exec:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(sed:*)"
     ]
   }
 }

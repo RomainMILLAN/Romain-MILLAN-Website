@@ -101,20 +101,26 @@
 										<a href="{{ portfolio_url }}#formations">{{ 'navigation.formations'|trans }}</a>
 									</li>
 								{% endif %}
-								<li>
-									<form action="#" class="language_picker--container">
-										<label>
-											<select
-													onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
-													name="language_picker--select"
-											>
-												{% for loc in sulu_localizations() %}
-													<option lang="{{ loc.locale }}" {% if loc.current %}selected{% endif %} value="{{ app.request.pathInfo|replace({('/' ~ app.request.locale ~ '/'): '/' ~ loc.locale ~ '/', ('/' ~ app.request.locale): '/' ~ loc.locale}) }}">{{ loc.locale|language_name(loc.locale)|u.title }}</option>
-												{% endfor %}
-											</select>
-										</label>
-									</form>
-								</li>
+								{% if localizations is defined %}
+									<li>
+										<form action="#" class="language_picker--container">
+											<label>
+												<select
+														onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
+														name="language_picker--select"
+												>
+													{% for locale, localization in localizations %}
+														<option lang="{{ locale }}"
+															{% if locale == app.request.locale %}selected{% endif %}
+															value="{{ localization.url }}">
+															{{ locale|language_name(locale)|u.title }}
+														</option>
+													{% endfor %}
+												</select>
+											</label>
+										</form>
+									</li>
+								{% endif %}
 								<li class="nav_small">
 									<p>© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}" style="padding: 0; margin: 0;">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
 									<p>{{ 'footer.no_reproduce'|trans }}</p>
@@ -162,18 +168,24 @@
 						{{ _self.desktopLink('navigation.experiences'|trans, 'experiences', portfolio_url) }}
 					{% endif %}
 
-					<form action="#" class="language_picker--container">
-						<label>
-							<select
-									onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
-									name="language_picker--select"
-							>
-								{% for loc in sulu_localizations() %}
-									<option lang="{{ loc.locale }}" {% if loc.current %}selected{% endif %} value="{{ app.request.pathInfo|replace({('/' ~ app.request.locale ~ '/'): '/' ~ loc.locale ~ '/', ('/' ~ app.request.locale): '/' ~ loc.locale}) }}">{{ loc.locale|language_name(loc.locale)|u.title }}</option>
-								{% endfor %}
-							</select>
-						</label>
-					</form>
+					{% if localizations is defined %}
+						<form action="#" class="language_picker--container">
+							<label>
+								<select
+										onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);"
+										name="language_picker--select"
+								>
+									{% for locale, localization in localizations %}
+										<option lang="{{ locale }}"
+											{% if locale == app.request.locale %}selected{% endif %}
+											value="{{ localization.url }}">
+											{{ locale|language_name(locale)|u.title }}
+										</option>
+									{% endfor %}
+								</select>
+							</label>
+						</form>
+					{% endif %}
 
 					<div class="theme_mode--container flex-row align-items-center justify-content-center">
 						<div id="themeMode-light" class="theme_mode--item justify-content-center align-items-center" {{ stimulus_action('theme', 'switchToLightMode', 'click') }} {{ stimulus_target('theme', 'light') }}>
