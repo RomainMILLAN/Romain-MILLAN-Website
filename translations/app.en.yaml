@@ -1,21 +1,5 @@
 navigation:
-  title: "Navigation"
-  portfolio: "My portfolio"
-  aboutme: "About me"
-  works: "My works"
-  experiences: "My experiences"
-  formations: "My education"
   panel: "Access the panel"
-
-contact:
-  title: "Contact"
-  email: "Mail"
-  github: "Github"
-  cv: "Curriculum Vitae"
-  linkedin: "LinkedIn"
-
-terms_of_use:
-  title: "Legal Mentions"
 
 footer:
   all_right_reserved: "All rights reserved."

@@ -70,6 +70,32 @@
                                         </property>
                                     </properties>
                                 </type>
+                                <type name="media_link">
+                                    <meta>
+                                        <title lang="fr">Lien média</title>
+                                        <title lang="en">Media link</title>
+                                    </meta>
+                                    <properties>
+                                        <property name="label" type="text_line" mandatory="true">
+                                            <meta>
+                                                <title lang="fr">Libellé</title>
+                                                <title lang="en">Label</title>
+                                            </meta>
+                                        </property>
+                                        <property name="media" type="single_media_selection" mandatory="true">
+                                            <meta>
+                                                <title lang="fr">Fichier</title>
+                                                <title lang="en">File</title>
+                                            </meta>
+                                        </property>
+                                        <property name="target_blank" type="checkbox">
+                                            <meta>
+                                                <title lang="fr">Nouvel onglet</title>
+                                                <title lang="en">New tab</title>
+                                            </meta>
+                                        </property>
+                                    </properties>
+                                </type>
                             </types>
                         </block>
                     </properties>

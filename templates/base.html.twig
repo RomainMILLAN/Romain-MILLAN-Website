@@ -77,30 +77,14 @@
 										hasRedirect="true"
 								/>
 
-								{% if nav_items is not null %}
-									{% for item in nav_items %}
-										{% set href = item.url starts with '/' ? locale_prefix ~ item.url : item.url %}
-										<li>
-											<a href="{{ href }}"{% if item.target_blank|default(false) %} target="_blank"{% endif %}>{{ item.label }}</a>
-										</li>
-									{% endfor %}
-								{% else %}
+								{% for item in nav_items|default([]) %}
+									{% set href = item.url starts with '/' ? locale_prefix ~ item.url : item.url %}
+
 									<li>
-										<a href="{{ portfolio_url }}#home">{{ 'navigation.portfolio'|trans }}</a>
+										<a href="{{ href }}"{% if item.target_blank|default(false) %} target="_blank"{% endif %}>{{ item.label }}</a>
 									</li>
-									<li>
-										<a href="{{ portfolio_url }}#aboutme">{{ 'navigation.aboutme'|trans }}</a>
-									</li>
-									<li>
-										<a href="{{ portfolio_url }}#work">{{ 'navigation.works'|trans }}</a>
-									</li>
-									<li>
-										<a href="{{ portfolio_url }}#experiences">{{ 'navigation.experiences'|trans }}</a>
-									</li>
-									<li>
-										<a href="{{ portfolio_url }}#formations">{{ 'navigation.formations'|trans }}</a>
-									</li>
-								{% endif %}
+								{% endfor %}
+
 								{% if localizations is defined %}
 									<li>
 										<form action="#" class="language_picker--container">
@@ -121,6 +105,7 @@
 										</form>
 									</li>
 								{% endif %}
+
 								<li class="nav_small">
 									<p>© 2023-{{ 'now' | date('Y') }} <a href="{{ absolute_url(path('redirect')) }}" style="padding: 0; margin: 0;">{{ absolute_url(path('redirect')) }}</a>, {{ 'footer.all_right_reserved'|trans }}</p>
 									<p>{{ 'footer.no_reproduce'|trans }}</p>
@@ -142,31 +127,16 @@
 				/>
 
 				<nav class="desktop_header--navigation">
-					{% macro desktopLink(text, id, portfolio_url) %}
-						{% set is_portfolio = app.request.pathInfo starts with '/' ~ app.request.locale ~ '/portfolio' %}
-						<a class="desktop_header--navigation_item cursor-pointer" tabindex="0"
-								{% if is_portfolio %}
-									role="button" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: id}) }}
-								{% else %}
-									{% set hrefLink = portfolio_url ~ '#' ~ id %}
-									href="{{ hrefLink }}"
-								{% endif %}
-						>{{ text }}</a>
-					{% endmacro %}
-
-					{% if nav_items is not null %}
-						{% for item in nav_items %}
-							{% set href = item.url starts with '/' ? locale_prefix ~ item.url : item.url %}
-							<a class="desktop_header--navigation_item cursor-pointer" tabindex="0"
-								href="{{ href }}"{% if item.target_blank|default(false) %} target="_blank"{% endif %}
-							>{{ item.label }}</a>
-						{% endfor %}
-					{% else %}
-						{{ _self.desktopLink('navigation.portfolio'|trans, 'home', portfolio_url) }}
-						{{ _self.desktopLink('navigation.aboutme'|trans, 'aboutme', portfolio_url) }}
-						{{ _self.desktopLink('navigation.works'|trans, 'work', portfolio_url) }}
-						{{ _self.desktopLink('navigation.experiences'|trans, 'experiences', portfolio_url) }}
-					{% endif %}
+					{% for item in nav_items %}
+						{% set href = item.url starts with '/' ? locale_prefix ~ item.url : item.url %}
+						<a class="desktop_header--navigation_item cursor-pointer" 
+							tabindex="0"
+							href="{{ href }}"
+							{% if item.target_blank|default(false) %}target="_blank"{% endif %}
+						>
+							{{ item.label }}
+						</a>
+					{% endfor %}
 
 					{% if localizations is defined %}
 						<form action="#" class="language_picker--container">
@@ -226,26 +196,15 @@
 									<h6 class="text-underline m-0">{{ column.title }}</h6>
 									{% if column.links is defined %}
 										{% for link in column.links %}
-											<a href="{{ link.url }}"{% if link.target_blank|default(false) %} target="_blank"{% endif %}>{{ link.label }}</a>
+											{% if link.type == 'media_link' and link.media.url is defined %}
+												<a href="{{ link.media.url }}"{% if link.target_blank|default(false) %} target="_blank"{% endif %}>{{ link.label }}</a>
+											{% else %}
+												<a href="{{ link.url }}"{% if link.target_blank|default(false) %} target="_blank"{% endif %}>{{ link.label }}</a>
+											{% endif %}
 										{% endfor %}
 									{% endif %}
 								</div>
 							{% endfor %}
-						{% else %}
-							<div class="footer_navigation--item flex-column m-0 p-0">
-								<h6 class="text-underline m-0">{{ 'navigation.title'|trans }}</h6>
-								<a href="{{ portfolio_url }}">{{ 'navigation.portfolio'|trans }}</a>
-								<a href="{{ terms_url }}">{{ 'terms_of_use.title'|trans }}</a>
-								<a href="{{ path('app_security_login') }}">Panel</a>
-							</div>
-
-							<div class="footer_navigation--item flex-column m-0 p-0">
-								<h6 class="text-underline m-0">{{ 'contact.title'|trans }}</h6>
-								<a href="mailto:contact@romainmillan.fr">{{ 'contact.email'|trans }}</a>
-								<a href="https://github.com/RomainMILLAN/">{{ 'contact.github'|trans }}</a>
-								<a href="{{ asset('static/upload/CV_MILLAN_Romain.pdf', 'front') }}" target="_blank">{{ 'contact.cv'|trans }}</a>
-								<a href="https://www.linkedin.com/in/romain-millan/">{{ 'contact.linkedin'|trans }}</a>
-							</div>
 						{% endif %}
 
 					</div>
