@@ -26,7 +26,8 @@
   },
   "devDependencies": {
     "@arkounay/ux-collection": "file:vendor/arkounay/ux-collection/assets",
-    "@hotwired/stimulus": "^3.0.0",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
     "@hotwired/turbo": "^8.0.3",
     "@popperjs/core": "^2.11.8",
     "@symfony/stimulus-bridge": "^3.2.2",
@@ -34,6 +35,7 @@
     "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets",
     "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets",
     "@symfony/webpack-encore": "^5.0.1",
+    "babel-loader": "^10.0.0",
     "bootstrap": "^5.3.3",
     "chart.js": "^3.4.1 || ^4.0",
     "core-js": "^3.38.1",

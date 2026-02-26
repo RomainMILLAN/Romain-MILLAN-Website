@@ -1,16 +1,14 @@
-#
-# Made by Romain Millan © 2023-2025
-#
 .DEFAULT_GLOBAL = help
 SHELL:=/bin/bash
+OS := $(shell lsb_release -is)
 
 DOCKER=docker
-DC=$(DOCKER) compose
+DC=$(DOCKER) compose --env-file .env --env-file .env.docker
 DCE=$(DC) exec
 PHP=$(DCE) php php
 CONSOLE=$(PHP) bin/console
 COMPOSER=$(DCE) php composer
-NPM=npm
+NPM=$(DCE) node yarn
 ENV ?= dev
 
 ##
@@ -62,8 +60,12 @@ vendor-build:
 	@$(DC) php composer install --no-dev --optimize-autoloader
 
 .PHONY: npm
-npm:
+assets-install:
 	$(NPM) install
+
+.PHONY: sulu.install
+sulu.install: ## Install Sulu CMS (ENV=dev|prod)
+	@$(PHP) bin/adminconsole sulu:build $(ENV)
 
 ##
 ## —— Cache 🗃️ ————————————————
@@ -74,8 +76,8 @@ cc:			## Clear cache
 ##
 ## —— Assets ✨ ————————————————
 .PHONY: assets
-assets:	npm  ## Build assets - dev version
-	$(NPM) run dev
+assets:	assets-install  ## Build assets - dev version
+	$(NPM) run encore dev
 
 .PHONY: assets-build
 assets-build: npm  ## Build assets - prod version
@@ -83,7 +85,7 @@ assets-build: npm  ## Build assets - prod version
 
 .PHONY: watch
 watch:		## Watch assets
-	$(NPM) run watch
+	$(NPM) run encore dev --watch
 
 ##
 ## —— Database 🗃️————————————————
@@ -151,6 +153,30 @@ ecs:		## Coding standards
 
 ##
 ## —— Configuration 📋 ————————————————
+.PHONY: config
+config: compose.override.yaml docker.config ## Copy configuration files
+
+.PHONY: docker.config
+docker.config: .env.docker.dist
+	@echo "📝 Copying .env.docker.dist to .env.docker (only if missing)"
+	@if [ ! -f .env.docker ]; then \
+		cp .env.docker.dist .env.docker; \
+	else \
+		echo ".env.docker already exists, skipping"; \
+	fi
+
+	@USER_ID=$$(id -u); \
+	GROUP_ID=$$(id -g); \
+	SED_INPLACE_FLAG=$$( [ "$$(uname)" = "Darwin" ] && echo "-i ''" || echo "-i" ); \
+	echo "🔧 Updating APP_USER_ID=$$USER_ID and APP_GROUP_ID=$$GROUP_ID in .env.docker"; \
+	sed $$SED_INPLACE_FLAG "s/^APP_USER_ID=.*/APP_USER_ID=$$USER_ID/" .env.docker; \
+	sed $$SED_INPLACE_FLAG "s/^APP_GROUP_ID=.*/APP_GROUP_ID=$$GROUP_ID/" .env.docker;
+
+.PHONY: compose.override.yaml
+compose.override.yaml: compose.override.yaml.dist
+	@echo "📝 Copying compose"
+	@cp compose.override.yaml.dist compose.override.yaml
+
 COMPOSER_FILE=./composer.json
 PACKAGE_FILE=./package.json
 ENV_FILE=./.env
