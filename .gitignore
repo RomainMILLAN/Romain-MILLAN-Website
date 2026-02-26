@@ -43,3 +43,4 @@ compose.override.yaml
 .env.docker
 .env.local
 src/AppContext/Infrastructure/Symfony/Command/SandboxCommand.php
+@%kernel.project_dir%/

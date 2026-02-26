@@ -1,7 +1,7 @@
 cmsig_seal:
     engines:
         default:
-            adapter: '%env(SEAL_DSN)%'
+            adapter: '%env(resolve:SEAL_DSN)%'
 
 when@test:
     cmsig_seal:

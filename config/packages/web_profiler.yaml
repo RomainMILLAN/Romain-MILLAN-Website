@@ -7,6 +7,7 @@ when@dev:
         profiler:
             only_exceptions: false
             collect_serializer_data: true
+            dsn: 'file:%kernel.project_dir%/var/profiler'
 
 when@test:
     web_profiler:
