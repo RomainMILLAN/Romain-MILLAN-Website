@@ -284,7 +284,7 @@
                                 <twig:frontend:card_info
                                         date="{{ entry.date }}"
                                         location="{{ entry.location }}"
-                                        asset="{{ entry.icon.id is defined ? entry.icon.thumbnails['100x100'] : '' }}"
+                                        asset="{{ entry.icon.id is defined ? entry.icon.url : '' }}"
                                         icon="{{ entry.icon.title|default('') }}"
                                         title="{{ entry.title }}"
                                         description="{{ entry.description|raw }}"

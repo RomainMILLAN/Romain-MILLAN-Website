@@ -34,7 +34,7 @@
 	header ?Permissions-Policy "browsing-topics=()"
 
 	@websiteRoute {
-		path /fr /fr/* /en /en/* /media/* /uploads/media/* /_wdt/* /_profiler/*
+		path /fr /fr/* /en /en/* /media/* /uploads/media/*
 		not file {path}
 	}
 	rewrite @websiteRoute index_website.php

@@ -44,3 +44,4 @@ compose.override.yaml
 .env.local
 src/AppContext/Infrastructure/Symfony/Command/SandboxCommand.php
 @%kernel.project_dir%/
+/public/uploads/
