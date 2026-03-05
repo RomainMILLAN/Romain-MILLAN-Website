@@ -21,7 +21,7 @@ RUN apt-get update \
 ARG APP_USER_ID=999
 ARG APP_GROUP_ID=999
 
-RUN groupadd -g ${APP_GROUP_ID} project \
+RUN (getent group ${APP_GROUP_ID} || groupadd -g ${APP_GROUP_ID} project) \
   && useradd -u ${APP_USER_ID} -g ${APP_GROUP_ID} -m -s /bin/bash project
 
 USER project

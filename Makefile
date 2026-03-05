@@ -1,6 +1,6 @@
 .DEFAULT_GLOBAL = help
 SHELL:=/bin/bash
-OS := $(shell lsb_release -is)
+OS := $(shell uname -s)
 
 DOCKER=docker
 DC=$(DOCKER) compose --env-file .env --env-file .env.docker
@@ -27,7 +27,7 @@ stop: ## Stop project
 
 .PHONY: up
 up: build
-	@SERVER_NAME=:80 $(DC) up --pull always -d
+	@$(DC) up --pull always -d
 
 .PHONY: build
 build:
