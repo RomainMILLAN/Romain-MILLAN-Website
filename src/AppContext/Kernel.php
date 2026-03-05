@@ -15,7 +15,7 @@ class Kernel extends SuluKernel implements HttpCacheProvider
 
     public function getHttpCache(): HttpKernelInterface
     {
-        if (!$this->httpCache instanceof HttpKernelInterface) {
+        if (! $this->httpCache instanceof HttpKernelInterface) {
             $this->httpCache = new SuluHttpCache($this);
         }
 
