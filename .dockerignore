@@ -25,6 +25,7 @@
 docs/
 public/bundles/
 tests/
+database_data/
 var/
 vendor/
 .editorconfig
