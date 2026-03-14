@@ -89,6 +89,12 @@ watch:		## Watch assets
 
 ##
 ## —— Database 🗃️————————————————
+POSTGRES_USER ?= app
+POSTGRES_DB ?= app
+POSTGRES_PORT ?= 9922
+POSTGRES_PASSWORD ?=
+DUMP ?= backup_$(shell date +%Y%m%d_%H%M%S).sql
+
 .PHONY: db-diff
 db-diff: ## Generate a new migration
 	@$(CONSOLE) doctrine:migration:diff
@@ -109,21 +115,28 @@ db-reset: ## Reset database and execute migrations
 	@echo "🚚 Run all migrations."
 	@make db-migrate
 
-.PHONY: db-import
-db-import: ## Reset database with given DUMP variable
-	@:$(call check_defined, DUMP, sql file)
-	@docker cp ./var/$(DUMP) $(shell $(DC) ps -q database):/$(DUMP)
-	@echo '🗃️ Reseting and import database.'
-	@$(DCE) database reset $(DUMP) > /dev/null
-	@echo '✅ Your dump ($(DUMP)) is been imported.'
-
 .PHONY: db-dump
-db-dump: ## Save database to a sql file
+db-dump: ## Dump database to a SQL file (DUMP=filename.sql, ENV=dev|prod)
+ifeq ($(ENV),prod)
+	@echo '🗃️ Dumping production database.'
+	@PGPASSWORD=$(POSTGRES_PASSWORD) pg_dump -h 127.0.0.1 -p $(POSTGRES_PORT) -U $(POSTGRES_USER) -d $(POSTGRES_DB) --no-owner --no-acl > ./db-backup/$(DUMP)
+else
+	@echo '🗃️ Dumping development database.'
+	@$(DCE) database pg_dump -U $${POSTGRES_USER:-app} -d $${POSTGRES_DB:-app} --no-owner --no-acl > ./db-backup/$(DUMP)
+endif
+	@echo '✅ Database dumped to db-backup/$(DUMP)'
+
+.PHONY: db-import
+db-import: ## Import SQL dump into database (DUMP=filename.sql, ENV=dev|prod)
 	@:$(call check_defined, DUMP, sql file)
-	@echo '🗃️ Saving database.'
-	@$(DCE) database save $(DUMP) > /dev/null
-	@echo '🗃️ Copy to local.'
-	@docker cp $(shell $(DC) ps -q database):/$(DUMP) ./var/$(DUMP)
+ifeq ($(ENV),prod)
+	@echo '🗃️ Importing into production database.'
+	@PGPASSWORD=$(POSTGRES_PASSWORD) psql -h 127.0.0.1 -p $(POSTGRES_PORT) -U $(POSTGRES_USER) -d $(POSTGRES_DB) < ./db-backup/$(DUMP)
+else
+	@echo '🗃️ Importing into development database.'
+	@$(DC) exec -T database psql -U $${POSTGRES_USER:-app} -d $${POSTGRES_DB:-app} < ./db-backup/$(DUMP)
+endif
+	@echo '✅ Dump ($(DUMP)) has been imported.'
 
 ##
 ## —— Tests 📊 & Code Quality ✅————————————————
