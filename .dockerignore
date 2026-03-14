@@ -25,8 +25,11 @@
 docs/
 public/bundles/
 tests/
+database_data/
 var/
 vendor/
 .editorconfig
+.env.local
+.env.*.local
 .env.local.php
 .env.test

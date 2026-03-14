@@ -2,7 +2,6 @@
 
 namespace Front\Infrastructure\Twig\Extensions;
 
-use Front\Infrastructure\Symfony\Controller\RouteCollection;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -23,12 +22,8 @@ class PortfolioRoutingExtension extends AbstractExtension
 
     public function isCurrentPortfolio(): bool
     {
-        if ($this->requestStack->getMainRequest()->attributes->get(
-            '_route'
-        ) === RouteCollection::PORTFOLIO->prefixed()) {
-            return true;
-        }
+        $pathInfo = $this->requestStack->getMainRequest()?->getPathInfo() ?? '';
 
-        return false;
+        return (bool) preg_match('#^/[a-z]{2}/portfolio$#', $pathInfo);
     }
 }

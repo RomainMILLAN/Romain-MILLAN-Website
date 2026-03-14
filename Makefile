@@ -1,16 +1,14 @@
-#
-# Made by Romain Millan © 2023-2025
-#
 .DEFAULT_GLOBAL = help
 SHELL:=/bin/bash
+OS := $(shell uname -s)
 
 DOCKER=docker
-DC=$(DOCKER) compose
+DC=$(DOCKER) compose --env-file .env --env-file .env.docker
 DCE=$(DC) exec
 PHP=$(DCE) php php
 CONSOLE=$(PHP) bin/console
 COMPOSER=$(DCE) php composer
-NPM=npm
+NPM=$(DCE) node yarn
 ENV ?= dev
 
 ##
@@ -29,7 +27,7 @@ stop: ## Stop project
 
 .PHONY: up
 up: build
-	@SERVER_NAME=:80 $(DC) up --pull always -d
+	@$(DC) up --pull always -d
 
 .PHONY: build
 build:
@@ -62,8 +60,12 @@ vendor-build:
 	@$(DC) php composer install --no-dev --optimize-autoloader
 
 .PHONY: npm
-npm:
+assets-install:
 	$(NPM) install
+
+.PHONY: sulu.install
+sulu.install: ## Install Sulu CMS (ENV=dev|prod)
+	@$(PHP) bin/adminconsole sulu:build $(ENV)
 
 ##
 ## —— Cache 🗃️ ————————————————
@@ -74,8 +76,8 @@ cc:			## Clear cache
 ##
 ## —— Assets ✨ ————————————————
 .PHONY: assets
-assets:	npm  ## Build assets - dev version
-	$(NPM) run dev
+assets:	assets-install  ## Build assets - dev version
+	$(NPM) run encore dev
 
 .PHONY: assets-build
 assets-build: npm  ## Build assets - prod version
@@ -83,10 +85,16 @@ assets-build: npm  ## Build assets - prod version
 
 .PHONY: watch
 watch:		## Watch assets
-	$(NPM) run watch
+	$(NPM) run encore dev --watch
 
 ##
 ## —— Database 🗃️————————————————
+POSTGRES_USER ?= app
+POSTGRES_DB ?= app
+POSTGRES_PORT ?= 9922
+POSTGRES_PASSWORD ?=
+DUMP ?= backup_$(shell date +%Y%m%d_%H%M%S).sql
+
 .PHONY: db-diff
 db-diff: ## Generate a new migration
 	@$(CONSOLE) doctrine:migration:diff
@@ -107,21 +115,28 @@ db-reset: ## Reset database and execute migrations
 	@echo "🚚 Run all migrations."
 	@make db-migrate
 
-.PHONY: db-import
-db-import: ## Reset database with given DUMP variable
-	@:$(call check_defined, DUMP, sql file)
-	@docker cp ./var/$(DUMP) $(shell $(DC) ps -q database):/$(DUMP)
-	@echo '🗃️ Reseting and import database.'
-	@$(DCE) database reset $(DUMP) > /dev/null
-	@echo '✅ Your dump ($(DUMP)) is been imported.'
-
 .PHONY: db-dump
-db-dump: ## Save database to a sql file
+db-dump: ## Dump database to a SQL file (DUMP=filename.sql, ENV=dev|prod)
+ifeq ($(ENV),prod)
+	@echo '🗃️ Dumping production database.'
+	@PGPASSWORD=$(POSTGRES_PASSWORD) pg_dump -h 127.0.0.1 -p $(POSTGRES_PORT) -U $(POSTGRES_USER) -d $(POSTGRES_DB) --no-owner --no-acl > ./db-backup/$(DUMP)
+else
+	@echo '🗃️ Dumping development database.'
+	@$(DCE) database pg_dump -U $${POSTGRES_USER:-app} -d $${POSTGRES_DB:-app} --no-owner --no-acl > ./db-backup/$(DUMP)
+endif
+	@echo '✅ Database dumped to db-backup/$(DUMP)'
+
+.PHONY: db-import
+db-import: ## Import SQL dump into database (DUMP=filename.sql, ENV=dev|prod)
 	@:$(call check_defined, DUMP, sql file)
-	@echo '🗃️ Saving database.'
-	@$(DCE) database save $(DUMP) > /dev/null
-	@echo '🗃️ Copy to local.'
-	@docker cp $(shell $(DC) ps -q database):/$(DUMP) ./var/$(DUMP)
+ifeq ($(ENV),prod)
+	@echo '🗃️ Importing into production database.'
+	@PGPASSWORD=$(POSTGRES_PASSWORD) psql -h 127.0.0.1 -p $(POSTGRES_PORT) -U $(POSTGRES_USER) -d $(POSTGRES_DB) < ./db-backup/$(DUMP)
+else
+	@echo '🗃️ Importing into development database.'
+	@$(DC) exec -T database psql -U $${POSTGRES_USER:-app} -d $${POSTGRES_DB:-app} < ./db-backup/$(DUMP)
+endif
+	@echo '✅ Dump ($(DUMP)) has been imported.'
 
 ##
 ## —— Tests 📊 & Code Quality ✅————————————————
@@ -151,6 +166,30 @@ ecs:		## Coding standards
 
 ##
 ## —— Configuration 📋 ————————————————
+.PHONY: config
+config: compose.override.yaml docker.config ## Copy configuration files
+
+.PHONY: docker.config
+docker.config: .env.docker.dist
+	@echo "📝 Copying .env.docker.dist to .env.docker (only if missing)"
+	@if [ ! -f .env.docker ]; then \
+		cp .env.docker.dist .env.docker; \
+	else \
+		echo ".env.docker already exists, skipping"; \
+	fi
+
+	@USER_ID=$$(id -u); \
+	GROUP_ID=$$(id -g); \
+	SED_INPLACE_FLAG=$$( [ "$$(uname)" = "Darwin" ] && echo "-i ''" || echo "-i" ); \
+	echo "🔧 Updating APP_USER_ID=$$USER_ID and APP_GROUP_ID=$$GROUP_ID in .env.docker"; \
+	sed $$SED_INPLACE_FLAG "s/^APP_USER_ID=.*/APP_USER_ID=$$USER_ID/" .env.docker; \
+	sed $$SED_INPLACE_FLAG "s/^APP_GROUP_ID=.*/APP_GROUP_ID=$$GROUP_ID/" .env.docker;
+
+.PHONY: compose.override.yaml
+compose.override.yaml: compose.override.yaml.dist
+	@echo "📝 Copying compose"
+	@cp compose.override.yaml.dist compose.override.yaml
+
 COMPOSER_FILE=./composer.json
 PACKAGE_FILE=./package.json
 ENV_FILE=./.env

@@ -33,13 +33,11 @@ RUN set -eux; \
 		intl \
 		opcache \
 		zip \
+		gd \
 	;
 
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
-
-# Transport to use by Mercure (default to Bolt)
-ENV MERCURE_TRANSPORT_URL=bolt:///data/mercure.db
 
 ENV PHP_INI_SCAN_DIR=":$PHP_INI_DIR/app.conf.d"
 
@@ -76,16 +74,10 @@ COPY --link frankenphp/conf.d/20-app.dev.ini $PHP_INI_DIR/app.conf.d/
 
 CMD [ "frankenphp", "run", "--config", "/etc/caddy/Caddyfile", "--watch" ]
 
-# Prod FrankenPHP image
-FROM frankenphp_base AS frankenphp_prod
+# Prod dependencies (composer install)
+FROM frankenphp_base AS prod_deps
 
 ENV APP_ENV=prod
-
-# Install NodeJS for assets build
-RUN apt-get update && apt-get install -y \
-    nodejs \
-    npm \
-	&& rm -rf /var/lib/apt/lists/*
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
@@ -103,6 +95,26 @@ RUN rm -Rf frankenphp/
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
 	composer dump-autoload --classmap-authoritative --no-dev; \
-	composer dump-env prod; \
 	composer run-script --no-dev post-install-cmd; \
 	chmod +x bin/console; sync;
+
+# Assets builder (Node.js — builds all assets, not included in final image)
+FROM node:25-slim AS assets_builder
+
+WORKDIR /app
+
+# Copy full app source + vendor (needed for Sulu admin file: references)
+COPY --from=prod_deps /app /app
+
+# Main app assets (Webpack Encore)
+RUN npm install && npm run build
+
+# Sulu admin assets
+WORKDIR /app/assets/admin
+RUN npm install && npm run build
+
+# Final prod image (no Node.js)
+FROM prod_deps AS frankenphp_prod
+
+# Overlay compiled assets from builder
+COPY --from=assets_builder /app/public/build/ public/build/

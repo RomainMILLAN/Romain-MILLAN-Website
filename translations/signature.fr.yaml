@@ -8,15 +8,6 @@ create:
   form:
     general_information:
       title: "Information générales"
-      lastName: "Nom de famille"
-      firstName: "Prénom"
-      status: "Statut"
-      logo: "Votre logo"
-      accentColor: "Couleur d'accentuation"
-    emails:
-      title: "Vo・tre・s adresse(s) email(s)"
-    phones:
-      title: "Vo・tre・s numéro(s) de téléphone(s)"
     social_networks:
       title: "Vo・tre・s réseaux sociaux"
 

@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>footer</key>
+
+    <meta>
+        <title lang="fr">Pied de page</title>
+        <title lang="en">Footer</title>
+    </meta>
+
+    <areas>
+        <area key="footer">
+            <meta>
+                <title lang="fr">Pied de page</title>
+                <title lang="en">Footer</title>
+            </meta>
+        </area>
+    </areas>
+
+    <properties>
+        <block name="columns" default-type="column">
+            <meta>
+                <title lang="fr">Colonnes</title>
+                <title lang="en">Columns</title>
+            </meta>
+            <types>
+                <type name="column">
+                    <meta>
+                        <title lang="fr">Colonne</title>
+                        <title lang="en">Column</title>
+                    </meta>
+                    <properties>
+                        <property name="title" type="text_line" mandatory="true">
+                            <meta>
+                                <title lang="fr">Titre</title>
+                                <title lang="en">Title</title>
+                            </meta>
+                        </property>
+                        <block name="links" default-type="link">
+                            <meta>
+                                <title lang="fr">Liens</title>
+                                <title lang="en">Links</title>
+                            </meta>
+                            <types>
+                                <type name="link">
+                                    <meta>
+                                        <title lang="fr">Lien</title>
+                                        <title lang="en">Link</title>
+                                    </meta>
+                                    <properties>
+                                        <property name="label" type="text_line" mandatory="true">
+                                            <meta>
+                                                <title lang="fr">Libellé</title>
+                                                <title lang="en">Label</title>
+                                            </meta>
+                                        </property>
+                                        <property name="url" type="text_line" mandatory="true">
+                                            <meta>
+                                                <title lang="fr">URL</title>
+                                                <title lang="en">URL</title>
+                                            </meta>
+                                        </property>
+                                        <property name="target_blank" type="checkbox">
+                                            <meta>
+                                                <title lang="fr">Nouvel onglet</title>
+                                                <title lang="en">New tab</title>
+                                            </meta>
+                                        </property>
+                                    </properties>
+                                </type>
+                                <type name="media_link">
+                                    <meta>
+                                        <title lang="fr">Lien média</title>
+                                        <title lang="en">Media link</title>
+                                    </meta>
+                                    <properties>
+                                        <property name="label" type="text_line" mandatory="true">
+                                            <meta>
+                                                <title lang="fr">Libellé</title>
+                                                <title lang="en">Label</title>
+                                            </meta>
+                                        </property>
+                                        <property name="media" type="single_media_selection" mandatory="true">
+                                            <meta>
+                                                <title lang="fr">Fichier</title>
+                                                <title lang="en">File</title>
+                                            </meta>
+                                        </property>
+                                        <property name="target_blank" type="checkbox">
+                                            <meta>
+                                                <title lang="fr">Nouvel onglet</title>
+                                                <title lang="en">New tab</title>
+                                            </meta>
+                                        </property>
+                                    </properties>
+                                </type>
+                            </types>
+                        </block>
+                    </properties>
+                </type>
+            </types>
+        </block>
+    </properties>
+</template>

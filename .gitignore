@@ -40,5 +40,10 @@ yarn-error.log
 
 compose.override.yaml
 .env.deploy
+.env.docker
 .env.local
 src/AppContext/Infrastructure/Symfony/Command/SandboxCommand.php
+@%kernel.project_dir%/
+/public/uploads/
+/database_data/
+/db-backup/

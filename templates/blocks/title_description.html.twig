@@ -1,0 +1,8 @@
+<section>
+    {% if block.title is defined and block.title is not empty %}
+        <h2>{{ block.title }}</h2>
+    {% endif %}
+    {% if block.description is defined %}
+        <div>{{ block.description|raw }}</div>
+    {% endif %}
+</section>

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "WebFetch(domain:sulu.io)",
+      "Bash(curl:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(grep:*)",
+      "Bash(php bin/websiteconsole:*)",
+      "Bash(docker compose exec:*)",
+      "Bash(find:*)",
+      "Bash(sed:*)"
+    ]
+  }
+}

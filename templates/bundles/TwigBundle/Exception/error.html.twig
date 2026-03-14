@@ -8,7 +8,7 @@
       <h1>{{ 'error.title'|trans }}</h1>
       <p>{% block description %}{{ 'error.description'|trans }}{% endblock %}</p>
 
-      <a href="{{ path('app_front_portfolio') }}" class="error--content_action btn btn-primary">{{ 'error.action'|trans }}</a>
+      <a href="/{{ app.request.locale }}" class="error--content_action btn btn-primary">{{ 'error.action'|trans }}</a>
     </div>
 
     {% block illustration %}<img src="{{ asset('static/img/illustrations/Error.svg', 'front') }}" class="error--illustration" alt="">{% endblock %}

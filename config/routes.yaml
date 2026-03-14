@@ -12,18 +12,6 @@ notification:
     options:
         expose: true
 
-front:
-    resource: '../src/FrontContext/Infrastructure/Symfony/Controller/**/*'
-    type: attribute
-    name_prefix: app_front_
-    prefix: /{_locale}
-    requirements:
-        _locale: '%app_locales%'
-    defaults:
-        _locales: '%locale%'
-    options:
-        expose: true
-
 signature:
     resource: '../src/SignatureContext/Infrastructure/Symfony/Controller/**/*'
     type: attribute

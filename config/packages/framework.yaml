@@ -5,11 +5,13 @@ framework:
 
     trusted_proxies: '127.0.0.1,romainmillan.fr,REMOTE_ADDR'
     trusted_headers: [ 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-host' ]
-    http_method_override: false
+    http_method_override: true
     handle_all_throwables: true
 
     # Note that the session will be started ONLY if you read or write from it.
-    session: true
+    session:
+        name: SULUSESSID
+        cookie_path: /
 
     #esi: true
     #fragments: true

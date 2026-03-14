@@ -22,8 +22,10 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 		fi
 	fi
 
-	composer clear 
-	composer install
+	if [ "$APP_ENV" != 'prod' ]; then
+		composer clear
+		composer install
+	fi
 
 	# Display information about the current project
 	# Or about an error in project initialization
@@ -51,13 +53,16 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 			echo 'The database is now ready and reachable'
 		fi
 
-		if [ "$( find ./migrations -iname '*.php' -print -quit )" ]; then
-			php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
-		fi
+		# if [ "$( find ./migrations -iname '*.php' -print -quit )" ]; then
+		# 	php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
+		# fi
 	fi
 
-	setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var
-	setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var
+	if command -v setfacl > /dev/null 2>&1 && setfacl -R -m u:www-data:rwX -m u:"$(whoami)":rwX var 2>/dev/null; then
+		setfacl -dR -m u:www-data:rwX -m u:"$(whoami)":rwX var 2>/dev/null || true
+	else
+		chmod -R 777 var
+	fi
 
 	echo 'PHP app ready!'
 fi

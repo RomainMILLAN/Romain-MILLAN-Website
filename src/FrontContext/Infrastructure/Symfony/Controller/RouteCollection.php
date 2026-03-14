@@ -11,8 +11,5 @@ enum RouteCollection: string implements RouteCollectionInterface
 {
     use AppFrontContextRouteCollectionTrait;
 
-    case PORTFOLIO = 'portfolio';
-    case TERMS_OF_USE = 'terms_of_use';
-
     case UI = 'ui';
 }

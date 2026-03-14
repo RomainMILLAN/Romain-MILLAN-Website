@@ -1,0 +1,322 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block content %}
+
+    <section id="home" class="container">
+
+        <div id="home--title" class="flex flex-row justify-content-center align-items-start">
+
+            {% if content.hero_photo.id is defined %}
+                <img src="{{ content.hero_photo.thumbnails['250x250'] }}" alt="Romain MILLAN"/>
+            {% endif %}
+
+            <div>
+                <p>{{ content.hero_title|raw }}</p>
+
+                <twig:rm-tag
+                        isFilledBlack="true"
+                        isFillAnimated="true"
+                        hasRedirect="true"
+                />
+            </div>
+
+        </div>
+
+        <div id='home--scroll_down' class="flex-row justify-content-center" {{ stimulus_action('scroll-to', 'scroll', 'click', {id: 'aboutme'}) }}>
+            <twig:ux:icon name="lineicons:scroll-down-2" width="50"/>
+        </div>
+
+        <style>
+            #home {
+                margin-top: 0;
+
+                #home--title {
+                    gap: 5px;
+
+                    img {
+                        border-radius: 100%;
+                        width: 150px;
+                    }
+
+                    div {
+                        svg {
+                            width: 200px;
+                        }
+                    }
+                }
+
+                #home--scroll_down {
+                    margin-top: 200px;
+                }
+            }
+
+            @media (width <= 300px) {
+                #home {
+
+                    div {
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                    }
+                }
+            }
+            @media (width > 450px) {
+                #home {
+                    margin-top: 150px;
+
+                    #home--title {
+                        gap: 50px;
+
+                        img {
+                            border-radius: 75px;
+                            width: 250px;
+                        }
+
+                        div {
+                            svg {
+                                width: 250px !important;
+                            }
+                        }
+                    }
+
+                    #home--scroll_down {
+                        margin-top: 400px;
+                    }
+                }
+            }
+        </style>
+
+    </section>
+
+    <section id="aboutme" class="container flex-column align-items-end">
+
+        <div class="aboutme_title--container flex-row justify-content-center align-items-start">
+
+            <div class="flex-column justify-content-end align-items-end">
+                <twig:rm-tag
+                    width="200px"
+                    isFilledBlack="true"
+                    isFillAnimated="true"
+                    hasRedirect="true"
+                />
+                <p style="margin-top: -20px;" class="text-italic">{{ content.about_subtitle }}</p>
+            </div>
+
+            {% if content.about_photo.id is defined %}
+                <img src="{{ content.about_photo.thumbnails['300x300'] }}" alt="Romain MILLAN"/>
+            {% endif %}
+        </div>
+
+        <div class="aboutme_content--container flex-column justify-content-center align-items-center gap-20">
+
+            {{ content.about_paragraph|raw }}
+
+            {% if content.about_cv_file.url is defined %}
+                <a href="{{ content.about_cv_file.url }}" download target="_blank" class="btn btn-primary">{{ content.about_cv_label }}</a>
+            {% endif %}
+
+        </div>
+
+        <style>
+            #aboutme {
+                .aboutme_title--container {
+                    gap: 15px;
+
+                    img {
+                        border-radius: 100%;
+                        width: 125px;
+                    }
+                }
+
+                .aboutme_content--container {
+                    a {
+                        margin-top: 75px;
+                    }
+                }
+            }
+            @media (width > 450px) {
+                #aboutme {
+
+                    .aboutme_title--container {
+                        width: 100%;
+                        justify-content: space-between;
+                        flex-direction: row-reverse;
+
+                        img {
+                            border-radius: 50px;
+                            width: 150px;
+                        }
+
+                        svg {
+                            width: 250px;
+                        }
+                    }
+
+                    .aboutme_content--container {
+                        width: 60%;
+                        margin-top: -50px;
+                    }
+                }
+            }
+
+            @media (width > 900px) {
+                #aboutme {
+                    .aboutme_title--container {
+                        img {
+                            width: 300px;
+                        }
+                    }
+
+                    .aboutme_content--container {
+                        margin-top: -150px;
+                    }
+                }
+            }
+
+        </style>
+
+    </section>
+
+    <section id="work" class="container">
+        <div class="title--container">
+            <h2>{{ content.works_title }}</h2>
+        </div>
+
+        <div class="work--content grid--container gap-20 justify-content-center">
+
+            {% if content.works is defined %}
+                {% for project in content.works %}
+
+                    <article class="card">
+
+                        {% if project.illustrations is defined and project.illustrations|length > 0 %}
+                            <div class="card--illustration card--illustration-carousel" {{ stimulus_controller('carousel', { interval: 3000, pauseOnHover: true, autoStart: true }) }}>
+                                <div class="carousel-track" {{ stimulus_target('carousel', 'track') }}>
+
+                                    {% for media in project.illustrations %}
+                                        <div class="carousel-item" {{ stimulus_target('carousel', 'item') }}>
+                                            <img src="{{ media.thumbnails['500x'] }}" alt="{{ media.title }}">
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        <div class="card--header">
+                            <p class="text-bold">{{ project.title }}</p>
+                        </div>
+
+                        <div class="card--content">
+                            <p>{{ project.description|raw }}</p>
+                        </div>
+
+                        <div class="card--footer flex-row justify-content-between gap-5">
+
+                            <div>
+                                {% if project.links is defined %}
+                                    {% for link in project.links|reverse %}
+                                        <a href="{{ link.url }}" target="_blank">
+                                            <twig:ux:icon
+                                                    name="{{ link.icon }}"
+                                                    width="20"
+                                            />
+                                        </a>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+
+                            <div>
+                                {% if project.skills is defined and project.skills is not empty %}
+                                    {% for skill in project.skills|split(',') %}
+                                        <span class="card-tag text-color">{{ skill|trim }}</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+            {% endif %}
+
+        </div>
+
+        <style>
+            #work {
+                .work--content {
+                    margin-top: 50px;
+
+                    article {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @media (width > 450px) {
+                #work {
+                    .work--content {
+                        gap: 50px;
+
+                        article {
+                            width: 500px;
+                        }
+                    }
+                }
+            }
+        </style>
+    </section>
+
+    {% if content.timeline_sections is defined %}
+        <section id="experiences_and_formations" class="container">
+
+            <div class="timeline--grid">
+                {% for section in content.timeline_sections %}
+                    <section id="{{ section.section_id|default(section.section_title|lower|replace({' ': '_'})) }}" class="timeline--section flex-column">
+
+                        <div class="title--container">
+                            <h2>{{ section.section_title }}</h2>
+                        </div>
+
+                        {% if section.entries is defined %}
+                            {% for entry in section.entries %}
+                                <twig:frontend:card_info
+                                        date="{{ entry.date }}"
+                                        location="{{ entry.location }}"
+                                        asset="{{ entry.icon.id is defined ? entry.icon.url : '' }}"
+                                        icon="{{ entry.icon.title|default('') }}"
+                                        title="{{ entry.title }}"
+                                        description="{{ entry.description|raw }}"
+                                />
+                            {% endfor %}
+                        {% endif %}
+
+                    </section>
+                {% endfor %}
+            </div>
+
+            <style>
+                .timeline--grid {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+                }
+
+                .timeline--section {
+                    gap: 50px;
+                }
+
+                @media (width > 450px) {
+                    .timeline--grid {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 50px;
+                    }
+                }
+            </style>
+
+        </section>
+    {% endif %}
+
+{% endblock %}
