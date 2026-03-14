@@ -45,3 +45,4 @@ compose.override.yaml
 src/AppContext/Infrastructure/Symfony/Command/SandboxCommand.php
 @%kernel.project_dir%/
 /public/uploads/
+/database_data/

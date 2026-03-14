@@ -49,6 +49,7 @@ services:
     user: ${APP_USER_ID}:${APP_GROUP_ID}
     volumes:
       - "./:/project"
+    profiles: ["dev"]
 
 volumes:
   caddy_data:
