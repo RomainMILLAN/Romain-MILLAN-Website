@@ -1,6 +1,6 @@
 {
   "name": "romain-millan-website",
-  "version": "2.20",
+  "version": "3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets",
     "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets",
     "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets",
-    "@symfony/webpack-encore": "^5.0.1",
+    "@symfony/webpack-encore": "^6.0.0",
     "babel-loader": "^10.0.0",
     "bootstrap": "^5.3.3",
     "chart.js": "^3.4.1 || ^4.0",
@@ -50,7 +50,7 @@
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.3",
     "webpack": "^5.95.0",
-    "webpack-cli": "^5.1.4",
+    "webpack-cli": "^6.0.0",
     "webpack-notifier": "^1.15.0"
   }
 }
