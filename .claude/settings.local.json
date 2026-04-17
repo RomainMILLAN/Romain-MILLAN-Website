@@ -10,7 +10,8 @@
       "Bash(php bin/websiteconsole:*)",
       "Bash(docker compose exec:*)",
       "Bash(find:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(ls:*)"
     ]
   }
 }

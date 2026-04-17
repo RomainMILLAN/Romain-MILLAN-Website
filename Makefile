@@ -109,7 +109,7 @@ db-fixtures: ## Load fixtures
 .PHONY: db-reset
 db-reset: ## Reset database and execute migrations
 	@echo "💥 Drop the database."
-	@$(CONSOLE) doctrine:database:drop --force
+	@$(CONSOLE) doctrine:database:drop --force --if-exists
 	@echo "🏗️ Create new database."
 	@$(CONSOLE) doctrine:database:create
 	@echo "🚚 Run all migrations."
