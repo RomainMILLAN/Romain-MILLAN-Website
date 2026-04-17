@@ -1,8 +1,0 @@
-framework:
-    http_client:
-        scoped_clients:
-            signal.client:
-                scope: '%env(SIGNAL_API_URL)%'
-                headers:
-                    Content-Type: 'application/json'
-                    Accept: 'application/json'

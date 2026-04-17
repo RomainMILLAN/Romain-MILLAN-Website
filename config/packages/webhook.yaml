@@ -1,6 +1,0 @@
-framework:
-  webhook:
-    routing:
-      notification:
-        service: App\Infrastructure\Symfony\Webhook\Parser\NotificationParser
-        secret: '%env(WEBHOOK_NOTIFICATION_KEY)%'
