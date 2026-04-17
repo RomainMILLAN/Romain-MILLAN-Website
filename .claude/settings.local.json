@@ -11,7 +11,9 @@
       "Bash(docker compose exec:*)",
       "Bash(find:*)",
       "Bash(sed:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "WebFetch(domain:tabler.io)",
+      "WebFetch(domain:docs.tabler.io)"
     ]
   }
 }

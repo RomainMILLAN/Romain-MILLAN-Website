@@ -1,9 +1,8 @@
 <?php
 
-namespace Panel\Infrastructure\Symfony\Controller;
+namespace Panel\Infrastructure\Symfony\Controller\Gestion\InfrastructureService;
 
 use Panel\Infrastructure\Symfony\Form\Filter\InfrastructureServiceFilterForm;
-use Panel\Infrastructure\Symfony\Repository\Custom\InfrastructureRepository;
 use Panel\Infrastructure\Symfony\Repository\InfrastructureServiceRepository;
 use Spiriit\Bundle\FormFilterBundle\Filter\FilterBuilderUpdater;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,35 +11,33 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
-    path: '/infrastructure',
-    name: RouteCollection::INFRASTRUCTURE->value,
+    path: '/infrastructure-services',
+    name: RouteCollection::LIST->value,
     methods: [Request::METHOD_GET, Request::METHOD_POST],
 )]
-class InfrastructureController extends AbstractController
+class ListController extends AbstractController
 {
     public function __construct(
-        private readonly InfrastructureRepository $infrastructureRepository,
         private readonly InfrastructureServiceRepository $infrastructureServiceRepository,
         private readonly FilterBuilderUpdater $filterBuilderUpdater,
     ) {
     }
 
-    public function __invoke(Request $request): Response
-    {
+    public function __invoke(
+        Request $request,
+    ): Response {
         $filterForm = $this->createForm(InfrastructureServiceFilterForm::class);
         $filterForm->handleRequest($request);
 
         $queryBuilder = $this->infrastructureServiceRepository->getListQueryBuilder();
-        $queryBuilder->orderBy('o.name', 'ASC');
         $this->filterBuilderUpdater->addFilterConditions($filterForm, $queryBuilder);
 
         return $this->render(
-            view: 'panel/infrastructure.html.twig',
+            view: 'panel/gestion/infrastructure-service/list.html.twig',
             parameters: [
-                'content' => $this->infrastructureRepository->get(),
-                'services' => $queryBuilder->getQuery()->getResult(),
+                'infrastructureServices' => $queryBuilder->getQuery()
+                    ->getResult(),
                 'filterForm' => $filterForm->createView(),
-                'isFiltered' => $filterForm->isSubmitted(),
             ],
         );
     }

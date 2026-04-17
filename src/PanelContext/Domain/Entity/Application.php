@@ -43,6 +43,10 @@ class Application
     #[ORM\ManyToMany(targetEntity: ApplicationCategory::class, inversedBy: 'applications')]
     private Collection $categories;
 
+    #[ORM\ManyToOne(targetEntity: InfrastructureService::class, inversedBy: 'applications')]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    public ?InfrastructureService $infrastructureService = null;
+
     public function __construct()
     {
         $this->type = new ArrayCollection();

@@ -1,0 +1,57 @@
+{% extends 'panel/gestion/infrastructure-service/base.html.twig' %}
+
+{% block header_action %}
+    <div class="btn-list">
+        <twig:panel:button:link:primary title="Créer un nouveau service" icon="tabler:plus" link="{{ path('app_panel_gestion_infrastructure_service_create') }}"/>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-11 col-md-10 d-flex flex-row justify-content-center me-auto ms-auto">
+
+        <twig:panel:list
+                data="{{ infrastructureServices }}"
+        >
+            {% block title 'Liste des services d\'infrastructure' %}
+
+            {% block filterForm %}
+                {{ form_start(filterForm) }}
+                {{ form_row(filterForm.query, {attr: {class: 'form-control'}}) }}
+                {{ form_end(filterForm) }}
+            {% endblock %}
+
+            {% block thead %}
+                <th>Nom</th>
+                <th>Adresse IP</th>
+                <th class="d-none d-xl-table-cell">Applications</th>
+                <th></th>
+            {% endblock %}
+
+            {% block content %}
+                <td>{{ object.name }}</td>
+                <td><code>{{ object.ipAddress }}</code></td>
+                <td class="d-none d-xl-table-cell">
+                    <div class="badges-list">
+                        {% for application in object.applications %}
+                            <span class="badge">{{ application.name }}</span>
+                        {% endfor %}
+                    </div>
+                </td>
+                <td class="text-end">
+                    <a href="{{ path('app_panel_gestion_infrastructure_service_edit', {'id': object.id}) }}">
+                        {{ ux_icon('tabler:edit', {width: "24px", height: '24px', class: 'text-black'}) }}
+                    </a>
+
+                    <button type="button" class="btn btn-action" data-bs-toggle="modal" data-bs-target="#delete-{{ object.id }}">
+                        {{ ux_icon('tabler:trash', {width: "24px", height: '24px', class: 'text-danger'}) }}
+                    </button>
+                </td>
+
+                {% include 'components/panel/modal/delete.html.twig' with {
+                    id: 'delete-'~object.id,
+                    href: path('app_panel_gestion_infrastructure_service_delete', {id: object.id})
+                } %}
+            {% endblock %}
+        </twig:panel:list>
+    </div>
+{% endblock %}

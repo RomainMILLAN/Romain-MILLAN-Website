@@ -39,7 +39,7 @@
                     <div class="accordion" id="accordion-applications">
                         {% for category in accordionCategories %}
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading-1">
+                                <h2 class="accordion-header" id="heading-{{ category.name|slug }}">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ category.name|slug }}" aria-expanded="false">
                                         {{ category.name }}
                                     </button>
