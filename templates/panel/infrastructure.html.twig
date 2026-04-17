@@ -2,11 +2,86 @@
 {% block title 'Infrastructure' %}
 
 {% block content %}
-    <div class="container-xl">
+    <div class="container-xl" {{ stimulus_controller('accordion') }}>
 
-        <pre class="mermaid bg-light">
-            {{ content }}
-        </pre>
+        <div class="d-flex justify-content-end mb-3">
+            <button type="button" class="btn btn-outline-secondary btn-sm" {{ stimulus_action('accordion', 'collapseAll') }}>
+                <twig:ux:icon name="tabler:fold-down" width="16" height="16" class="me-1"/>
+                Tout fermer
+            </button>
+        </div>
+
+        <div class="accordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-schema">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-schema" aria-expanded="false">
+                        <twig:ux:icon name="tabler:schema" width="20" height="20" class="me-2"/>
+                        Schéma
+                    </button>
+                </h2>
+                <div id="collapse-schema" class="accordion-collapse collapse" {{ stimulus_target('accordion', 'item') }}>
+                    <div class="accordion-body">
+                        <pre class="mermaid bg-light mb-0">
+                            {{ content }}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-services">
+                    <button class="accordion-button {{ not isFiltered ? 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-services" aria-expanded="{{ isFiltered ? 'true' : 'false' }}">
+                        <twig:ux:icon name="tabler:server" width="20" height="20" class="me-2"/>
+                        Services
+                        <span class="badge bg-blue-lt ms-2">{{ services|length }}</span>
+                    </button>
+                </h2>
+                <div id="collapse-services" class="accordion-collapse collapse {{ isFiltered ? 'show' }}" {{ stimulus_target('accordion', 'item') }}>
+                    <div class="accordion-body">
+
+                        <div class="my-3">
+                            {{ form_start(filterForm) }}
+                            {{ form_row(filterForm.query, {attr: {class: 'form-control'}}) }}
+                            {{ form_end(filterForm) }}
+                        </div>
+
+                        {% if services|length > 0 %}
+                            <div class="table-responsive">
+                                <table class="table table-vcenter card-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Adresse IP</th>
+                                            <th class="d-none d-xl-table-cell">Applications</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for service in services %}
+                                            <tr>
+                                                <td>{{ service.name }}</td>
+                                                <td><code>{{ service.ipAddress }}</code></td>
+                                                <td class="d-none d-xl-table-cell">
+                                                    {% for application in service.applications %}
+                                                        <span class="badge bg-blue-lt me-1">
+                                                            <a href="{{ application.url }}" target="_blank" class="text-decoration-none">{{ application.name }}</a>
+                                                        </span>
+                                                    {% endfor %}
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <p class="text-secondary text-center mb-0">Aucun service trouvé</p>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
     </div>
 {% endblock %}

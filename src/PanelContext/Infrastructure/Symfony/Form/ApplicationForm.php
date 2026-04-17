@@ -5,6 +5,7 @@ namespace Panel\Infrastructure\Symfony\Form;
 use Panel\Domain\Entity\Application;
 use Panel\Domain\Entity\ApplicationCategory;
 use Panel\Domain\Entity\ApplicationType;
+use Panel\Domain\Entity\InfrastructureService;
 use Panel\Domain\FormType\SwitchType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -57,6 +58,14 @@ class ApplicationForm extends AbstractType
                 'attr' => [
                     'data-controller' => 'form-control select2',
                 ],
+            ])
+            ->add('infrastructureService', EntityType::class, [
+                'label' => 'Service d\'infrastructure',
+                'class' => InfrastructureService::class,
+                'choice_label' => 'name',
+                'required' => false,
+                'autocomplete' => true,
+                'placeholder' => 'Aucun',
             ])
         ;
     }
