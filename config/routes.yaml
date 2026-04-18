@@ -5,13 +5,6 @@ seo:
     options:
         expose: true
 
-notification:
-    resource: '../src/AppContext/Infrastructure/Symfony/Controller/Notification/**/*'
-    type: attribute
-    name_prefix: app_notification_
-    options:
-        expose: true
-
 signature:
     resource: '../src/SignatureContext/Infrastructure/Symfony/Controller/**/*'
     type: attribute
