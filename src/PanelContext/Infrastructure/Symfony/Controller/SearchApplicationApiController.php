@@ -3,7 +3,9 @@
 namespace Panel\Infrastructure\Symfony\Controller;
 
 use Panel\Domain\Entity\Application;
+use Panel\Domain\Entity\DocPage;
 use Panel\Infrastructure\Symfony\Repository\ApplicationRepository;
+use Panel\Infrastructure\Symfony\Repository\DocPageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +21,7 @@ class SearchApplicationApiController extends AbstractController
 {
     public function __construct(
         private readonly ApplicationRepository $applicationRepository,
+        private readonly DocPageRepository $docPageRepository,
     ) {
     }
 
@@ -31,10 +34,16 @@ class SearchApplicationApiController extends AbstractController
             ->getQuery()
             ->getResult();
 
+        /** @var DocPage[] $docPages */
+        $docPages = $this->docPageRepository->searchByTitleOrContent($query)
+            ->getQuery()
+            ->getResult();
+
         return $this->render(
             view: 'panel/api/search.html.twig',
             parameters: [
                 'applications' => $applications,
+                'docPages' => $docPages,
             ],
         );
     }

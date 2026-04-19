@@ -1,0 +1,25 @@
+{% extends 'panel/gestion/doc_page/base.html.twig' %}
+
+{% block content %}
+    <div class="col-11 col-md-8 col-xl-6 d-flex flex-row justify-content-center me-auto ms-auto">
+
+        <twig:panel:form
+            cancelLink="{{ path('app_panel_gestion_doc_page_index') }}"
+            form="{{ form }}"
+        >
+            {% block title 'Nouvelle page de documentation' %}
+
+            {% block content %}
+                <div class="mb-3">
+                    <label class="form-label">{{ form_label(form.title) }}</label>
+                    {{ form_widget(form.title, {attr: {
+                        class: 'form-control',
+                        placeholder: 'Titre de la page',
+                        autofocus: true,
+                    }}) }}
+                </div>
+            {% endblock %}
+        </twig:panel:form>
+
+    </div>
+{% endblock %}

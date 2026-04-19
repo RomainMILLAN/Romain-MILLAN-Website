@@ -1,0 +1,55 @@
+{% set allTags = doc_tags_all() %}
+
+<div
+    class="card"
+    {{ stimulus_controller('markdown-editor', {
+        pageId: page.id,
+        saveUrl: path('app_panel_gestion_doc_page_save', {id: page.id}),
+        initialContent: page.content,
+    }) }}
+>
+    <div class="card-header flex-column align-items-stretch gap-2">
+        <div class="d-flex align-items-center gap-2">
+            <input
+                type="text"
+                class="form-control form-control-lg border-0 shadow-none px-0 fw-bold"
+                value="{{ page.title }}"
+                placeholder="Titre de la page"
+                {{ stimulus_target('markdown-editor', 'title') }}
+                {{ stimulus_action('markdown-editor', 'titleChanged', 'input') }}
+            >
+            <span class="badge bg-secondary-lt" {{ stimulus_target('markdown-editor', 'status') }}>Enregistré</span>
+            <button type="button" class="btn btn-action text-danger" data-bs-toggle="modal" data-bs-target="#delete-doc-page-{{ page.id }}">
+                {{ ux_icon('tabler:trash', {width: '20px', height: '20px'}) }}
+            </button>
+        </div>
+
+        <div>
+            <label class="form-label small text-secondary mb-1">Tags</label>
+            <select
+                multiple
+                class="form-select"
+                {{ stimulus_target('markdown-editor', 'tags') }}
+            >
+                {% for tag in allTags %}
+                    <option
+                        value="{{ tag.name }}"
+                        data-color="{{ tag.color }}"
+                        {{ page.tags.contains(tag) ? 'selected' : '' }}
+                    >{{ tag.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="card-body p-0">
+        <div {{ stimulus_target('markdown-editor', 'editor') }}></div>
+    </div>
+
+    <div class="card-footer small text-secondary d-flex justify-content-between">
+        <span>Slug : <code>{{ page.slug }}</code></span>
+        <span>Dernière modification : {{ page.updatedAt|date('d/m/Y H:i') }}</span>
+    </div>
+</div>
+
+<twig:panel:modal:delete id="{{ 'delete-doc-page-' ~ page.id }}" href="{{ path('app_panel_gestion_doc_page_delete', {id: page.id}) }}"/>

@@ -1,0 +1,45 @@
+{% extends 'panel/gestion/doc_tag/base.html.twig' %}
+
+{% block header_action %}
+    <div class="btn-list">
+        <twig:panel:button:link:primary title="Créer un nouveau tag" icon="tabler:plus" link="{{ path('app_panel_gestion_doc_tag_create') }}"/>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-11 col-md-10 col-xl-8 d-flex flex-row justify-content-center me-auto ms-auto">
+
+        <twig:panel:list
+                data="{{ tags }}"
+        >
+            {% block title 'Liste des tags' %}
+
+            {% block thead %}
+                <th>Nom</th>
+                <th>Couleur</th>
+                <th></th>
+            {% endblock %}
+
+            {% block content %}
+                <td>
+                    <span class="badge" style="background-color: {{ object.color }} !important;">{{ object.name }}</span>
+                </td>
+                <td style="color: {{ object.color }};">{{ object.color }}</td>
+                <td class="text-end">
+                    <a href="{{ path('app_panel_gestion_doc_tag_edit', {'id': object.id}) }}">
+                        {{ ux_icon('tabler:edit', {width: "24px", height: '24px', class: 'text-black'}) }}
+                    </a>
+
+                    <button type="button" class="btn btn-action" data-bs-toggle="modal" data-bs-target="#delete-doc-tag-{{ object.id }}">
+                        {{ ux_icon('tabler:trash', {width: "24px", height: '24px', class: 'text-danger'}) }}
+                    </button>
+                </td>
+
+                {% include 'components/panel/modal/delete.html.twig' with {
+                    id: 'delete-doc-tag-'~object.id,
+                    href: path('app_panel_gestion_doc_tag_delete', {id: object.id})
+                } %}
+            {% endblock %}
+        </twig:panel:list>
+    </div>
+{% endblock %}

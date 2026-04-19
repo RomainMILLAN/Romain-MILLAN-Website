@@ -1,0 +1,45 @@
+<div class="card" {{ stimulus_controller('doc-sidebar') }}>
+    <div class="card-header flex-column align-items-stretch">
+        <div class="input-icon mb-0">
+            <span class="input-icon-addon">
+                {{ ux_icon('tabler:search', {width: '16px', height: '16px'}) }}
+            </span>
+            <input
+                type="search"
+                class="form-control"
+                placeholder="Rechercher une page..."
+                {{ stimulus_target('doc-sidebar', 'input') }}
+                {{ stimulus_action('doc-sidebar', 'filter') }}
+            >
+        </div>
+    </div>
+
+    <ul class="list-group list-group-flush" {{ stimulus_target('doc-sidebar', 'list') }}>
+        {% for page in pages %}
+            <li class="list-group-item p-0" {{ stimulus_target('doc-sidebar', 'item') }} data-name="{{ (page.title ~ ' ' ~ page.tags|map(t => t.name)|join(' '))|lower }}">
+                <a
+                    href="{{ path('app_panel_gestion_doc_page_show', {slug: page.slug}) }}"
+                    data-turbo-frame="doc-editor"
+                    class="d-flex flex-column px-3 py-2 text-reset text-decoration-none {{ currentPage and currentPage.id == page.id ? 'bg-primary-lt' : '' }}"
+                >
+                    <span class="fw-medium">{{ page.title }}</span>
+                    {% if page.tags|length > 0 %}
+                        <div class="mt-1">
+                            {% for tag in page.tags %}
+                                <span class="badge badge-sm" style="background-color: {{ tag.color }} !important;">{{ tag.name }}</span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </a>
+            </li>
+        {% else %}
+            <li class="list-group-item text-center text-secondary fst-italic py-3">
+                Aucune page
+            </li>
+        {% endfor %}
+    </ul>
+
+    <p class="card-footer text-secondary m-0 small" {{ stimulus_target('doc-sidebar', 'counter') }}>
+        {{ pages|length }} page(s)
+    </p>
+</div>

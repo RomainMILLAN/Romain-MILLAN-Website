@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="empty">
+        <div class="empty-icon">
+            {{ ux_icon('tabler:book-2', {width: '48px', height: '48px'}) }}
+        </div>
+        <p class="empty-title">Documentation</p>
+        <p class="empty-subtitle text-secondary">
+            Sélectionne une page dans la liste à gauche, ou crée-en une nouvelle pour commencer.
+        </p>
+        <div class="empty-action">
+            <twig:panel:button:link:primary title="Nouvelle page" icon="tabler:plus" link="{{ path('app_panel_gestion_doc_page_create') }}"/>
+        </div>
+    </div>
+</div>

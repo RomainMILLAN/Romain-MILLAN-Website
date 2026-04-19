@@ -1,0 +1,34 @@
+{% extends 'panel/gestion/doc_page/base.html.twig' %}
+
+{% block header_action %}
+    <div class="btn-list">
+        <twig:panel:button:link:primary title="Nouvelle page" icon="tabler:plus" link="{{ path('app_panel_gestion_doc_page_create') }}"/>
+        <a href="{{ path('app_panel_gestion_doc_tag_list') }}" class="btn">
+            {{ ux_icon('tabler:tags', {width: "20px", height: '20px'}) }}
+            <span class="ms-1">Tags</span>
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-xl">
+        <div class="row g-3">
+            <aside class="col-12 col-md-4 col-lg-3">
+                {% include 'panel/gestion/doc_page/_sidebar.html.twig' with {
+                    pages: pages,
+                    currentPage: currentPage,
+                } %}
+            </aside>
+
+            <section class="col-12 col-md-8 col-lg-9">
+                <turbo-frame id="doc-editor" data-turbo-action="advance">
+                    {% if currentPage is null %}
+                        {% include 'panel/gestion/doc_page/_welcome.html.twig' %}
+                    {% else %}
+                        {% include 'panel/gestion/doc_page/_editor.html.twig' with {page: currentPage} %}
+                    {% endif %}
+                </turbo-frame>
+            </section>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% for page in pages %}
+    <div class="col-6">
+        <a
+            {{ stimulus_action('search', 'closeDropdown') }}
+            href="{{ path('app_panel_gestion_doc_page_show', {slug: page.slug}) }}"
+            class="d-flex flex-column text-start text-secondary py-2 px-2 link-hoverable"
+        >
+            <span class="d-flex align-items-center gap-2">
+                {{ ux_icon('tabler:file-text', {width: '20px', height: '20px'}) }}
+                <span class="h5 mb-0">{{ page.title }}</span>
+            </span>
+            {% if page.tags|length > 0 %}
+                <div class="mt-1">
+                    {% for tag in page.tags %}
+                        <span class="badge badge-sm" style="background-color: {{ tag.color }} !important;">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </a>
+    </div>
+{% endfor %}

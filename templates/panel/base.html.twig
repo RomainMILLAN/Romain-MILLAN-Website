@@ -136,6 +136,7 @@
 
 									<twig:panel:menu:item title="Signature" icon="tabler:signature" link="{{ path('app_signature_create') }}"/>
 									<twig:panel:menu:item title="Infrastructure" icon="tabler:align-box-left-stretch" link="{{ path('app_panel_infrastructure') }}"/>
+									<twig:panel:menu:item title="Documentation" icon="tabler:book" link="{{ path('app_panel_gestion_doc_page_index') }}"/>
 
 									{% if is_granted('ROLE_ADMIN') %}
 										<twig:panel:menu:item-group title="Gestion" icon="tabler:server">
@@ -144,6 +145,7 @@
 												<a class="dropdown-item" href="{{ path('app_panel_gestion_application_category_list') }}">Catégorie d'application</a>
 												<a class="dropdown-item" href="{{ path('app_panel_gestion_application_type_list') }}">Type d'application</a>
 												<a class="dropdown-item" href="{{ path('app_panel_gestion_infrastructure_edit') }}">Infrastructure</a>
+												<a class="dropdown-item" href="{{ path('app_panel_gestion_doc_tag_list') }}">Tags de documentation</a>
 											</twig:block>
 										</twig:panel:menu:item-group>
 									{% endif %}
