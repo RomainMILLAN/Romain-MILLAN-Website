@@ -11,6 +11,7 @@ export default class extends Controller {
         pageId: Number,
         saveUrl: String,
         initialContent: String,
+        csrfToken: String,
     };
 
     declare readonly editorTarget: HTMLElement;
@@ -20,6 +21,7 @@ export default class extends Controller {
     declare readonly statusTarget: HTMLElement;
     declare readonly saveUrlValue: string;
     declare readonly initialContentValue: string;
+    declare readonly csrfTokenValue: string;
 
     private editor: any;
     private tomSelect: any;
@@ -83,6 +85,7 @@ export default class extends Controller {
                 headers: {
                     'Content-Type': 'application/json',
                     'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': this.csrfTokenValue,
                 },
                 body: JSON.stringify(payload),
             });

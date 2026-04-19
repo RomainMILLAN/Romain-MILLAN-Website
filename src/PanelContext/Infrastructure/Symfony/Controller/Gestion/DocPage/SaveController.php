@@ -10,6 +10,7 @@ use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
@@ -30,6 +31,11 @@ class SaveController extends AbstractController
         DocPage $docPage,
         Request $request,
     ): JsonResponse {
+        $token = (string) $request->headers->get('X-CSRF-TOKEN', '');
+        if (! $this->isCsrfTokenValid('docpage-save', $token)) {
+            throw new BadRequestHttpException('Invalid CSRF token.');
+        }
+
         $payload = json_decode($request->getContent(), true) ?? [];
 
         if (array_key_exists('title', $payload) && is_string($payload['title']) && trim($payload['title']) !== '') {

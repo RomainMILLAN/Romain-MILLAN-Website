@@ -6,6 +6,7 @@
         pageId: page.id,
         saveUrl: path('app_panel_gestion_doc_page_save', {id: page.id}),
         initialContent: page.content,
+        csrfToken: csrf_token('docpage-save'),
     }) }}
 >
     <div class="card-header flex-column align-items-stretch gap-2">

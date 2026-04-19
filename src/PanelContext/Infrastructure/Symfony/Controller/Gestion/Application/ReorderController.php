@@ -27,6 +27,11 @@ class ReorderController extends AbstractController
     public function __invoke(
         Request $request,
     ): Response {
+        $token = (string) $request->headers->get('X-CSRF-TOKEN', '');
+        if (! $this->isCsrfTokenValid('application-reorder', $token)) {
+            throw new BadRequestHttpException('Invalid CSRF token.');
+        }
+
         $payload = json_decode((string) $request->getContent(), true);
         $ids = $payload['ids'] ?? null;
 

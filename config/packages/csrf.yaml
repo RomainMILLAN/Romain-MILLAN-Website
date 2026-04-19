@@ -9,3 +9,6 @@ framework:
             - submit
             - authenticate
             - logout
+            - panel-delete
+            - application-reorder
+            - docpage-save

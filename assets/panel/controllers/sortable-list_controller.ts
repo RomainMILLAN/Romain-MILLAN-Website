@@ -6,9 +6,11 @@ import Sortable from 'sortablejs';
 export default class extends Controller {
     static values = {
         url: String,
+        csrf: String,
     };
 
     declare readonly urlValue: string;
+    declare readonly csrfValue: string;
 
     private sortable?: Sortable;
     private snapshot: string[] = [];
@@ -57,6 +59,7 @@ export default class extends Controller {
                 credentials: 'same-origin',
                 headers: {
                     'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': this.csrfValue,
                 },
                 body: JSON.stringify({ ids: ids.map((id) => Number(id)) }),
             });

@@ -15,6 +15,7 @@
                 :data="applications"
                 :sortable="filterQuery is empty"
                 sortableUrl="{{ path('app_panel_gestion_application_reorder') }}"
+                sortableCsrfToken="{{ csrf_token('application-reorder') }}"
         >
             {% block title 'Liste des applications' %}
 

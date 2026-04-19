@@ -28,6 +28,7 @@
                         </div>
                         <div class="col">
                             <form action="{{ href }}" method="POST" class="m-0 p-0">
+                                <input type="hidden" name="_token" value="{{ csrf_token('panel-delete') }}">
                                 <button type="submit" class="btn btn-danger btn-4 w-100" data-bs-dismiss="modal"> Confirmer </button>
                             </form>
                         </div>

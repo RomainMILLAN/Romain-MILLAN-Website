@@ -1,4 +1,4 @@
-{% props data = [], sortable = false, sortableUrl = null %}
+{% props data = [], sortable = false, sortableUrl = null, sortableCsrfToken = null %}
 
 <div class="card w-100">
     <div class="card-header">
@@ -25,7 +25,7 @@
             </tr>
             </thead>
 
-            <tbody{% if sortable %} data-controller="sortable-list" data-sortable-list-url-value="{{ sortableUrl }}"{% endif %}>
+            <tbody{% if sortable %} data-controller="sortable-list" data-sortable-list-url-value="{{ sortableUrl }}" data-sortable-list-csrf-value="{{ sortableCsrfToken }}"{% endif %}>
                 {% for object in data %}
                     <tr{% if sortable %} data-id="{{ object.id }}"{% endif %}>
                         {% if sortable %}

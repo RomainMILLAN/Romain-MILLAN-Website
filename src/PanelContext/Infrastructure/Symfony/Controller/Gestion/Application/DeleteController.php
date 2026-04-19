@@ -9,12 +9,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsCsrfTokenValid;
 
 #[Route(
     path: '/application/{id}/delete',
     name: RouteCollection::DELETE->value,
-    methods: [Request::METHOD_GET, Request::METHOD_POST],
+    methods: [Request::METHOD_POST],
 )]
+#[IsCsrfTokenValid('panel-delete', tokenKey: '_token')]
 class DeleteController extends AbstractController
 {
     public function __construct(
