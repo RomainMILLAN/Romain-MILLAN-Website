@@ -9,8 +9,12 @@
 {% block content %}
     <div class="col-11 col-md-10 d-flex flex-row justify-content-center me-auto ms-auto">
 
+        {% set filterQuery = filterForm.query.vars.value|default('') %}
+
         <twig:panel:list
-                data="{{ applications }}"
+                :data="applications"
+                :sortable="filterQuery is empty"
+                sortableUrl="{{ path('app_panel_gestion_application_reorder') }}"
         >
             {% block title 'Liste des applications' %}
 

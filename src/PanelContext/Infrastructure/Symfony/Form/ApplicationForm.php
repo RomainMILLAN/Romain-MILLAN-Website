@@ -8,6 +8,7 @@ use Panel\Domain\Entity\ApplicationType;
 use Panel\Domain\FormType\SwitchType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -35,6 +36,10 @@ class ApplicationForm extends AbstractType
             ])
             ->add('hasInterface', SwitchType::class, [
                 'label' => 'À une interface',
+            ])
+            ->add('orderNumber', NumberType::class, [
+                'required' => true,
+                'label' => 'Numéro d\'ordre',
             ])
             ->add('categories', EntityType::class, [
                 'label' => 'Catégorie(s)',

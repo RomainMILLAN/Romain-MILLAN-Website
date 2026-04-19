@@ -27,7 +27,7 @@ class DashboardController extends AbstractController
         return $this->render(
             view: 'panel/dashboard.html.twig',
             parameters: [
-                'applications' => $this->applicationRepository->findAll(),
+                'applications' => $this->applicationRepository->findBy([], ['orderNumber' => 'ASC']),
                 'dashboardCategories' => $this->applicationCategoryRepository->findBy([
                     'inAccordion' => false,
                 ], [

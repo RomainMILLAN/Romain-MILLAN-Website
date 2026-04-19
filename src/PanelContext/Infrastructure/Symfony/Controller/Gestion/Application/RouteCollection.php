@@ -13,4 +13,5 @@ enum RouteCollection: string implements RouteCollectionInterface
     case CREATE = 'gestion_application_create';
     case EDIT = 'gestion_application_edit';
     case DELETE = 'gestion_application_delete';
+    case REORDER = 'gestion_application_reorder';
 }

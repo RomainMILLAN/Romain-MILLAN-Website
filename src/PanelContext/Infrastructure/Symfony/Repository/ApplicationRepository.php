@@ -17,6 +17,12 @@ class ApplicationRepository extends AbstractEntityRepository
         parent::__construct($registry, Application::class);
     }
 
+    public function getListQueryBuilder(): QueryBuilder
+    {
+        return parent::getListQueryBuilder()
+            ->orderBy(self::ALIAS . '.orderNumber', 'ASC');
+    }
+
     public function save(Application $entity): void
     {
         $this->getEntityManager()

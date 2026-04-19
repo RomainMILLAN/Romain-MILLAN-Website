@@ -1,4 +1,4 @@
-{% props data = [] %}
+{% props data = [], sortable = false, sortableUrl = null %}
 
 <div class="card w-100">
     <div class="card-header">
@@ -20,13 +20,19 @@
 
             <thead>
             <tr>
+                {% if sortable %}<th class="w-1"></th>{% endif %}
                 {% block thead '' %}
             </tr>
             </thead>
 
-            <tbody>
+            <tbody{% if sortable %} data-controller="sortable-list" data-sortable-list-url-value="{{ sortableUrl }}"{% endif %}>
                 {% for object in data %}
-                    <tr>
+                    <tr{% if sortable %} data-id="{{ object.id }}"{% endif %}>
+                        {% if sortable %}
+                            <td class="text-muted" data-sortable-list-target="handle" style="cursor: grab;">
+                                {{ ux_icon('tabler:grip-vertical', {width: '20px', height: '20px'}) }}
+                            </td>
+                        {% endif %}
                         {% block content '' %}
                     </tr>
                 {% endfor %}

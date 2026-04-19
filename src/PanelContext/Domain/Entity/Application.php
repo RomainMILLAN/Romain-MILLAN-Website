@@ -31,6 +31,9 @@ class Application
     #[ORM\Column]
     public ?bool $hasInterface = null;
 
+    #[ORM\Column(nullable: false, options: ['default' => 0])]
+    public ?int $orderNumber = 0;
+
     /**
      * @var Collection<int, ApplicationType>
      */

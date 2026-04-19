@@ -66,9 +66,18 @@
 </div>
 
 
-<div class="mb-3">
-    <label class="form-check form-switch form-switch-2 d-flex flex-row">
-        {{ form_widget(form.hasInterface) }}
-        <span class="form-check-label ms-2">{{ form_label(form.hasInterface) }}</span>
-    </label>
+<div class="d-flex flex-column flex-md-row justify-content-between">
+    <div class="col-md-6 px-2 mb-3">
+        <label class="form-check form-switch form-switch-2 d-flex flex-row">
+            {{ form_widget(form.hasInterface) }}
+            <span class="form-check-label ms-2">{{ form_label(form.hasInterface) }}</span>
+        </label>
+    </div>
+
+    <div class="col-md-6 px-2 mb-3">
+        <label class="form-label">{{ form_label(form.orderNumber) }}</label>
+        {{ form_widget(form.orderNumber, {attr: {
+            class: 'form-control',
+        }}) }}
+    </div>
 </div>
