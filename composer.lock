@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86f3c1456b8c0db481d792c7677508a1",
+    "content-hash": "816a5f1e7675fae801c1592fffa5dcfb",
     "packages": [
         {
             "name": "arkounay/ux-collection",
@@ -17204,5 +17204,5 @@
         "ext-iconv": "*"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
