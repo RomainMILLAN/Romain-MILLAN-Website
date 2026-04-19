@@ -104,6 +104,10 @@ class Application
 
     public function getAvatarUrl(): string
     {
+        if ($this->icon !== null && (str_starts_with($this->icon, 'http://') || str_starts_with($this->icon, 'https://'))) {
+            return $this->icon;
+        }
+
         return sprintf('https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/%s.svg', $this->icon);
     }
 }

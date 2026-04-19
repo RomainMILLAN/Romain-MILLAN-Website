@@ -23,11 +23,29 @@
     </div>
 
     <div class="col-md-6 px-2 mb-3">
-        <label class="form-label">{{ form_label(form.icon) }}</label>
+        <div class="d-flex align-items-center mb-1" data-controller="popover" data-popover-title-value="Astuce favicon">
+            <label class="form-label mb-0">{{ form_label(form.icon) }}</label>
+            <span class="form-help ms-2" role="button" tabindex="0" data-popover-target="trigger">?</span>
+            <template data-popover-target="content">
+                <div class="mb-2"><strong>1.</strong> URL directe du favicon (recommandé pour les apps self-hosted)&nbsp;:</div>
+                <code class="d-block user-select-all mb-2 p-2 bg-body-tertiary rounded" style="word-break: break-all;">https://mon-app.tld/favicon.ico</code>
+                <div class="text-muted small mb-3">Récupérable dans le <code>&lt;link rel="icon"&gt;</code> du HTML du site.</div>
+
+                <div class="mb-2"><strong>2.</strong> Service Google (gros sites publics uniquement)&nbsp;:</div>
+                <code class="d-block user-select-all mb-2 p-2 bg-body-tertiary rounded" style="word-break: break-all;">https://www.google.com/s2/favicons?domain=github.com&amp;sz=128</code>
+                <button type="button" class="btn btn-sm btn-primary w-100" data-popover-copy="https://www.google.com/s2/favicons?domain=github.com&amp;sz=128">
+                    <span data-popover-copy-label>Copier le template Google</span>
+                </button>
+                <div class="text-muted small mt-2 mb-0">Remplace <code>github.com</code> par ton domaine. Retourne 404 pour les domaines non indexés par Google.</div>
+            </template>
+        </div>
         {{ form_widget(form.icon, {attr: {
             class: 'form-control',
         }}) }}
-        <p class="text-muted">Utiliser uniquement ce lot d'icone <a href="https://github.com/homarr-labs/dashboard-icons">https://github.com/homarr-labs/dashboard-icons</a></p>
+        <p class="text-muted mb-0">
+            Slug d'icône depuis <a href="https://github.com/homarr-labs/dashboard-icons" target="_blank" rel="noopener">homarr-labs/dashboard-icons</a>,
+            ou URL complète (<code>http(s)://…</code>) vers n'importe quelle image.
+        </p>
     </div>
 </div>
 
