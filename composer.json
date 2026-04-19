@@ -97,8 +97,7 @@
             "App\\": "src/AppContext/",
             "Front\\": "src/FrontContext/",
             "Panel\\": "src/PanelContext/",
-            "Security\\": "src/SecurityContext/",
-            "Signature\\": "src/SignatureContext/"
+            "Security\\": "src/SecurityContext/"
         }
     },
     "autoload-dev": {

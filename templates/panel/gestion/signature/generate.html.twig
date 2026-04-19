@@ -1,22 +1,23 @@
-{% extends 'signature/base.html.twig' %}
+{% extends 'panel/gestion/layout.html.twig' %}
 
-{% block turbo 'false' %}
-{% block body_attribut '' %}
+{% block title 'Signature générée' %}
 
 {% set socialNetworkColorSet = 'default' %}
 {% if signature.accentColor != '#fdca40' %}
     {% set socialNetworkColorSet = 'black' %}
 {% endif %}
 
-{% block main %}
+{% block content %}
     {% trans_default_domain 'signature' %}
-    <article class="card">
-        <div class="card-header">
-            <h1>{{ 'generate.title'|trans }}</h1>
-        </div>
 
-        <div class="card--content">
-            <code>
+    <div class="col-11 col-md-10 col-xl-8 me-auto ms-auto">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">{{ 'generate.title'|trans }}</h3>
+            </div>
+
+            <div class="card-body">
+                <code>
 
                 <p>Cordialement,</p><br>
                 <table cellspacing="0"
@@ -32,12 +33,11 @@
                                 <tbody>
                                 <tr style="height: auto; color: inherit;">
                                     {% if signature.logo is not null %}
-                                        <!--Todo: Edit src link to http://signature.romainmillan.fr/assets/signatures/images/logo/1.jpg -->
                                         <td style="color: inherit; text-align: left; vertical-align: middle; width: 120px; height: 192px; white-space: normal;"
                                             rowspan="1" data-reply="3" colspan="1" width="120px" height="192px" ddirection="3">
                                             <img width="100" data-forme="50" data-link="" height="100"
                                                  style="width:100px;height:100px;-webkit-border-radius:50%;-moz-border-radius:50%; border-radius: 50%;"
-                                                 src="{{ absolute_url(asset(signature.logo)) }}"
+                                                 src="{{ absolute_url(asset(signature.logo, 'panel')) }}"
                                                  data-absolute="" alt="{{ signature.fullName }}"></td>
                                     {% endif %}
 
@@ -98,7 +98,7 @@
                                                                             <img
                                                                                     style="width:25px;height:25px;"
                                                                                     width="25" height="25"
-                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/linkedin.png')) }}"
+                                                                                    src="{{ absolute_url(asset('build/panel/signature/social-networks/'~socialNetworkColorSet~'/linkedin.png', 'panel')) }}"
                                                                                     alt="linkedin">
                                                                         </a>
                                                                     </td>
@@ -108,11 +108,11 @@
                                                                     <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
                                                                         rowspan="1" data-reply="3" colspan="1"
                                                                         ddirection="3">
-                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.github }}">
+                                                                        <a href="https://github.com/{{ signature.socialNetwork.github }}">
                                                                             <img
                                                                                     style="width:25px;height:25px;"
                                                                                     width="25" height="25"
-                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/github.png')) }}"
+                                                                                    src="{{ absolute_url(asset('build/panel/signature/social-networks/'~socialNetworkColorSet~'/github.png', 'panel')) }}"
                                                                                     alt="github">
                                                                         </a>
                                                                     </td>
@@ -122,11 +122,11 @@
                                                                     <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
                                                                         rowspan="1" data-reply="3" colspan="1"
                                                                         ddirection="3">
-                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.website }}">
+                                                                        <a href="https://{{ signature.socialNetwork.website }}">
                                                                             <img
                                                                                     style="width:25px;height:25px;"
                                                                                     width="25" height="25"
-                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/website.png')) }}"
+                                                                                    src="{{ absolute_url(asset('build/panel/signature/social-networks/'~socialNetworkColorSet~'/website.png', 'panel')) }}"
                                                                                     alt="website">
                                                                         </a>
                                                                     </td>
@@ -136,11 +136,11 @@
                                                                     <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
                                                                         rowspan="1" data-reply="3" colspan="1"
                                                                         ddirection="3">
-                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.instagram }}">
+                                                                        <a href="https://instagram.com/{{ signature.socialNetwork.instagram }}">
                                                                             <img
                                                                                     style="width:25px;height:25px;"
                                                                                     width="25" height="25"
-                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/instagram.png')) }}"
+                                                                                    src="{{ absolute_url(asset('build/panel/signature/social-networks/'~socialNetworkColorSet~'/instagram.png', 'panel')) }}"
                                                                                     alt="instagram">
                                                                         </a>
                                                                     </td>
@@ -150,11 +150,11 @@
                                                                     <td style="width: 28px; height: 25px; vertical-align: top; border-collapse: collapse; text-align: inherit; white-space: normal;"
                                                                         rowspan="1" data-reply="3" colspan="1"
                                                                         ddirection="3">
-                                                                        <a href="https://linkedin.com/in/{{ signature.socialNetwork.discord }}">
+                                                                        <a href="https://discord.gg/invites/{{ signature.socialNetwork.discord }}">
                                                                             <img
                                                                                     style="width:25px;height:25px;"
                                                                                     width="25" height="25"
-                                                                                    src="{{ absolute_url(asset('build/signature/signature/social-networks/'~socialNetworkColorSet~'/discord.png')) }}"
+                                                                                    src="{{ absolute_url(asset('build/panel/signature/social-networks/'~socialNetworkColorSet~'/discord.png', 'panel')) }}"
                                                                                     alt="discord">
                                                                         </a>
                                                                     </td>
@@ -178,8 +178,12 @@
                 </table>
                 <p style="margin-top: 10px;"></p>
 
-            </code>
-        </div>
+                </code>
+            </div>
 
-    </article>
+            <div class="card-footer text-end">
+                <a href="{{ path('app_panel_gestion_signature_create') }}" class="btn btn-primary">{{ 'action.cancel'|trans }}</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

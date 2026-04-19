@@ -1,8 +1,8 @@
 <?php
 
-namespace Signature\Domain\Form;
+namespace Panel\Infrastructure\Symfony\Form\Signature;
 
-use Signature\Domain\DTO\SignaturePhoneDTO;
+use Panel\Domain\DTO\Signature\SignaturePhoneDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -10,7 +10,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class SignaturePhoneType extends AbstractType
+class SignaturePhoneForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -26,9 +26,6 @@ class SignaturePhoneType extends AbstractType
                         'max' => 255,
                     ]),
                 ],
-                'row_attr' => [
-                    'class' => 'form--input',
-                ],
             ])
             ->add('phoneNumber', TelType::class, [
                 'label' => 'Numéro de téléphone',
@@ -42,10 +39,6 @@ class SignaturePhoneType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => '+336.00.00.00.00',
-                    'class' => 'form-control',
-                ],
-                'row_attr' => [
-                    'class' => 'form--input',
                 ],
             ])
         ;

@@ -83,6 +83,7 @@ security:
         # Panel access control
         - { path: ^/security/login, roles: PUBLIC_ACCESS }
         - { path: ^/panel/search, roles: PUBLIC_ACCESS }
+        - { path: ^/panel/signature, roles: ROLE_ADMIN }
         - { path: ^/panel, roles: IS_AUTHENTICATED }
 
 when@test:

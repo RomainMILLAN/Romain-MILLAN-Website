@@ -1,9 +1,9 @@
 <?php
 
-namespace Signature\Domain\Form;
+namespace Panel\Infrastructure\Symfony\Form\Signature;
 
 use Arkounay\Bundle\UxCollectionBundle\Form\UxCollectionType;
-use Signature\Domain\DTO\SignatureDTO;
+use Panel\Domain\DTO\Signature\SignatureDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
@@ -13,12 +13,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class SignatureType extends AbstractType
+class SignatureForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('firstName', TextType::class, [
+                'label' => 'Prénom',
                 'required' => true,
                 'constraints' => [
                     new NotBlank(),
@@ -64,10 +65,11 @@ class SignatureType extends AbstractType
                 'required' => true,
                 'choices' => [
                     'Pas de logo' => null,
-                    'RM' => 'build/signature/signature/logo/rm-text.svg',
-                    'Romain - Photo n°1' => 'build/signature/signature/logo/1.jpg',
-                    'Romain - Photo n°2' => 'build/signature/signature/logo/2.jpg',
+                    'RM' => 'build/panel/signature/logo/rm-text.svg',
+                    'Romain - Photo n°1' => 'build/panel/signature/logo/1.jpg',
+                    'Romain - Photo n°2' => 'build/panel/signature/logo/2.jpg',
                 ],
+                'choice_attr' => fn ($choice) => $choice !== null ? ['data-src' => '/'.$choice] : [],
                 'empty_data' => null,
             ])
             ->add('accentColor', ColorType::class, [
@@ -77,7 +79,7 @@ class SignatureType extends AbstractType
             ])
 
             ->add('emails', UxCollectionType::class, [
-                'entry_type' => SignatureEmailType::class,
+                'entry_type' => SignatureEmailForm::class,
                 'label' => 'Vo・tre・s adresse(s) email',
                 'allow_add' => true,
                 'add_label' => 'Ajouter',
@@ -89,7 +91,7 @@ class SignatureType extends AbstractType
             ])
 
             ->add('phones', UxCollectionType::class, [
-                'entry_type' => SignaturePhoneType::class,
+                'entry_type' => SignaturePhoneForm::class,
                 'label' => 'Vo・tre・s numéro(s) de téléphone(s)',
                 'allow_add' => true,
                 'add_label' => 'Ajouter',
@@ -100,7 +102,7 @@ class SignatureType extends AbstractType
                 'min' => 1,
             ])
 
-            ->add('socialNetwork', SignatureSocialNetworkType::class)
+            ->add('socialNetwork', SignatureSocialNetworkForm::class)
         ;
     }
 

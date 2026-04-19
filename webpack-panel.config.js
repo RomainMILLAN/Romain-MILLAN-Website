@@ -87,6 +87,13 @@ Encore
     }
   ])
 
+  .copyFiles([
+    {
+      from: './assets/panel/signature',
+      to: 'signature/[path][name].[ext]'
+    }
+  ])
+
 const Panel = Encore.getWebpackConfig()
 Panel.name = 'panel'
 Encore.reset()

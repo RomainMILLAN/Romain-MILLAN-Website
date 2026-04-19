@@ -1,21 +1,21 @@
 <?php
 
-namespace Signature\Domain\Form;
+namespace Panel\Infrastructure\Symfony\Form\Signature;
 
-use Signature\Domain\DTO\SignatureSocialNetworkDTO;
+use Panel\Domain\DTO\Signature\SignatureSocialNetworkDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 
-class SignatureSocialNetworkType extends AbstractType
+class SignatureSocialNetworkForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('discord', TextType::class, [
-                'label' => false,
+                'label' => 'Discord',
                 'required' => false,
                 'constraints' => [
                     new Length([
@@ -24,12 +24,10 @@ class SignatureSocialNetworkType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => '**********',
-                    'class' => 'form-control',
-                    'aria-label' => '**********',
                 ],
             ])
             ->add('instagram', TextType::class, [
-                'label' => false,
+                'label' => 'Instagram',
                 'required' => false,
                 'constraints' => [
                     new Length([
@@ -38,12 +36,10 @@ class SignatureSocialNetworkType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'millan_romain',
-                    'class' => 'form-control',
-                    'aria-label' => 'millan_romain',
                 ],
             ])
             ->add('linkedin', TextType::class, [
-                'label' => false,
+                'label' => 'LinkedIn',
                 'required' => false,
                 'constraints' => [
                     new Length([
@@ -52,12 +48,10 @@ class SignatureSocialNetworkType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'romain-millan',
-                    'class' => 'form-control',
-                    'aria-label' => 'romain-millan',
                 ],
             ])
             ->add('github', TextType::class, [
-                'label' => false,
+                'label' => 'GitHub',
                 'required' => false,
                 'constraints' => [
                     new Length([
@@ -66,12 +60,10 @@ class SignatureSocialNetworkType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'RomainMILLAN',
-                    'class' => 'form-control',
-                    'aria-label' => 'RomainMILLAN',
                 ],
             ])
             ->add('website', TextType::class, [
-                'label' => false,
+                'label' => 'Site web',
                 'required' => false,
                 'constraints' => [
                     new Length([
@@ -80,8 +72,6 @@ class SignatureSocialNetworkType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'romainmillan.fr',
-                    'class' => 'form-control',
-                    'aria-label' => 'romainmillan.fr',
                 ],
             ])
         ;

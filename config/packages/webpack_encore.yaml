@@ -27,7 +27,6 @@ webpack_encore:
     builds:
         app: '%kernel.project_dir%/public/build/app'
         front: '%kernel.project_dir%/public/build/front'
-        signature: '%kernel.project_dir%/public/build/signature'
         panel: '%kernel.project_dir%/public/build/panel'
         admin: '%kernel.project_dir%/public/build/admin'
         pwa: '%kernel.project_dir%/public'
@@ -42,8 +41,6 @@ framework:
                 json_manifest_path: '%kernel.project_dir%/public/build/app/manifest.json'
             front:
                 json_manifest_path: '%kernel.project_dir%/public/build/front/manifest.json'
-            signature:
-                json_manifest_path: '%kernel.project_dir%/public/build/signature/manifest.json'
             panel:
                 json_manifest_path: '%kernel.project_dir%/public/build/panel/manifest.json'
             admin:

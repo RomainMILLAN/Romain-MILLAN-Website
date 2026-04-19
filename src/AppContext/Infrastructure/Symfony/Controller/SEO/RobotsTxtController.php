@@ -19,7 +19,7 @@ class RobotsTxtController extends AbstractController
     {
         $disallowedRoutes = ($env !== 'prod')
             ? [
-                'app_signature_create' => '',
+                'app_panel_gestion_signature_create' => '',
                 'app_panel_dashboard' => '',
                 'app_panel_service_prod_01_uptime_kuma' => '',
                 'app_panel_service_prod_01_dockge' => '',

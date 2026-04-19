@@ -38,10 +38,5 @@ services:
         exclude:
             - '../src/SecurityContext/{Domain/Model}'
 
-    Signature\:
-        resource: '../src/SignatureContext/'
-        exclude:
-            - '../src/SignatureContext/{Domain/Model}'
-
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

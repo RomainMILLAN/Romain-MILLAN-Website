@@ -1,6 +1,6 @@
 <?php
 
-namespace Signature\Domain\DTO;
+namespace Panel\Domain\DTO\Signature;
 
 class SignatureEmailDTO
 {

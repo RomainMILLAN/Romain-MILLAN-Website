@@ -1,0 +1,105 @@
+{% extends 'panel/gestion/layout.html.twig' %}
+
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block title 'Création de signature' %}
+
+{% block content %}
+    {% trans_default_domain 'signature' %}
+
+    <div class="col-11 col-md-10 col-xl-8 me-auto ms-auto">
+        <div class="card">
+            {{ form_start(form, {attr: {class: 'mb-0'}}) }}
+
+            <div class="card-header">
+                <h3 class="card-title">{{ 'create.title'|trans }}</h3>
+            </div>
+
+            <div class="card-body">
+                <h3 class="mb-3">{{ 'create.form.general_information.title'|trans }}</h3>
+
+                <div class="row">
+                    <div class="col-md-6">{{ form_row(form.lastName) }}</div>
+                    <div class="col-md-6">{{ form_row(form.firstName) }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">{{ form_row(form.status) }}</div>
+                    <div class="col-md-6" {{ stimulus_controller('logo-preview') }}>
+                        {{ form_row(form.logo, {attr: {
+                            'data-logo-preview-target': 'select',
+                            'data-action': 'change->logo-preview#update',
+                        }}) }}
+                        <div class="text-center mt-2">
+                            <img {{ stimulus_target('logo-preview', 'preview') }} src="" alt="Aperçu du logo" class="img-thumbnail rounded-circle d-none" style="width: 120px; height: 120px; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">{{ form_row(form.accentColor) }}</div>
+                </div>
+
+                <hr class="my-4">
+
+                {{ form_row(form.emails) }}
+                {{ form_row(form.phones) }}
+
+                <hr class="my-4">
+
+                <h3 class="mb-3">{{ 'create.form.social_networks.title'|trans }}</h3>
+
+                <div class="mb-3">
+                    <label class="form-label">LinkedIn</label>
+                    <div class="input-group">
+                        <span class="input-group-text">https://linkedin.com/in/</span>
+                        {{ form_widget(form.socialNetwork.linkedin) }}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">GitHub</label>
+                    <div class="input-group">
+                        <span class="input-group-text">https://github.com/</span>
+                        {{ form_widget(form.socialNetwork.github) }}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Instagram</label>
+                    <div class="input-group">
+                        <span class="input-group-text">https://instagram.com/</span>
+                        {{ form_widget(form.socialNetwork.instagram) }}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Discord</label>
+                    <div class="input-group">
+                        <span class="input-group-text">https://discord.gg/invites/</span>
+                        {{ form_widget(form.socialNetwork.discord) }}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Site web</label>
+                    <div class="input-group">
+                        <span class="input-group-text">https://</span>
+                        {{ form_widget(form.socialNetwork.website) }}
+                    </div>
+                </div>
+
+                <span class="text-danger">{{ form_errors(form) }}</span>
+            </div>
+
+            <div class="card-footer text-end">
+                <div class="d-flex">
+                    <a href="{{ path('app_panel_dashboard') }}" class="btn btn-link">Annuler</a>
+                    <button type="submit" class="btn btn-primary ms-auto">Générer</button>
+                </div>
+            </div>
+
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
