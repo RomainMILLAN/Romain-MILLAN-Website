@@ -9,6 +9,28 @@ export default class extends Controller {
     declare readonly dropdownToggleTargets: HTMLElement[];
     declare readonly dropdownMenuTargets: HTMLElement[];
 
+    connect(): void {
+        this.element.addEventListener('click', this.handleNavLinkClick, true);
+        this.element.addEventListener('auxclick', this.handleNavLinkClick, true);
+    }
+
+    disconnect(): void {
+        this.element.removeEventListener('click', this.handleNavLinkClick, true);
+        this.element.removeEventListener('auxclick', this.handleNavLinkClick, true);
+    }
+
+    private handleNavLinkClick = (event: Event): void => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+
+        const link = target.closest<HTMLAnchorElement>('a[href]');
+        if (!link || link.getAttribute('href') === '#') return;
+        if (link.matches('[data-bs-toggle="dropdown"], .dropdown-toggle')) return;
+
+        this.closeAllDropdowns();
+        this.close();
+    };
+
     /*
      * MAIN NAV COLLAPSE
      */
@@ -69,6 +91,7 @@ export default class extends Controller {
 
         this.dropdownMenuTargets.forEach(m => {
             m.classList.remove('show');
+            m.removeAttribute('data-bs-popper');
         });
     }
 
