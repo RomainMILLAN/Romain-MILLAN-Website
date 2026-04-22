@@ -26,8 +26,13 @@ class ServicesExtension extends AbstractExtension
      */
     private function getServicesHasInterfaces(): array
     {
-        return $this->applicationRepository->findBy([
-            'hasInterface' => true,
-        ]);
+        return $this->applicationRepository->findBy(
+            [
+                'hasInterface' => true,
+            ],
+            [
+                'orderNumber' => 'ASC',
+            ]
+        );
     }
 }
