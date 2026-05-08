@@ -7,6 +7,8 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Panel\Domain\Entity\Application;
 
+use function Symfony\Component\String\u;
+
 /**
  * @extends ServiceEntityRepository<Application>
  */
@@ -35,19 +37,14 @@ class ApplicationRepository extends AbstractEntityRepository
     {
         $qb = $this->createQueryBuilder('a');
 
-        $value = \sprintf('%%%s%%', $query);
-        $expr = $qb->expr();
+        $value = '%' . addcslashes(u($query)->lower()->toString(), '%_\\') . '%';
 
-        $qb->andWhere(
-            $qb->expr()
-                ->orX(
-                    $qb->expr()
-                        ->like('a.name', $qb->expr()->literal($value)),
-                    $qb->expr()
-                        ->like('a.description', $qb->expr()->literal($value)),
-                )
-        );
-
-        return $qb;
+        return $qb->andWhere(
+            $qb->expr()->orX(
+                $qb->expr()->like('LOWER(a.name)', ':value'),
+                $qb->expr()->like('LOWER(a.description)', ':value'),
+            )
+        )
+            ->setParameter('value', $value);
     }
 }

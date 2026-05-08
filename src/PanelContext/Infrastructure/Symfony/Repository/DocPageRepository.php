@@ -6,6 +6,8 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Panel\Domain\Entity\DocPage;
 
+use function Symfony\Component\String\u;
+
 /**
  * @extends AbstractEntityRepository<DocPage>
  */
@@ -37,12 +39,12 @@ class DocPageRepository extends AbstractEntityRepository
     {
         $qb = $this->createQueryBuilder('p');
 
-        $value = '%' . addcslashes($query, '%_\\') . '%';
+        $value = '%' . addcslashes(u($query)->lower()->toString(), '%_\\') . '%';
 
         return $qb->andWhere(
             $qb->expr()->orX(
-                $qb->expr()->like('p.title', ':value'),
-                $qb->expr()->like('p.content', ':value'),
+                $qb->expr()->like('LOWER(p.title)', ':value'),
+                $qb->expr()->like('LOWER(p.content)', ':value'),
             )
         )
             ->setParameter('value', $value)
