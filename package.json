@@ -8,8 +8,8 @@
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "watch-front": "encore dev --watch --config-name front",
-    "build": "encore production --progress",
-    "build-front": "encore production --progress --config-name front"
+    "build": "encore production",
+    "build-front": "encore production --config-name front"
   },
   "repository": {
     "type": "git",

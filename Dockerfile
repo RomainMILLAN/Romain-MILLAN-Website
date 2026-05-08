@@ -103,15 +103,18 @@ FROM node:25-slim AS assets_builder
 
 WORKDIR /app
 
+# Limit Node heap to avoid OOM on small VPS
+ENV NODE_OPTIONS="--max-old-space-size=2048"
+
 # Copy full app source + vendor (needed for Sulu admin file: references)
 COPY --from=prod_deps /app /app
 
 # Main app assets (Webpack Encore)
-RUN npm install && npm run build
+RUN npm ci --no-audit --no-fund --prefer-offline && npm run build
 
 # Sulu admin assets
 WORKDIR /app/assets/admin
-RUN npm install && npm run build
+RUN npm ci --no-audit --no-fund --prefer-offline && npm run build
 
 # Final prod image (no Node.js)
 FROM prod_deps AS frankenphp_prod
