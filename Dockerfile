@@ -112,9 +112,9 @@ COPY --from=prod_deps /app /app
 # Main app assets (Webpack Encore)
 RUN npm ci --no-audit --no-fund --prefer-offline && npm run build
 
-# Sulu admin assets
+# Sulu admin assets (no lockfile committed → npm install)
 WORKDIR /app/assets/admin
-RUN npm ci --no-audit --no-fund --prefer-offline && npm run build
+RUN npm install --no-audit --no-fund && npm run build
 
 # Final prod image (no Node.js)
 FROM prod_deps AS frankenphp_prod
