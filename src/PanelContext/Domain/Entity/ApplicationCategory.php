@@ -41,6 +41,15 @@ class ApplicationCategory
         return $this->id;
     }
 
+    public function moveTo(int $position): void
+    {
+        if ($position < 0) {
+            throw new \InvalidArgumentException('Position must be non-negative.');
+        }
+
+        $this->orderNumber = $position;
+    }
+
     /**
      * @return Collection<int, Application>
      */

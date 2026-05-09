@@ -10,21 +10,22 @@
     <div class="col-11 col-md-10 col-xl-8 d-flex flex-row justify-content-center me-auto ms-auto">
 
         <twig:panel:list
-                data="{{ categories }}"
+                :data="categories"
+                :sortable="true"
+                sortableUrl="{{ path('app_panel_gestion_application_category_reorder') }}"
+                sortableCsrfToken="{{ csrf_token('application-category-reorder') }}"
         >
             {% block title 'Liste des catégories' %}
 
             {% block thead %}
                 <th>Nom</th>
                 <th class="d-none d-xl-table-cell">Dans l'accordéon</th>
-                <th class="d-none d-xl-table-cell">Numéro d'order</th>
                 <th></th>
             {% endblock %}
 
             {% block content %}
                 <td>{{ object.name }}</td>
                 <td class="d-none d-xl-table-cell">{{ object.inAccordion ? 'Oui' : 'Non' }}</td>
-                <td class="d-none d-xl-table-cell">{{ object.orderNumber }}</td>
                 <td class="text-end">
                     <a href="{{ path('app_panel_gestion_application_category_edit', {'id': object.id}) }}">
                         {{ ux_icon('tabler:edit', {width: "24px", height: '24px', class: 'text-black'}) }}
