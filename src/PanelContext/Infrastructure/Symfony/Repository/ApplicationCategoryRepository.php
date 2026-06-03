@@ -27,8 +27,6 @@ class ApplicationCategoryRepository extends ServiceEntityRepository
 
     /**
      * @param int[] $ids Position implicite = index dans le tableau
-     *
-     * @throws UnknownApplicationCategoryException
      */
     public function reorder(array $ids): void
     {
@@ -36,7 +34,9 @@ class ApplicationCategoryRepository extends ServiceEntityRepository
             throw new UnknownApplicationCategoryException('Duplicate application category id.');
         }
 
-        $entities = $this->findBy(['id' => $ids]);
+        $entities = $this->findBy([
+            'id' => $ids,
+        ]);
 
         if (count($entities) !== count($ids)) {
             throw new UnknownApplicationCategoryException('Unknown application category id.');

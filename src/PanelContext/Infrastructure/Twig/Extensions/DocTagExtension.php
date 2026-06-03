@@ -16,7 +16,9 @@ class DocTagExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('doc_tags_all', fn () => $this->docTagRepository->findBy([], ['name' => 'ASC'])),
+            new TwigFunction('doc_tags_all', fn () => $this->docTagRepository->findBy([], [
+                'name' => 'ASC',
+            ])),
         ];
     }
 }

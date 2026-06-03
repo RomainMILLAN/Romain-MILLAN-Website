@@ -31,7 +31,9 @@ class Application
     #[ORM\Column]
     public ?bool $hasInterface = null;
 
-    #[ORM\Column(nullable: false, options: ['default' => 0])]
+    #[ORM\Column(nullable: false, options: [
+        'default' => 0,
+    ])]
     public ?int $orderNumber = 0;
 
     /**
@@ -107,7 +109,10 @@ class Application
 
     public function getAvatarUrl(): string
     {
-        if ($this->icon !== null && (str_starts_with($this->icon, 'http://') || str_starts_with($this->icon, 'https://'))) {
+        if ($this->icon !== null && (str_starts_with($this->icon, 'http://') || str_starts_with(
+            $this->icon,
+            'https://'
+        ))) {
             return $this->icon;
         }
 

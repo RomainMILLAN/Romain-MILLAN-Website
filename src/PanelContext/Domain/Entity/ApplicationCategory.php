@@ -28,7 +28,9 @@ class ApplicationCategory
      * @var Collection<int, Application>
      */
     #[ORM\ManyToMany(targetEntity: Application::class, mappedBy: 'categories')]
-    #[ORM\OrderBy(['orderNumber' => 'ASC'])]
+    #[ORM\OrderBy([
+        'orderNumber' => 'ASC',
+    ])]
     private Collection $applications;
 
     public function __construct()

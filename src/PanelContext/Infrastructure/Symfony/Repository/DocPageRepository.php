@@ -20,8 +20,10 @@ class DocPageRepository extends AbstractEntityRepository
 
     public function save(DocPage $entity): void
     {
-        $this->getEntityManager()->persist($entity);
-        $this->getEntityManager()->flush();
+        $this->getEntityManager()
+            ->persist($entity);
+        $this->getEntityManager()
+            ->flush();
     }
 
     /**
@@ -42,10 +44,13 @@ class DocPageRepository extends AbstractEntityRepository
         $value = '%' . addcslashes(u($query)->lower()->toString(), '%_\\') . '%';
 
         return $qb->andWhere(
-            $qb->expr()->orX(
-                $qb->expr()->like('LOWER(p.title)', ':value'),
-                $qb->expr()->like('LOWER(p.content)', ':value'),
-            )
+            $qb->expr()
+                ->orX(
+                    $qb->expr()
+                        ->like('LOWER(p.title)', ':value'),
+                    $qb->expr()
+                        ->like('LOWER(p.content)', ':value'),
+                )
         )
             ->setParameter('value', $value)
             ->orderBy('p.title', 'ASC');

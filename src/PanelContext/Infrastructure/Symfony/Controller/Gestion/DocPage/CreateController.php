@@ -39,7 +39,9 @@ class CreateController extends AbstractController
 
             return $this->redirectToRoute(
                 route: RouteCollection::SHOW->prefixed(),
-                parameters: ['slug' => $page->slug],
+                parameters: [
+                    'slug' => $page->slug,
+                ],
             );
         }
 

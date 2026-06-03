@@ -27,7 +27,9 @@ class SaveController extends AbstractController
     }
 
     public function __invoke(
-        #[MapEntity(mapping: ['id' => 'id'])]
+        #[MapEntity(mapping: [
+            'id' => 'id',
+        ])]
         DocPage $docPage,
         Request $request,
     ): JsonResponse {
@@ -57,11 +59,12 @@ class SaveController extends AbstractController
             'title' => $docPage->title,
             'slug' => $docPage->slug,
             'updatedAt' => $docPage->updatedAt?->format(\DateTimeInterface::ATOM),
-            'tags' => $docPage->getTags()->map(fn (DocTag $tag) => [
-                'id' => $tag->getId(),
-                'name' => $tag->name,
-                'color' => $tag->color,
-            ])->getValues(),
+            'tags' => $docPage->getTags()
+                ->map(fn (DocTag $tag) => [
+                    'id' => $tag->getId(),
+                    'name' => $tag->name,
+                    'color' => $tag->color,
+                ])->getValues(),
         ]);
     }
 

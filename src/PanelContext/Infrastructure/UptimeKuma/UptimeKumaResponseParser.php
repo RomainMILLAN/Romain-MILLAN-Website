@@ -22,40 +22,44 @@ class UptimeKumaResponseParser
             }
 
             foreach ($entries as $entry) {
-                [$labels, $value] = $entry;
-                preg_match_all('/(\w+)="([^"]*)"/', $labels, $matches);
-                $labelData = array_combine($matches[1], $matches[2]);
+                try {
+                    [$labels, $value] = $entry;
+                    preg_match_all('/(\w+)="([^"]*)"/', $labels, $matches);
+                    $labelData = array_combine($matches[1], $matches[2]);
 
 
-                $name = $labelData['monitor_name'] ?? null;
-                if (! $name) {
+                    $name = $labelData['monitor_name'] ?? null;
+                    if (! $name) {
+                        continue;
+                    }
+
+                    if (! isset($monitors[$name])) {
+                        $monitors[$name] = new Monitor(
+                            $name,
+                            $labelData['monitor_type'] ?? null,
+                            $labelData['monitor_url'] ?? null,
+                            $labelData['monitor_hostname'] ?? null,
+                            $labelData['monitor_port'] ?? null
+                        );
+                    }
+
+                    $monitor = $monitors[$name];
+                    switch ($metricName) {
+                        case 'monitor_status':
+                            $monitor->setStatus(MonitorStatus::fromAPIValue((int) $value));
+                            break;
+                        case 'monitor_response_time':
+                            $monitor->setResponseTime((float) $value);
+                            break;
+                        case 'monitor_cert_is_valid':
+                            $monitor->setCertValidationStatus(CertValidationStatus::fromAPIValue((int) $value));
+                            break;
+                        case 'monitor_cert_days_remaining':
+                            $monitor->setCertExpiryDays((int) $value);
+                            break;
+                    }
+                } catch (\Throwable) {
                     continue;
-                }
-
-                if (! isset($monitors[$name])) {
-                    $monitors[$name] = new Monitor(
-                        $name,
-                        $labelData['monitor_type'] ?? null,
-                        $labelData['monitor_url'] ?? null,
-                        $labelData['monitor_hostname'] ?? null,
-                        $labelData['monitor_port'] ?? null
-                    );
-                }
-
-                $monitor = $monitors[$name];
-                switch ($metricName) {
-                    case 'monitor_status':
-                        $monitor->setStatus(MonitorStatus::fromAPIValue((int) $value));
-                        break;
-                    case 'monitor_response_time':
-                        $monitor->setResponseTime((float) $value);
-                        break;
-                    case 'monitor_cert_is_valid':
-                        $monitor->setCertValidationStatus(CertValidationStatus::fromAPIValue((int) $value));
-                        break;
-                    case 'monitor_cert_days_remaining':
-                        $monitor->setCertExpiryDays((int) $value);
-                        break;
                 }
             }
         }

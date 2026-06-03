@@ -25,7 +25,9 @@ class ListController extends AbstractController
         return $this->render(
             view: 'panel/gestion/doc_tag/list.html.twig',
             parameters: [
-                'tags' => $this->docTagRepository->findBy([], ['name' => 'ASC']),
+                'tags' => $this->docTagRepository->findBy([], [
+                    'name' => 'ASC',
+                ]),
             ],
         );
     }

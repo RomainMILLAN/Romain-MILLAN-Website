@@ -40,10 +40,13 @@ class ApplicationRepository extends AbstractEntityRepository
         $value = '%' . addcslashes(u($query)->lower()->toString(), '%_\\') . '%';
 
         return $qb->andWhere(
-            $qb->expr()->orX(
-                $qb->expr()->like('LOWER(a.name)', ':value'),
-                $qb->expr()->like('LOWER(a.description)', ':value'),
-            )
+            $qb->expr()
+                ->orX(
+                    $qb->expr()
+                        ->like('LOWER(a.name)', ':value'),
+                    $qb->expr()
+                        ->like('LOWER(a.description)', ':value'),
+                )
         )
             ->setParameter('value', $value);
     }

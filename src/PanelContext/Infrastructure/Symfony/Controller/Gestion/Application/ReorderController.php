@@ -41,7 +41,9 @@ class ReorderController extends AbstractController
 
         $ids = array_values(array_map(static fn ($id): int => (int) $id, $ids));
 
-        $applications = $this->applicationRepository->findBy(['id' => $ids]);
+        $applications = $this->applicationRepository->findBy([
+            'id' => $ids,
+        ]);
         $byId = [];
         foreach ($applications as $application) {
             $byId[$application->getId()] = $application;

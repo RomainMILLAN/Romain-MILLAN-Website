@@ -69,7 +69,9 @@ class SignatureForm extends AbstractType
                     'Romain - Photo n°1' => 'build/panel/signature/logo/1.jpg',
                     'Romain - Photo n°2' => 'build/panel/signature/logo/2.jpg',
                 ],
-                'choice_attr' => fn ($choice) => $choice !== null ? ['data-src' => '/'.$choice] : [],
+                'choice_attr' => fn ($choice) => $choice !== null ? [
+                    'data-src' => '/' . $choice,
+                ] : [],
                 'empty_data' => null,
             ])
             ->add('accentColor', ColorType::class, [

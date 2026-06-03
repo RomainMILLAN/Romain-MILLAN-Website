@@ -17,7 +17,9 @@ class DocTagRepository extends AbstractEntityRepository
 
     public function save(DocTag $entity): void
     {
-        $this->getEntityManager()->persist($entity);
-        $this->getEntityManager()->flush();
+        $this->getEntityManager()
+            ->persist($entity);
+        $this->getEntityManager()
+            ->flush();
     }
 }

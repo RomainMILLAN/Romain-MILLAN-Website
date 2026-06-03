@@ -13,7 +13,9 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route(
     path: '/docs/{slug}',
     name: RouteCollection::SHOW->value,
-    requirements: ['slug' => '[a-z0-9][a-z0-9-]*'],
+    requirements: [
+        'slug' => '[a-z0-9][a-z0-9-]*',
+    ],
     methods: [Request::METHOD_GET],
     priority: -10,
 )]
@@ -25,7 +27,9 @@ class ShowController extends AbstractController
     }
 
     public function __invoke(
-        #[MapEntity(mapping: ['slug' => 'slug'])]
+        #[MapEntity(mapping: [
+            'slug' => 'slug',
+        ])]
         DocPage $docPage,
     ): Response {
         return $this->render(

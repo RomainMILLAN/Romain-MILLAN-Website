@@ -24,7 +24,9 @@ class DocPage
     #[ORM\Column(length: 255, unique: true)]
     public ?string $slug = null;
 
-    #[ORM\Column(type: Types::TEXT, options: ['default' => ''])]
+    #[ORM\Column(type: Types::TEXT, options: [
+        'default' => '',
+    ])]
     public string $content = '';
 
     #[Gedmo\Timestampable(on: 'create')]

@@ -27,19 +27,25 @@ readonly class UptimeKumaClient
             return null;
         }
 
-        return $this->client->request(
-            method: $method,
-            url: sprintf('%s/%s', $this->uptimeKumaBaseUrl, $uri),
-            options: array_merge(
-                [
-                    'auth_basic' => [
-                        '',
-                        $this->uptimeKumaApiKey,
+        try {
+            return $this->client->request(
+                method: $method,
+                url: sprintf('%s/%s', $this->uptimeKumaBaseUrl, $uri),
+                options: array_merge(
+                    [
+                        'auth_basic' => [
+                            '',
+                            $this->uptimeKumaApiKey,
+                        ],
+                        'timeout' => 5,
+                        'max_duration' => 10,
                     ],
-                ],
-                $options,
-            ),
-        );
+                    $options,
+                ),
+            );
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     public function hasAvailableClient(): bool

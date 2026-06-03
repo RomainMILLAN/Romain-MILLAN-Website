@@ -24,7 +24,9 @@ class EditController extends AbstractController
     }
 
     public function __invoke(
-        #[MapEntity(mapping: ['id' => 'id'])]
+        #[MapEntity(mapping: [
+            'id' => 'id',
+        ])]
         DocTag $docTag,
         Request $request,
     ): Response {
