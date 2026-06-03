@@ -3,6 +3,12 @@ import { Controller } from '@hotwired/stimulus';
 // @ts-ignore
 import { useClickOutside, useDebounce } from 'stimulus-use';
 
+// Contrat partagé avec le userscript Tampermonkey (assets/panel/userscripts/
+// panel-search-shortcut.user.js). Version de PROTOCOLE, découplée de la version
+// applicative : ne l'incrémenter que si la forme du message change. Doit rester
+// identique des deux côtés.
+const OPEN_SEARCH_MESSAGE = 'panel:open-search:v1';
+
 export default class extends Controller {
     static values = {
         searchUrl: String,
@@ -26,6 +32,7 @@ export default class extends Controller {
         useDebounce(this);
 
         document.addEventListener('keydown', this.handleGlobalKeyDown);
+        window.addEventListener('message', this.handleIframeMessage);
         this.inputTarget.addEventListener('keydown', this.handleKeyDown);
 
         this.formTarget.addEventListener('submit', (event: Event) => {
@@ -36,6 +43,7 @@ export default class extends Controller {
 
     disconnect(): void {
         document.removeEventListener('keydown', this.handleGlobalKeyDown);
+        window.removeEventListener('message', this.handleIframeMessage);
         this.inputTarget.removeEventListener('keydown', this.handleKeyDown);
     }
 
@@ -113,12 +121,31 @@ export default class extends Controller {
         if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === 'k') {
             event.preventDefault();
 
-            this.inputTarget.focus();
-            this.inputTarget.select();
-
-            this.openDropdown();
+            this.openSearch();
         }
     };
+
+    // Quand le focus est dans l'iframe d'une application (cross-origin), le navigateur
+    // livre le keydown au document de l'iframe : handleGlobalKeyDown ne le voit jamais.
+    // Le userscript injecté dans l'iframe relaie alors le raccourci via postMessage.
+    private handleIframeMessage = (event: MessageEvent): void => {
+        // Ne parler qu'à nos amis : le message doit venir de NOTRE iframe enfant,
+        // pas d'un onglet ou d'une frame quelconque. On ne peut pas whitelister
+        // event.origin (apps d'origines arbitraires) ; on valide donc la source.
+        const iframe = document.getElementById('myIframe') as HTMLIFrameElement | null;
+        if (!iframe || event.source !== iframe.contentWindow) return;
+
+        if (event.data?.type !== OPEN_SEARCH_MESSAGE) return;
+
+        this.openSearch();
+    };
+
+    private openSearch(): void {
+        this.inputTarget.focus();
+        this.inputTarget.select();
+
+        this.openDropdown();
+    }
 
 
 }
