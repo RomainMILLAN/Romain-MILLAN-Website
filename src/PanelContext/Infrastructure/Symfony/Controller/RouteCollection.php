@@ -14,4 +14,6 @@ enum RouteCollection: string implements RouteCollectionInterface
     case SEARCH = 'search';
     case APPLICATION_INTERFACE = 'application_interface';
     case APPLICATIONS_SEARCH_API = 'application_search_api';
+    case HELP_SEARCH_SHORTCUT = 'help_search_shortcut';
+    case USERSCRIPT_SEARCH_SHORTCUT = 'userscript_search_shortcut';
 }

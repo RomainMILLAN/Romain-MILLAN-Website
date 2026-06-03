@@ -1,0 +1,84 @@
+{% extends 'panel/base.html.twig' %}
+{% block title 'Aide — Raccourci de recherche' %}
+
+{% block content %}
+    <div class="container-xl">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-9">
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h3 class="card-title">Recherche au clavier dans les applications</h3>
+                        <p class="text-secondary">
+                            Le raccourci <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd> ouvre la recherche du panel.
+                            Il fonctionne nativement sur les pages du panel, mais <strong>pas</strong> lorsque le focus
+                            est à l'intérieur de l'iframe d'une application (Proxmox, etc.) : pour des raisons de
+                            sécurité du navigateur, le panel ne peut pas capter les touches frappées dans une iframe
+                            d'une autre origine.
+                        </p>
+                        <p class="text-secondary mb-0">
+                            La solution est un petit <strong>userscript</strong> qui s'exécute à l'intérieur des
+                            applications et relaie le raccourci au panel. Installé une fois, il se met à jour
+                            automatiquement.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">1. Installer un gestionnaire de userscripts</h4>
+                        <p class="text-secondary">
+                            Si ce n'est pas déjà fait, installe l'extension
+                            <a href="https://www.tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey</a>
+                            (ou <a href="https://violentmonkey.github.io/" target="_blank" rel="noopener">Violentmonkey</a>)
+                            dans ton navigateur.
+                        </p>
+
+                        <h4 class="card-title mt-4">2. Installer le script</h4>
+                        <p class="text-secondary">
+                            Clique sur le bouton ci-dessous : Tampermonkey détecte le fichier <code>.user.js</code>
+                            et propose l'installation en un clic.
+                        </p>
+                        {% if not userscriptTokenConfigured %}
+                            <div class="alert alert-warning mb-0">
+                                Le jeton <code>USERSCRIPT_TOKEN</code> n'est pas configuré : la route du
+                                script est fermée. Définis-le dans l'environnement pour activer l'installation.
+                            </div>
+                        {% else %}
+                            <a href="{{ path('app_panel_userscript_search_shortcut', {token: userscriptToken}) }}"
+                               class="btn btn-primary">
+                                <twig:ux:icon name="tabler:download" width="20" height="20"/>
+                                Installer le script
+                            </a>
+                        {% endif %}
+
+                        <h4 class="card-title mt-4">3. C'est tout</h4>
+                        <p class="text-secondary mb-0">
+                            Le raccourci fonctionne désormais même focus dans une application. Le script étant servi
+                            par le panel, il se <strong>met à jour automatiquement</strong> — rien à réinstaller après
+                            une mise à jour du site.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-status-start bg-yellow"></div>
+                    <div class="card-body">
+                        <h4 class="card-title">À savoir</h4>
+                        <ul class="text-secondary mb-0">
+                            <li>
+                                Sous <strong>Firefox</strong>, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd> est le
+                                raccourci natif de la console web ; selon ta configuration, il peut ouvrir la console.
+                            </li>
+                            <li>
+                                Le script n'agit que dans les iframes embarquées par <strong>ce panel</strong> ;
+                                il reste silencieux sur tous les autres sites.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

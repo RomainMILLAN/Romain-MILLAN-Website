@@ -102,7 +102,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/AppContext/"
+            "App\\Tests\\": "tests/AppContext/",
+            "Panel\\Tests\\": "tests/PanelContext/"
         }
     },
     "replace": {

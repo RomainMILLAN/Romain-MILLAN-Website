@@ -1,11 +1,14 @@
+{% autoescape false %}
 // ==UserScript==
 // @name         Panel — raccourci recherche dans les iframes
-// @namespace    panel-search-shortcut
-// @version      1.0.0
+// @namespace    {{ panelOrigin }}
+// @version      {{ appVersion }}
 // @description  Relaie CTRL+Shift+K depuis l'iframe d'une application vers le panel parent pour ouvrir la recherche, même en cross-origin.
 // @match        *://*/*
 // @run-at       document-idle
 // @grant        none
+// @updateURL    {{ url('app_panel_userscript_search_shortcut', {token: token}) }}
+// @downloadURL  {{ url('app_panel_userscript_search_shortcut', {token: token}) }}
 // ==/UserScript==
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -16,19 +19,18 @@
 // Same-Origin Policy interdit au panel d'y accéder. Ce userscript s'exécute DANS
 // l'iframe, capte la touche, et la relaie au panel via postMessage.
 //
-// INSTALLATION
-//   1. Installer Tampermonkey (ou Violentmonkey).
-//   2. Créer un nouveau script et y coller ce fichier.
-//   3. Adapter PANEL_ORIGIN ci-dessous à l'origine exacte de votre panel.
-//   4. Sauvegarder. Le raccourci fonctionne désormais y compris focus dans une iframe.
+// Ce fichier est SERVI par le panel et mis à jour automatiquement par Tampermonkey
+// (cf. @version / @updateURL). Ne pas l'éditer côté client : modifier le template
+// templates/panel/userscript/panel-search-shortcut.user.js.twig puis `make bump`.
 // ─────────────────────────────────────────────────────────────────────────────
 
 (function () {
     'use strict';
 
     // ── Contrat partagé avec le panel ───────────────────────────────────────
-    // À ADAPTER : origine exacte (schéma + domaine + port) de votre panel.
-    const PANEL_ORIGIN = 'https://romainmillan.fr';
+    // Origine du panel, injectée côté serveur depuis le host de la requête.
+    // |e('js') : échappement sûr (anti-breakout) même avec autoescape désactivé.
+    const PANEL_ORIGIN = '{{ panelOrigin|e('js') }}';
 
     // Moitié distante du contrat partagé avec search_controller.ts.
     // Version de PROTOCOLE : doit rester IDENTIQUE des deux côtés. Changer cette
@@ -51,20 +53,15 @@
         : (document.referrer ? new URL(document.referrer).origin : null);
     if (parentOrigin !== PANEL_ORIGIN) return;
 
-    // [DIAG] À retirer une fois validé : confirme que le script tourne dans l'iframe.
-    console.log('[panel-search] userscript actif dans l\'iframe, parent =', parentOrigin);
-
     // ── Relais ──────────────────────────────────────────────────────────────
     // capture: true → on intercepte AVANT que l'app (ExtJS/Proxmox) ne puisse
     // stopper la propagation et nous priver de l'événement.
     document.addEventListener('keydown', (e) => {
         if (!isSearchShortcut(e)) return;
 
-        // [DIAG] À retirer une fois validé.
-        console.log('[panel-search] raccourci détecté → postMessage vers', PANEL_ORIGIN);
-
         e.preventDefault();
         // targetOrigin = PANEL_ORIGIN : le message n'est livré qu'au panel.
         window.parent.postMessage({ type: OPEN_SEARCH_MESSAGE }, PANEL_ORIGIN);
     }, true);
 })();
+{% endautoescape %}

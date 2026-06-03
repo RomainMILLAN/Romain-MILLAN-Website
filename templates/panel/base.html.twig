@@ -105,6 +105,7 @@
 							</a>
 							<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light" {{ stimulus_target('menu', 'dropdownMenu') }}>
 								<a href="/{{ app.request.locale }}" class="dropdown-item">Retour au site</a>
+								<a href="{{ path('app_panel_help_search_shortcut') }}" class="dropdown-item">Aide</a>
 								<a href="{{ path('app_security_logout') }}" class="dropdown-item">Déconnexion</a>
 							</div>
 						</div>
