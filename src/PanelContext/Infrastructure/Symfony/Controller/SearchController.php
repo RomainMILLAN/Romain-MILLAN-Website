@@ -18,10 +18,6 @@ class SearchController extends AbstractController
 {
     public function __invoke(Request $request): Response
     {
-        if ($this->getUser() == null) {
-            return $this->redirect('https://duckduckgo.com/');
-        }
-
         $form = $this->createForm(SearchForm::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
