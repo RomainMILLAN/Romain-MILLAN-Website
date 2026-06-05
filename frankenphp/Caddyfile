@@ -33,6 +33,11 @@
 	# Disable Topics tracking if not enabled explicitly: https://github.com/jkarlin/topics
 	header ?Permissions-Policy "browsing-topics=()"
 
+	# La TLS est terminee par le reverse proxy (Nginx Proxy Manager) qui forwarde
+	# en HTTP nu vers ce backend. On annonce le bon scheme a Symfony pour qu'il
+	# genere des URLs https (sinon login/recherche/emails partent en http).
+	request_header X-Forwarded-Proto https
+
 	@websiteRoute {
 		path /fr /fr/* /en /en/* /media/* /uploads/media/*
 		not file {path}

@@ -2,7 +2,10 @@
 framework:
     secret: '%env(APP_SECRET)%'
 
-    trusted_proxies: '127.0.0.1,romainmillan.fr,REMOTE_ADDR'
+    # Le backend FrankenPHP n'est joignable que depuis le réseau privé (NPM en
+    # frontal). On fait confiance aux sous-réseaux privés pour exploiter les
+    # X-Forwarded-* (notamment le scheme https forcé dans frankenphp/Caddyfile).
+    trusted_proxies: 'PRIVATE_SUBNETS'
     trusted_headers: [ 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-host' ]
     http_method_override: true
     handle_all_throwables: true
