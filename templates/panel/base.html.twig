@@ -48,10 +48,10 @@
 				{% endfor %}
 			</div>
 
-			<header class="navbar navbar-expand-md navbar-overlap d-print-none" data-bs-theme="dark" {{ stimulus_controller('menu') }}>
+			<header class="navbar navbar-expand-md navbar-overlap d-print-none" data-bs-theme="dark">
 				<div class="container-xl">
 
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" {{ stimulus_target('menu', 'actionButton')}} {{ stimulus_action('menu', 'toggle') }} aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 
@@ -94,7 +94,7 @@
 						</div>
 
 						<div class="nav-item dropdown">
-							<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu" {{ stimulus_target('menu', 'dropdownToggle') }} {{ stimulus_action('menu', 'toggleDropdown') }}>
+							<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
 								<span class="avatar avatar-sm">
 									<img src="{{ asset('build/panel/static/img/logo/icon.svg', 'panel') }}" alt="">
 								</span>
@@ -103,7 +103,7 @@
 									<div class="mt-1 small text-secondary">Administrateur</div>
 								</div>
 							</a>
-							<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light" {{ stimulus_target('menu', 'dropdownMenu') }}>
+							<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow" data-bs-theme="light">
 								<a href="/{{ app.request.locale }}" class="dropdown-item">Retour au site</a>
 								<a href="{{ path('app_panel_help_search_shortcut') }}" class="dropdown-item">Aide</a>
 								<a href="{{ path('app_security_logout') }}" class="dropdown-item">Déconnexion</a>
@@ -111,7 +111,7 @@
 						</div>
 					</div>
 
-					<div class="collapse navbar-collapse" id="navbar-menu" {{ stimulus_target('menu', 'container') }}>
+					<div class="collapse navbar-collapse" id="navbar-menu">
 						<div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
 							<ul class="navbar-nav">
 

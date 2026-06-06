@@ -1,7 +1,9 @@
 // @ts-ignore
 import { Controller } from '@hotwired/stimulus';
 // @ts-ignore
-import { Popover } from 'bootstrap';
+// Import du seul module Popover (pas tout `bootstrap`) : éviter de réenregistrer
+// le data-API dropdown/collapse, déjà fourni par le JS du thème Tabler.
+import Popover from 'bootstrap/js/dist/popover';
 
 export default class extends Controller {
     static targets = ['trigger', 'content'];
