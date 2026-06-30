@@ -40,16 +40,20 @@ if [ $elapsed -ge $timeout ]; then
 fi
 
 echo "Running database migrations..."
-$DC exec -T php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
+$DC exec -T php bin/adminconsole doctrine:migrations:migrate --no-interaction --all-or-nothing
 
 echo "Installing assets..."
-$DC exec -T php bin/console assets:install --env=prod
+$DC exec -T php bin/adminconsole assets:install --env=prod
 
 echo "Purging cache..."
 $DC exec -T php rm -rf var/cache/admin var/cache/website var/cache/preview
 
-echo "Warming up cache..."
-$DC exec -T php bin/console cache:warmup --env=prod
+echo "Warming up cache (admin + website)..."
+$DC exec -T php bin/adminconsole cache:warmup --env=prod
+$DC exec -T php bin/console      cache:warmup --env=prod
+
+echo "Reloading FrankenPHP workers with warm cache..."
+$DC restart php
 
 echo ""
 echo "=== Deployment complete ==="

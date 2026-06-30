@@ -6,7 +6,8 @@ DOCKER=docker
 DC=$(DOCKER) compose --env-file .env --env-file .env.docker
 DCE=$(DC) exec
 PHP=$(DCE) php php
-CONSOLE=$(PHP) bin/console
+CONSOLE=$(PHP) bin/adminconsole
+WEBSITE_CONSOLE=$(PHP) bin/console
 COMPOSER=$(DCE) php composer
 NPM=$(DCE) node yarn
 ENV ?= dev
@@ -70,8 +71,9 @@ sulu.install: ## Install Sulu CMS (ENV=dev|prod)
 ##
 ## —— Cache 🗃️ ————————————————
 .PHONY: cc
-cc:			## Clear cache
+cc:			## Clear cache (admin + website)
 	$(CONSOLE) ca:cl -e $(or $(ENV), 'dev')
+	$(WEBSITE_CONSOLE) ca:cl -e $(or $(ENV), 'dev')
 
 ##
 ## —— Assets ✨ ————————————————
@@ -194,16 +196,8 @@ COMPOSER_FILE=./composer.json
 PACKAGE_FILE=./package.json
 ENV_FILE=./.env
 
-deploy: vendor-build assets-build
-	@echo "🚀 Deploying project"
-	@echo "📝 Dumping environment variables"
-	@composer dump-env $(ENV)
-	@echo "🚚 Running migrations"
-	@php bin/console doctrine:migrations:migrate --no-interaction
-	@echo "🌐 Clearing cache"
-	@php bin/console cache:clear
-	@echo "🌐 Warmup cache"
-	@php bin/console cache:warmup
+deploy: ## Déploiement (source unique : bin/deploy-prod.sh)
+	@./bin/deploy-prod.sh
 
 bump:
 	@if [ -z "$(VERSION)" ]; then \

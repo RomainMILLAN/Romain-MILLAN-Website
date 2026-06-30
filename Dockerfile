@@ -96,7 +96,7 @@ RUN set -eux; \
 	mkdir -p var/cache var/log; \
 	composer dump-autoload --classmap-authoritative --no-dev; \
 	composer run-script --no-dev post-install-cmd; \
-	chmod +x bin/console; sync;
+	chmod +x bin/console bin/adminconsole; sync;
 
 # Assets builder (Node.js — builds all assets, not included in final image)
 FROM node:25-slim AS assets_builder

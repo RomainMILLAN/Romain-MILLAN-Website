@@ -1,4 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+// Contexte Sulu admin (= SuluKernel::CONTEXT_ADMIN).
+// Valeur littérale : l'autoloader n'est chargé que dans console.php, inclus plus bas.
+$suluContext = 'admin';
+
 return include __DIR__ . DIRECTORY_SEPARATOR . 'console.php';
